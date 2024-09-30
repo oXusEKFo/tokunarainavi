@@ -1,7 +1,5 @@
 <footer class="footer">
 
-
-
     <!-- footer-menu -->
     <?php
     $args = [
@@ -11,7 +9,6 @@
     ];
     wp_nav_menu($args);
     ?>
-
 
 </footer>
 
