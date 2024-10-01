@@ -14,7 +14,7 @@ add_action('after_setup_theme', 'my_theme_setup');
 
 
 /**
- * 練習2： スタイルシートとJavaScriptファイルを読み込む
+ * スタイルシートとJavaScriptファイルを読み込む
  */
 function add_style_script()
 {
