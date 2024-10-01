@@ -1,19 +1,35 @@
-<!-- header.phpを読み込む -->
-<?php
-get_header();
-?>
+<?php get_header(); ?>
+
 
 <main>
     <!-- パンくずリスト -->
     <?php get_template_part('template-parts/breadcrumb'); ?>
 
-    <article>
-        <h2>見出しです。</h2>
-        <p>文章です。文章です。文章です。文章です。文章です。文章です。</p>
-    </article>
+    <h2>新着情報</h2>
+
+    <!-- 新着情報一覧 -->
+    <div class="">
+
+        <div class="">
+            <p>イベント情報</p>
+            <p>○月○日</p><br>
+            <p>テキストが入ります。テキストが入ります。</p>
+        </div>
+
+        <div class="">
+            <p>イベント情報</p>
+            <p>○月○日</p><br>
+            <p>テキストが入ります。テキストが入ります。</p>
+        </div>
+
+        <div class="">
+            <p>イベント情報</p>
+            <p>○月○日</p><br>
+            <p>テキストが入ります。テキストが入ります。</p>
+        </div>
+
+    </div>
 </main>
 
-<!-- footer.phpを読み込む -->
-<?php
-get_footer();
-?>
+
+<?php get_footer(); ?>
