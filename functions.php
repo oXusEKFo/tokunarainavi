@@ -26,3 +26,7 @@ function add_style_script()
 
 }
 add_action('wp_enqueue_scripts', 'add_style_script');
+
+
+//固定ページで抜粋を使えるようにする
+add_post_type_support('page', 'excerpt');

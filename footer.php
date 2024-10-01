@@ -3,7 +3,7 @@
     <!-- footer-menu -->
     <?php
     $args = [
-        'menu' => 'footer_sns', //管理画面で作成したメニューの名前
+        'menu' => 'footer_nav', //管理画面で作成したメニューの名前
         'menu_class' => '', //メニューを構成するulタグのクラス名
         'container' => false, //<ul>タグを囲んでいるdivタグを消除
     ];
