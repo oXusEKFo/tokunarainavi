@@ -26,22 +26,37 @@
 /*** 検索結果 共通部分 ここまで ***/
 
 /*** ここから 検索結果一覧部分 ***/
-.results_title {
+.column_card {
+    width: 350px;
+    width: 0 auto;
+}
+
+.column_title {
+    color: #00B0AA;
+    text-align: center;
+}
+.column_title>h1{
+    font-size: 7.0rem;
+}
+
+.column_title>p {
+    font-size: 1.6rem;
+}
+
+.results_titleImg {
     font-size: 2rem;
     color: #463D3B;
     width: 100%;
     height: 70px;
-    text-align: center;
-    line-height: 70px;
     margin: 0 auto;
     border: solid 2px #463D3B;
 }
 
 /* タイトル中央寄せ */
-/* .results_title h1 {
+.results_title h1 {
     text-align: center;
     line-height: 70px;
-} */
+}
 
 /* さらに絞り込むボタン */
 .moreSearch_btn {
