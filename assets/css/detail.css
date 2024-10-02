@@ -1,0 +1,751 @@
+@charset "UTF-8";
+
+/*** ここから 検索結果 共通部分 ***/
+.inner_main{
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* 結果一覧背景 */
+.container_breadCrumb {
+    width: 100%;
+    padding-top: 15px;
+    margin: 0 auto;
+}
+
+/* パンくずリスト */
+.breadCrumb {
+    font-size: 1.6rem; /* フォントサイズ大きく */
+}
+
+/* 下線 */
+.underLine {
+    border-bottom: solid 1px #463D3B;
+}
+
+/*** 検索結果 共通部分 ここまで ***/
+
+/*** ここから施設写真(スライダー) ****/
+.Outline_results {
+    min-width: 350px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.details_slide {
+    min-width: 350px;
+    width: 66%;
+    margin: 0 auto;
+    background-color: transparent;
+}
+
+.container_slide {
+    width: 350px;
+    margin: 0 auto;
+}
+
+/* スライダーエリア */
+.slider_area {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* 施設写真 */
+.wrap_mainImg img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+/* サムネイルのtransform のリセット(最優先指定) */
+.thumbnail .slick-track {
+    transform: unset !important;
+}
+
+/* サムネイル容器 */
+.thumbnail {
+    width: 350px;
+    height: auto;
+    margin-top: 10px;
+    white-space: nowrap;
+}
+
+/* サムネイル 左端寄せ */
+.slick-track {
+    margin: 0 0 !important;
+}
+
+/* サムネイル */
+.wrap_thumbnailImg {
+    width: 87.5px;
+}
+
+/* サムネイル写真 */
+.thumbnail img {
+    width: 100%;
+}
+
+/* サムネイル写真の選択時 */
+.thumbnail .slick-current {
+    opacity: 1;
+}
+
+/*** 施設写真(スライダー)ここまで ***/
+
+
+/*** 検索結果詳細部分 ここから ***/
+
+.details_title{
+    width: 350px;
+    height: 55px;
+    background-color: #ED6D1F;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    align-content: center;
+    margin: 18px auto 18px 0;
+}
+
+.wrap_detailsOutline {
+    width: 350px;
+    margin: 0 auto;
+}
+
+.details_address{
+    font-size: 1.6rem;
+    margin-bottom: 4px;
+}
+
+.details_description{
+    font-size: 1.4rem;
+    line-height: 2.5rem;
+    margin-top: 14px;
+}
+
+.details_container{
+    background-color: #F5F5F5;
+    font-size: 1.4rem;
+    width: 350px;
+    height: auto;
+    border-radius: 20px;
+    padding: 25px 24px 30px;
+    margin: 35px auto 0;
+}
+
+.details_age,
+.details_price,
+.details_course,
+.details_dow,
+.details_url,
+.details_telNo,
+.details_remarks{
+    padding:15px 0;
+    border-bottom: solid 1px #463D3B;
+}
+
+.details_remarks {
+    border-bottom: none;
+}
+
+.details_age>h4,
+.details_price>h4,
+.details_course>h4,
+.details_dow>h4,
+.details_url>h4,
+.details_telNo>h4,
+.details_remarks>h4 {
+    color: #ED6D1F;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 2.3rem;
+    margin-bottom: 8px;
+}
+
+.details_age>p,
+.details_price>p,
+.details_course>p,
+.details_dow>p,
+.details_url>p,
+.details_telNo>p,
+.details_remarks>p {
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 2.5rem;
+}
+
+.details_map{
+    font-size: 2.0rem;
+    display: flex;
+    padding: 10px 0 0;
+    margin: 0 auto;
+}
+
+
+/* アコーディオンメニュー ここから */
+
+/* アコーディオン囲い */
+.wrap_accordion {
+    width: 350px;
+    margin: 0 auto;
+}
+
+/* 通常は表示しない */
+.accordion-content {
+    display: none;
+}
+
+/* 閉じている時の表示 */
+.accordion-header {
+    width: 350px;
+    transition: .3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+/* ＋の表示 */
+.accordion-header::before,
+.accordion-header::after {
+    position: absolute;
+    content: '';
+    top: 1px;
+    right: 20px;
+    bottom: 0;
+    width: 12px;
+    height: 2px;
+    margin: auto;
+    background: #463D3B;
+}
+
+/* タップ時の変形 ＋ → ー */
+.accordion-header::after {
+    transform: rotate(-90deg);
+    transition: transform 0.3s;
+}
+
+.accordion-header.active::after {
+    transform: rotate(0deg);
+}
+
+.accordion-content {
+    width: 100%;
+}
+
+.accordion-header div,
+.accordion-content div {
+    padding-left: 25px;
+    position: relative;
+}
+
+/* アコーディオンメニュー ここまで */
+
+
+/* レビューエリア ここから */
+.details_review{
+    width: 350px;
+    margin: 0 auto;
+}
+
+.wrap_detailsReview{
+    width: 100%;
+    border-bottom: solid 1px #463D3B;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 22px;
+    padding-bottom: 9px;
+    margin-bottom: 12px;
+}
+
+.review_title{
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 2.6rem;
+    color: #463D3B;
+    margin: 0 0 16px 0;
+}
+
+/* .review_item{
+    font-size: 1.2rem;
+    line-height: 1.74rem;
+} */
+.review_name {
+    font-size: 1.4rem;
+    line-height: 2.03rem;
+    margin:2.5px 0;
+}
+
+.review_date {
+    font-size: 1.2rem;
+    line-height: 1.74rem;
+    margin: 2.5px 0;
+}
+
+.review_comment {
+    font-size: 1.6rem;
+    line-height: 2.3rem;
+    margin: 2.5px 0;
+}
+
+.reply_btn{
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    background-color: #463D3B;
+    width: 47px;
+    height: 30px;
+    text-align: center;
+}
+
+.reviewForm{
+    font-size: 1.4rem;
+    line-height: 2.03rem;
+}
+
+
+#input_name{
+    width: 350px;
+    height: 25px;
+    background-color: #fff;
+}
+
+#input_email{
+    width: 350px;
+    height: 25px;
+    background-color: #fff;
+}
+
+#input_comment {
+    width: 350px;
+    height: 60px;
+    background-color: #fff;
+}
+
+.btn_container{
+text-align: right;
+}
+
+.reviewSend_btn {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    background-color: #463D3B;
+    width: 130px;
+    height: 30px;
+    border-radius: 20px;
+    text-align: center;
+    margin: 17px 0;
+}
+
+.relatedReview_title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 350px;
+    width:70%;
+    height: 70px;
+    margin: 0 auto;
+    border: solid 2px #463D3B;
+}
+
+.relatedReview_title p {
+    font-size: 2.0rem;
+    font-weight: 700;
+
+}
+
+.relatedReview_title img{
+    width: 50px;
+    height: 28px;
+}
+
+/* レビューエリア ここまで */
+
+
+/*** 検索結果詳細部分 ここまで ***/
+
+
+/*** ここから カード部分 ***/
+
+.results_card{
+    width: 390px;
+    padding: 7.5px 0 7.5px 0;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+}
+
+
+/* カード白背景部分 */
+.wrap_card{
+    width:350px;
+    height: 466px;
+    padding: 20px 0 0 0;
+    margin: 7.5px auto;
+    background-color: #F5F5F5;
+}
+
+/* カード内側の枠 */
+.inner_card{
+    width: 300px;
+    height: auto;
+    margin: 0 auto;
+}
+
+/* カード写真部分の容器 */
+.container_cardImg{
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* 施設写真 */
+.card_img {
+    width: 300px;
+    height: auto;   /*アスペクト比を維持*/
+    margin: 0 auto;
+    border-radius: 20px;
+    display: block; /* 画像の下に余白ができるのを防ぐ */
+}
+
+/* お気に入りリストに追加 タグ */
+.tag_favorite{
+    width:160px;
+    height:auto;
+    position:absolute;
+    right: -20px;
+}
+
+/* お気に入りリストに追加 タグ 位置調整（カード）*/
+.container_cardImg>.tag_favorite {
+    bottom: -17px;
+}
+/* お気に入りリストに追加 タグ 位置調整（結果詳細スライダ）*/
+.slider_area>.tag_favorite{
+    bottom: -15px;
+}
+
+/* 施設名 */
+.card_title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    white-space: nowrap;
+}
+
+/* 住所 */
+.card_address {
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+/* Mapアイコンの右側にスペース */
+.card_address img,
+.details_map img {
+    height: 28px;
+    margin-right: 10px;
+}
+
+/* keywordの容器 */
+.container_keywords{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* keyword */
+.keyword{
+    background-color: #fff;
+    font-size: 1.4rem;
+    border: solid 1px #463D3B;
+    border-radius: 5px;
+    margin: 15px 10px 0 0;
+    padding: 1px 13px;
+}
+
+/*** カード部分ここまで ***/
+
+/*** メディアクエリここから ***/
+
+@media screen and (min-width: 768px) {
+
+    /* .container_info,
+    .results_title,
+    .search_details {
+        width: 100%;
+    }
+
+    .header_results,
+    .container_footerResults {
+        max-width: 1200px;
+        width: 100%;
+    } */
+    .Outline_results {
+        min-width: 350px;
+        width: 95%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+    }
+
+    .details_slide {
+        width: 350px;
+        margin: 0 0;
+    }
+
+    .container_slide {
+        width: 350px;
+        margin: 0 0;
+    }
+
+    .details_info {
+        width: 350px;
+        margin: 0 0 0 3vw;
+    }
+
+    .inner_detailsInfo{
+        width: 350px;
+    }
+
+    .wrap_detailsOutline {
+        width: 350px;
+        margin: 0 0;
+}
+
+    .details_container {
+        width: 95%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .details_containerL,
+    .details_containerR {
+        width: 47%;
+    }
+
+.details_review {
+    width: 70%;
+}
+
+.relatedReview_title {
+    max-width: 1120px;
+    width: 70%;
+    margin: 0 auto;
+}
+
+    .results_card {
+    max-width: 1200px;
+    width: 100%;
+    }
+
+    .results_card::after {
+        content: "";
+        display: block;
+        width: 25%;
+    }
+
+    .results_card::after {
+        content: "";
+        display: block;
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 1050px) {
+    .inner_main {
+            max-width: 1200px;
+            width: 90%;
+    }
+
+    .Outline_results {
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+    }
+
+    .details_slide {
+        width: 540px;
+    }
+
+    .container_slide {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .thumbnail {
+        width: 540px;
+        height: auto;
+        margin-top: 10px;
+        white-space: nowrap;
+    }
+
+    .details_info {
+        width: clamp(100px, 40vw, 590px);
+        margin: 0 0 0 5vw;
+    }
+
+    .details_title {
+        font-size: 2vw;
+        line-height: 4.34rem;
+        width: clamp(100px, 35vw, 590px);
+        height: 80px;
+    }
+
+    .wrap_detailsOutline{
+        max-width:590px;
+        width: 100%;
+    }
+
+    .details_description{
+        font-size: 1.7vw;
+        line-height: 4.0rem;
+        margin-top: 26px;
+    }
+
+    .details_container {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .details_containerL,
+    .details_containerR {
+        width: 47%;
+    }
+
+    .details_containerL h4,
+    .details_containerR h4 {
+        font-size: 1.9vw;
+        line-height: 4.0rem;
+        width: 100%;
+    }
+
+    .details_containerL p,
+    .details_containerR p{
+        font-size: 1.7vw;
+        line-height: 4.0rem;
+        width: 100%;
+    }
+
+    .wrap_accordion {
+        width: 100%;
+        margin: 0 auto;
+        border-radius: 10px;
+    }
+
+    .details_review {
+        max-width: 950px;
+        width: 85%;
+        margin-top: 50px;
+
+    }
+
+    .review_title {
+        font-size: 3.0rem;
+        line-height: 4.0rem;
+        font-weight: 700;
+        margin: 50px 0 0 0;
+    }
+
+    .results_card::after {
+        content: "";
+        display: block;
+        width: 50%;
+    }
+
+    .details_map {
+        font-size: 3.0rem;
+        line-height: 4.0rem;
+    }
+
+    /* .review_item{
+        font-size: 1.9vw;
+        line-height: 4.0rem;
+        width: 100%;
+    } */
+
+    .wrap_detailsReview {
+        width: 100%;
+    }
+
+
+    .review_name {
+        font-size: 1.9vw;
+        line-height: 4.0rem;
+    }
+
+    .review_date {
+        font-size: 1.7rem;
+        line-height: 4.0rem;
+    }
+
+    .review_comment {
+        font-size: 1.4rem;
+        line-height: 2.5rem;
+    }
+
+    #input_name,
+    #input_email,
+    #input_comment {
+        width: 100%;
+    }
+
+        #input_comment {
+            height: 110px;
+        }
+
+    .reviewSend_btn {
+        font-size: 1.4rem;
+        width: 150px;
+        height: 30px;
+        border-radius: 20px;
+        text-align: center;
+        margin: 17px 0;
+    }
+
+    .relatedReview_title {
+        height: 100px;
+    }
+
+    .relatedReview_title p {
+        font-size: 3.0rem;
+    }
+
+    .relatedReview_title img {
+        width: 70px;
+        height: 40px;
+    }
+
+    .results_card::after {
+        content: "";
+        display: block;
+        width: 33.33%;
+    }
+
+}
+
+@media screen and (min-width: 1184px) {
+    .inner_main {
+            max-width: 1200px;
+            width: 90%;
+        }
+
+    .wrap_detailsOutline {
+        /* width: 100%; */
+        margin: 0 auto;
+}
+
+    /* .results_card::after {
+        content: "";
+        display: block;
+        width: 33.33%;
+    } */
+}
+
+/*** メディアクエリここまで ***/
