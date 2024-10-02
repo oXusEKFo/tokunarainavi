@@ -23,7 +23,7 @@ function add_style_script()
     //     get_template_directory_uri() . '/assets/css/destyle.css'
     // ); //リセットCSS
     wp_enqueue_style(
-        'common',
+        'mycommon',
         get_template_directory_uri() . '/assets/css/common.css'
     ); //共通CSS
 
