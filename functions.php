@@ -30,3 +30,32 @@ add_action('wp_enqueue_scripts', 'add_style_script');
 
 //固定ページで抜粋を使えるようにする
 add_post_type_support('page', 'excerpt');
+
+
+/**
+ * メインクエリを変更する
+ */
+add_action('pre_get_posts', 'my_pre_get_posts');
+function my_pre_get_posts($query)
+{
+    //管理画面、メインクエリ以外には設定しない
+    if (is_admin() || !$query->is_main_query()) {
+        return;
+    }
+    //トップページの場合
+    if ($query->is_home()) {
+        $query->set('posts_per_page', 3);
+        return;
+    }
+    //投稿list画面
+    // if ($query->is_category()) {
+    //     $query->set('posts_per_page', 12);
+    //     return;
+    // }
+
+    //search画面
+    // if ($query->is_search()) {
+    //     $query->set('posts_per_page', 12);
+    //     return;
+    // }
+}
