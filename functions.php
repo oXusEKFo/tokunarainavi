@@ -18,9 +18,19 @@ add_action('after_setup_theme', 'my_theme_setup');
  */
 function add_style_script()
 {
-    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css'); //外部のスタイルシートを読み込み
+    // wp_enqueue_style(
+    //     'destyle',
+    //     get_template_directory_uri() . '/assets/css/destyle.css'
+    // ); //リセットCSS
+    wp_enqueue_style(
+        'mycommon',
+        get_template_directory_uri() . '/assets/css/common.css'
+    ); //共通CSS
 
-    wp_enqueue_style('google-web-fonts', 'https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap'); //外部のスタイルシートを読み込み
+    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css'); //外部のスタイルシート:FontAwesome CDN
+
+    wp_enqueue_style('google-web-fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap'); //外部のスタイルシート:GoogleFonts
+
 
     wp_enqueue_script('jquery');  //jQueryを読み込む
 
@@ -58,4 +68,31 @@ function my_pre_get_posts($query)
     //     $query->set('posts_per_page', 12);
     //     return;
     // }
+}
+
+
+
+/**
+ * ranking用
+ */
+function initialize_term_views($term_id)
+{
+    // 检查分类是否已有查看次数字段
+    if (!get_term_meta($term_id, 'view_count', true)) {
+        // 如果没有查看次数字段，则初始化为 0
+        add_term_meta($term_id, 'view_count', 0, true);
+    }
+}
+
+// 当新分类 'class-room-type' 被创建时，自动调用这个函数来初始化查看次数
+add_action('created_class-room-type', 'initialize_term_views');
+
+function increment_term_view_count($term_id)
+{
+    $view_count = get_term_meta($term_id, 'view_count', true);
+    if (!$view_count) {
+        $view_count = 0;
+    }
+    $view_count++;
+    update_term_meta($term_id, 'view_count', $view_count);
 }
