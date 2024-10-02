@@ -1,9 +1,9 @@
-<?php
+<?php get_header(); ?>
+<main>
 
-?>
+    <body>
+        <h1>コラム一覧</h1>
+    </body>
 
-<body>
-    <h1>コラム一覧</h1>
-</body>
-
-</html>
+</main>
+<?php get_footer(); ?>
