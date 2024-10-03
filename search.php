@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<?php get_template_part('template-parts/randing'); ?>
+<?php get_template_part('template-parts/ranking'); ?>
 <?php
 // echo "<pre>";
 // var_dump();
@@ -97,6 +97,9 @@ $the_query = new WP_Query($args);
                 </td>
             </tr>
         </table> -->
+        <table>
+            <th></th>
+        </table>
         <input type="text" name="" value="<?php the_search_query(); ?>" placeholder="キーワードを入力" aria-label="Search">
         <input type="submit" value="この条件で探す">
     </form>
