@@ -40,8 +40,36 @@
         <h2>ジャンル</h2>
         <!-- <?php get_template_part('template-parts/search', 'category'); ?> -->
     </section>
+
+    <!-- ランキング -->
     <section>
         <h1>ranking</h1>
+        <?php
+        $args = [
+            'taxonomy'   => 'classtype',   // 指定分类法
+            'meta_key'   => 'view_count',        // 使用view_count元数据排序
+            'orderby'    => 'meta_value_num',    // 按数字值排序
+            'order'      => 'DESC',              // 按降序排列
+            'hide_empty' => false,               // 显示没有关联文章的分类
+            'number'     => 5,                   // 仅显示前5个分类
+        ];
+        $argc = [
+            'taxonomy'   => 'classtype',
+            'orderby' => 'slug',
+        ];
+
+        $terms = get_terms($args);
+        $termc = get_terms($argc);
+
+        if (!empty($terms) && !is_wp_error($terms)) {
+            foreach ($terms as $term) {
+                $view_count = get_term_meta($term->term_id, 'view_count', true);
+                echo '<p>' . esc_html($term->name) . ' - 浏览次数: ' . esc_html($view_count) . '</p>';
+            }
+        } else {
+            echo '分類されていない、または分類されていないブラウズ回数レコード。';
+        }
+        ?>
         <a href="<?php echo home_url('/fushion'); ?>" class="">もっと見る</a>
     </section>
 
