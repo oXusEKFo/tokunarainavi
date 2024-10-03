@@ -69,30 +69,40 @@ function my_pre_get_posts($query)
     //     return;
     // }
 }
-
+/*
+* 管理画面、施設の記事にを施設の種別分類フィルタの追加
+*/
+function wpkj_product_taxonomy_filter()
+{
+    global $typenow;
+    $post_type = 'classroom'; //slug
+    $taxonomy  = 'class-room-type'; //  taxonomy
+    if ($typenow == $post_type) {
+        $selected      = isset($_GET[$taxonomy]) ? $_GET[$taxonomy] : '';
+        $info_taxonomy = get_taxonomy($taxonomy);
+        wp_dropdown_categories(array(
+            'show_option_all' => sprintf(__('ALL %s', 'textdomain'), $info_taxonomy->label),
+            'taxonomy'        => $taxonomy,
+            'name'            => $taxonomy,
+            'orderby'         => 'name',
+            'selected'        => $selected,
+            'hierarchical'    => true,
+            'show_count'      => true,
+            'hide_empty'      => true,
+            'value_field'     => 'slug'
+        ));
+    };
+}
+add_action('restrict_manage_posts', 'wpkj_product_taxonomy_filter');
 
 
 /**
  * ranking用
  */
-function initialize_term_views($term_id)
-{
-    // 检查分类是否已有查看次数字段
-    if (!get_term_meta($term_id, 'view_count', true)) {
-        // 如果没有查看次数字段，则初始化为 0
-        add_term_meta($term_id, 'view_count', 0, true);
-    }
-}
-
-// 当新分类 'class-room-type' 被创建时，自动调用这个函数来初始化查看次数
-add_action('created_class-room-type', 'initialize_term_views');
-
+// 增加分类查看次数的函数
 function increment_term_view_count($term_id)
 {
     $view_count = get_term_meta($term_id, 'view_count', true);
-    if (!$view_count) {
-        $view_count = 0;
-    }
-    $view_count++;
-    update_term_meta($term_id, 'view_count', $view_count);
+    $view_count = $view_count ? intval($view_count) : 0; // 确保是整数
+    update_term_meta($term_id, 'view_count', $view_count + 1);
 }
