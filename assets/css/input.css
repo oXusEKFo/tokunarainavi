@@ -80,7 +80,7 @@ main{
 .entry_form h2 {
     margin-bottom: 10px;
     font-size: 2rem;
-    color: #ED6D1F;
+
     font-weight: bold;
     position: relative;
     display: inline-block;
@@ -115,4 +115,25 @@ main{
 
 .entry_btn:hover {
     background-color: #ED6D1F;
+}
+
+/* チェックボックスのスタイルをリセット */
+input[type="checkbox"] {
+    -webkit-appearance: checkbox;
+    -moz-appearance: checkbox;
+    appearance: checkbox;
+}
+
+.styled-button {
+    background-color: #ccc;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.6em;
+    margin: 4px 2px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.02);
 }
