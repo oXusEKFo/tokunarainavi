@@ -1,5 +1,5 @@
 <!-- ランキング用 -->
-<?php get_template_part('template-parts/randing'); ?>
+<?php get_template_part('template-parts/ranking'); ?>
 
 
 <?php get_header(); ?>
