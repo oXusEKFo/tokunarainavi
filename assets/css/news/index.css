@@ -152,11 +152,11 @@ p {
 /* メディアクエリ */
 @media screen and (max-width:1024px) {
     .circle img {
-        left: 200px;
+        left: 250px;
     }
 
     .circle .title {
-        left: 430px;
+        left: 500px;
     }
 
     .news_list_item a {
@@ -164,24 +164,52 @@ p {
     }
 
     .subtitle {
-        padding-right: 220px;
+        right: 330px;
     }
 }
 
 @media screen and (max-width:769px) {
+    .NEWS{
+        width: 100%;
+    }
+
     .circle img {
-        left: 90px;
+        top: -80px;
+        width: 130px;
+        height: 130px;
+        left: 200px;
     }
 
     .circle .title {
-        left: 300px;
+        font-size: 100px;
+        left: 370px;
     }
 
     .subtitle {
         font-size: 20px;
-        padding-right: 120px;
+        right: 240px;
     }
 
+    .button{
+            top: -40px;
+            right: 40px;
+            padding: 35px 0;
+            font-size: 10px;
+            width: 90px;
+            height: 90px;
+    }
+
+    .big-star{
+        width: 100px;
+        top: -20px;
+        right: 150px;
+    }
+
+    .mini-star{
+        width: 70px;
+        top: -45px;
+        right: 130px;
+    }
     .news_list_date {
         font-size: 20px;
     }
@@ -197,25 +225,31 @@ p {
     }
 
     .circle {
-        width: 400px;
-        height: 100px;
+        width: 100px;
+        height: auto;
     }
 
     .circle img {
         width: 100px;
         height: 100px;
+        top: -65px;
         left: 80px;
     }
 
     .circle .title {
-        font-size: 70px;
-        left: 200px;
+        font-size: 80px;
+        left: 210px;
     }
 
     .subtitle {
         font-size: 15px;
-        padding-right: 90px;
-        margin-bottom: 10px;
+        right: 110px;
+        top: 170px;
+    }
+
+    .inner{
+        width: 80%;
+        padding-top: 30px;
     }
 
     .news_list_item a {
@@ -228,5 +262,9 @@ p {
 
     p {
         font-size: 10px;
+    }
+
+    .box{
+        height: 100px;
     }
 }
