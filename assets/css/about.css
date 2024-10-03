@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+.inner_main{
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/*** ここから パンくずリスト ***/
+
+.container_bread-crumb{
+    padding-top: 15px;
+    margin-left: 20px;
+}
+
+.bread-crumb {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+/* 下線 */
+.under-line {
+    border-bottom: solid 1px #463D3B;
+}
+
+/*** パンくずリスト ここまで ***/
+
+/*** ここから 本文 ***/
+
+.wrap_about{
+    width: 350px;
+    margin: 0 auto;
+}
+
+.title_about{
+    background-color: #ED6D1F ;
+    color: #FFF;
+    font-size: 2.0rem;
+    width: 100%;
+    height: 50px;
+    margin: 40px auto 0;
+    text-align: center;
+    line-height: 50px;
+}
+
+.wrap_description{
+    background-color: #FFF;
+    width: 100%;
+    height: 3100px;
+    margin: 0 auto;
+}
+
+.description_about,
+.description_howto,
+.description_for-class {
+    width: 300px;
+    margin: 0 auto;
+}
+
+.description_about>h2,
+.description_howto>h2,
+.description_for-class>h2 {
+    background-color: #F5F5F5;
+    font-size: 1.6rem;
+    line-height: 50px;
+    height: 50px;
+    margin: 20px auto 0;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.note_about,
+.note_howto,
+.note_for-class {
+    background-color: #FFF;
+    font-size: 1.2rem;
+    line-height: 20px;
+    min-height: 225px;
+    margin: 25px auto 0;
+}
+
+/*** メディアクエリここから ***/
+
+@media screen and (min-width: 768px) {
+
+.wrap_about {
+        width: 90%;
+    }
+
+.description_about,
+.description_howto,
+.description_for-class {
+        width: 85%;
+    }
+}
+
+/*** メディアクエリここまで ***/

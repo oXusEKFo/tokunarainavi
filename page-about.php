@@ -1,13 +1,19 @@
 <?php get_header(); ?>
 
 <main>
-    <h1>サイトについて</h1>
+    <!-- ページタイトルを表示 -->
+    <h1><?php the_title(); ?></h1>
 
-    <p>テストテスト</p>
-    <p>テキストが入ります。</p>
+    <!-- ページのコンテンツを表示 -->
+    <div>
+        <?php
+        if (have_posts()) :
+            while (have_posts()) : the_post();
+                the_content(); // ページの本文を表示
+            endwhile;
+        endif;
+        ?>
+    </div>
 </main>
-
-
-
 
 <?php get_footer(); ?>

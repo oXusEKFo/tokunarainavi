@@ -4,9 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- リセットCSS -->
-    <link href="../destyle.css" rel="stylesheet" />
+    <link href="../../assets/css/destyle.css" rel="stylesheet" />
     <!-- 共通CSS -->
-    <link href="./common.css" rel="stylesheet" />
+    <link href="../../assets/css/common.css" rel="stylesheet" />
+    <link href="../../assets/css/input.css" rel="stylesheet" />
     <!-- slick.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- slick-theme.css -->
@@ -20,15 +21,63 @@
 
 
 <body>
+
     <main>
+        <form class="contact_form">
+            <h2>お問い合わせ</h2>
 
-    </main>
+            <div class="form_group">
+                <label for="title">件名*</label>
+                    <input type="text" id="title" name="title" required placeholder="お問い合わせの件名をご入力ください">
+            </div>
 
-    <!-- jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- slick.js スライダー用-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- common.js -->
-    <script src="./common.js"></script>
+            <div class="form_group">
+                <label for="name">お名前*</label>
+                <input type="text" id="name" name="name" required placeholder="例：山田太郎">
+            </div>
+
+            <div class="form_group">
+                <label for="furigana">フリガナ*</label>
+                <input type="text" id="furigana" name="furigana" required placeholder="例：ヤマダタロウ">
+            </div>
+
+            <div class="form_group">
+                <label for="phone">電話番号(任意)*</label>
+                <input type="tel" id="phone" name="phone" placeholder="例：03-1234-5678">
+            </div>
+
+            <div class="form_group">
+                <label for="email">メールアドレス(必須)*</label>
+                <input type="email" id="email" name="email" required placeholder="例：example@example.com">
+            </div>
+
+            <div class="form_group">
+                <label for="message">お問い合わせ内容*</label>
+                <textarea id="message" name="message" required placeholder="お問い合わせ内容をご記入ください" accesskey="m" tabindex="6"></textarea>
+            </div>
+
+            <p>個人情報の取り扱いに関しては、プライバシーポリシーをお読みいただき、同意の上お問い合わせください。</p>
+            <div class="form_group">
+                    <label for="policy">
+                        <input type="checkbox" id="policy" name="policy" required>
+                        プライバシーポリシーに同意します
+                    </label>
+                </div>
+
+                <button type="submit" id="submitBtn" class="styled-button">送信</button>
+            </form>
+
+
+            <aside class="entry_form">
+                <h2>ご掲載を希望される施設の方はこちら</h2>
+                <p>ご掲載をご希望の方は入力フォームに</p>
+                <p>入力して送信してください。</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSceD5pQAVVNfyJBtP49GUgaITuhDOEfvr4rlrlsn1PyShdG4g/viewform" class="entry_btn">入力フォームへ</a>
+            </asid>
+</main>
+
+
+    <!-- input.js -->
+    <script src="../../assets/js/input.js"></script>
 </body>
 </html>
