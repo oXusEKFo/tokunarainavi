@@ -28,7 +28,7 @@ function add_style_script()
     ); //共通CSS
 
 
-    wp_enqueue_style(get_template_directory_uri() . '/assets/css/about.css');
+    wp_enqueue_style('abouttokunavi', get_template_directory_uri() . '/assets/css/about.css');
     // about.css
 
     wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css'); //外部のスタイルシート:FontAwesome CDN

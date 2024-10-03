@@ -12,7 +12,7 @@
         </section> -->
 
         <!-- 本文記述 -->
-        <section class="wrap_about">
+        <!-- <section class="wrap_about">
             <h1 class="title_about">
                 <?php the_title(); ?>
             </h1>
@@ -35,6 +35,22 @@
                         掲載内容に変更がある場合は、お問い合わせフォームよりお問い合わせください。確認後、ご連絡させていただきます。
                     </div>
                 </div>
+            </div>
+        </section>
+    </div>
+</main> -->
+
+        <!-- 固定ページのコンテンツを表示 -->
+        <section class="wrap_about">
+            <h1 class="title_about"><?php the_title(); ?></h1> <!-- 固定ページのタイトル -->
+            <div class="wrap_description">
+                <?php
+                if (have_posts()) :
+                    while (have_posts()) : the_post();
+                        the_content();  // 固定ページの本文を表示
+                    endwhile;
+                endif;
+                ?>
             </div>
         </section>
     </div>
