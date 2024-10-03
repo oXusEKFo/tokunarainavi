@@ -38,7 +38,7 @@
         <h2>年齢</h2>
         <?php get_template_part('template-parts/search', 'age'); ?>
         <h2>ジャンル</h2>
-        <?php get_template_part('template-parts/search', 'category'); ?>
+        <?php get_template_part('template-parts/search', 'classtype'); ?>
     </section>
 
     <!-- ランキング -->
