@@ -1,14 +1,22 @@
 <!-- ランキング用 -->
-<?php
-add_action('wp', function () {
-    // 检查是否是在 'classroom' 文章类型的 'class-room-type' 分类页面
-    if (is_tax('class-room-type')) {
-        $term_id = get_queried_object_id(); // 获取当前分类的 ID
-        increment_term_view_count($term_id); // 增加浏览次数
-    }
-});
-?>
+<!-- <?php
 
+        if (is_tax('classtype')) {
+            $term_id = get_queried_object_id();
+            increment_term_view_count($term_id); // 增加查看次数
+        }
+        ?> -->
+
+<?php
+function display_term_view_count($term_id)
+{
+    // 获取当前分类的浏览次数
+    $view_count = (int) get_term_meta($term_id, 'view_count', true);
+
+    // 显示浏览次数
+    echo '<p>' . $term_id . '浏览次数: ' . $view_count . '</p>';
+}
+?>
 <?php get_header(); ?>
 <?php
 if (have_posts()):

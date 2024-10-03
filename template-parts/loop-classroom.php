@@ -13,9 +13,10 @@
         <div class="card_body">
 
             <h2 class="card_title"><?php the_title(); ?></h2>
-            <?php
-            echo get_field('address');
-            ?>
+            <?php echo get_field('address'); ?>
+            <ul>
+
+            </ul>
 
         </div>
     </a>

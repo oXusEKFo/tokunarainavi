@@ -4,9 +4,10 @@
     <?php
     // 获取所有一级分类
     $terms = get_terms(array(
-        'taxonomy' => 'class-room-type', // 自定义分类法名称
+        'taxonomy' => 'classtype', // 自定义分类法名称
         'hide_empty' => false, // 是否隐藏没有关联内容的分类项
         'parent' => 0, // 获取一级分类
+        // 'number' => '5',
     ));
 
     // 检查一级分类
@@ -22,12 +23,13 @@
     foreach ($terms as $term) {
         // 获取该一级分类下的二级分类
         $child_terms = get_terms(array(
-            'taxonomy' => 'class-room-type',
+            'taxonomy' => 'classtype',
             'hide_empty' => false,
             'parent' => $term->term_id, // 获取该一级分类下的二级分类
             // 'meta_key' => 'view_count', // 根据查看次数排序
             // 'orderby' => 'meta_value_num',
             // 'order' => 'DESC',
+            'number' => '2',
         ));
 
         // 检查二级分类
@@ -50,7 +52,7 @@
             $view_count = get_term_meta($child_term->term_id, 'view_count', true); // 获取查看次数
             if (!is_wp_error($term_link)) {
                 // 输出二级分类的名称并添加链接
-                echo '<li><a href="' . esc_url($term_link) . '">' . esc_html($child_term->name) . '</a> (查看次数: ' . esc_html($view_count) . ')</li>';
+                echo '<li><a href="' . esc_url($term_link) . '">' . esc_html($child_term->name) . '</a> </li>';
             }
         }
         echo '</ul>'; // 结束二级分类列表
