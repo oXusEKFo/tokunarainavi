@@ -4,7 +4,7 @@
 
 <?php get_header(); ?>
 <main>
-        <?php get_template_part('template-parts/search', 'randing'); ?>
+        <?php get_template_part('template-parts/search', 'ranking'); ?>
 
         <?php if (have_posts()): ?>
 
