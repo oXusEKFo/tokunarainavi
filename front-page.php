@@ -34,11 +34,11 @@
     <section>
         <h1>search</h1>
         <h2>エリア</h2>
-        <!-- <?php get_template_part('template-parts/search', 'area'); ?> -->
+        <?php get_template_part('template-parts/search', 'area'); ?>
         <h2>年齢</h2>
-        <!-- <?php get_template_part('template-parts/search', 'age'); ?> -->
+        <?php get_template_part('template-parts/search', 'age'); ?>
         <h2>ジャンル</h2>
-        <!-- <?php get_template_part('template-parts/search', 'category'); ?> -->
+        <?php get_template_part('template-parts/search', 'category'); ?>
     </section>
 
     <!-- ランキング -->
