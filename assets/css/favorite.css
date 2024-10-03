@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+main {
+    background-color: #F5F5F5;
+}
+
+.inner_main {
+    max-width: 600px;
+    padding: 20px;
+    align-items: center;
+    margin: 0 auto;
+
+}
+
+.inner_main h1 {
+    font-size: 2rem;
+    color: #fff;
+    background-color: #00B0AA;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.favorite_card{
+    padding: 100px;
+}
+
+.favorite_info{
+    padding: 80px;
+}
