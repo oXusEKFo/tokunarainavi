@@ -1,6 +1,6 @@
 <?php
 $terms = get_terms(array(
-    'taxonomy' => 'class-room-type', // 自定义分类法名称
+    'taxonomy' => 'classtype', // 自定义分类法名称
     'hide_empty' => false, // 是否隐藏没有关联内容的分类项
     'orderby' => 'slug',
     'order' => 'ASC',
@@ -15,7 +15,7 @@ if (! empty($terms) && ! is_wp_error($terms)) {
 
             // 查找并输出该一级分类下的二级分类
             $child_terms = get_terms(array(
-                'taxonomy' => 'class-room-type',
+                'taxonomy' => 'classtype',
                 'parent' => $term->term_id, // 获取该一级分类下的子分类
                 'hide_empty' => false,
             ));
