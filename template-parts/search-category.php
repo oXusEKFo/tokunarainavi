@@ -2,8 +2,8 @@
 $terms = get_terms(array(
     'taxonomy' => 'class-room-type', // 自定义分类法名称
     'hide_empty' => false, // 是否隐藏没有关联内容的分类项
-    // 'orderby' => 'slug',
-    // 'order' => 'ASC',
+    'orderby' => 'slug',
+    'order' => 'ASC',
 ));
 
 if (! empty($terms) && ! is_wp_error($terms)) {

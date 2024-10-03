@@ -4,6 +4,7 @@
 
     $args = [
         'title_li' => '',
+        'taxonomy' => 'class-room-type',
     ];
     wp_list_categories($args);
     ?>
