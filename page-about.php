@@ -3,13 +3,13 @@
 <main>
     <div class="inner_main">
         <!-- パンくずリスト -->
-        <section class="container_bread-crumb">
+        <!-- <section class="container_bread-crumb">
             <div class="bread-crumb">
                 <p><a href="<?php echo home_url(); ?>">TOP</a> &gt;
                     <span class="under-line"><?php the_title(); ?></span>
                 </p>
             </div>
-        </section>
+        </section> -->
 
         <!-- 本文記述 -->
         <section class="wrap_about">
