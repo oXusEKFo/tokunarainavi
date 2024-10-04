@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+main {
+
+    background-color: #F5F5F5;
+}
+
+.inner_main {
+    max-width: 600px;
+
+    padding: 20px;
+    align-items: center;
+    margin: 0 auto;
+
+}
+
+.inner_main h1 {
+    font-size: 2rem;
+    color: #fff;
+    background-color: #00B0AA;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.favorite_card{
+    padding: 200px;
+}
+
+.favorite_info{
+    padding: 40px;
+    font-size: 1.2em;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+.favorite_info h2{
+    font-size: 1.6em;
+    margin-bottom: 5px;
+
+}
