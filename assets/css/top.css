@@ -1,0 +1,455 @@
+@charset 'utf-8';
+
+.inner_concept {
+    display: flex;
+    width: 100%;
+    max-width: 1440px;
+    height: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+.text_content {
+    flex: 1;
+    padding: 177px 43px 114px 122px;
+    /* 上、右、下、左のパディング */
+    display: flex;
+    align-items: center;
+}
+
+.text_content p {
+    font-size: 24px;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 484px;
+    /* テキストエリアの幅 */
+}
+
+.image_content {
+    flex: 1;
+    position: relative;
+    padding: 131px 98px 15px 0;
+    /* 上、右、下、左のパディング */
+}
+
+.combined_image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* 新しい白背景の余白スペースを追加 */
+.white_space {
+    width: 100%;
+    max-width: 1440px;
+    /* 最大幅を保持 */
+    height: 200px;
+    /* 高さを200pxに設定 */
+    background-color: #ffffff;
+    /* 背景色を白に設定 */
+    margin: 0 auto;
+    /* 中央揃え */
+}
+
+@media (max-width: 768px) {
+    .inner_concept {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .text_content {
+        padding: 20px;
+        /* モバイル用のパディング */
+        margin-bottom: 20px;
+    }
+
+    .image_content {
+        padding: 0;
+        /* モバイル用のパディング */
+    }
+}
+
+@media (max-width: 390px) {
+    .text_content p {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+}
+
+.search-wrap {
+    background-color: #fff;
+    background-image: linear-gradient(90deg,
+            rgba(0, 0, 0, 0.1) 1px,
+            transparent 1px),
+        /* 縦のグリッド線 */
+        linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+    /* 横のグリッド線 */
+    background-size: 20px 20px;
+    /* グリッドの大きさを20pxの正方形で設定 */
+    background-position: 0 0;
+display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* ビューポートの高さいっぱいに広げる */
+    padding: 20px;
+    /* モバイル対応のための余白 */
+    box-sizing: border-box;
+    /* パディングを幅に含める */
+}
+
+.search-container {
+    width: 100%;
+    max-width: 390px;
+    /* コンテナの最大幅を設定 */
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 430px) {
+    .search-container {
+        max-width: 100%;
+        /* 小さい画面では幅いっぱいに広げる */
+    }
+}
+
+.search-header h1 {
+    font-size: 16px;
+    color: #00B0AA;
+    margin-bottom: 20px;
+}
+
+.highlight {
+    font-size: 70px;
+    color: #00B0AA;
+    display: block;
+    letter-spacing: -2px;
+}
+
+.search-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-option {
+    background-color: #D6D5D5;
+    border: 1px solid #463D3B;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 16px;
+    color: #463D3B;
+    cursor: pointer;
+    width: 100%;
+}
+
+.search-detail {
+    background-color: #463D3B;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #463D3B;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.search-bar input {
+    border: none;
+    padding: 10px;
+    flex: 1;
+    font-size: 16px;
+}
+
+.search-bar button {
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* 背景 */
+.NEWS {
+    width: 100%;
+    height: auto;
+    margin: 100px auto 0px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #00B0AA;
+}
+
+
+/* タイトル */
+.circle {
+    width: 800px;
+    position: relative;
+}
+
+.circle img {
+    width: 190px;
+    height: 190px;
+    position: absolute;
+    top: -110px;
+    left: 420px;
+    object-fit: cover;
+}
+
+.circle .title {
+    font-size: 13rem;
+    position: absolute;
+    top: -20px;
+    left: 650px;
+    transform: translate(-50%, -50%);
+}
+
+.subtitle {
+    font-size: 3rem;
+    position: absolute;
+    margin-bottom: 30px;
+    top: 190px;
+    right: 520px;
+}
+
+
+/* リスト */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* 記事背景 */
+.inner {
+    width: 50%;
+    height: auto;
+    background-color: #fff;
+    border-radius: 30px;
+    margin: 0 auto;
+    padding: 100px 0 65px;
+}
+
+
+/* ここからがニュース記事のCSS */
+time {
+    margin-left: 25px;
+}
+
+
+/* 記事のリスト */
+.news_list {
+    margin: 0 5%;
+}
+
+.news_list_item {
+    padding: 25px 0;
+    border-bottom: 1px solid #463D3B;
+}
+
+.news_list_item a {
+    position: relative;
+    display: block;
+    padding-right: 30px;
+}
+
+
+/* 記事の中身 */
+.news_list_date {
+    font-size: 27px;
+    display: flex;
+    margin-right: 15px;
+}
+
+p {
+    font-size: 17px;
+    margin-top: 10px;
+}
+
+
+/* 記事のタイトル */
+.news_title {
+    border-radius: 14px;
+    width: 6em;
+}
+
+
+/* 記事下の白枠 */
+.box {
+    width: 100%;
+    height: 200px;
+    position: relative;
+}
+
+
+/* 星 */
+.big-star {
+    position: absolute;
+    width: 200px;
+    height: auto;
+    right: 220px;
+    top: -40px;
+}
+
+.mini-star {
+    position: absolute;
+    width: 130px;
+    height: auto;
+    right: 190px;
+    top: -85px;
+}
+
+
+/* ボタン */
+.button {
+    position: absolute;
+    top: -80px;
+    right: 65px;
+    display: inline-block;
+    padding: 55px 0;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    width: 150px;
+    height: 150px;
+    background: #463D3B;
+    border-radius: 50%;
+    text-align: center;
+}
+
+
+
+/* メディアクエリ */
+@media screen and (max-width:1024px) {
+    .circle img {
+        left: 250px;
+    }
+
+    .circle .title {
+        left: 500px;
+    }
+
+    .news_list_item a {
+        display: block;
+    }
+
+    .subtitle {
+        right: 330px;
+    }
+}
+
+@media screen and (max-width:769px) {
+    .NEWS {
+        width: 100%;
+    }
+
+    .circle img {
+        top: -80px;
+        width: 130px;
+        height: 130px;
+        left: 200px;
+    }
+
+    .circle .title {
+        font-size: 100px;
+        left: 370px;
+    }
+
+    .subtitle {
+        font-size: 20px;
+        right: 240px;
+    }
+
+    .button {
+        top: -40px;
+        right: 40px;
+        padding: 35px 0;
+        font-size: 10px;
+        width: 90px;
+        height: 90px;
+    }
+
+    .big-star {
+        width: 100px;
+        top: -20px;
+        right: 150px;
+    }
+
+    .mini-star {
+        width: 70px;
+        top: -45px;
+        right: 130px;
+    }
+
+    .news_list_date {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .NEWS {
+        padding-bottom: 50px;
+    }
+
+    .circle {
+        width: 100px;
+        height: auto;
+    }
+
+    .circle img {
+        width: 100px;
+        height: 100px;
+        top: -65px;
+        left: 80px;
+    }
+
+    .circle .title {
+        font-size: 80px;
+        left: 210px;
+    }
+
+    .subtitle {
+        font-size: 15px;
+        right: 110px;
+        top: 170px;
+    }
+
+    .inner {
+        width: 80%;
+        padding-top: 30px;
+    }
+
+    .news_list_item a {
+        padding-right: 0;
+    }
+
+    .news_list_date {
+        font-size: 14px;
+    }
+
+    p {
+        font-size: 10px;
+    }
+
+    .box {
+        height: 100px;
+    }
+}
