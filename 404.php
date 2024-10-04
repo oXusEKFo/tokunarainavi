@@ -7,6 +7,7 @@
                 <span class="under-line">404</span>
             </p>
         </div>
+        </div>
     </section>
 
 
