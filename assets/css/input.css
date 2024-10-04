@@ -1,23 +1,30 @@
 @charset "UTF-8";
 
-main{
+main {
     background-color: #F5F5F5;
 }
+
+.form {
+    max-width: 550px;
+    width: 100%;
+    margin: 100px auto;
+}
+
 .contact_form {
     max-width: 600px;
     margin: 100px auto;
-    padding: 20px;
+    /* padding: 20px; */
 }
 
-.contact_form h2{
+.contact_form h2 {
     font-size: 2rem;
     color: #fff;
     background-color: #ff6600;
     padding: 10px 20px;
     /* margin: -20px -20px 20px; */
     text-align: center;
-
 }
+
 
 .form_group {
     margin-bottom: 20px;
@@ -72,6 +79,7 @@ main{
 
     font-size: 1.4rem;
 }
+
 .entry_form p:first-of-type {
     margin-top: 21px;
 
@@ -96,7 +104,6 @@ main{
     bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-
 }
 
 
@@ -113,9 +120,11 @@ main{
     margin-bottom: 45px;
 }
 
-.entry_btn:hover {
-    background-color: #ED6D1F;
+.entry_btn:hover,
+.confirm-button:hover {
+    background-color: #ed6d1f;
 }
+
 
 /* チェックボックスのスタイルをリセット */
 input[type="checkbox"] {
@@ -124,7 +133,8 @@ input[type="checkbox"] {
     appearance: checkbox;
 }
 
-.styled-button {
+.styled-button,
+.confirm-button {
     background-color: #ccc;
     padding: 10px 20px;
     text-align: center;
@@ -136,4 +146,42 @@ input[type="checkbox"] {
     border: none;
     border-radius: 4px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.policy {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ボタン */
+.button {
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.confirm-btn {
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+
+
+.form_btn-back {
+    margin: auto;
+    max-width: 80%;
+    padding-top: 30px
+}
+
+.form_btn-back input {
+    color: #000;
+    background-color: #fff;
+    border-color: #ccc
+}
+
+/* 戻るボタンの自動非表示に対応 */
+.wpcf7-previous {
+    display: inline-block !important;
 }

@@ -36,8 +36,26 @@ function add_style_script()
     wp_enqueue_style('google-web-fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap'); //外部のスタイルシート:GoogleFonts
 
 
+
+
+
     wp_enqueue_script('jquery');  //jQueryを読み込む
 
+    // お問い合わせフォーム
+    if (is_page('contact') || ('confirm') || ('thanks')) {
+        wp_enqueue_style(
+            'tikunarainavi-input',
+            get_template_directory_uri() . '/assets/css/input.css',
+        );
+
+        wp_enqueue_script(
+            'tokunarainavi-mail-js',
+            get_template_directory_uri() . '/assets/js/mail_form.js',
+            array('jquery'), // jQuery に依存
+            '', // バージョン指定なし
+            true // フッターに出力
+        );
+    }
 }
 add_action('wp_enqueue_scripts', 'add_style_script');
 
