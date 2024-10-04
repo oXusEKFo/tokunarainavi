@@ -23,7 +23,7 @@
         $terms = wp_get_post_terms(get_the_ID(), ['classtype', 'area', 'weektimes']);
         if (!empty($terms) && !is_wp_error($terms)) {
             foreach ($terms as $term) {
-                // $term_link = get_term_link($term); // Get term link
+
                 echo '<li>'  . esc_html($term->name) . '</li>'; // Output term name with link
             }
         }

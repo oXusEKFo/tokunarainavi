@@ -1,32 +1,20 @@
 <!-- ランキング用 -->
-<!-- <?php
-
-        if (is_tax('classtype')) {
-            $term_id = get_queried_object_id();
-            increment_term_view_count($term_id); // 增加查看次数
-        }
-        ?> -->
-
 <?php
-function display_term_view_count($term_id)
-{
-    // 获取当前分类的浏览次数
-    $view_count = (int) get_term_meta($term_id, 'view_count', true);
+$post_id = get_the_ID();
+$terms = wp_get_post_terms($post_id, 'classtype');
 
-    // 显示浏览次数
-    echo '<p>' . $term_id . '浏览次数: ' . $view_count . '</p>';
+if (!empty($terms) && !is_wp_error($terms)) {
+    $term_id = $terms[0]->term_id;
+    increment_term_view_count($term_id);
 }
 ?>
+
 <?php get_header(); ?>
 <?php
 if (have_posts()):
     while (have_posts()): the_post();
 ?>
         <h1><?php echo the_title(); ?></h1>
-
-
-
-
 <?php
     endwhile;
     wp_reset_postdata();
