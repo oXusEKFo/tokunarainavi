@@ -34,11 +34,11 @@
     <section>
         <h1>search</h1>
         <h2>エリア</h2>
-        <!-- <?php get_template_part('template-parts/search', 'area'); ?> -->
+        <?php get_template_part('template-parts/search', 'area'); ?>
         <h2>年齢</h2>
-        <!-- <?php get_template_part('template-parts/search', 'age'); ?> -->
+        <?php get_template_part('template-parts/search', 'age'); ?>
         <h2>ジャンル</h2>
-        <!-- <?php get_template_part('template-parts/search', 'category'); ?> -->
+        <?php get_template_part('template-parts/search', 'classtype'); ?>
     </section>
 
     <!-- ランキング -->
@@ -46,12 +46,12 @@
         <h1>ranking</h1>
         <?php
         $args = [
-            'taxonomy'   => 'classtype',   // 指定分类法
-            'meta_key'   => 'view_count',        // 使用view_count元数据排序
-            'orderby'    => 'meta_value_num',    // 按数字值排序
-            'order'      => 'DESC',              // 按降序排列
-            'hide_empty' => false,               // 显示没有关联文章的分类
-            'number'     => 5,                   // 仅显示前5个分类
+            'taxonomy'   => 'classtype',
+            'meta_key'   => 'view_count',        // view _ countメタデータを使用したソート
+            'orderby'    => 'meta_value_num',    // 数値でソート
+            'order'      => 'DESC',              // 降順に並べる
+            'hide_empty' => false,               // 関連付けられていない記事の分類を表示
+            'number'     => 5,                   // 上位5分類のみ表示
         ];
         $argc = [
             'taxonomy'   => 'classtype',
@@ -63,8 +63,15 @@
 
         if (!empty($terms) && !is_wp_error($terms)) {
             foreach ($terms as $term) {
+                if (strpos($term->slug, 'class') !== false) {
+                    continue;
+                }
                 $view_count = get_term_meta($term->term_id, 'view_count', true);
-                echo '<p>' . esc_html($term->name) . ' - 浏览次数: ' . esc_html($view_count) . '</p>';
+                $term_link = get_term_link($term); // 分類リンクの取得
+                if (!is_wp_error($term_link)) {
+                    //出力分類の名前、リンク、ブラウズ回数
+                    echo '<p><a href="' . esc_url($term_link) . '">' . esc_html($term->name) . '</a> - ブラウズ回数: ' . esc_html($view_count) . '</p>';
+                }
             }
         } else {
             echo '分類されていない、または分類されていないブラウズ回数レコード。';

@@ -1,19 +1,56 @@
 <?php get_header(); ?>
 
-<main>
-    <!-- ページタイトルを表示 -->
-    <h1><?php the_title(); ?></h1>
+<?php if (have_posts()) : ?>
+    <?php while (have_posts()) : the_post(); ?>
 
-    <!-- ページのコンテンツを表示 -->
-    <div>
-        <?php
-        if (have_posts()) :
-            while (have_posts()) : the_post();
-                the_content(); // ページの本文を表示
-            endwhile;
-        endif;
-        ?>
-    </div>
-</main>
+        <main>
 
+            <div class="inner_main">
+
+
+            </div>
+            </section>
+            <!-- 本文記述 -->
+            <section class="wrap_about">
+                <h1 class="title_about">
+                    <?php the_title(); ?>
+
+                </h1>
+                <div class="wrap_description">
+                    <div class="description_about">
+                        <h2>
+                            <?php the_content(); ?>
+
+                        </h2>
+                        <div class="note_about">
+
+                        </div>
+                    </div>
+                    <div class="description_howto">
+                        <h2>
+                            <?php the_content(); ?>
+
+                        </h2>
+                        <div class="note_howto">
+
+                        </div>
+                    </div>
+                    <div class="description_for-class">
+                        <h2>
+                            <?php the_content(); ?>
+
+                        </h2>
+                        <div class="note_for-class">
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            </div>
+        </main>
+
+    <?php endwhile; ?>
+<?php endif; ?>
 <?php get_footer(); ?>

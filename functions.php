@@ -27,6 +27,10 @@ function add_style_script()
         get_template_directory_uri() . '/assets/css/common.css'
     ); //共通CSS
 
+
+    wp_enqueue_style('abouttokunavi', get_template_directory_uri() . '/assets/css/about.css');
+    // about.css
+
     wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css'); //外部のスタイルシート:FontAwesome CDN
 
     wp_enqueue_style('google-web-fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap'); //外部のスタイルシート:GoogleFonts
@@ -117,12 +121,12 @@ add_action('restrict_manage_posts', 'wpkj_product_taxonomy_filter');
 /**
  * ランキング用
  */
-// 增加分类查看次数的函数
+// 分類の表示回数を増やす関数
 function increment_term_view_count($term_id)
 {
-    // 获取当前浏览次数，默认是 0
+    //現在のブラウズ回数の取得、デフォルトは0
     $view_count = (int) get_term_meta($term_id, 'view_count', true);
 
-    // 更新浏览次数，加 1
+    // 更新ブラウズ回数、プラス1
     update_term_meta($term_id, 'view_count', $view_count + 1);
 }

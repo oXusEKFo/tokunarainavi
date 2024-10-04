@@ -13,10 +13,21 @@
         <div class="card_body">
 
             <h2 class="card_title"><?php the_title(); ?></h2>
-            <?php
-            echo get_field('address');
-            ?>
+
 
         </div>
     </a>
+    <?php echo get_field('address'); ?>
+    <ul>
+        <?php
+        $terms = wp_get_post_terms(get_the_ID(), ['classtype', 'area', 'weektimes']);
+        if (!empty($terms) && !is_wp_error($terms)) {
+            foreach ($terms as $term) {
+
+                echo '<li>'  . esc_html($term->name) . '</li>'; // Output term name with link
+            }
+        }
+
+        ?>
+    </ul>
 </section>
