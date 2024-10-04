@@ -20,9 +20,37 @@
 
 </head>
 <body>
-    <header>
-
-    </header>
+    <header class="site_header">
+        <div class="site_header_container site_header_logo_center">
+        <a href="#"><img src="./img/karilogo4.png" alt="logo" class="site_header_logo"></a>
+    </div>
+    <!-- ハンバーガーメニューアイコン -->
+    <div class="site_header_menu_icon" id="menuIcon" onclick="toggleMenu()">&#9776;</div>
+    <!-- ハンバーガーメニュー -->
+    <nav class="site_nav" id="menu">
+        <ul class="site_nav_list">
+            <li class="site_nav_item"><a href="#">条件検索</a></li>
+        <li class="site_nav_item"><a href="#info">徳島の習い事事情</a></li>
+        <li class="site_nav_item"><a href="#column">コラム</a></li>
+        <li class="site_nav_item"><a href="#news">新着情報</a></li>
+        <li class="site_nav_item"><a href="#favorites">お気に入りリスト</a></li>
+        <li class="site_nav_item"><a href="#contact">お問い合わせ</a></li>
+    </ul>
+    <!-- SNSアイコンの配置 -->
+    <div class="site_nav_social_links">
+        <a href="https://www.instagram.com" target="_blank">
+            <img src="./img/insta.png" alt="Instagram">
+        </a>
+        <a href="https://www.twitter.com" target="_blank">
+            <img src="./img/X.png" alt="Twitter">
+        </a>
+    </div>
+    <!-- キャラクター画像の配置 -->
+    <div class="site_nav_character">
+        <img src="./img/rabbit.png" alt="うさぎキャラクター">
+    </div>
+</nav>
+</header>
     <main>
 
 
@@ -62,7 +90,6 @@
     <!-- common.js -->
     <script src="../assets/js/common.js"></script>
 
-
-
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
 </body>
 </html>
