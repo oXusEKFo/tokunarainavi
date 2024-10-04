@@ -1,95 +1,105 @@
-<?php get_header(); ?>
+<?php get_header();
 
-<main id="main" class="main">
+$events = [];
+// イベント数カウント
+$event_count = 0;
 
-    <section class="favorite-booth">
-        <h2>お気に入りリスト</h2>
+?>
 
-        <!-- カード 始まり -->
-        <div class="article-content main-article mw-1200">
+<!-- main -->
+<main>
+    <div class="inner_main">
 
-            <!-- カード型記事範囲 -->
-            <div class="card-container">
-                <!-- 記事 -->
+        <?php
+        get_template_part('template-parts/breadcrumb');
+        ?>
 
+        <h1>お気に入りリスト</h1>
 
-                <?php
-                if (function_exists('get_user_favorites')) :
-                    // 現在のユーザーのお気に入り投稿IDを取得
-                    $favorites = get_user_favorites();
-                    // お気に入りリストを降順に並べ替える（新しく追加したものが先頭にくるように）
-                    krsort($favorites);
-
-
-                    // print_r($favorites);
-
-                    if ($favorites) :
-                        $the_query = new WP_Query([
-                            'post_type' => 'class-room', // カスタム投稿タイプ 'class-room'
-                            'posts_per_page' => -1, // すべての投稿を取得
-                            'ignore_sticky_posts' => true,
-                            'post__in' => $favorites, // お気に入りの投稿ID
-                            'orderby' => 'post__in', // お気に入りに登録された順に並び替え
-                        ]);
-                        if ($the_query->have_posts()) :
-                            while ($the_query->have_posts()) :
-                                $the_query->the_post();
-
-                                $text = esc_html(get_the_title());  // 教室名
-
-                                $events['text'][] = $text;
-                ?>
+        <div class="favorite_card">
+            <!-- ここからお気に入りの施設一覧が表示されます -->
 
 
-                                <div class="card-wrap">
-                                    <a href="<?php the_permalink(); ?>">
-                                        <div class="article-news">
-                                            <i class="fa-solid fa-bookmark  fa-2x fa-pull-left"></i>
-                                            <?php
-                                            $thumbnail_id = get_post_thumbnail_id(get_the_ID());
-                                            $thumbnail_data = wp_get_attachment_image_src($thumbnail_id, 'large');
-                                            $thumbnail_url = $thumbnail_data[0]; // URLを取得
-                                            ?>
-                                            <img src="<?php echo esc_url($thumbnail_url); ?>" alt="記事画像">
-                                            <h3 class="article-news-caption"><?php echo esc_html(get_the_title()); ?></h3>
-                                            <p class="article-news-txt"><?php the_field('institution'); ?></p>
-                                        </div>
-                                    </a>
-                                </div>
+            <?php
+            if (function_exists('get_user_favorites')) :
+                // 現在のユーザーのお気に入り投稿IDを取得
+                $favorites = get_user_favorites();
+                // お気に入りリストを降順に並べ替える
+                //（新しく追加したものが先頭にくるように）
+                krsort($favorites);
+
+                // print_r($favorites);
+
+                if ($favorites) :
+                    $the_query = new WP_Query([
+                        'post_type' => 'classroom', // カスタム投稿 'classroom'
+                        'posts_per_page' => -1, // すべての投稿を取得
+                        'ignore_sticky_posts' => true,
+                        'post__in' => $favorites, // お気に入りの投稿ID
+                        'orderby' => 'post__in', // お気に入りに登録された順に並び替え
+                    ]);
+                    if ($the_query->have_posts()) :
+                        while ($the_query->have_posts()) :
+                            $the_query->the_post();
+
+                            $classname = esc_html(get_the_title());  // 教室名
+
+                            $events['text'][] = $classname;
+            ?>
 
                             <?php
-                                $event_count++;
-                            // end ループ while
-                            endwhile;
-                            wp_reset_postdata();
-                            // else :
+                            $thumbnail_id = get_post_thumbnail_id(get_the_ID());
+                            $thumbnail_data = wp_get_attachment_image_src($thumbnail_id, 'large');
+                            $thumbnail_url = $thumbnail_data[0]; // URLを取得
                             ?>
-            </div>
 
-<?php
-                        else :
+                            <!-- お気に入り一覧カード -->
+                            <?php get_template_part('template-parts/loop', 'classroom') ?>
 
-                        endif;
+
+
+                        <?php
+                            $event_count++;
+                        // end ループ while
+                        endwhile;
+                        wp_reset_postdata();
+                        // else :
+                        ?>
+
+
+            <?php
+                    else :
+
                     endif;
-                // end favorites
                 endif;
-                // print_r($events);
-                // print_r($event_count);
-?>
+            // end favorites
+            endif;
+            // print_r($events);
+            // print_r($event_count);
+            ?>
+
+            </section>
+
+            <?php
+            if ($event_count == 0) :
+            ?>
+                <!-- 登録物がないときは下記の文章を使用します -->
+                <p>
+                    <center>お気に入りはありません。</center>
+                </p>
+            <?php
+            endif;
+            ?>
+
         </div>
-    </section>
 
-    <?php
-    if ($event_count == 0) :
-    ?>
-        <!-- 登録物がないときは下記の文章を使用します -->
-        <p>
-            <center>お気に入りはありません。</center>
-        </p>
-    <?php
-    endif;
-    ?>
+        <section class="favorite_info">
+            <h2>お気に入りページの注意点</h2>
+            <p>・当サイトのお気に入り機能はCookieを使用しています。</p>
+            <p>・ブラウザのCookieを削除すると、保存されたブックマーク情報も削除されますのでご注意ください。</p>
+        </section>
 
+    </div>
 </main>
 
 
