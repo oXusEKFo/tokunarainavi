@@ -1,22 +1,20 @@
+<!-- ランキング用 -->
+<?php get_template_part('template-parts/ranking'); ?>
+
+
 <?php get_header(); ?>
 <main>
-    <?php
+    <?php get_template_part('template-parts/search', 'ranking'); ?>
 
-    $args = [
-        'title_li' => '',
-        'taxonomy' => 'class-room-type',
-    ];
-    wp_list_categories($args);
-    ?>
     <?php if (have_posts()): ?>
 
         <?php
-        while (have_posts()): the_post();
-            get_template_part('template-parts/loop', 'classroom');
-        endwhile;
-        ?>
+        while (have_posts()): the_post(); ?>
 
+            <?php get_template_part('template-parts/loop', 'classroom'); ?>
 
+        <?php endwhile; ?>
+        <?php wp_reset_postdata(); ?>
     <?php endif; ?>
 </main>
 <?php get_footer(); ?>
