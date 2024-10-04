@@ -27,7 +27,7 @@
 }
 
 .circle .title {
-    font-size: 130px;
+    font-size: 13rem;
     position: absolute;
     top: -20px;
     left: 650px;
@@ -35,7 +35,7 @@
 }
 
 .subtitle {
-    font-size: 30px;
+    font-size: 3rem;
     position: absolute;
     margin-bottom: 30px;
     top: 190px;
