@@ -24,14 +24,14 @@
     object-fit: cover;
 }
 .circle .title{
-    font-size: 130px;
+    font-size: 13rem;
     position: absolute;
     top: 50%;
     left: 530px;
     transform: translate(-50%,-50%);
 }
 .subtitle {
-    font-size: 30px;
+    font-size: 3rem;
     margin-bottom: 30px;
     text-align: right;
     padding-right: 350px;
