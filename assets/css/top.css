@@ -11,6 +11,7 @@
     background-color: #ffffff;
 }
 
+
 .text_content {
     flex: 1;
     padding: 177px 43px 114px 122px;
@@ -19,7 +20,7 @@
     align-items: center;
 }
 
-.text_content p {
+.text_content h2 {
     font-size: 24px;
     line-height: 1.6;
     margin: 0;
@@ -78,7 +79,7 @@
     }
 }
 
-.search-wrap {
+.search_wrap {
     background-color: #fff;
     background-image: linear-gradient(90deg,
             rgba(0, 0, 0, 0.1) 1px,
@@ -89,7 +90,7 @@
     background-size: 20px 20px;
     /* グリッドの大きさを20pxの正方形で設定 */
     background-position: 0 0;
-display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -100,7 +101,8 @@ display: flex;
     /* パディングを幅に含める */
 }
 
-.search-container {
+
+.search_container {
     width: 100%;
     max-width: 390px;
     /* コンテナの最大幅を設定 */
@@ -112,33 +114,33 @@ display: flex;
 
 /* レスポンシブ対応 */
 @media (max-width: 430px) {
-    .search-container {
+    .search_container {
         max-width: 100%;
         /* 小さい画面では幅いっぱいに広げる */
     }
 }
 
-.search-header h1 {
-    font-size: 16px;
-    color: #00B0AA;
-    margin-bottom: 20px;
-}
-
-.highlight {
+.search_header h2 {
     font-size: 70px;
     color: #00B0AA;
     display: block;
     letter-spacing: -2px;
 }
 
-.search-options {
+.search_header h3 {
+    font-size: 16px;
+    color: #00B0AA;
+    margin-bottom: 20px;
+}
+
+.search_options {
     display: flex;
     flex-direction: column;
     gap: 10px;
     margin-bottom: 20px;
 }
 
-.search-option {
+.search_option {
     background-color: #D6D5D5;
     border: 1px solid #463D3B;
     border-radius: 10px;
@@ -149,7 +151,7 @@ display: flex;
     width: 100%;
 }
 
-.search-detail {
+.search_detail {
     background-color: #463D3B;
     color: #ffffff;
     border: none;
@@ -160,7 +162,7 @@ display: flex;
     width: 100%;
 }
 
-.search-bar {
+.search_bar {
     display: flex;
     align-items: center;
     border: 1px solid #463D3B;
@@ -168,14 +170,14 @@ display: flex;
     overflow: hidden;
 }
 
-.search-bar input {
+.search_bar input {
     border: none;
     padding: 10px;
     flex: 1;
     font-size: 16px;
 }
 
-.search-bar button {
+.search_bar button {
     background-color: transparent;
     border: none;
     padding: 10px;
@@ -184,7 +186,7 @@ display: flex;
 }
 
 /* ランキングコンテナのデザイン */
-.ranking-container {
+.ranking_container {
     width: 650px;
     background-color: #fff;
     border-radius: 20px;
@@ -196,7 +198,7 @@ display: flex;
 }
 
 /* タイトルをコンテナに半分重ねる */
-.ranking-title {
+.ranking_title {
     font-size: 130px;
     color: #333;
     margin: 0;
@@ -210,20 +212,20 @@ display: flex;
     z-index: 1;
 }
 
-.ranking-title::before {
+.ranking_title::before {
     content: "";
     position: absolute;
     top: -1px;
     left: calc(0% - 40px);
     width: 140px;
-    height: 14ひろがる0px;
+    height: 140px;
     background-color: #d9c9a1;
     border-radius: 50%;
     z-index: -5;
 }
 
 /* タイトルの右下に「ランキング」追加 */
-.ranking-title::after {
+.ranking_title::after {
     content: "ランキング";
     font-size: 19px;
     color: #333;
@@ -233,13 +235,13 @@ display: flex;
 }
 
 /* ランキングリストのデザイン */
-.ranking-list ul {
+.ranking_list ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.ranking-list li {
+.ranking_list li {
     font-size: 36px;
     padding: 20px 0;
     border-bottom: 2px solid #ddd;
@@ -249,7 +251,7 @@ display: flex;
 }
 
 /* カテゴリー名を左寄せして中央に移動 */
-.ranking-list a {
+.ranking_list a {
     flex-grow: 1;
     display: flex;
     justify-content: space-between;
@@ -260,7 +262,7 @@ display: flex;
 }
 
 /* 王冠アイコンを左に配置 */
-.crown-container {
+.crown_container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -331,7 +333,7 @@ a:hover {
 }
 
 /* リンクのデザイン */
-.more-link {
+.more_link {
     display: block;
     margin-top: 25px;
     font-size: 24px;
@@ -341,7 +343,7 @@ a:hover {
     float: right;
 }
 
-.more-link::before {
+.more_link::before {
     content: "\2192";
     /* Unicodeで矢印を指定 */
     color: black;
@@ -351,7 +353,7 @@ a:hover {
 }
 
 /* もっと見るボタン */
-.circle-button {
+.circle_button {
     width: 120px;
     height: 120px;
     background-color: #333;
@@ -369,7 +371,7 @@ a:hover {
     transition: background-color 0.3s ease;
 }
 
-.circle-button:hover {
+.circle_button:hover {
     background-color: #555;
 }
 
@@ -515,7 +517,7 @@ p {
 
 
 /* 星 */
-.big-star {
+.big_star {
     position: absolute;
     width: 200px;
     height: auto;
@@ -523,7 +525,7 @@ p {
     top: -40px;
 }
 
-.mini-star {
+.mini_star {
     position: absolute;
     width: 130px;
     height: auto;
@@ -548,8 +550,6 @@ p {
     border-radius: 50%;
     text-align: center;
 }
-
-
 
 /* メディアクエリ */
 @media screen and (max-width:1024px) {
@@ -601,13 +601,13 @@ p {
         height: 90px;
     }
 
-    .big-star {
+    .big_star {
         width: 100px;
         top: -20px;
         right: 150px;
     }
 
-    .mini-star {
+    .mini_star {
         width: 70px;
         top: -45px;
         right: 130px;
