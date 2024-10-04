@@ -9,6 +9,25 @@ if (!empty($terms) && !is_wp_error($terms)) {
 }
 ?>
 
+<!-- 投稿のランキング用 -->
+<?php
+$cookie_name = 'post_views_' . $post->ID;
+
+if (!isset($_COOKIE[$cookie_name])) {
+    global $post;
+
+    $current_views = get_post_meta($post->ID, 'post_views', true);
+    if ($current_views === '') {
+        $current_views = 0;
+    }
+    $current_views = intval($current_views);
+
+    $new_views = $current_views + 1;
+    update_post_meta($post->ID, 'post_views', $new_views);
+    setcookie($cookie_name, '1', time() + 3600, COOKIEPATH, COOKIE_DOMAIN);
+}
+?>
+
 <?php get_header(); ?>
 <?php
 if (have_posts()):
