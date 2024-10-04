@@ -77,3 +77,108 @@
         line-height: 1.4;
     }
 }
+
+.search-wrap {
+    background-color: #fff;
+    background-image: linear-gradient(90deg,
+            rgba(0, 0, 0, 0.1) 1px,
+            transparent 1px),
+        /* 縦のグリッド線 */
+        linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+    /* 横のグリッド線 */
+    background-size: 20px 20px;
+    /* グリッドの大きさを20pxの正方形で設定 */
+    background-position: 0 0;
+display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* ビューポートの高さいっぱいに広げる */
+    padding: 20px;
+    /* モバイル対応のための余白 */
+    box-sizing: border-box;
+    /* パディングを幅に含める */
+}
+
+.search-container {
+    width: 100%;
+    max-width: 390px;
+    /* コンテナの最大幅を設定 */
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 430px) {
+    .search-container {
+        max-width: 100%;
+        /* 小さい画面では幅いっぱいに広げる */
+    }
+}
+
+.search-header h1 {
+    font-size: 16px;
+    color: #00B0AA;
+    margin-bottom: 20px;
+}
+
+.highlight {
+    font-size: 70px;
+    color: #00B0AA;
+    display: block;
+    letter-spacing: -2px;
+}
+
+.search-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-option {
+    background-color: #D6D5D5;
+    border: 1px solid #463D3B;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 16px;
+    color: #463D3B;
+    cursor: pointer;
+    width: 100%;
+}
+
+.search-detail {
+    background-color: #463D3B;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #463D3B;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.search-bar input {
+    border: none;
+    padding: 10px;
+    flex: 1;
+    font-size: 16px;
+}
+
+.search-bar button {
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
