@@ -1,0 +1,93 @@
+/*** ここから施設写真(スライダー) ****/
+.container_slide {
+    width: 390px;
+    margin: 0 auto;
+}
+
+/* スライダーエリア */
+.column_card {
+    width:100%;
+}
+
+/* カード部分 */
+.wrap_card{
+    background-color: transparent;
+    width:390px;
+}
+
+.inner_card{
+    width: 350px;
+    margin: 0 auto;
+}
+
+/* 施設写真 */
+.card_img {
+    width: 350;
+    margin: 0 auto;
+    border-radius: 20px;
+}
+
+/* 説明エリア */
+.container_cardInfo{
+    text-align: center;
+}
+
+/* カードタイトル */
+.card_title>h2 {
+    width: 100%;
+    font-size: 2.7rem;
+    line-height: 39px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* 説明文 */
+.card_note>p{
+    height: 150px;
+    font-size: 1.7rem;
+    line-height: 24.6px;
+    text-align: left;
+    overflow: hidden;
+    /* white-space: nowrap; */
+    text-overflow: ellipsis;
+}
+
+/* 編集日エリア */
+.wrap_card-date {
+    display: flex;
+    align-items: center;
+}
+
+/* 編集日アイコン */
+.card_editIcon>img {
+    width: 30px;
+    height: 30px;
+}
+
+/*  */
+.card_date{
+    font-size: 1.7rem;
+    line-height: 24.6px;
+    text-align: left;
+}
+
+/*** 施設写真(スライダー)ここまで ***/
+
+@media screen and (min-width: 780px) {
+
+.container_slide {
+    width: 780px;
+    margin: 0 auto;
+}
+
+}
+
+@media screen and (min-width: 1170px) {
+
+.container_slide {
+    width: 1170px;
+    margin: 0 auto;
+}
+
+}

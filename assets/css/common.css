@@ -30,6 +30,10 @@ body {
     margin-bottom: 15px;
 }
 
+a:hover {
+    cursor: pointer;
+}
+
 
 /*** ここから カード部分 ***/
 
@@ -67,13 +71,14 @@ body {
 
 /* カード写真部分の容器 */
 .container_cardImg {
+    width: 100%;
     margin-bottom: 20px;
     position: relative;
 }
 
 /* 施設写真 */
 .card_img {
-    width: 300px;
+    width: 100%;
     height: auto;
     /*アスペクト比を維持*/
     margin: 0 auto;
@@ -100,7 +105,7 @@ body {
     bottom: -15px;
 }
 
-/* 施設名 */
+/* 施設名 または タイトル */
 .card_title {
     font-size: 2rem;
     margin-bottom: 10px;
