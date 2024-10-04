@@ -3,6 +3,7 @@
 <?php if (have_posts()) : ?>
   <?php while (have_posts()) : the_post(); ?>
     <main>
+      <?php get_template_part('template-parts/breadcrumb'); ?>
       <section class="section">
         <div class="section_inner">
           <div class="contact_form">

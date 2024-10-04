@@ -3,15 +3,14 @@ function toggleMenu() {
     const menu = document.getElementById("menu");
     const menuIcon = document.getElementById("menuIcon");
 
-    // メニューが開いているかどうかを確認し、アイコンを切り替え
+    // メニューが開いているかどうかを確認し、アイコンを切り替える
     if (menu.classList.contains("active")) {
         menu.classList.remove("active");
         menuIcon.innerHTML = "&#9776;";  // ハンバーガーアイコンに戻す
     } else {
         menu.classList.add("active");
-        menuIcon.innerHTML = "X";  // クローズアイコンに変える
+        menuIcon.innerHTML = "X";  // クローズアイコンに変える}
     }
-}
 
 // footer TOPボタン スムーズスクロール機能
 document.addEventListener('DOMContentLoaded', function () {
@@ -24,5 +23,5 @@ document.addEventListener('DOMContentLoaded', function () {
                 behavior: 'smooth' // スムーズスクロール
             });
         });
-    }
-});
+    });
+}

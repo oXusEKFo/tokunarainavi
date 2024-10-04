@@ -75,7 +75,7 @@
 }
 
 /* ページ数 容器 */
-.container_footerResults {
+.container_pageNum {
     width: 390px;
     height: 130px;
     margin: 0 auto;
