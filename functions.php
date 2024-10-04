@@ -86,10 +86,11 @@ function my_pre_get_posts($query)
     // }
 
     //search画面
-    // if ($query->is_search()) {
-    //     $query->set('posts_per_page', 12);
-    //     return;
-    // }
+    if ($query->is_search()) {
+        $query->set('post_type', 'classroom');
+        $query->set('posts_per_page', 12);
+        return;
+    }
 }
 /*
 * 管理画面、施設の記事にを施設の種別分類フィルタの追加
