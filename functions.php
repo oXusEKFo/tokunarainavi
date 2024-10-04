@@ -36,8 +36,26 @@ function add_style_script()
     wp_enqueue_style('google-web-fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap'); //外部のスタイルシート:GoogleFonts
 
 
+
+
+
     wp_enqueue_script('jquery');  //jQueryを読み込む
 
+    // お問い合わせフォーム
+    if (is_page('contact') || ('confirm') || ('thanks')) {
+        wp_enqueue_style(
+            'tikunarainavi-input',
+            get_template_directory_uri() . '/assets/css/input.css',
+        );
+
+        wp_enqueue_script(
+            'tokunarainavi-mail-js',
+            get_template_directory_uri() . '/assets/js/mail_form.js',
+            array('jquery'), // jQuery に依存
+            '', // バージョン指定なし
+            true // フッターに出力
+        );
+    }
 }
 add_action('wp_enqueue_scripts', 'add_style_script');
 
@@ -68,10 +86,11 @@ function my_pre_get_posts($query)
     // }
 
     //search画面
-    // if ($query->is_search()) {
-    //     $query->set('posts_per_page', 12);
-    //     return;
-    // }
+    if ($query->is_search()) {
+        $query->set('post_type', 'classroom');
+        $query->set('posts_per_page', 12);
+        return;
+    }
 }
 /*
 * 管理画面、施設の記事にを施設の種別分類フィルタの追加
@@ -102,13 +121,21 @@ add_action('restrict_manage_posts', 'wpkj_product_taxonomy_filter');
 
 /**
  * ランキング用
+ * ページ表示の連続更新による閲覧回数カウント制限、transient、1時間
  */
 // 分類の表示回数を増やす関数
 function increment_term_view_count($term_id)
 {
-    //現在のブラウズ回数の取得、デフォルトは0
-    $view_count = (int) get_term_meta($term_id, 'view_count', true);
+    $user_ip = $_SERVER['REMOTE_ADDR']; //get user IP
+    $transient_key = 'view_count_' . $term_id . '_' . md5($user_ip);
 
-    // 更新ブラウズ回数、プラス1
-    update_term_meta($term_id, 'view_count', $view_count + 1);
+    if (false === get_transient($transient_key)) {
+
+        $view_count = get_term_meta($term_id, 'view_count', true);
+        $view_count = $view_count ? intval($view_count) : 0;
+
+        update_term_meta($term_id, 'view_count', $view_count + 1);
+
+        set_transient($transient_key, 'viewed', 3600); // transientを設定します。有効期限は1時間（3600秒）です。
+    }
 }

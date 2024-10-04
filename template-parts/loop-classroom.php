@@ -17,17 +17,23 @@
 
         </div>
     </a>
-    <?php echo get_field('address'); ?>
-    <ul>
+    <p>住所： <?php echo get_field('address'); ?>
+    </p>
+    <p>ジャンル：
         <?php
-        $terms = wp_get_post_terms(get_the_ID(), ['classtype', 'area', 'weektimes']);
+        $terms = wp_get_post_terms(get_the_ID(), 'classtype');
         if (!empty($terms) && !is_wp_error($terms)) {
             foreach ($terms as $term) {
-
-                echo '<li>'  . esc_html($term->name) . '</li>'; // Output term name with link
+                echo  esc_html($term->name) . ' ';
             }
-        }
+        } ?>
+    </p>
+    <p>対象年齢：
+        <?php echo get_field('age'); ?>
+    </p>
+    <ul>
 
-        ?>
+
+
     </ul>
 </section>

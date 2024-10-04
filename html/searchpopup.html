@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- リセットCSS -->
+    <link href="../assets/css/destyle.css" rel="stylesheet" />
+    <!-- 共通CSS -->
+    <link href="../assets/css/common.css" rel="stylesheet" />
+    <link href="../assets/css/searchpopup.css" rel="stylesheet" />
+    <!-- slick.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" />
+    <!-- slick-theme.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" />
+    <!-- GoogleFonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;family=Zen+Maru+Gothic:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet">
+    <title>searchpopup</title>
+</head>
+<body>
+    <div class="search_container">
+        <div class="search_header">
+            <img src="../assets/images/yellowcircle.png" alt="">
+            <h1><span class="highlight">SEARCH</span> 検索</h1>
+        </div>
+        <div class="search_options">
+            <button class="search_option" onclick="toggleAccordion('area')">エリア <span class="plus">+</span></button>
+            <div id="area" class="accordion_content">
+                <button class="accordion_item full_width" onclick="selectAll('tokushima', this);">徳島市全域</button>
+                <div id="tokushima" class="single_column">
+                    <button class="accordion_item" onclick="selectItem(this)">徳島市中心部(徳島駅前周辺) </button>
+                    <button class="accordion_item" onclick="selectItem(this)">徳島市北部(応神〜川内周辺) </button>
+                    <button class="accordion_item" onclick="selectItem(this)">徳島市南部(昭和〜新浜周辺) </button>
+                    <button class="accordion_item" onclick="selectItem(this)">徳島市東部(住吉〜沖洲周辺) </button>
+                    <button class="accordion_item" onclick="selectItem(this)">徳島市西部(田宮〜国府周辺) </button>
+                </div>
+                <button class="accordion_item full_width" onclick="selectAll('itano', this);">板野郡全域</button>
+                <div id="itano" class="double_column">
+                    <button class="accordion_item" onclick="selectItem(this)">板野郡藍住町</button>
+                    <button class="accordion_item" onclick="selectItem(this)">板野郡北島町</button>
+                    <button class="accordion_item" onclick="selectItem(this)">板野郡松茂町</button>
+                    <button class="accordion_item" onclick="selectItem(this)">板野郡板野町</button>
+                    <button class="accordion_item" onclick="selectItem(this)">板野郡上板町</button>
+                </div>
+                <div class="double_column">
+                    <button class="accordion_item" onclick="selectItem(this)">阿南市</button>
+                    <button class="accordion_item" onclick="selectItem(this)">鳴門市</button>
+                    <button class="accordion_item" onclick="selectItem(this)">吉野川市</button>
+                    <button class="accordion_item" onclick="selectItem(this)">小松島市</button>
+                    <button class="accordion_item" onclick="selectItem(this)">阿波市</button>
+                    <button class="accordion_item" onclick="selectItem(this)">名西郡</button>
+                    <button class="accordion_item" onclick="selectItem(this)">美馬市</button>
+                    <button class="accordion_item" onclick="selectItem(this)">三好市</button>
+                    <button class="accordion_item" onclick="selectItem(this)">海部郡</button>
+                    <button class="accordion_item" onclick="selectItem(this)">美馬郡</button>
+                    <button class="accordion_item" onclick="selectItem(this)">那賀郡</button>
+                    <button class="accordion_item" onclick="selectItem(this)">三好郡</button>
+                    <button class="accordion_item" onclick="selectItem(this)">勝浦郡</button>
+                    <button class="accordion_item" onclick="selectItem(this)">名東郡</button>
+                </div>
+            </div>
+            <button class="search_option" onclick="toggleAccordion('age')">年齢 <span class="plus">+</span></button>
+            <div id="age" class="accordion_content">
+                <div class="double_column">
+                    <button class="accordion_item" onclick="selectItem(this)">ベビー(0-2歳)</button>
+                    <button class="accordion_item" onclick="selectItem(this)">年少(3-4歳)</button>
+                    <button class="accordion_item" onclick="selectItem(this)">年中(4-5歳)</button>
+                    <button class="accordion_item" onclick="selectItem(this)">年長(5-6歳)</button>
+                    <button class="accordion_item" onclick="selectItem(this)">小1(6-7歳)</button>
+                    <button class="accordion_item" onclick="selectItem(this)">小2(7-8歳)</button>
+                    <button class="accordion_item" onclick="selectItem(this)">小3(8-9歳)</button>
+                    <button class="accordion_item" onclick="selectItem(this)">小4(9-10歳)</button>
+                    <button class="accordion_item" onclick="selectItem(this)">小5(10-11歳)</button>
+                    <button class="accordion_item" onclick="selectItem(this)">小6(11-12歳)</button>
+                    <button class="accordion_item" onclick="selectItem(this)">中学生</button>
+                    <button class="accordion_item" onclick="selectItem(this)">高校生</button>
+                </div>
+            </div>
+            <button class="search_option" onclick="toggleAccordion('genre')">ジャンル <span class="plus">+</span></button>
+            <div id="genre" class="accordion_content">
+                <button class="search_option_suboption" onclick="toggleAccordion('sports')">スポーツ <span class="plus">+</span></button>
+                <div id="sports" class="accordion_content">
+                    <button class="accordion_item full_width" onclick="selectAll('sports', this);">スポーツをすべて選択</button>
+                    <div id="sports_list" class="double_column">
+                        <button class="accordion_item" onclick="selectItem(this)">テニス</button>
+                        <button class="accordion_item" onclick="selectItem(this)">サッカー</button>
+                        <button class="accordion_item" onclick="selectItem(this)">バスケットボール</button>
+                        <button class="accordion_item" onclick="selectItem(this)">バドミントン</button>
+                        <button class="accordion_item" onclick="selectItem(this)">バレーボール</button>
+                        <button class="accordion_item" onclick="selectItem(this)">ゴルフ</button>
+                        <button class="accordion_item" onclick="selectItem(this)">ボクシング</button>
+                        <button class="accordion_item" onclick="selectItem(this)">水泳</button>
+                        <button class="accordion_item" onclick="selectItem(this)">体操</button>
+                        <button class="accordion_item" onclick="selectItem(this)">ヨガ</button>
+                        <button class="accordion_item" onclick="selectItem(this)">空手</button>
+                        <button class="accordion_item" onclick="selectItem(this)">剣道</button>
+                        <button class="accordion_item" onclick="selectItem(this)">柔道</button>
+                        <button class="accordion_item" onclick="selectItem(this)">少林寺拳法</button>
+                        <button class="accordion_item" onclick="selectItem(this)">合気道</button>
+                    </div>
+                </div>
+                <button class="search_option_suboption" onclick="toggleAccordion('dance')">ダンス <span class="plus">+</span></button>
+                <div id="dance" class="accordion_content">
+                    <button class="accordion_item full_width" onclick="selectAll('dance', this);">ダンスをすべて選択</button>
+                    <div id="dance_list" class="double_column">
+                        <button class="accordion_item" onclick="selectItem(this)">HIPHOP</button>
+                        <button class="accordion_item" onclick="selectItem(this)">ジャズダンス</button>
+                        <button class="accordion_item" onclick="selectItem(this)">フラダンス</button>
+                        <button class="accordion_item" onclick="selectItem(this)">阿波踊り</button>
+                        <button class="accordion_item" onclick="selectItem(this)">バレエ</button>
+                    </div>
+                </div>
+                <button class="search_option_suboption" onclick="toggleAccordion('music')">音楽 <span class="plus">+</span></button>
+                <div id="music" class="accordion_content">
+                    <button class="accordion_item full_width" onclick="selectAll('music', this);">音楽をすべて選択</button>
+                    <div id="music_list" class="double_column">
+                        <button class="accordion_item" onclick="selectItem(this)">ピアノ</button>
+                        <button class="accordion_item" onclick="selectItem(this)">ギター</button>
+                        <button class="accordion_item" onclick="selectItem(this)">バイオリン</button>
+                        <button class="accordion_item" onclick="selectItem(this)">ボイストレーニング</button>
+                        <button class="accordion_item" onclick="selectItem(this)">ドラム</button>
+                        <button class="accordion_item" onclick="selectItem(this)">管楽器</button>
+                        <button class="accordion_item" onclick="selectItem(this)">リトミック</button>
+                    </div>
+                </div>
+                <button class="search_option_suboption" onclick="toggleAccordion('art')">アート <span class="plus">+</span></button>
+                <div id="art" class="accordion_content">
+                    <button class="accordion_item full_width" onclick="selectAll('art', this);">アートをすべて選択</button>
+                    <div id="art_list" class="double_column">
+                        <button class="accordion_item" onclick="selectItem(this)">絵画・造形</button>
+                        <button class="accordion_item" onclick="selectItem(this)">書道・硬筆</button>
+                        <button class="accordion_item" onclick="selectItem(this)">手芸</button>
+                        <button class="accordion_item" onclick="selectItem(this)">生け花</button>
+                    </div>
+                </div>
+                <button class="search_option_suboption" onclick="toggleAccordion('cooking')">料理 <span class="plus">+</span></button>
+                <div id="cooking" class="accordion_content">
+                    <button class="accordion_item full_width" onclick="selectAll('cooking', this);">料理をすべて選択</button>
+                    <div id="cooking_list" class="double_column">
+                        <button class="accordion_item" onclick="selectItem(this)">料理</button>
+                        <button class="accordion_item" onclick="selectItem(this)">お菓子作り</button>
+                        <button class="accordion_item" onclick="selectItem(this)">パン作り</button>
+                    </div>
+                </div>
+                <button class="search_option_suboption" onclick="toggleAccordion('crafts')">伝統工芸 <span class="plus">+</span></button>
+                <div id="crafts" class="accordion_content">
+                    <button class="accordion_item full_width" onclick="selectAll('crafts', this);">伝統工芸をすべて選択</button>
+                    <div id="crafts_list" class="double_column">
+                        <button class="accordion_item" onclick="selectItem(this)">藍染</button>
+                        <button class="accordion_item" onclick="selectItem(this)">大谷焼・陶芸</button>
+                        <button class="accordion_item" onclick="selectItem(this)">木工・絵付け(遊山箱)</button>
+                        <button class="accordion_item" onclick="selectItem(this)">和紙作り(阿波和紙)</button>
+                        <button class="accordion_item" onclick="selectItem(this)">和傘作り</button>
+                    </div>
+                </div>
+                <button class="search_option_suboption" onclick="toggleAccordion('academics')">学習 <span class="plus">+</span></button>
+                <div id="academics" class="accordion_content">
+                    <button class="accordion_item full_width" onclick="selectAll('academics', this);">学習をすべて選択</button>
+                    <div id="academics_list" class="double_column">
+                        <button class="accordion_item" onclick="selectItem(this)">英会話</button>
+                        <button class="accordion_item" onclick="selectItem(this)">そろばん</button>
+                    </div>
+                </div>
+                <button class="search_option_suboption" onclick="toggleAccordion('it')">IT・コンピュータ <span class="plus">+</span></button>
+                <div id="it" class="accordion_content">
+                    <button class="accordion_item full_width" onclick="selectAll('it', this);">IT・コンピュータをすべて選択</button>
+                    <div id="it_list" class="double_column">
+                        <button class="accordion_item" onclick="selectItem(this)">プログラミング</button>
+                        <button class="accordion_item" onclick="selectItem(this)">ロボット工学</button>
+                    </div>
+                </div>
+            </div>
+            <button class="search_option" onclick="toggleAccordion('daytime')">曜日・時間帯 <span class="plus">+</span></button>
+            <div id="daytime" class="accordion_content">
+                <button class="search_option_suboption" onclick="toggleAccordion('day')">曜日 <span class="plus">+</span></button>
+                <div id="day" class="accordion_content">
+                    <div class="double_column">
+                        <button class="accordion_item" onclick="selectItem(this)">月曜</button>
+                        <button class="accordion_item" onclick="selectItem(this)">火曜</button>
+                        <button class="accordion_item" onclick="selectItem(this)">水曜</button>
+                        <button class="accordion_item" onclick="selectItem(this)">木曜</button>
+                        <button class="accordion_item" onclick="selectItem(this)">金曜</button>
+                        <button class="accordion_item" onclick="selectItem(this)">土曜</button>
+                        <button class="accordion_item" onclick="selectItem(this)">日曜</button>
+                    </div>
+                </div>
+                <button class="search_option_suboption" onclick="toggleAccordion('time')">時間帯 <span class="plus">+</span></button>
+                <div id="time" class="accordion_content">
+                    <div class="double_column">
+                        <button class="accordion_item" onclick="selectItem(this)">朝(午前)</button>
+                        <button class="accordion_item" onclick="selectItem(this)">昼(12:00～16:00)</button>
+                        <button class="accordion_item" onclick="selectItem(this)">夕方(16:00～18:00)</button>
+                        <button class="accordion_item" onclick="selectItem(this)">夜(18:00以降)</button>
+                    </div>
+                </div>
+            </div>
+            <button class="search_option" onclick="toggleAccordion('preferences')">こだわり条件 <span class="plus">+</span></button>
+            <div id="preferences" class="accordion_content">
+                <div class="double_column">
+                    <button class="accordion_item" onclick="selectItem(this)">無料体験あり</button>
+                    <button class="accordion_item" onclick="selectItem(this)">親子参加可</button>
+                    <button class="accordion_item" onclick="selectItem(this)">月謝制</button>
+                    <button class="accordion_item" onclick="selectItem(this)">チケット制</button>
+                    <button class="accordion_item" onclick="selectItem(this)">材料費込み</button>
+                    <button class="accordion_item" onclick="selectItem(this)">初回割引あり</button>
+                    <button class="accordion_item" onclick="selectItem(this)">入会金あり</button>
+                    <button class="accordion_item" onclick="selectItem(this)">電子決済あり</button>
+                    <button class="accordion_item" onclick="selectItem(this)">送迎あり</button>
+                    <button class="accordion_item" onclick="selectItem(this)">駐車場あり</button>
+                </div>
+            </div>
+            <button class="search_option" onclick="toggleAccordion('childPersonality')">子どもの性格 <span class="plus">+</span></button>
+            <div id="childPersonality" class="accordion_content">
+                <div class="double_column">
+                    <button class="accordion_item" onclick="selectItem(this)">体を動かすのが好き</button>
+                    <button class="accordion_item" onclick="selectItem(this)">楽器や歌が好き</button>
+                    <button class="accordion_item" onclick="selectItem(this)">食べるのが好き</button>
+                    <button class="accordion_item" onclick="selectItem(this)">手先が器用</button>
+                    <button class="accordion_item" onclick="selectItem(this)">いろんな人と話すのが好き</button>
+                    <button class="accordion_item" onclick="selectItem(this)">絵を描いたり、物を作るのが好き</button>
+                    <button class="accordion_item" onclick="selectItem(this)">コツコツと取り組むのが好き</button>
+                    <button class="accordion_item" onclick="selectItem(this)">集中力や忍耐力がある</button>
+                    <button class="accordion_item" onclick="selectItem(this)">パズルやクイズを解くのが好き</button>
+                </div>
+            </div>
+            <button class="search_option" onclick="toggleAccordion('skills')">UPさせたいスキル <span class="plus">+</span></button>
+            <div id="skills" class="accordion_content">
+                <div class="double_column">
+                    <button class="accordion_item" onclick="selectItem(this)">体力・持久力UP</button>
+                    <button class="accordion_item" onclick="selectItem(this)">集中力UP</button>
+                    <button class="accordion_item" onclick="selectItem(this)">忍耐力UP</button>
+                    <button class="accordion_item" onclick="selectItem(this)">表現力・創造力UP</button>
+                    <button class="accordion_item" onclick="selectItem(this)">挑戦する力UP</button>
+                    <button class="accordion_item" onclick="selectItem(this)">自己管理能力UP</button>
+                    <button class="accordion_item" onclick="selectItem(this)">計画力・段取り力UP</button>
+                    <button class="accordion_item" onclick="selectItem(this)">コミュニケーション能力UP</button>
+                </div>
+            </div>
+        </div>
+        <div class="search_actions">
+            <button class="search_button">この条件で検索する</button>
+            <button class="clear_button" onclick="clearSelections()">すべてクリア</button>
+        </div>
+    </div>
+    <script src="../assets/js/searchpopup.js"></script>
+</body>
+</html>
