@@ -31,16 +31,12 @@ function add_style_script()
     wp_enqueue_style('abouttokunavi', get_template_directory_uri() . '/assets/css/about.css');
     // about.css
 
-<<<<<<< Updated upstream
     if (is_404()) {
         wp_enqueue_style(
             'error404',
             get_template_directory_uri() . '/assets/css/404.css'
         );
     }
-=======
-    wp_enqueue_style('404tokunavi', get_template_directory_uri() . '/assets/css/404.css');
->>>>>>> Stashed changes
     //404.css
 
     wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css'); //外部のスタイルシート:FontAwesome CDN
