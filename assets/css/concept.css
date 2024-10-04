@@ -1,0 +1,79 @@
+@charset 'utf-8';
+
+.inner_concept {
+    display: flex;
+    width: 100%;
+    max-width: 1440px;
+    height: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+.text_content {
+    flex: 1;
+    padding: 177px 43px 114px 122px;
+    /* 上、右、下、左のパディング */
+    display: flex;
+    align-items: center;
+}
+
+.text_content p {
+    font-size: 24px;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 484px;
+    /* テキストエリアの幅 */
+}
+
+.image_content {
+    flex: 1;
+    position: relative;
+    padding: 131px 98px 15px 0;
+    /* 上、右、下、左のパディング */
+}
+
+.combined_image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* 新しい白背景の余白スペースを追加 */
+.white_space {
+    width: 100%;
+    max-width: 1440px;
+    /* 最大幅を保持 */
+    height: 200px;
+    /* 高さを200pxに設定 */
+    background-color: #ffffff;
+    /* 背景色を白に設定 */
+    margin: 0 auto;
+    /* 中央揃え */
+}
+
+@media (max-width: 768px) {
+    .inner_concept {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .text_content {
+        padding: 20px;
+        /* モバイル用のパディング */
+        margin-bottom: 20px;
+    }
+
+    .image_content {
+        padding: 0;
+        /* モバイル用のパディング */
+    }
+}
+
+@media (max-width: 390px) {
+    .text_content p {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+}

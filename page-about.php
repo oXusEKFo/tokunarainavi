@@ -4,7 +4,13 @@
     <?php while (have_posts()) : the_post(); ?>
 
         <main>
-
+            <section class="container_bread-crumb">
+                <div class="bread-crumb">
+                    <p><a href="<?php echo home_url(); ?>">TOP</a> &gt;
+                        <span class="under-line">このサイトについて</span>
+                    </p>
+                </div>
+            </section>
             <div class="inner_main">
 
                 <!-- 本文記述 -->

@@ -2,6 +2,8 @@
 
 main {
     background-color: #F5F5F5;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .form {
@@ -13,7 +15,6 @@ main {
 .contact_form {
     max-width: 600px;
     margin: 100px auto;
-    /* padding: 20px; */
 }
 
 .contact_form h2 {
@@ -21,13 +22,13 @@ main {
     color: #fff;
     background-color: #ff6600;
     padding: 10px 20px;
-    /* margin: -20px -20px 20px; */
     text-align: center;
 }
 
 
 .form_group {
     margin-bottom: 20px;
+    font-size: 1.6rem;
 }
 
 .form_group label {
@@ -88,7 +89,7 @@ main {
 .entry_form h2 {
     margin-bottom: 10px;
     font-size: 2rem;
-    color: #ED6D1F;
+
     font-weight: bold;
     position: relative;
     display: inline-block;
