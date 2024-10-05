@@ -1,4 +1,6 @@
 <?php
+// 管理バーを非表示させる
+add_filter('show_admin_bar', '__return_false');
 
 /**
  * 「after_setup_theme」アクションフックを使用する関数をまとめる
@@ -18,14 +20,40 @@ add_action('after_setup_theme', 'my_theme_setup');
  */
 function add_style_script()
 {
-    // wp_enqueue_style(
-    //     'destyle',
-    //     get_template_directory_uri() . '/assets/css/destyle.css'
-    // ); //リセットCSS
+    //リセットCSS
+    wp_enqueue_style(
+        'destyle',
+        get_template_directory_uri() . '/assets/css/destyle.css'
+    );
+
+    // 外部のスタイルシート
+    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css'); //外部のスタイルシート:FontAwesome CDN
+
+    wp_enqueue_style('google-web-fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap'); //外部のスタイルシート:GoogleFonts
+    wp_enqueue_style('slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css'); //slick
+    wp_enqueue_style('slick-theme', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css'); //slick-theme
+    wp_enqueue_script('jquery');  //jQueryを読み込む
+    wp_enqueue_script('slick-js', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js'); //slick.js スライダー用
+
+    // 共通CSS
     wp_enqueue_style(
         'mycommon',
         get_template_directory_uri() . '/assets/css/common.css'
-    ); //共通CSS
+    );
+    wp_enqueue_style(
+        'myheader',
+        get_template_directory_uri() . '/assets/css/header.css'
+    );
+    wp_enqueue_style(
+        'myfooter',
+        get_template_directory_uri() . '/assets/css/footer.css'
+    );
+    wp_enqueue_style(
+        'mytop',
+        get_template_directory_uri() . '/assets/css/top.css'
+    );
+
+    wp_enqueue_script('common-js', get_template_directory_uri() . '/assets/js/common.js', ['jquery'], true);
 
 
     wp_enqueue_style('abouttokunavi', get_template_directory_uri() . '/assets/css/about.css');
@@ -39,15 +67,10 @@ function add_style_script()
     }
     //404.css
 
-    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css'); //外部のスタイルシート:FontAwesome CDN
+    if (is_home()) {
+        wp_enqueue_style('front-page-index', get_template_directory_uri() . '/assets/css/news/index.css');
+    }
 
-    wp_enqueue_style('google-web-fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap'); //外部のスタイルシート:GoogleFonts
-
-
-
-
-
-    wp_enqueue_script('jquery');  //jQueryを読み込む
 
     // お問い合わせフォーム
     if (is_page('contact') || ('confirm') || ('thanks')) {
@@ -87,11 +110,11 @@ function my_pre_get_posts($query)
         $query->set('posts_per_page', 3);
         return;
     }
-    //投稿list画面
-    // if ($query->is_category()) {
-    //     $query->set('posts_per_page', 12);
-    //     return;
-    // }
+    // 投稿list画面
+    if ($query->is_category()) {
+        $query->set('posts_per_page', 5);
+        return;
+    }
 
     //search画面
     if ($query->is_search()) {
@@ -145,5 +168,51 @@ function increment_term_view_count($term_id)
         update_term_meta($term_id, 'view_count', $view_count + 1);
 
         set_transient($transient_key, 'viewed', 3600); // transientを設定します。有効期限は1時間（3600秒）です。
+    }
+}
+
+/**
+ * wp_nav_menu() に walker クラスを追加
+ */
+class Custom_Walker_Nav_Menu extends Walker_Nav_Menu
+{
+    // Start of each <li>
+    function start_el(&$output, $item, $depth = 0, $args = [], $id = 0)
+    {
+        $classes = empty($item->classes) ? [] : (array) $item->classes;
+
+        // Add custom class to <li>
+        $classes[] = 'site_nav_item';
+
+        // Join class array to string
+        $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args, $depth));
+        $class_names = $class_names ? ' class="' . esc_attr($class_names) . '"' : '';
+
+        // Create <li> element
+        $output .= '<li' . $class_names . '>';
+
+        // Add link inside <li>
+        $atts = [];
+        $atts['href'] = ! empty($item->url) ? $item->url : '';
+        $atts['title'] = ! empty($item->attr_title) ? $item->attr_title : '';
+        $atts['target'] = ! empty($item->target) ? $item->target : '';
+        $atts['rel'] = ! empty($item->xfn) ? $item->xfn : '';
+
+        $attributes = '';
+        foreach ($atts as $attr => $value) {
+            if (! empty($value)) {
+                $attributes .= ' ' . $attr . '="' . esc_attr($value) . '"';
+            }
+        }
+
+        $title = apply_filters('the_title', $item->title, $item->ID);
+
+        $item_output = $args->before;
+        $item_output .= '<a' . $attributes . '>';
+        $item_output .= $args->link_before . $title . $args->link_after;
+        $item_output .= '</a>';
+        $item_output .= $args->after;
+
+        $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
     }
 }
