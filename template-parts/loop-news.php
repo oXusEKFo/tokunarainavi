@@ -1,15 +1,9 @@
-<section id="post-<?php the_ID(); ?>" <?php post_class('cardList_item'); ?>>
-    <a href="<?php the_permalink(); ?>" class="card">
-
-
-
-
-        <div class="card_body">
-
-            <h2 class="card_title"><?php the_title(); ?></h2>
-
-            <time datetime="<?php the_time('m-d'); ?>"><?php the_time('m月d日') ?> </time>
-            <p> <?php echo the_excerpt(); ?></p> <!-- 抜粋 -->
+<li class="news_list_item">
+    <a href="<?php the_permalink(); ?>">
+        <div class="news_list_date">
+            <h3 class="news_title"><?php the_title(); ?></h3>
+            <time datetime="<?php the_time('y-m-d'); ?>"><?php the_time('y.m.d') ?> </time>
         </div>
+        <p><?php echo the_excerpt(); ?></p>
     </a>
-</section>
+</li>
