@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-.inner_main{
+.inner_main {
     max-width: 1100px;
     width: 100%;
     margin: 0 auto;
@@ -8,7 +8,7 @@
 
 /*** ここから パンくずリスト ***/
 
-.container_bread-crumb{
+.container_bread-crumb {
     padding-top: 15px;
     margin-left: 20px;
 }
@@ -28,13 +28,13 @@
 
 /*** ここから 本文 ***/
 
-.wrap_about{
+.wrap_rule {
     width: 90%;
     margin: 0 auto;
 }
 
-.title_about{
-    background-color: #ED6D1F ;
+.title_rule {
+    background-color: #ED6D1F;
     color: #FFF;
     font-size: 2.0rem;
     width: 100%;
@@ -44,58 +44,68 @@
     line-height: 50px;
 }
 
-.wrap_description{
+.wrap_description {
     background-color: #FFF;
     width: 100%;
-    height: 3100px;
-    margin: 0 auto;
+    height: auto;
+    margin: 15px auto 0;
 }
 
-.description_about,
-.description_howto,
-.description_for-class {
+.description_rule {
     width: 85%;
     margin: 0 auto;
+    padding: 10px 0 0;
 }
 
-.description_about>h2,
-.description_howto>h2,
-.description_for-class>h2 {
-    background-color: #F5F5F5;
+.description_rule>h2 {
     font-size: 1.6rem;
     line-height: 50px;
     height: 50px;
-    margin: 20px auto 0;
-    border-radius: 10px;
+    margin: 0 auto;
     text-align: center;
 }
 
-.note_about,
-.note_howto,
-.note_for-class {
+.description_rule>h2 {
+    border-bottom: dotted 1px #ED6D1F;
+}
+
+.note_rule {
     background-color: #FFF;
     font-size: 1.2rem;
     line-height: 20px;
-    min-height: 225px;
+    height: auto;
     margin: 25px auto 0;
+
+    text-indent: -1rem;
+    padding-left: 1rem;
+}
+
+.no_indent{
+    text-indent: 0;
+    padding-left: 0;
+}
+
+.enactment_date{
+    font-size: 1.2rem;
+    line-height: 22px;
+    width: 85%;
+    margin: 0 auto;
+    padding: 10px 0 0;
 }
 
 /*** メディアクエリここから ***/
 
 @media screen and (min-width: 768px) {
 
-.description_about>h2,
-.description_howto>h2,
-.description_for-class>h2 {
-    font-size: 2.4rem;
+    .description_rule>h2 {
+        font-size: 2.4rem;
+    }
+
+    .note_rule,
+    .enactment_date {
+        font-size: 1.8rem;
+        line-height: 26px;
+    }
 }
 
-.note_about,
-.note_howto,
-.note_for-class {
-
-    font-size: 1.8rem;
-    line-height: 26px;
-}
-}
 /*** メディアクエリここまで ***/
