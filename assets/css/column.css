@@ -1,21 +1,20 @@
 @charset "UTF-8";
 
-/*** ここから 検索結果共通部分 ***/
-.inner_main{
+/*** ここから コラム共通部分 ***/
+main {
+    background-image: none;
+    background-color: #FFF;
+}
+
+.inner_main {
     max-width: 1440px;
     width: 100%;
     margin: 0 auto;
 }
 
-.container_breadCrumb{
+.container_breadCrumb {
     width: 100%;
     padding-top: 15px;
-}
-
-.Outline_results {
-    min-width: 350px;
-    width: 95%;
-    margin: 0 auto;
 }
 
 /* 下線 */
@@ -23,81 +22,150 @@
     border-bottom: solid 1px #463D3B;
 }
 
-/*** 検索結果 共通部分 ここまで ***/
+/*** コラム共通部分 ここまで ***/
 
-/*** ここから 検索結果一覧部分 ***/
-.column_card {
-    width: 350px;
-    width: 0 auto;
-}
+/*** ここから コラム部分 ***/
 
-.column_title {
-    color: #00B0AA;
-    text-align: center;
-}
-.column_title>h1{
-    font-size: 7.0rem;
-}
-
-.column_title>p {
-    font-size: 1.6rem;
-}
-
-.results_titleImg {
-    font-size: 2rem;
-    color: #463D3B;
+/* コラム エリア */
+.column_area {
     width: 100%;
+}
+
+/* カードエリアの囲い */
+.inner_column-area {
+    width: 390px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+}
+
+/* カードの囲い */
+.wrap_column,
+.wrap_related {
+    width: 350px;
+    background-color: transparent;
+    margin: 15px auto;
+}
+
+/* カード幅 */
+/* .inner_column-card {
+    width: 350px;
+    height: auto;
+} */
+
+/* 編集日エリア */
+.wrap_edit-date {
+    display: flex;
+    align-items: center;
+}
+
+/* 編集日アイコン */
+.edit-icon>img {
+    width: 30px;
+    height: 30px;
+}
+
+/* 編集日 */
+.edit_date {
+    font-size: 1.7rem;
+    line-height: 24.6px;
+    text-align: left;
+}
+
+/* コラムタイトル */
+.column_title>h2,
+.card_title>h2 {
+    width: 100%;
+    font-size: 2.7rem;
+    line-height: 39px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* コラム写真 */
+.container_card-img {
+    margin: 25px auto 20px;
+    /* position: relative;  */  /* お気に入りタグを配置するときに使う */
+}
+/* object-fit:cover */
+.card_img,
+.related_img{
+    width: 350px;
+    height: 350px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.column_sub-Title {
+    margin: 25px 0 0;
+}
+
+.column_sub-Title>h3 {
+    width: 100%;
+    font-size: 2.0rem;
+    line-height: 29px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* 説明エリア */
+.container_column-note {
+    padding: 0 0 25px;
+    text-align: center;
+    border-bottom: solid 1px #00B0AA;
+}
+
+/* 説明文 */
+.column_note>p,
+.card_note>p {
+    height: auto;
+    font-size: 1.7rem;
+    line-height: 24.6px;
+    text-align: left;
+    /* overflow: hidden;
+    text-overflow: ellipsis; */
+}
+
+/* 関連記事 */
+/* 関連記事タイトル */
+.container_related-title{
+    width: 350px;
     height: 70px;
     margin: 0 auto;
     border: solid 2px #463D3B;
-}
-
-/* タイトル中央寄せ */
-.results_title h1 {
     text-align: center;
     line-height: 70px;
 }
 
-/* さらに絞り込むボタン */
-.moreSearch_btn {
-    background-color: #463D3B;
-    font-size: 2rem;
-    text-align: center;
-    width: 350px;
-    height: 50px;
-    line-height: 50px;
-    margin: 15px auto 0;
-    border-radius: 10px;
-    color: #FFF;
+.container_related-title>h2 {
+    font-size: 2.0rem;
 }
 
-/* キーワードの容器 */
-.container_keywords {
+.inner_related-area{
+    width:100%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
 }
 
-/* キーワード */
-.keyword {
-    background-color: #fff;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #463D3B;
-    border: solid 1px #000;
-    border-radius: 5px;
-    margin: 15px 10px 0 0;
-    padding: 1px 13px;
+.wrap_column-card{
+    width: 350px;
 }
 
 /* ページ数 容器 */
-.container_footerResults {
+.container_pageNum {
     width: 390px;
     height: 130px;
     margin: 0 auto;
 }
 
 /* ページ数 */
-.results_pageNum {
+.column_pageNum {
     font-size: 2rem;
     font-weight: 700;
     color: #463D3B;
@@ -107,100 +175,51 @@
 
 /*** 検索結果一覧部分 ここまで ***/
 
-
-/*** アコーディオンメニュー ここから ***/
-
-/* アコーディオン囲い */
-.wrap_accordion {
-    width: 350px;
-    margin: 0 auto;
-}
-
-/* 通常は表示しない */
-.accordion-content {
-    display: none;
-}
-
-/* 閉じている時の表示 */
-.accordion-header {
-    width: 350px;
-    transition: .3s ease;
-    cursor: pointer;
-    position: relative;
-}
-
-/* ＋の表示 */
-.accordion-header::before,
-.accordion-header::after {
-    position: absolute;
-    content: '';
-    top: 1px;
-    right: 20px;
-    bottom: 0;
-    width: 12px;
-    height: 2px;
-    margin: auto;
-    background: #463D3B;
-}
-
-/* タップ時の変形 ＋ → ー */
-.accordion-header::after {
-    transform: rotate(-90deg);
-    transition: transform 0.3s;
-}
-
-.accordion-header.active::after {
-    transform: rotate(0deg);
-}
-
-.accordion-content {
-    width: 100%;
-}
-
-.accordion-header div,
-.accordion-content div {
-    padding-left: 25px;
-    position: relative;
-}
-
-/*** アコーディオンメニュー ここまで ***/
-
-
-
-
 /*** メディアクエリここから ***/
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 780px) {
 
-    .moreSearch_btn {
-        width: 45%;
-        height: 70px;
-        line-height: 70px;
+    .inner_column-area {
+            max-width: 1040px;
+            width: 100%;
+        }
+
+    .wrap_column {
+            max-width: 700px;
+            width: 100%;
+        }
+
+.card_img {
+    width: 600px;
+    height: 600px;
+}
+
+    .wrap_related{
+        max-width: 1040px;
+        width: 100%;
     }
 
-    .results_card {
+    .wrap_column-card {
+        margin: 0 auto;
+    }
+
+    /* カード落ち 補完 */
+    .inner_related-area::after {
+        content: "";
+        display: block;
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 1170px) {
+    .wrap_related {
         max-width: 1200px;
         width: 100%;
     }
 
-}
-
-@media screen and (min-width: 1050px) {
-    .inner_main {
-            max-width: 1200px;
-            width: 90%;
-    }
-
-}
-
-@media screen and (min-width: 1184px) {
-    .inner_main {
-            max-width: 1200px;
-            width: 90%;
-        }
-
-    .results_card::after {
-            width: 33.33%;
+    /* カード落ち 補完 */
+        .inner_related-area::after {
+        width: 33.3%;
     }
 }
 

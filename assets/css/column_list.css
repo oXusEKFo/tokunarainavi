@@ -7,7 +7,7 @@ main{
 }
 
 .inner_main{
-    max-width: 1440px;
+    max-width: 1200px;
     width: 100%;
     margin: 0 auto;
 }
@@ -28,7 +28,9 @@ main{
 
 /* コラム エリア */
 .column_area {
+    max-width: 1200px;
     width: 100%;
+    margin: 0 auto;
     /* display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -133,13 +135,6 @@ main{
     text-align: left;
 }
 
-/* カード不足箇所 補完 */
-.column_card::after {
-    content: "";
-    display: block;
-    width: 50%;
-}
-
 /* ページ数 容器 */
 .container_pageNum {
     width: 390px;
@@ -177,7 +172,7 @@ main{
 
 @media screen and (min-width: 1170px) {
 .inner_column-area {
-    max-width: 1440px;
+    max-width: 1200px;
     width: 100%;
 }
 
