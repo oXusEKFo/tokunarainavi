@@ -25,7 +25,7 @@ jQuery(function ($) {
                 }
                 },
                 {
-                breakpoint: 1050,   // 横幅がこのpx未満に適用
+                breakpoint: 1170,   // 横幅がこのpx未満に適用
                 settings: {
                 slidesToShow: 2,    // スライド数
                 centerMode: false,   // 中央揃え
