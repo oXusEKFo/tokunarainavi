@@ -164,25 +164,30 @@
     }
 
     .results_card {
-        max-width: 1200px;
+        max-width: 1040px;
         width: 100%;
     }
 
 }
 
 @media screen and (min-width: 1050px) {
-    .inner_main {
+    /* .inner_main {
             max-width: 1200px;
             width: 90%;
-    }
+    } */
 
 }
 
-@media screen and (min-width: 1184px) {
-    .inner_main {
-            max-width: 1200px;
+@media screen and (min-width: 1170px) {
+    /* .inner_main {
+            max-width: 1440px;
             width: 90%;
-        }
+        } */
+
+    .results_card {
+        max-width: 1440px;
+        width: 100%;
+    }
 
     .results_card::after {
             width: 33.33%;
