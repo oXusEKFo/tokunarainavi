@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- リセットCSS -->
+    <link href="../../assets/css/destyle.css" rel="stylesheet" />
+    <!-- 共通CSS -->
+    <link href="../../assets/css/common.css" rel="stylesheet" />
+    <!-- コラム一覧CSS -->
+    <link href="../../assets/css/column_list.css" rel="stylesheet" />
+    <!-- GoogleFonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>コラム一覧</title>
+</head>
+
+<body>
+<main>
+    <!--  -->
+<div class="inner_main">
+    <section class="container_breadCrumb">
+            <div class="breadCrumb">
+                <p>TOP &gt;
+                    <span class="underLine">コラム一覧</span>
+                </p>
+            </div>
+    </section>
+
+        <!-- コラム一覧カード -->
+    <section class="column_area">
+        <div class="column_title">
+            <h1>COLUMN</h1>
+            <p>コラム</p>
+        </div>
+
+            <div class="inner_column-area">
+                <div class="wrap_column-card">
+                    <div class="inner_column-card">
+                        <div class="container_card-img">
+                            <img class="card_img" src="../../assets/images/pcchild.jpg" alt="施設写真" />
+                        </div>
+                        <div class="container_cardInfo">
+                            <div class="card_title">
+                                <h2>PROGRAMMING SCHOOL GEEK</h2>
+                            </div>
+                            <div class="card_note">
+                                <p>みんな パソコン教室に行ったことある？この間 ぼくは初めてパソコン教室に行ったよ！まずは タイピング練習！先生がわかりやすく教えてくれるから すぐできるようになったんだ。それから、プログラミングで自分だけのゲームを作る体験もできたよ。自分のゲームが動いた瞬間は、思わず「やったー！」って声が出た！すごく楽しい一日だったよ。みんなも体験してみて！</p>
+                            </div>
+                            <div class="wrap_card-date">
+                                <div class="card_edit-icon">
+                                    <img src="../../assets/images/pencil.png" alt="編集アイコン">
+                                </div>
+                                <div class="card_date">
+                                    2024年&#9679;月&#9679;日
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                        <script>
+                // コラムカード 繰り返し表示
+                for (let i = 0; i < 4; i++) {
+                    const card = document.querySelector('.wrap_column-card');
+                    const clone = card.cloneNode(true);
+                    document.querySelector('.inner_column-area').appendChild(clone);
+                }
+                        </script>
+            </div>
+    </section>
+        <!-- コラムカードここまで -->
+
+    <section class="footer_column">
+            <div class="container_pageNum">
+                <div class="column_pageNum">
+                    <p>
+                        &lt　1　2　3　&gt
+                    </p>
+                </div>
+            </div>
+    </section>
+</div>
+</main>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+    </script>
+</body>
+</html>

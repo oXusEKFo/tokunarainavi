@@ -1,0 +1,190 @@
+@charset "UTF-8";
+
+/*** ここから コラム一覧共通部分 ***/
+main{
+    background-image: none;
+    background-color: #FFF;
+}
+
+.inner_main{
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.container_breadCrumb{
+    width: 100%;
+    padding-top: 15px;
+}
+
+/* 下線 */
+.underLine {
+    border-bottom: solid 1px #463D3B;
+}
+
+/*** コラム一覧共通部分 ここまで ***/
+
+/*** ここから コラム一覧部分 ***/
+
+/* コラム エリア */
+.column_area {
+    width: 100%;
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start; */
+}
+
+/* コラム ページタイトル */
+.column_title {
+    color: #00B0AA;
+    text-align: center;
+    width: 330px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* コラム ページタイトル */
+.column_title>h1 {
+    font-size: 7.0rem;
+    width: 100%;
+}
+
+/* コラム ページタイトル 添字 */
+.column_title>p {
+    font-size: 1.6rem;
+    position: absolute;
+    right: 13px;
+    bottom: -5px;
+}
+
+/* カードエリアの囲い */
+.inner_column-area {
+    width: 390px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+}
+
+/* カードの囲い */
+.wrap_column-card{
+    width: 350px;
+    background-color: transparent;
+    margin: 15px auto;
+    border-bottom: solid 1px #00B0AA;
+}
+
+/* カード幅 */
+.inner_column-card {
+    width: 350px;
+    height: auto;
+}
+
+/* 施設写真幅 */
+.container_card-img {
+    width: 350px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* 説明エリア */
+.container_cardInfo {
+    text-align: center;
+}
+
+/* カードタイトル */
+.card_title>h2 {
+    width:100%;
+    font-size: 2.7rem;
+    line-height: 39px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* 説明文 */
+.card_note>p {
+    height: 150px;
+    font-size: 1.7rem;
+    line-height: 24.6px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 編集日エリア */
+.wrap_card-date {
+    display: flex;
+    align-items: center;
+}
+
+/* 編集日アイコン */
+.card_edit-icon>img {
+    width: 30px;
+    height: 30px;
+}
+
+/* 編集日 */
+.card_date {
+    font-size: 1.7rem;
+    line-height: 24.6px;
+    text-align: left;
+}
+
+/* カード不足箇所 補完 */
+.column_card::after {
+    content: "";
+    display: block;
+    width: 50%;
+}
+
+/* ページ数 容器 */
+.container_pageNum {
+    width: 390px;
+    height: 130px;
+    margin: 0 auto;
+}
+
+/* ページ数 */
+.column_pageNum {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #463D3B;
+    padding-top: 7.5px;
+    text-align: center;
+}
+
+/*** 検索結果一覧部分 ここまで ***/
+
+/*** メディアクエリここから ***/
+
+@media screen and (min-width: 780px) {
+
+.inner_column-area {
+    max-width: 1040px;
+    width: 100%;
+}
+
+/* カード落ち 補完 */
+.inner_column-area::after {
+    content: "";
+    display: block;
+    width: 50%;
+}
+}
+
+@media screen and (min-width: 1170px) {
+.inner_column-area {
+    max-width: 1440px;
+    width: 100%;
+}
+
+/* カード落ち 補完 */
+.inner_column-area::after {
+    width: 33.3%;
+}
+}
+
+/*** メディアクエリここまで ***/
