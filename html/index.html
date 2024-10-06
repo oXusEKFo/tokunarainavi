@@ -19,24 +19,33 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&amp;family=Zen+Maru+Gothic:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet">
+        <!-- FontAwesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <title>とくしま習いごとナビ TOPページ</title>
 </head>
+
 <body>
-    <header class="site_header">
-        <div class="site_header_container site_header_logo_center">
-        <a href="#"><img src="../assets/images/karilogo.png" alt="logo" class="site_header_logo"></a>
-        </div>
+
+    <header>
+        <div class="inner__header">
+            <div class="logo__header">
+                <a href="index.html">
+                    <img src="../assets/images/karilogo.png" alt="とくしま習いごとナビ">
+                </a>
+            </div>
+            <!-- ハンバーガーメニュー -->
         <!-- ハンバーガーメニューアイコン -->
         <div class="site_header_menu_icon" id="menuIcon" onclick="toggleMenu()">&#9776;</div>
         <!-- ハンバーガーメニュー -->
         <nav class="site_nav" id="menu">
             <ul class="site_nav_list">
-                <li class="site_nav_item"><a href="#">条件検索</a></li>
-                <li class="site_nav_item"><a href="#info">徳島の習い事事情</a></li>
-                <li class="site_nav_item"><a href="#column">コラム</a></li>
-                <li class="site_nav_item"><a href="#news">新着情報</a></li>
+                <li class="site_nav_item"><a href="">条件検索</a></li>
+                <li class="site_nav_item"><a href="">アクセスランキング</a></li>
+                <li class="site_nav_item"><a href="">コラム</a></li>
+                <li class="site_nav_item"><a href="">新着情報</a></li>
                 <li class="site_nav_item"><a href="#favorites">お気に入りリスト</a></li>
-                <li class="site_nav_item"><a href="#contact">お問い合わせ</a></li>
+                <li class="site_nav_item"><a href="">お問い合わせ</a></li>
             </ul>
             <!-- SNSアイコンの配置 -->
             <div class="site_nav_social_links">
@@ -44,334 +53,307 @@
                     <img src="../assets/images/insta.png" alt="Instagram">
                 </a>
                 <a href="https://www.twitter.com" target="_blank">
-                <img src="../assets/images/X.png" alt="Twitter">
+                    <img src="../assets/images/X.png" alt="Twitter">
                 </a>
-            </div>
-            <!-- キャラクター画像の../assets/images/配置 -->
-            <div class="site_nav_character">
-            <img src="../assets/images/rabbit.png" alt="うさぎキャラクター">
             </div>
         </nav>
     </header>
-<main>
-    <h1>つなぐ、ひろがる。まなびの輪</h1>
 
-    <div class="inner_concept">
-        <div class="text_content">
-            <h2>とくしま習いごとナビは、徳島の子ども向け習いごと情報を一括検索できるサイトです。学びの輪を広げ、未来へつなげるお手伝いをします。子どもたちとその保護者に向けて、多様な学びの場や体験型の習いごとを紹介します。</h2>
-        </div>
-        <div class="image_content">
-            <img src="../assets/images/concept.jpg" alt="コンセプト" class="combined_image">
-        </div>
-    </div>
-    <div class="white_space"></div> <!-- 白背景の余白スペース -->
-<section class="search_wrap">
-    <div class="search_container">
-        <div class="search_header">
-            <h2 class="highlight">SEARCH</h2>
-            <h3>検索</h3>
-        </div>
-        <div class="search_options">
-            <button class="search_option">エリアを選ぶ</button>
-            <button class="search_option">年齢を選ぶ</button>
-            <button class="search_option">ジャンルを選ぶ</button>
-            <button class="search_detail">詳細検索ページへ</button>
-        </div>
-        <div class="search_bar">
-            <input type="text" placeholder="キーワードを入力してください" value="">
-            <button class="search_button" tabindex="0" accesskey="s">🔍</button>
-        </div>
-    </div>
-</section>
-<section class="ranking_container">
-    <!-- タイトルの配置 -->
-    <h2 class="ranking_title">RANKING</h2>
-
-    <!-- ランキングリスト -->
-    <div class="ranking_list">
-        <ul>
-            <li>
-                <div class="crown_container">
-                    <div class="crown">
-                        <span class="number">1</span>
+    <main>
+        <div class="inner__main">
+            <section class="landing">
+                <div class="inner__landing">
+                    <div class="wrap__kv">
+                        <div class="container__kv-Mo">
+                            <img src="../assets/images/kv_m.png" alt="kv_mobile">
+                        </div>
+                        <div class="container__kv-Pc">
+                            <img src="../assets/images/kv_p.png" alt="kv_mobile">
+                        </div>
+                    </div>
+                    <div class="about">
+                        <div class="container__about">
+                            <div class="note__about">
+                                <p>とくしま習いごとナビは、徳島の子ども向け習いごと情報を一括検索できるサイトです。</p>
+                                <p>学びの輪を広げ、未来へつなげるお手伝いをします。</p>
+                                <p>子どもたちとその保護者に向けて、多様な学びの場や体験型の習いごとを紹介します。</p>
+                            </div>
+                            <div class="image__about">
+                                <img src="../assets/images/concept.jpg" alt="about">
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <a href="swimming.html">水泳<span class="arrow">&gt;</span></a>
-            </li>
-            <li>
-                <div class="crown_container">
-                    <div class="crown">
-                        <span class="number">2</span>
+            </section>
+            <div class="clearance"></div>
+            <section class="search">
+                <div class="container__search">
+                    <div class="title__search">
+                        <h1>SERACH</h1>
+                        <p>検索</p>
+                        <img src="../assets/images/greencircle.png" alt="みどり円">
+                    </div>
+                    <div class="options__search">
+                        <ul>
+                            <li class="option__search">エリアを選ぶ</li>
+                            <li class="option__search">年齢を選ぶ</li>
+                            <li class="option__search">ジャンルを選ぶ</li>
+                            <li class="detail__search">詳細検索ページへ</li>
+                        </ul>
+                        <div class="box__search">
+                            <div class="inner__search-box">
+                                <input type="search" placeholder="キーワードを入力してください" value="">
+                                <button>
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <a href="piano.html">ピアノ<span class="arrow">&gt;</span></a>
-            </li>
-            <li>
-                <div class="crown_container">
-                    <div class="crown">
-                        <span class="number">3</span>
+            </section>
+            <div class="clearance"></div>
+            <section class="ranking">
+                <div class="inner__ranking">
+                    <div class="title__ranking">
+                        <h1>RANKING</h1>
+                        <p>アクセスランキング</p>
+                        <img src="../assets/images/creamcircle.png" alt="クリーム円">
+                    </div>
+                    <div class="order__ranking">
+                        <ul>
+                            <li class="order">水泳</li>
+                            <li class="order">ピアノ</li>
+                            <li class="order">ダンス</li>
+                            <li class="order">書道・硬筆</li>
+                            <li class="order">サッカー</li>
+                        </ul>
                     </div>
                 </div>
-                <a href="dance.html">ダンス<span class="arrow">&gt;</span></a>
-            </li>
-            <li>
-                <div class="crown_container">
-                    <div class="crown">
-                        <span class="number">4</span>
+            </section>
+            <div class="clearance"></div>
+            <section class="survey-results">
+                <div class="inner__survey">
+                    <div class="banner__survey">
+                        とくしまの習いごとアンケート
                     </div>
                 </div>
-                <a href="calligraphy.html">書道・硬筆<span class="arrow">&gt;</span></a>
-            </li>
-            <li>
-                <div class="crown_container">
-                    <div class="crown">
-                        <span class="number">5</span>
-                    </div>
-                </div>
-                <a href="soccer.html">サッカー<span class="arrow">&gt;</span></a>
-            </li>
-        </ul>
-    </div>
-
-    <!-- リンク -->
-    <a href="#" class="more_link">徳島の習い事ランキングはこちら</a>
-
-    <!-- もっと見るボタン -->
-    <a href="#" class="circle_button">ランキングをもっと見る</a>
-    <!-- 背景の星 -->
-    <div class="stars">
-        <span class="star">★</span>
-        <span class="star2">★</span>
-    </div>
-</section>
-
-<section class="wrap_top-column">
-    <div class= "container_top-column">
-        <div class="top-column_title">
+            </section>
+<section class="column">
+    <div class="inner__column">
+        <div class="title__column">
             <h1>COLUMN</h1>
             <p>コラム</p>
         </div>
         <!-- スライダー ここから -->
-        <div class="container_slide">
-            <div class="slider_auto">
-        <section class="column_card">
-            <div class="wrap_card">
-                <div class="inner_card">
-                    <div class="container_cardImg">
-                        <img class="card_img" src="../assets/images/pcchild.jpg" alt="施設写真" />
-                    </div>
-                    <div class="container_cardInfo">
-                        <div class="card_title">
-                            <h2>プログラミングスクール体験</h2>
-                        </div>
-                        <div class="card_note">
-                            <p>１枚目<br>
+        <div class="slider">
+            <div class="auto-slider">
+                <div class="inner__slider">
+                    <div class="wrap__card">
+                        <div class="container__card">
+                            <div class="container__img">
+                                <img class="img__card" src="../assets/images/pcchild.jpg" alt="施設写真" />
+                            </div>
+                            <div class="container__info">
+                                <div class="title__info">
+                                    <h2>プログラミングスクール体験</h2>
+                                </div>
+                                <div class="note__column">
+                                    <p>１枚目<br>
                                     ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
-                        </div>
-                        <div class="wrap_card-date">
-                            <div class="card_editIcon">
-                                <img src="../assets/images/pencil.png" alt="編集アイコン">
-                            </div>
-                            <div class="card_date">
-                                2024年&#9679;月&#9679;日
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="column_card">
-            <div class="wrap_card">
-                <div class="inner_card">
-                    <div class="container_cardImg">
-                        <img class="card_img" src="../assets/images/9.jpg" alt="施設写真" />
-                    </div>
-                    <div class="container_cardInfo">
-                        <div class="card_title">
-                            <h2>みんなで楽しく踊ろう！</h2>
-                        </div>
-                        <div class="card_note">
-                            <p>2枚目</p>
-                        </div>
-                        <div class="wrap_card-date">
-                            <div class="card_editIcon">
-                                <img src="../assets/images/pencil.png" alt="編集アイコン">
-                            </div>
-                            <div class="card_date">
-                                2024年&#9679;月&#9679;日
+                                </div>
+                                <div class="container__date">
+                                    <div class="icon__edit">
+                                        <img src="../assets/images/pencil.png" alt="編集アイコン">
+                                    </div>
+                                    <div class="date__edit">
+                                        2024年&#9679;月&#9679;日
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section class="column_card">
-            <div class="wrap_card">
-                <div class="inner_card">
-                    <div class="container_cardImg">
-                        <img class="card_img" src="../assets/images/15.jpg" alt="施設写真">
-                    </div>
-                    <div class="container_cardInfo">
-                        <div class="card_title">
-                            <h2>この色かわいくない？</h2>
-                        </div>
-                        <div class="card_note">
-                            <p>3枚目</p>
-                        </div>
-                        <div class="wrap_card-date">
-                            <div class="card_editIcon">
-                                <img src="../assets/images/pencil.png" alt="編集アイコン">
+                <div class="inner__slider">
+                    <div class="wrap__card">
+                        <div class="container__card">
+                            <div class="container__img">
+                                <img class="img__card" src="../assets/images/pcchild.jpg" alt="施設写真" />
                             </div>
-                            <div class="card_date">
-                                2024年&#9679;月&#9679;日
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="column_card">
-            <div class="wrap_card">
-                <div class="inner_card">
-                    <div class="container_cardImg">
-                        <img class="card_img" src="../assets/images/12.jpg" alt="施設写真" />
-                    </div>
-                    <div class="container_cardInfo">
-                        <div class="card_title">
-                            <h2>全国大会に向けて頑張っています！</h2>
-                        </div>
-                        <div class="card_note">
-                            <p>4枚目</p>
-                        </div>
-                        <div class="wrap_card-date">
-                            <div class="card_editIcon">
-                                <img src="../assets/images/pencil.png" alt="編集アイコン">
-                            </div>
-                            <div class="card_date">
-                                2024年&#9679;月&#9679;日
+                            <div class="container__info">
+                                <div class="title__info">
+                                    <h2>プログラミングスクール体験</h2>
+                                </div>
+                                <div class="note__column">
+                                    <p>2枚目<br>
+                                    ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+                                </div>
+                                <div class="container__date">
+                                    <div class="icon__edit">
+                                        <img src="../assets/images/pencil.png" alt="編集アイコン">
+                                    </div>
+                                    <div class="date__edit">
+                                        2024年&#9679;月&#9679;日
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section class="column_card">
-            <div class="wrap_card">
-                <div class="inner_card">
-                    <div class="container_cardImg">
-                        <img class="card_img" src="../assets/images/16.jpg" alt="施設写真" />
-                    </div>
-                    <div class="container_cardInfo">
-                        <div class="card_title">
-                            <h2>お話するって楽しいね&#33;</h2>
-                        </div>
-                        <div class="card_note">
-                            <p>5枚目</p>
-                        </div>
-                        <div class="wrap_card-date">
-                            <div class="card_editIcon">
-                                <img src="../assets/images/pencil.png" alt="編集アイコン">
+                <div class="inner__slider">
+                    <div class="wrap__card">
+                        <div class="container__card">
+                            <div class="container__img">
+                                <img class="img__card" src="../assets/images/pcchild.jpg" alt="施設写真" />
                             </div>
-                            <div class="card_date">
-                                2024年&#9679;月&#9679;日
+                            <div class="container__info">
+                                <div class="title__info">
+                                    <h2>プログラミングスクール体験</h2>
+                                </div>
+                                <div class="note__column">
+                                    <p>3枚目<br>
+                                    ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+                                </div>
+                                <div class="container__date">
+                                    <div class="icon__edit">
+                                        <img src="../assets/images/pencil.png" alt="編集アイコン">
+                                    </div>
+                                    <div class="date__edit">
+                                        2024年&#9679;月&#9679;日
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+                <div class="inner__slider">
+                    <div class="wrap__card">
+                        <div class="container__card">
+                            <div class="container__img">
+                                <img class="img__card" src="../assets/images/pcchild.jpg" alt="施設写真" />
+                            </div>
+                            <div class="container__info">
+                                <div class="title__info">
+                                    <h2>プログラミングスクール体験</h2>
+                                </div>
+                                <div class="note__column">
+                                    <p>4枚目<br>
+                                    ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+                                </div>
+                                <div class="container__date">
+                                    <div class="icon__edit">
+                                        <img src="../assets/images/pencil.png" alt="編集アイコン">
+                                    </div>
+                                    <div class="date__edit">
+                                        2024年&#9679;月&#9679;日
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="inner__slider">
+                    <div class="wrap__card">
+                        <div class="container__card">
+                            <div class="container__img">
+                                <img class="img__card" src="../assets/images/pcchild.jpg" alt="施設写真" />
+                            </div>
+                            <div class="container__info">
+                                <div class="title__info">
+                                    <h2>プログラミングスクール体験</h2>
+                                </div>
+                                <div class="note__column">
+                                    <p>5枚目<br>
+                                    ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+                                </div>
+                                <div class="container__date">
+                                    <div class="icon__edit">
+                                        <img src="../assets/images/pencil.png" alt="編集アイコン">
+                                    </div>
+                                    <div class="date__edit">
+                                        2024年&#9679;月&#9679;日
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- スライダー ここまで -->
     </div>
 </section>
-
-<section class="NEWS">
-    <div class="circle">
-        <img src="../assets/images/creamcircle.png" alt="クリーム色の円">
-        <h2 class="title">NEWS</h2>
+    <div class="clearance"></div>
+<section class="news">
+    <div class="title__news">
+        <h1>NEWS</h1>
+        <p>新着情報</p>
+        <img src="../assets/images/creamcircle.png" alt="クリーム円">
     </div>
-    <h3 class="subtitle">新着情報</h3>
-
-    <!-- ここからニュース記事 -->
-    <div class="inner">
-        <ul class="news_list">
-            <li class="news_list_item">
-                <a href="">
-                    <div class="news_list_date">
-                        <h3 class="news_title">イベント情報</h3>
-                        <time>2024.10.1</time>
-                    </div>
-                    <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
-                </a>
-            </li>
-            <li class="news_list_item">
-                <a href="">
-                    <div class="news_list_date">
-                        <h3 class="news_item">イベント情報</h3>
-                        <time>2024.10.1</time>
-                    </div>
-                    <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
-                </a>
-            </li>
-            <li class="news_list_item">
-                <a href="">
-                    <div class="news_list_date">
-                        <h3 class="news_item">イベント情報</h3>
-                        <time>2024.10.1</time>
-                    </div>
-                    <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
-                </a>
-            </li>
-        </ul>
+    <div class="wrap__news">
+        <div class="container__news">
+            <div class="items__news">
+                <ul>
+                    <li class="item__news">
+                        <div class="tag__news">
+                            <h3>イベント情報</h3>
+                            <p>2024.10.1</p>
+                        </div>
+                        <div class="note__news">
+                            <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+                            </p>
+                        </div>
+                    </li>
+                    <li class="item__news">
+                        <div class="tag__news">
+                            <h3>イベント情報</h3>
+                            <p>2024.10.1</p>
+                        </div>
+                        <div class="note__news">
+                            <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+                            </p>
+                        </div>
+                    </li>
+                    <li class="item__news">
+                        <div class="tag__news">
+                            <h3>イベント情報</h3>
+                            <p>2024.10.1</p>
+                        </div>
+                        <div class="note__news">
+                            <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </section>
-<div class="box">
-    <img src="../assets/images/star.png" class="big_star" alt="大きな星" >
-    <img src="../assets/images/star.png" class="mini_star" alt="小さな星" >
-    <a href="./news_list.html" class="button">新着情報を<br>もっと見る</a>
-</div>
-
-
-
-
-
+    <div class="clearance"></div>
+    </div>
     </main>
-        <footer class="footer">
-            <div class="footer_container">
-                <div class="footer_left">
-                    <!-- 画像をクリックして上部に戻るリンク -->
-                    <a href="#" class="back_to_top">
-                        <img src="../assets/images/rabbit.png" alt="rabbit logo" class="footer_img">
-                    </a>
-                </div>
-                <div class="footer_right">
-                    <ul class="footer_links footer_links_center">
-                        <li><a href="#">条件検索</a></li>
-                        <li><a href="#">徳島の習い事ランキング</a></li>
-                        <li><a href="#">コラム</a></li>
-                        <li><a href="#">新着情報</a></li>
-                        <li><a href="#">お気に入りリスト</a></li>
-                        <li><a href="#">お問い合わせ</a></li>
-                    </ul>
-                    <ul class="footer_links">
-                        <li><a href="#">このサイトについて</a></li>
-                        <li><a href="#">利用規約</a></li>
-                        <li><a href="#">プライバシーポリシー・免責事項</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer_copyright">
-                <small>Copyright &copy;とくしま習いごとナビ All Rights Reserved.</small>
 
+    <footer>
+        <div class="inner__footer">
+            <div class="container__sitemap">
+                <ul class="wrap__pages">
+                    <li>条件検索</li>
+                    <li>徳島の習いごと調査</li>
+                    <li>コラム</li>
+                    <li>新着情報</li>
+                    <li>お気に入りリスト</li>
+                    <li>お問い合わせ</li>
+                </ul>
+                <ul class="wrap__rules">
+                    <li>このサイトについて</li>
+                    <li>利用規約</li>
+                    <li>プライバシーポリシー・免責事項</li>
+                </ul>
             </div>
+            <div class="copy-rights">
+                <p>&copy;2024&nbsp;QLIP&nbsp;とくしま習いごとナビ&#44;&nbsp;All&nbsp;rights&nbsp;reserved</p>
+            </div>
+        </div>
     </footer>
-    <!-- footer -->
-
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous"></script>
     <!-- slick.js スライダー用-->

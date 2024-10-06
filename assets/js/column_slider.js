@@ -3,7 +3,7 @@
 jQuery(function ($) {
     $(function () {
         // メイン画像のオプション
-        $(".slider_auto").slick({
+        $(".auto-slider").slick({
             slidesToShow: 1,    // 表示するスライド数
             slidesToScroll: 1,  // スクロールするスライド数
             centerMode: true,   // 中央揃え
