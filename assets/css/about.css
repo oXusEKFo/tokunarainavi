@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-.inner_main{
+.inner__main{
     max-width: 1100px;
     width: 100%;
     margin: 0 auto;
@@ -8,7 +8,7 @@
 
 /*** ここから パンくずリスト ***/
 
-.container_bread-crumb{
+.container__bread-crumb{
     padding-top: 15px;
     margin-left: 20px;
 }
@@ -28,12 +28,12 @@
 
 /*** ここから 本文 ***/
 
-.wrap_about{
+.wrap__about{
     width: 90%;
     margin: 0 auto;
 }
 
-.title_about{
+.title__about{
     background-color: #ED6D1F ;
     color: #FFF;
     font-size: 2.0rem;
@@ -44,23 +44,24 @@
     line-height: 50px;
 }
 
-.wrap_description{
+.wrap__description{
     background-color: #FFF;
     width: 100%;
-    height: 3100px;
+    height: auto;
+    padding: 20px 0 0;
     margin: 0 auto;
 }
 
-.description_about,
-.description_howto,
-.description_for-class {
+.description__about,
+.description__howto,
+.description__for-class {
     width: 85%;
     margin: 0 auto;
 }
 
-.description_about>h2,
-.description_howto>h2,
-.description_for-class>h2 {
+.description__about>h2,
+.description__howto>h2,
+.description__for-class>h2 {
     background-color: #F5F5F5;
     font-size: 1.6rem;
     line-height: 50px;
@@ -70,9 +71,9 @@
     text-align: center;
 }
 
-.note_about,
-.note_howto,
-.note_for-class {
+.note__about,
+.note__howto,
+.note__for-class {
     background-color: #FFF;
     font-size: 1.2rem;
     line-height: 20px;
@@ -84,15 +85,15 @@
 
 @media screen and (min-width: 768px) {
 
-.description_about>h2,
-.description_howto>h2,
-.description_for-class>h2 {
+.description__about>h2,
+.description__howto>h2,
+.description__for-class>h2 {
     font-size: 2.4rem;
 }
 
-.note_about,
-.note_howto,
-.note_for-class {
+.note__about,
+.note__howto,
+.note__for-class {
 
     font-size: 1.8rem;
     line-height: 26px;
