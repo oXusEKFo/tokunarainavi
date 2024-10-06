@@ -2,11 +2,12 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- リセットCSS -->
-    <link href="../../assets/css/destyle.css" rel="stylesheet" >
+    <link href="../../assets/css/destyle.css" rel="stylesheet">
     <!-- 共通CSS -->
-    <link href="../../assets/css/common.css" rel="stylesheet" >
+    <link href="../../assets/css/common.css" rel="stylesheet">
+
     <!-- NEWS一覧CSS -->
     <link href="../../assets/css/news/news_list.css" rel="stylesheet">
     <!-- GoogleFonts -->
@@ -17,28 +18,31 @@
 </head>
 
 
-<body>
-    <section class="NEWS">
-        <section class="container_breadCrumb">
-            <div class="breadCrumb">
-                <p>TOP &gt;
-                    <span class="underLine"></span>
-                </p>
-            </div>
-        </section>
-        <div class="circle">
-            <img src="../../assets/images/creamcircle.png" alt="">
-            <h1 class="title">NEWS</h1>
-        </div>
-            <h2 class="subtitle">新着情報</h2>
 
-        <!-- ここからニュース記事 -->
-        <div class="inner">
-            <ul class="news_list">
-                <li class="news_list_item">
-                    <a href="">
-                        <div class="news_list_date">
-                            <h3 class="news_title">イベント情報</h3>
+<body>
+    <main>
+        <div class="news">
+            <div class="inner_main">
+                <div class="container_breadCrumb">
+                    <div class="breadCrumb">
+                        <p>TOP &gt;
+                            <span class="underLine"></span>
+                        </p>
+                    </div>
+                </div>
+                <section class="news_area">
+                    <div class="title_area">
+                        <img src="../../assets/images/creamcircle.png" alt="丸のイラスト" width="200" height="200">
+                        <h1 class="title">NEWS</h1>
+                        <h2 class="subtitle">新着情報</h2>
+                    </div>
+                    <!-- ここからニュース記事 -->
+                    <div class="news_info">
+                <ul class="news_list">
+                    <li class="news_list_item">
+                        <a href="">
+                            <div class="news_list_date">
+                                <h3 class="news_title">イベント情報</h3>
                             <time>2024.10.1</time>
                         </div>
                         <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
@@ -79,10 +83,58 @@
                         </div>
                         <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
                     </a>
+
+
                 </li>
+                <p class="page">&lt 1 2 3 &gt</p>
             </ul>
         </div>
-    </section>
+        </section>
+    </div>
+</div>
+</div>
+</main>
 
+<footer class="footer">
+    <div class="footer_container">
+        <div class="footer_left">
+            <!-- 画像をクリックして上部に戻るリンク -->
+            <a href="#" class="back_to_top">
+                <img src="../assets/images/rabbit.png" alt="rabbit logo" class="footer_img">
+            </a>
+        </div>
+        <div class="footer_right">
+            <ul class="footer_links footer_links_center">
+                <li><a href="#">条件検索</a></li>
+                <li><a href="#">徳島の習い事ランキング</a></li>
+                <li><a href="#">コラム</a></li>
+                <li><a href="#">新着情報</a></li>
+                <li><a href="#">お気に入りリスト</a></li>
+                <li><a href="#">お問い合わせ</a></li>
+            </ul>
+            <ul class="footer_links">
+                <li><a href="#">このサイトについて</a></li>
+                <li><a href="#">利用規約</a></li>
+                <li><a href="#">プライバシーポリシー・免責事項</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer_copyright">
+        <small>Copyright &copy;とくしま習いごとナビ All Rights Reserved.</small>
+
+    </div>
+</footer>
+<!-- footer -->
+
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous"></script>
+<!-- slick.js スライダー用-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous"></script>
+<!-- column_slider.js -->
+<script src="../assets/js/column_slider.js"></script>
+<!-- common.js -->
+<script src="../assets/js/common.js"></script>
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
 </body>
 </html>
