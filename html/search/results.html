@@ -17,111 +17,118 @@
 </head>
 
 <body>
-<main>
-    <!--  -->
-<div class="inner_main">
-    <section class="container_breadCrumb">
-            <div class="breadCrumb">
-                <h3>TOP &gt; <span class="underLine">検索結果</span>
-                </h3>
-            </div>
-    </section>
-    <section class="Outline_results">
-        <div class="results_title">
-            <h1>検索結果&nbsp;15件(1-5件表示)</h1>
-        </div>
-        <div class="moreSearch_btn">
-            <a href="">さらに絞り込む</a>
-        </div>
-            <ul class="container_keywords">
-                <li class="keyword">
-                    <a href="">
-                        徳島市中心部
-                    </a>
-                </li>
-                <li class="keyword">
-                    <a href="">
-                        プログラミング
-                    </a>
-                </li>
-                <li class="keyword">
-                    <a href="">
-                        小学生
-                    </a>
-                </li>
-                <li class="keyword">
-                    <a href="">
-                        夕方
-                    </a>
-                </li>
-            </ul>
-    </section>
-
-        <!-- 検索結果一覧カード -->
-    <section class="results_card">
-            <div class="wrap_card">
-                <div class="inner_card">
-                    <div class="container_cardImg">
-                        <img class="card_img" src="../../assets/images/pcchild.jpg" alt="施設写真" />
-                        <img class="tag_favorite" src="../../assets/images/add_favorite.png" alt="お気に入りリストに追加" />
-
-                    </div>
-                    <div class="container_cardInfo">
-                        <div class="card_title">
-                            <h2>QLIPプログラミングスクール</h2>
-                        </div>
-                        <div class="card_address">
-                            <img src="../../assets/images/map.png" alt="Mapマーク">
-                            <p>徳島市寺島本町東3丁目12-8</p>
-                        </div>
-                        <ul class="container_keywords">
-                            <li class="keyword">
-                                <a href="">
-                                    徳島市中心部
-                                </a>
-                            </li>
-                            <li class="keyword">
-                                <a href="">
-                                    プログラミング
-                                </a>
-                            </li>
-                            <li class="keyword">
-                                <a href="">
-                                    小学生
-                                </a>
-                            </li>
-                            <li class="keyword">
-                                <a href="">
-                                    夕方
-                                </a>
-                            </li>
-                        </ul>
+    <main>
+        <div class="results">
+            <div class="inner_main">
+                <div class="container_breadcrumb">
+                    <div class="breadcrumb">
+                        <p>TOP &gt; <span class="underline">検索結果</span>
+                    </p>
                     </div>
                 </div>
-            </div>
+                <section class="search_results">
+                    <div class="search_filters">
+                        <div class="filter_row">
+                            <span class="filter_label">エリア</span>
+                            <span class="filter_value">徳島市中心部</span>
+                            <button class="change_btn">変更</button>
+                        </div>
+                        <div class="filter_row">
+                            <span class="filter_label">年齢</span>
+                            <span class="filter_value">小学生（8-9歳）</span>
+                            <button class="change_btn">変更</button>
+                        </div>
+                        <div class="filter_row">
+                            <span class="filter_label">ジャンル</span>
+                            <span class="filter_value">プログラミング</span>
+                            <button class="change_btn">変更</button>
+                        </div>
+                        <div class="filter_row">
+                            <span class="filter_label">曜日・時間帯</span>
+                            <span class="filter_value">水曜、夕方</span>
+                            <button class="change_btn">変更</button>
+                        </div>
+                        <div class="filter_row">
+                            <span class="filter_label">こだわり条件</span>
+                            <span class="filter_value">指定なし</span>
+                            <button class="change_btn">変更</button>
+                        </div>
+                        <div class="filter_row">
+                            <span class="filter_label">子供の性格</span>
+                            <span class="filter_value">指定なし</span>
+                            <button class="change_btn">変更</button>
+                        </div>
+                        <div class="filter_row">
+                            <span class="filter_label">UPさせたいスキル</span>
+                            <span class="filter_value">指定なし</span>
+                            <button class="change_btn">変更</button>
+                        </div>
+                    </div>
 
-        <script>
-            // 結果一覧カード 繰り返し表示
-            for (let i = 0; i < 4; i++) {
-                const card = document.querySelector('.wrap_card');
-                const clone = card.cloneNode(true);
-                document.querySelector('.results_card').appendChild(clone);
-            }
-        </script>
-    </section>
-        <!-- 検索結果一覧カードここまで -->
+                    <h1 class="results_count">検索結果：15件（1-5件表示）</h1>
+                </section>
 
-    <section class="footer_results">
-            <div class="containerpageNum">
-                <div class="results_pageNum">
-                    <h3>
+                <!-- 検索結果一覧カード -->
+                <div class="results_card">
+                    <div class="wrap_card">
+                        <div class="inner_card">
+                            <div class="container_cardimg">
+                                <img class="card_img" src="../../assets/images/pcchild.jpg" alt="施設写真" />
+                                <a href="">
+                                    <img class="tag_favorite" src="../../assets/images/add_favorite.png" alt="お気に入りリストに追加" />
+                                </a>
+                            </div>
+
+
+                            <div class="container_cardinfo">
+                                <div class="card_title">
+                                    <h2>QLIPプログラミングスクール</h2>
+                                </div>
+                                <div class="card_details">
+                                    <div class="card_detail">
+                                        <span class="detail_label">住所</span>
+                                        <span class="detail_value">徳島市寺島本町東3丁目12-8 ※住所が長い場合は後半削除</span>
+                                    </div>
+                                    <div class="card_detail">
+                                        <span class="detail_label">ジャンル</span>
+                                        <span class="detail_value">プログラミング</span>
+                                    </div>
+                                    <div class="card_detail">
+                                        <span class="detail_label">対象年齢</span>
+                                        <span class="detail_value">小学生年中〜小学生</span>
+                                    </div>
+
+                                </div>
+                                <img class="icon_category" src="../../assets/icon/study/robot.png" alt="カテゴリーアイコン" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                    // 結果一覧カード 繰り返し表示
+                    for (let i = 0; i < 4; i++) {
+                        const card = document.querySelector('.wrap_card');
+                        const clone = card.cloneNode(true);
+                        document.querySelector('.results_card').appendChild(clone);
+                    }
+                </script>
+                </section>
+                <!-- 検索結果一覧カードここまで -->
+
+                <section class="footer_results">
+                    <div class="containerpagenum">
+                        <div class="results_pagenum">
+                            <h3>
                         &lt;　1　2　3　&gt;
                     </h3>
-                </div>
+                        </div>
+                    </div>
+                </section>
             </div>
-    </section>
-</div>
-</main>
+        </div>
+    </main>
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
