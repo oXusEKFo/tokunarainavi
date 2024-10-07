@@ -88,6 +88,14 @@ function add_style_script()
             true // フッターに出力
         );
     }
+
+    // お気に入りリスト
+    if (is_page('favor')) {
+        wp_enqueue_style(
+            'favorite',
+            get_template_directory_uri() . '/assets/css/favorite.css'
+        );
+    }
 }
 add_action('wp_enqueue_scripts', 'add_style_script');
 
