@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-.inner__main{
+.inner__main {
     max-width: 1100px;
     width: 100%;
     margin: 0 auto;
@@ -8,7 +8,7 @@
 
 /*** ここから パンくずリスト ***/
 
-.container__bread-crumb{
+.container__bread-crumb {
     padding-top: 15px;
     margin-left: 20px;
 }
@@ -28,13 +28,13 @@
 
 /*** ここから 本文 ***/
 
-.wrap__about{
+.wrap__rule {
     width: 90%;
     margin: 0 auto;
 }
 
-.title__about{
-    background-color: #ED6D1F ;
+.title__rule {
+    background-color: #ED6D1F;
     color: #FFF;
     font-size: 2.0rem;
     width: 100%;
@@ -44,59 +44,68 @@
     line-height: 50px;
 }
 
-.wrap__description{
+.wrap__description {
     background-color: #FFF;
     width: 100%;
     height: auto;
-    padding: 20px 0 0;
-    margin: 0 auto;
+    margin: 15px auto 0;
 }
 
-.description__about,
-.description__howto,
-.description__for-class {
+.description__rule {
     width: 85%;
     margin: 0 auto;
+    padding: 10px 0 0;
 }
 
-.description__about>h2,
-.description__howto>h2,
-.description__for-class>h2 {
-    background-color: #F5F5F5;
+.description__rule>h2 {
     font-size: 1.6rem;
     line-height: 50px;
     height: 50px;
-    margin: 20px auto 0;
-    border-radius: 10px;
+    margin: 0 auto;
     text-align: center;
 }
 
-.note__about,
-.note__howto,
-.note__for-class {
+.description__rule>h2 {
+    border-bottom: dotted 1px #ED6D1F;
+}
+
+.note__rule {
     background-color: #FFF;
     font-size: 1.2rem;
     line-height: 20px;
-    min-height: 225px;
+    height: auto;
     margin: 25px auto 0;
+
+    text-indent: -1rem;
+    padding-left: 1rem;
+}
+
+.no__indent{
+    text-indent: 0;
+    padding-left: 0;
+}
+
+.enactment__date{
+    font-size: 1.2rem;
+    line-height: 22px;
+    width: 85%;
+    margin: 0 auto;
+    padding: 10px 0 0;
 }
 
 /*** メディアクエリここから ***/
 
 @media screen and (min-width: 768px) {
 
-.description__about>h2,
-.description__howto>h2,
-.description__for-class>h2 {
-    font-size: 2.4rem;
+    .description__rule>h2 {
+        font-size: 2.4rem;
+    }
+
+    .note__rule,
+    .enactment__date {
+        font-size: 1.8rem;
+        line-height: 26px;
+    }
 }
 
-.note__about,
-.note__howto,
-.note__for-class {
-
-    font-size: 1.8rem;
-    line-height: 26px;
-}
-}
 /*** メディアクエリここまで ***/

@@ -1,0 +1,595 @@
+@charset "UTF-8";
+
+/* ヘッダー */
+header{
+    background-color: #FFF;
+    width: 100%;
+    height: auto;
+    position: fixed;
+}
+
+.inner__header{
+    max-width: 1440px;
+    width: 100%;
+    height:60px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+/* ヘッダーロゴ */
+.logo__header>a>img{
+    width: 190px;
+    height: 55px;
+    margin: 0 0 0 10px;
+}
+
+/*** ハンバーガーメニュー ここから***/
+.site_header_menu_icon {
+    font-size: 30px;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+    position: fixed;
+    top: 1px;
+    right: 10px;
+    transition: transform 0.6s ease;
+}
+
+/* ハンバーガーメニューのスタイル */
+.site_nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    z-index: 999;
+    padding-top: 60px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.6s ease;
+}
+
+.site_nav.active {
+    display: block;
+    transform: translateX(0);
+}
+
+.site_nav_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.site_nav_item {
+    padding: 20px;
+    text-align: left;
+    border-bottom: 1px dotted #f0a500;
+    display: flex;
+    align-items: center;
+}
+
+.site_nav_item a::before {
+    content: "\2192";
+    color: orange;
+    font-size: 18px;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.site_nav_item a {
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.site_nav_item a:hover {
+    text-decoration: underline;
+}
+
+/* SNSアイコンのスタイル */
+.site_nav_social_links {
+    display: flex;
+    justify-content: left;
+    padding: 20px;
+}
+
+.site_nav_social_links a img {
+    width: 40px;
+    height: auto;
+    margin-right: 30px;
+    transition: transform 0.3s ease;
+}
+
+.site_nav_social_links a img:hover {
+    transform: scale(1.2);
+}
+
+/* ウサギ画像のスタイル */
+.site_nav_character {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+}
+
+.site_nav_character img {
+    width: 150px;
+    height: auto;
+    position: absolute;
+    bottom: 60px;
+    right: 20px;
+}
+
+/*** ハンバーガーメニュー ここまで ***/
+
+/* ランディング部 */
+
+.inner__landing {
+    max-width: 1440px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.wrap__kv{
+    width: 390px;
+    margin: 0 auto;
+}
+
+.container__kv{
+    width: 100%;
+}
+
+/* KV（とりあえず画像 あとで作り込み） */
+
+.container__kv-Pc {
+    display: none;
+}
+
+.container__kv-Mo {
+    display: block;
+}
+
+/* モバイル用KV */
+.container__kv-Mo>img{
+    width: 390px;
+    height: auto;
+    margin: 0 auto;
+    object-fit: cover;
+}
+
+/* とくしま習いごとナビ について */
+.about{
+    width: 100%;
+    background-color: #FFF;
+    padding: 20px 0;
+}
+
+.container__about{
+    width: 390px;
+    margin: 0 auto;
+}
+
+.note__about>p {
+    font-size: 1.4rem;
+    line-height: 2.5rem;
+    text-align: left;
+    width: 285px;
+    margin: 0 auto;
+}
+
+.image__about {
+    width: 80%;
+    height: auto;
+    margin: 20px auto 0;
+}
+
+.image__about>img{
+    width: 100%;
+    height: auto;
+}
+
+
+/*** タイトル関連 ここから ***/
+.title__search {
+    color: #00B0AA;
+    text-align: center;
+    width: 285px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.title__ranking {
+    color: #463D3B;
+    text-align: center;
+    width: 330px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.title__news {
+    color: #463D3B;
+    text-align: center;
+    width: 220px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* メイン */
+.title__search>h1,
+.title__ranking>h1,
+.title__news>h1 {
+    font-size: 7.0rem;
+    width: 100%;
+    position: absolute;
+    bottom: -30px;
+}
+
+
+/* 添字 */
+.title__search>p,
+.title__ranking>p,
+.title__news>p {
+    font-size: 1.6rem;
+    position: absolute;
+    right: 13px;
+    bottom: -35px;
+}
+
+.title__ranking>p {
+    right: 5px;
+}
+
+/* クリーム円 */
+.title__ranking>img,
+.title__news>img {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    bottom: -65px;
+    left: -40px;
+    z-index: -1;
+}
+
+/* みどり円 */
+.title__search>img,
+.title__column>img {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    bottom: -65px;
+    left: 0px;
+    z-index: -1;
+}
+
+/*** タイトル関連 ここまで ***/
+
+
+/* 検索 */
+/* 選択ボタンエリア */
+.options__search{
+    background-color: #FFF;
+    width: 350px;
+    height: 415px;
+    padding: 50px 0 0;
+    margin: 0 auto;
+}
+
+/* 選択ボタン */
+.option__search,
+.detail__search,
+.box__search {
+    background-color: #D6D5D5;
+    font-size: 2.0rem;
+    text-align: center;
+    line-height: 50px;
+    width: 300px;
+    height: 50px;
+    margin: 18px auto;
+    border-radius: 10px;
+}
+
+/* 詳細検索ページへ */
+.detail__search {
+    background-color: #463D3B;
+    color: #FFF;
+}
+
+/* 検索窓 */
+.box__search{
+    background-color: #FFF;
+    font-size: 1.7rem;
+    text-align: left;
+    border: solid 1px #463D3B;
+}
+
+.inner__search-box{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.inner__search-box>input {
+    width: 85%;
+}
+
+/* ランキング */
+/* 背景 */
+.inner__ranking{
+    background-color: #00B0AA;
+    width: 100%;
+    height: auto;
+    padding: 25px 0;
+}
+
+.order__ranking {
+    background-color: #FFF;
+    width: 350px;
+    height: auto;
+    padding: 30px 0 0;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.order{
+    font-size: 2.0rem;
+    text-align: left;
+    line-height: 60px;
+    width: 300px;
+    height: 60px;
+    padding: 0 0 0 10px;
+    margin: 0 auto;
+    width: 100%;
+    border-bottom: solid 1px #463D3B;
+}
+
+.order::before {
+    content: '';
+    display: inline-block;
+    background-image: url(../images/crown.png) ;
+    width: 50px;
+    height: 30px;
+    margin: 0 10px 0 0;
+    background-size: contain;
+    vertical-align: middle;
+}
+
+/* とくしまの習いごとアンケート結果 */
+.inner__survey {
+    background-color: lightgreen;
+    font-size: 2.0rem;
+    text-align: center;
+    line-height: 200px;
+    width: 100%;
+    height: 200px;
+}
+
+/* NEWS */
+/* 背景 */
+.wrap__news {
+    background-color: #00B0AA;
+    width: 100%;
+    height: auto;
+    padding: 25px 0 80px 0;
+}
+
+.container__news {
+    background-color: #FFF;
+    width: 350px;
+    height: auto;
+    padding: 25px 0 80px 0;
+    margin: 0 auto;
+    border-radius: 20px;
+}
+
+.item__news{
+    width: 310px;
+    height: 160px;
+    padding: 40px 0 0;
+    margin: 0 auto;
+    border-bottom: solid 1px #463D3B;
+}
+
+.tag__news{
+    font-size: 2.0rem;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.tag__news>h3,
+.tag__news>p {
+    margin: 0 20px;
+}
+
+.note__news {
+    font-size: 1.4rem;
+    line-height: 20.3px;
+    padding: 10px 0;
+    margin: 0 20px;
+}
+
+
+/* フッター */
+.inner__footer{
+    background-color: #ED6D1F;
+}
+
+.container__sitemap {
+    color: #FFF;
+    font-size: 1.4rem;
+    line-height: 20.3px;
+}
+
+.wrap__pages{
+    text-align: left;
+    padding: 180px 0 50px 30px;
+}
+
+.wrap__rules {
+    text-align: left;
+    padding: 0 0 160px 30px;
+}
+
+.wrap__pages>li,
+.wrap__rules>li {
+    text-align: left;
+    margin: 20px 0;
+}
+
+.copy-rights {
+    color: #FFF;
+    font-size: 1.0rem;
+    line-height: 14.5px;
+    text-align: center;
+}
+
+.clearance{
+    background-color: #FFF;
+    width: 100%;
+    height: 70px;
+}
+
+
+
+
+
+@media screen and (min-width: 780px){
+    /* 寸法 x1.5 */
+    .header{
+
+    }
+    .inner__header{
+        height: 90px;
+    }
+    /* ヘッダーロゴ */
+    .logo__header>a>img{
+        width: 290px;
+        height: 82.5px;
+        margin: 0 0 0 10px;
+    }
+
+    /* ハンバーガーメニュー */
+    .container__hbg{
+        width: 37.5px;
+        height: 30px;
+        margin: 0 37.5px 0 0;
+    }
+
+    .wrap__kv{
+        max-width: 1440px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .container__kv-Mo {
+        display: none;
+    }
+
+    /* PC用KV */
+    .container__kv-Pc {
+        display: block;
+        width: 780px;
+        margin: 0 auto;
+    }
+
+    .container__kv-Pc>img {
+        max-width: 780px;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .note__about{
+        margin: 0 auto;
+    }
+
+    .note__about>p {
+        font-size: 1.8rem;
+        line-height: 3.1rem;
+        text-align: left;
+    }
+
+    .container__about {
+        max-width: 780px;
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .image__about {
+        width: 390px;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+        align-content: center;
+    }
+    /* 検索 */
+    /* タイトル */
+    .title__search,
+    .title_ranking {
+        color: #00B0AA;
+        text-align: center;
+        width: 370px;
+        position: relative;
+    }
+
+    /* メイン */
+    .title__search>h1,
+    .title_ranking>h1 {
+        font-size: 9.1rem;
+        width: 100%;
+    }
+
+    /* 添字 */
+    .title__search>p,
+    .title_ranking>p {
+        font-size: 2.08rem;
+        position: absolute;
+        right: 15px;
+        bottom: -40px;
+    }
+
+    /* 選択ボタンエリア */
+    .options__search {
+        padding: 50px 0 0;
+    }
+
+    /* NEWS概要 */
+    .container__news {
+        width: 600px;
+        height: auto;
+    }
+
+    .item__news {
+        width: 500px;
+        height: 170px;
+    }
+
+    /* フッター */
+    .container__sitemap{
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .wrap__pages{
+        width: 30%;
+        height: 500px;
+        padding: 80px 0 0;
+    }
+
+    .wrap__rules {
+        width: 30%;
+        height: 500px;
+        padding: 80px 0 0;
+    }
+
+    .clearance {
+        height: 70px;
+    }
+
+}
