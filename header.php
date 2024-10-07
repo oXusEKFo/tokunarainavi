@@ -10,16 +10,12 @@
 </head>
 
 <body <?php body_class(); ?>>
-
-
     <?php wp_body_open(); ?>
-    <!-- wp_body_open アクションフックを呼び出し、テーマテンプレートの<body> タグの直後にカスタムコンテンツを挿入できるようにします。これにより、トラッキングスクリプトや分析コード、その他の動的コンテンツをテーマのコアファイルを編集せずに追加することができます。 -->
-
-    <header class="site_header">
-        <div class="site_header_container site_header_logo_center">
-            <a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/karilogo.png" alt="logo" class="site_header_logo"></a>
+    <header class="inner__header">
+        <div class="logo__header">
+            <a href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/karilogo.png" alt="logo"></a>
         </div>
-
+        <!-- ハンバーガーメニュー -->
         <!-- ハンバーガーメニューアイコン -->
         <div class="site_header_menu_icon" id="menuIcon" onclick="toggleMenu()">&#9776;</div>
         <!-- ハンバーガーメニュー -->
