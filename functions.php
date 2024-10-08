@@ -20,6 +20,10 @@ add_action('after_setup_theme', 'my_theme_setup');
  */
 function add_style_script()
 {
+    /*
+    *共通CSS
+    */
+
     //リセットCSS
     wp_enqueue_style(
         'destyle',
@@ -35,7 +39,7 @@ function add_style_script()
     wp_enqueue_script('jquery');  //jQueryを読み込む
     wp_enqueue_script('slick-js', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js'); //slick.js スライダー用
 
-    // 共通CSS
+
     wp_enqueue_style(
         'mycommon',
         get_template_directory_uri() . '/assets/css/common.css'
@@ -54,7 +58,9 @@ function add_style_script()
     // column_slider . js
     wp_enqueue_script('column_slider-js', get_template_directory_uri() . '/assets/js/column_slider.js', ['jquery'], true);
 
-
+    /**
+     * 個々のページ
+     */
     if (is_404()) {
         wp_enqueue_style(
             'error404',
@@ -68,7 +74,6 @@ function add_style_script()
             'mytop',
             get_template_directory_uri() . '/assets/css/top.css'
         );
-        // wp_enqueue_style('front-page-index', get_template_directory_uri() . '/assets/css/news/index.css');
     }
 
 
