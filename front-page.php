@@ -7,10 +7,10 @@
                 <!-- KV -->
                 <div class="wrap__kv">
                     <div class="container__kv-Mo">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/kv_m.png" alt="kv_mobile">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/kv_mo.png" alt="kv_mobile">
                     </div>
                     <div class="container__kv-Pc">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/kv_p.png" alt="kv_mobile">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/kv_p.png" alt="kv_pc">
                     </div>
                 </div>
 
@@ -49,27 +49,42 @@
                 <div class="title__search">
                     <h1>SERACH</h1>
                     <p>検索</p>
-                    <img src="<?php echo get_template_directory_uri(); ?>./assets/images/greencircle.png" alt="みどり円">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/greencircle.png" alt="みどり円">
                 </div>
                 <div class="options__search">
+
                     <ul>
-                        <li class="option__search">エリアを選ぶ</li>
+                        <li class="option__search">
+                            <input type="button" class="option_button_search" value="エリアを選ぶ" onclick="window.location.href=' <?php echo home_url('/search');  ?>'">
+                        </li>
                         <!-- <?php get_template_part('template-parts/search', 'area'); ?> -->
-                        <li class="option__search">年齢を選ぶ</li>
+                        <li class="option__search">
+                            <input type="button" class="option_button_search" value="年齢を選ぶ" onclick="">
+                        </li>
                         <!-- <?php get_template_part('template-parts/search', 'age'); ?> -->
-                        <li class="option__search">ジャンルを選ぶ</li>
+
+                        <li class="option__search">
+                            <input type="button" class="option_button_search" value="ジャンルを選ぶ" onclick="">
+                        </li>
                         <!-- <?php get_template_part('template-parts/search', 'classtype'); ?> -->
-                        <li class="detail__search">詳細検索ページへ</li>
+                        <!-- <li class="detail__search">
+                                <input type="submit" class="detail_submit_search" value="詳細検索ページへ" onclick="">
+                            </li> -->
                     </ul>
-                    <div class="box__search">
-                        <div class="inner__search-box">
-                            <input type="search" placeholder="キーワードを入力してください" value="">
-                            <button>
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </button>
+                    <form action="">
+                        <div class="box__search">
+                            <div class="inner__search-box">
+                                <input type="search" placeholder="キーワードを入力してください" value="">
+                                <button type="submit">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
+                <button class="button__more-search">
+                    <a href="<?php echo home_url('/search') ?>">詳細検索は<br>こちら</a>
+                </button>
             </div>
         </section>
         <!-- 白背景の余白スペース -->
@@ -113,12 +128,7 @@
                                 if (!is_wp_error($term_link)) :
                         ?>
                                     <li class="order">
-                                        <!-- <div class="crown_container">
-                                            <div class="crown">
-                                                <span class="number"><?php print_r($number); ?></span>
-                                            </div>
-                                        </div> -->
-                                        <a href="<?php echo esc_url($term_link); ?>"><?php echo  esc_html($term->name); ?><span class="arrow">&gt;</span>
+                                        <a href="<?php echo esc_url($term_link); ?>"><?php echo  esc_html($term->name); ?>
 
                                             <?php
                                             echo '回数: ' . esc_html($view_count);
@@ -132,31 +142,35 @@
                         ?>
                     </ul>
                 </div>
-                <!-- <a href="<?php echo home_url('/fushion'); ?>" class="">もっと見る</a> -->
             </div>
         </section>
         <!-- 白背景の余白スペース -->
         <div class="clearance"></div>
+        <!-- とくしまの習いごとアンケート -->
         <section class="survey-results">
             <div class="inner__survey">
                 <div class="banner__survey">
-                    とくしまの習いごとアンケート
+                    <a href="">とくしまの習いごとアンケート</a>
                 </div>
             </div>
         </section>
         <!-- column -->
+
         <section class="column">
             <div class="inner__column">
                 <div class="title__column">
                     <h1>COLUMN</h1>
                     <p>コラム</p>
                 </div>
+                <!-- スライダー ここから -->
                 <div class="slider">
                     <div class="auto-slider">
-                        <!-- スライダー ここから -->
                         <?php
                         $args = [
                             'post_type' => 'column',
+                            'posts_per_page'     => 5,
+                            'orderby'        => 'date',
+                            'order'          => 'DESC',
                         ];
                         $column_query = new WP_query($args);
                         if ($column_query->have_posts()):
@@ -166,48 +180,49 @@
                             <?php endwhile; ?>
                             <?php wp_reset_postdata(); ?>
                         <?php endif ?>
-
-                        <a href="<?php echo home_url('/column'); ?>" class="">もっと見る</a>
                     </div>
                 </div>
+                <!-- スライダー ここまで -->
+                <button class="button__more-column">
+                    <a href="<?php echo home_url('/column'); ?>">コラムを<br>もっと見る</a>
+                </button>
             </div>
         </section>
+        <!-- 白背景の余白スペース -->
+        <div class="clearance"></div>
 
         <!-- NEWS -->
-        <section class="NEWS">
-            <div class="circle">
-                <img src="<?php echo get_template_directory_uri();  ?>/assets/images/creamcircle.png" alt="">
-                <h1 class="title">NEWS</h1>
+        <section class="news">
+            <div class="title__news">
+                <h1>NEWS</h1>
+                <p>新着情報</p>
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/creamcircle.png" alt="クリーム円">
             </div>
-            <h2 class="subtitle">新着情報</h2>
             <!-- ここからニュース記事 -->
-            <div class="inner">
-                <ul class="news_list">
-                    <?php
-                    $args = [
-                        'post_type' => 'post',
-                    ];
-                    $the_query = new WP_Query($args);
-                    if ($the_query->have_posts()):
-                        while ($the_query->have_posts()): $the_query->the_post();
-                    ?>
-                            <?php get_template_part('template-parts/loop', 'news'); ?>
-                        <?php endwhile; ?>
-                        <?php wp_reset_postdata(); ?>
-                    <?php endif ?>
-                </ul>
-            </div>
-
-
-
+            <?php if (have_posts()) : ?>
+                <div class="wrap__news">
+                    <div class="container__news">
+                        <div class="items__news">
+                            <ul>
+                                <?php
+                                $news = get_term_by('slug', 'news', 'category');
+                                $news_link = get_term_link($news, 'category');
+                                ?>
+                                <?php while (have_posts()) : the_post(); ?>
+                                    <?php get_template_part('template-parts/loop', 'news'); ?>
+                                <?php endwhile; ?>
+                                <?php wp_reset_postdata(); ?>
+                            </ul>
+                        </div>
+                        <button class="button__more-news">
+                            <a href="<?php echo $news_link; ?>">新着情報を<br>もっと見る</a>
+                        </button>
+                    </div>
+                </div>
+            <?php endif ?>
         </section>
-
-        <div class="box">
-            <img src="<?php echo get_template_directory_uri();  ?>/assets/images/star.png" class="big-star">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/star.png" class="mini-star">
-            <a href="<?php echo home_url('/category'); ?>" class="button">新着情報を<br>もっと見る</a>
-        </div>
-
+        <!-- 白背景の余白スペース -->
+        <div class="clearance"></div>
         <!-- end news -->
 
     </div>

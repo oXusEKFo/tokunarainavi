@@ -20,6 +20,10 @@ add_action('after_setup_theme', 'my_theme_setup');
  */
 function add_style_script()
 {
+    /*
+    *共通CSS
+    */
+
     //リセットCSS
     wp_enqueue_style(
         'destyle',
@@ -35,7 +39,7 @@ function add_style_script()
     wp_enqueue_script('jquery');  //jQueryを読み込む
     wp_enqueue_script('slick-js', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js'); //slick.js スライダー用
 
-    // 共通CSS
+
     wp_enqueue_style(
         'mycommon',
         get_template_directory_uri() . '/assets/css/common.css'
@@ -48,18 +52,15 @@ function add_style_script()
         'myfooter',
         get_template_directory_uri() . '/assets/css/footer.css'
     );
-    wp_enqueue_style(
-        'mytop',
-        get_template_directory_uri() . '/assets/css/top.css'
-    );
+
     //  common.js
     wp_enqueue_script('common-js', get_template_directory_uri() . '/assets/js/common.js', ['jquery'], true);
     // column_slider . js
     wp_enqueue_script('column_slider-js', get_template_directory_uri() . '/assets/js/column_slider.js', ['jquery'], true);
 
-    wp_enqueue_style('abouttokunavi', get_template_directory_uri() . '/assets/css/about.css');
-    // about.css
-
+    /**
+     * 個々のページ
+     */
     if (is_404()) {
         wp_enqueue_style(
             'error404',
@@ -69,7 +70,10 @@ function add_style_script()
     //404.css
 
     if (is_home()) {
-        wp_enqueue_style('front-page-index', get_template_directory_uri() . '/assets/css/news/index.css');
+        wp_enqueue_style(
+            'mytop',
+            get_template_directory_uri() . '/assets/css/top.css'
+        );
     }
 
 
@@ -96,11 +100,19 @@ function add_style_script()
             get_template_directory_uri() . '/assets/css/favorite.css'
         );
     }
+
+    // page-about.php
+    if (is_page('about')) {
+        wp_enqueue_style('abouttokunavi', get_template_directory_uri() . '/assets/css/about.css');
+        // about.css
+
+    }
 }
 add_action('wp_enqueue_scripts', 'add_style_script');
 
-
-//固定ページで抜粋を使えるようにする
+/**
+ * 固定ページで抜粋を使えるようにする
+ */
 add_post_type_support('page', 'excerpt');
 
 
