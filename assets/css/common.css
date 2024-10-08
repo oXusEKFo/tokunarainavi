@@ -38,33 +38,52 @@ a:hover {
 /*** ここから カード部分 ***/
 
 .results_card {
-    width: 350px;
+    /* width: 350px;
     padding: 7.5px 0;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    align-content: flex-start;
+    align-content: flex-start; */
+
+    /* 上の記述は「.results_card」のカード整列に干渉してくるため不要としたい（堀） */
+    margin: 50px auto;
+    /* レイアウト調整用、pxはお好みで（堀） */
 }
 
-.results_card::after {
+/* 無くてもよさそうです（堀） */
+/* .results_card::after {
                 content: "";
                 display: block;
                 width: 50%;
-            }
+            } */
 
 /* カード白背景部分 */
 .wrap_card {
-    width: 350px;
+    /* width: 350px;
     height: 466px;
     padding: 20px 0 0 0;
     margin: 7.5px auto;
+    background-color: #F5F5F5; */
+
+    /* 横幅360pxサイズのスマホもある中、350pxでは余白が無さすぎるため修正（堀） */
+    /* 阿波農ライフのカード幅と同じにしました（堀） */
+    width: 300px;
+    /* 350px から 300px に変更（堀） */
+    height: 466px;
+    padding: 20px 0 0 0;
+    margin-bottom: 25px;
+    margin-left: auto;
+    margin-right: auto;
     background-color: #F5F5F5;
+    /* カード同士の間隔については「.results_card」にgapを当てています（堀） */
 }
 
 /* カード内側の枠 */
 .inner_card {
-    width: 300px;
+    /* width: 300px; */
+    width: 260px;
+    /* 「.wrap_card」のwidth変更に伴い調整（堀） */
     height: auto;
     margin: 0 auto;
 }
@@ -72,33 +91,56 @@ a:hover {
 /* カード写真部分の容器 */
 .container_cardImg {
     width: 100%;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
+    margin-bottom: 30px;
+    /* お気に入りボタンに近かったため微調整、お好みで調整して下さい（堀） */
     position: relative;
 }
 
 /* 施設写真 */
 .card_img {
-    width: 100%;
-    height: auto;
+    /* width: 100%;
+    height: auto; */
     /*アスペクト比を維持*/
     margin: 0 auto;
     border-radius: 20px;
     display: block;
     /* 画像の下に余白ができるのを防ぐ */
+
+    /* どんなサイズの画像でも統一されたサイズで表示させるために以下のように変更しています（堀） */
+    /* width:100%では画像のサイズによって.card_imgのサイズがバラバラになってしまうため（堀） */
+    width: 260px;
+    /* 現在は「3：2」の比率にしています（堀） */
+    height: 173px;
+    /* 現在は「3：2」の比率にしています（堀） */
+    object-fit: cover;
+    /* 縦横比を維持し、.card_img内全体に表示させるように拡大縮小させる（堀） */
 }
 
 /* お気に入りリストに追加 タグ */
 .tag_favorite {
-    width: 160px;
+    /* width: 160px;
     height: auto;
     position: absolute;
-    right: -20px;
+    right: -20px; */
+
+    width: 130px;
+    /* .card_imgのwidth:260pxの半分のサイズにしてみました（堀） */
+    position: absolute;
+    /* .card_imgを基準に位置調整しています（堀） */
+    left: calc(50% + 10px);
+    /* +10pxはリボンが.card_imgからはみ出ている風にするための調整（堀） */
+    bottom: calc(-35px / 2);
+    /* リボンが半分だけ画像と重なっているようにするため（堀） */
+    transition: .3s cubic-bezier(0.45, 0, 0.55, 1);
+    /* ホバーアクション用（堀） */
 }
 
+/* 不要かもしれません（堀） */
 /* お気に入りリストに追加 タグ 位置調整（カード）*/
-.container_cardImg>.tag_favorite {
+/* .container_cardImg>.tag_favorite {
     bottom: -17px;
-}
+} */
 
 /* お気に入りリストに追加 タグ 位置調整（結果詳細スライダ）*/
 .slider_area>.tag_favorite {
@@ -109,7 +151,8 @@ a:hover {
 .card_title {
     font-size: 2rem;
     margin-bottom: 10px;
-    white-space: nowrap;
+    /* white-space: nowrap; */
+    /* 折り返さないとはみ出ます（堀） */
 }
 
 /* 住所 */
