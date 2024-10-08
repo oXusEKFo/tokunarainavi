@@ -41,10 +41,5 @@
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/X.png" alt="Twitter">
                 </a>
             </div>
-            <!-- キャラクター画像の../assets/images/配置 -->
-            <div class="site_nav_character">
-                <img src="<?php echo get_template_directory_uri();  ?>/assets/images/rabbit.png" alt="うさぎキャラクター">
-            </div>
         </nav>
-
     </header>
