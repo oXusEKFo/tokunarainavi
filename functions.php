@@ -1,6 +1,6 @@
 <?php
 // 管理バーを非表示させる
-add_filter('show_admin_bar', '__return_false');
+// add_filter('show_admin_bar', '__return_false');
 
 /**
  * 「after_setup_theme」アクションフックを使用する関数をまとめる
@@ -55,35 +55,28 @@ function add_style_script()
 
     //  common.js
     wp_enqueue_script('common-js', get_template_directory_uri() . '/assets/js/common.js', ['jquery'], true);
-    // column_slider . js
-    wp_enqueue_script('column_slider-js', get_template_directory_uri() . '/assets/js/column_slider.js', ['jquery'], true);
+
 
     /**
      * 個々のページ
      */
-    if (is_404()) {
-        wp_enqueue_style(
-            'error404',
-            get_template_directory_uri() . '/assets/css/404.css'
-        );
-    }
-    //404.css
-
     if (is_home()) {
         wp_enqueue_style(
             'mytop',
             get_template_directory_uri() . '/assets/css/top.css'
         );
-    }
-
-
-    // お問い合わせフォーム
-    if (is_page('contact') || ('confirm') || ('thanks')) {
+        // column_slider . js
+        wp_enqueue_script('column_slider-js', get_template_directory_uri() . '/assets/js/column_slider.js', ['jquery'], true);
+    } elseif (is_404()) {
+        wp_enqueue_style(
+            'error404',
+            get_template_directory_uri() . '/assets/css/404.css'
+        );
+    } elseif (is_page('contact') || ('confirm') || ('thanks')) {
         wp_enqueue_style(
             'tikunarainavi-input',
             get_template_directory_uri() . '/assets/css/input.css',
         );
-
         wp_enqueue_script(
             'tokunarainavi-mail-js',
             get_template_directory_uri() . '/assets/js/mail_form.js',
@@ -91,21 +84,15 @@ function add_style_script()
             '', // バージョン指定なし
             true // フッターに出力
         );
-    }
-
-    // お気に入りリスト
-    if (is_page('favor')) {
+    } elseif (is_page('favor')) {
+        // お気に入りリスト
         wp_enqueue_style(
             'favorite',
             get_template_directory_uri() . '/assets/css/favorite.css'
         );
-    }
-
-    // page-about.php
-    if (is_page('about')) {
+    } elseif (is_page('about')) {
+        // page-about.php
         wp_enqueue_style('abouttokunavi', get_template_directory_uri() . '/assets/css/about.css');
-        // about.css
-
     }
 }
 add_action('wp_enqueue_scripts', 'add_style_script');

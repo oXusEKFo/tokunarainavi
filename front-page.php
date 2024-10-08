@@ -114,8 +114,9 @@
                         ];
 
                         $terms = get_terms($args);
-                        $termc = get_terms($argc);
-
+                        // $termc = get_terms($argc);
+                        // $term_object = get_term_by('slug', $terms, $taxonomy);
+                        // $term_id = $term_object->term_id;
                         if (!empty($terms) && !is_wp_error($terms)) :
                             $number = 0;
                             foreach ($terms as $term) {
@@ -125,6 +126,7 @@
                                 $number++;
                                 $view_count = get_term_meta($term->term_id, 'view_count', true);
                                 $term_link = get_term_link($term); // 分類リンクの取得
+
                                 if (!is_wp_error($term_link)) :
                         ?>
                                     <li class="order">
