@@ -68,7 +68,6 @@ function add_style_script()
             'mytop',
             get_template_directory_uri() . '/assets/css/top.css'
         );
-        // wp_enqueue_style('front-page-index', get_template_directory_uri() . '/assets/css/news/index.css');
     }
 
 
