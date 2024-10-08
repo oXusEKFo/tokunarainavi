@@ -1,9 +1,12 @@
-<li class="news_list_item">
+<li class="item__news">
     <a href="<?php the_permalink(); ?>">
-        <div class="news_list_date">
-            <h3 class="news_title"><?php the_title(); ?></h3>
+        <div class="tag__news">
+            <h3><?php the_title(); ?></h3>
             <time datetime="<?php the_time('y-m-d'); ?>"><?php the_time('y.m.d') ?> </time>
         </div>
-        <p><?php echo the_excerpt(); ?></p>
+        <div class="note__news">
+            <?php echo the_excerpt(); ?>
+        </div>
+
     </a>
 </li>

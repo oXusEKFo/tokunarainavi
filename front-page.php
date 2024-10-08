@@ -186,32 +186,30 @@
             <!-- ここからニュース記事 -->
             <div class="wrap__news">
                 <div class="container__news">
-                    <ul class="news_list">
-                        <?php
-                        $args = [
-                            'post_type' => 'post',
-                        ];
-                        $the_query = new WP_Query($args);
-                        if ($the_query->have_posts()):
-                            while ($the_query->have_posts()): $the_query->the_post();
-                        ?>
-                                <?php get_template_part('template-parts/loop', 'news'); ?>
-                            <?php endwhile; ?>
-                            <?php wp_reset_postdata(); ?>
-                        <?php endif ?>
-                    </ul>
+                    <div class="items__news">
+                        <ul>
+                            <?php
+                            $args = [
+                                'post_type' => 'post',
+                            ];
+                            $the_query = new WP_Query($args);
+                            if ($the_query->have_posts()):
+                                while ($the_query->have_posts()): $the_query->the_post();
+                            ?>
+                                    <?php get_template_part('template-parts/loop', 'news'); ?>
+                                <?php endwhile; ?>
+                                <?php wp_reset_postdata(); ?>
+                            <?php endif ?>
+                        </ul>
+                    </div>
+                    <button class="button__more-news">
+                        <a href="">新着情報を<br>もっと見る</a>
+                    </button>
                 </div>
             </div>
-
-
         </section>
-
-        <div class="box">
-            <img src="<?php echo get_template_directory_uri();  ?>/assets/images/star.png" class="big-star">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/star.png" class="mini-star">
-            <a href="<?php echo home_url('/category'); ?>" class="button">新着情報を<br>もっと見る</a>
-        </div>
-
+        <!-- 白背景の余白スペース -->
+        <div class="clearance"></div>
         <!-- end news -->
 
     </div>
