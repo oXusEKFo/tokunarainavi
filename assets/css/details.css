@@ -418,36 +418,72 @@ text-align: right;
     white-space: nowrap;
 }
 
-/* 住所 */
-.card_address {
+
+
+
+.detail_label {
+    background-color: #D6D5D5;
+    color: #463D3B;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 1.2rem;
+    margin-right: 10px;
+    min-width: 68px;
+    text-align: center;
+}
+
+.detail_value {
+    font-size: 1.4rem;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100% - 80px);
+}
+
+
+
+.card_title h2 {
+    font-size: 1.8rem;
+    color: #463d3b;
+    margin: 20px 0;
+}
+
+.container_cardinfo {
+    padding: 10px;
+    position: relative;
+}
+
+.container_cardimg {
+    position: relative;
+}
+
+.tag_favorite {
+    position: absolute;
+    right: -15px;
+    bottom: -15px;
+}
+
+.card_details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+
+}
+.card_detail {
     display: flex;
     align-items: center;
-    font-size: 1.6rem;
-    font-weight: 400;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 8px;
+    overflow: hidden;
+
 }
 
-/* Mapアイコンの右側にスペース */
-.card_address img,
-.details_map img {
-    height: 28px;
-    margin-right: 10px;
+.card_detail:last-child {
+    border-bottom: none;
 }
 
-/* keywordの容器 */
-.container_keywords{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-/* keyword */
-.keyword{
-    background-color: #fff;
-    font-size: 1.4rem;
-    border: solid 1px #463D3B;
-    border-radius: 5px;
-    margin: 15px 10px 0 0;
-    padding: 1px 13px;
-}
 
 /*** カード部分ここまで ***/
 
@@ -531,6 +567,7 @@ text-align: right;
         display: block;
         width: 50%;
     }
+
 }
 
 @media screen and (min-width: 1050px) {

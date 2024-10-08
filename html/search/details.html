@@ -204,48 +204,39 @@
         <!-- 検索結果一覧カード -->
             <div class="wrap_card">
                 <div class="inner_card">
-                    <div class="container_cardImg">
+                    <div class="container_cardimg">
                         <img class="card_img" src="../../assets/images/pcchild.jpg" alt="施設写真" />
                         <img class="tag_favorite" src="../../assets/images/add_favorite.png" alt="お気に入りリストに追加" />
 
                     </div>
-                    <div class="container_cardInfo">
+                    <div class="container_cardinfo">
                         <div class="card_title">
                             <h2>QLIPプログラミングスクール</h2>
                         </div>
-                        <div class="card_address">
-                            <img src="../../assets/images/map.png" alt="Mapマーク">
-                            <p>徳島市寺島本町東3丁目12-8</p>
+                        <div class="card_details">
+                            <div class="card_detail">
+                                <span class="detail_label">住所</span>
+                                <span class="detail_value">徳島市寺島本町東3丁目12-8 ※住所が長い場合は後半削除</span>
+                            </div>
+                            <div class="card_detail">
+                                <span class="detail_label">ジャンル</span>
+                                <span class="detail_value">プログラミング</span>
+                            </div>
+                            <div class="card_detail">
+                                <span class="detail_label">対象年齢</span>
+                                <span class="detail_value">小学1年生〜4年生</span>
+                            </div>
+
                         </div>
-                        <ul class="container_keywords">
-                            <li class="keyword">
-                                <a href="">
-                                    徳島市中心部
-                                </a>
-                            </li>
-                            <li class="keyword">
-                                <a href="">
-                                    プログラミング
-                                </a>
-                            </li>
-                            <li class="keyword">
-                                <a href="">
-                                    小学生
-                                </a>
-                            </li>
-                            <li class="keyword">
-                                <a href="">
-                                    夕方
-                                </a>
-                            </li>
-                        </ul>
+                        <img class="icon_category" src="../../assets/icon/study/robot.png" alt="カテゴリーアイコン" />
+                        </div>
                     </div>
                 </div>
             </div>
 
         <script>
             // 結果一覧カード 繰り返し表示
-            for (let i = 0; i < 4; i++) {
+            for (let i = 0; i < 2; i++) {
                 const card = document.querySelector('.wrap_card');
                 const clone = card.cloneNode(true);
                 document.querySelector('.results_card').appendChild(clone);
