@@ -6,14 +6,14 @@
     background-color: #ffffff;
     padding-bottom: 10px;
 }
-.inner_main {
+.inner__main {
     max-width: 1440px;
     width: 100%;
     margin: 0 auto;
     padding-top: 10px;
 }
 
-.news_area {
+.news__area {
     margin: 0;
     background-color: #00B0AA;
     display: flex;
@@ -28,8 +28,13 @@
     margin-bottom: 40px;
 }
 
+/* 下線 */
+.underLine {
+    border-bottom: solid 1px #463D3B;
+}
+
 /* タイトル */
-.title_news {
+.title__news {
     color: #463D3B;
     text-align: center;
     width: 220px;
@@ -37,7 +42,7 @@
     position: relative;
 }
 
-.title_news>h1 {
+.title__news>h1 {
     font-size: 7.0rem;
     width: 100%;
     position: absolute;
@@ -45,14 +50,14 @@
     z-index: 1;
 }
 
-.title_news>p {
+.title__news>p {
     font-size: 1.6rem;
     position: absolute;
     right: 13px;
     bottom: -40px;
 }
 
-.title_news>img {
+.title__news>img {
     width: 110px;
     height: auto;
     position: absolute;
@@ -63,13 +68,13 @@
 
 /* NEWS */
 /* 背景 */
-.wrap_news {
+.wrap__news {
     background-color: #00B0AA;
     width: 100%;
     height: auto;
 }
 
-.container_news {
+.container__news {
     background-color: #FFF;
     width: 350px;
     height: auto;
@@ -78,7 +83,7 @@
     border-radius: 20px;
 }
 
-.item_news {
+.item__news {
     width: 310px;
     height: 160px;
     padding: 40px 0 0;
@@ -86,18 +91,18 @@
     border-bottom: solid 1px #463D3B;
 }
 
-.tag_news {
+.tag__news {
     font-size: 2.0rem;
     display: flex;
     justify-content: flex-start;
 }
 
 
-.tag_news>p {
+.tag__news>p {
     margin: 0 20px;
 }
 
-.note_news {
+.note__news {
     font-size: 1.4rem;
     line-height: 20.3px;
     padding: 10px 0;
@@ -107,21 +112,21 @@
 @media screen and (min-width: 780px) {
 
     /* NEWS概要 */
-    .container_news {
+    .container__news {
         width: 550px;
         height: auto;
     }
 
-    .item_news {
+    .item__news {
         width: 500px;
         height: 170px;
     }
 
-    .news_area {
+    .news__area {
         margin: 8% 15%;
     }
 
-    .title_news>img {
+    .title__news>img {
         width: 120px;
         height: auto;
         position: absolute;
