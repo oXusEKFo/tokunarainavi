@@ -2,10 +2,10 @@
 get_header();
 ?>
 <main>
-    <p>〇月〇日投稿</p>
-    <h1>コラムタイトル</h1>
-    <img src="" alt="">
-    <h2>見出し</h2>
-    <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+    <?php if (have_posts()): ?>
+        <?php while (have_posts()): the_post(); ?>
+            <h2><?php the_title(); ?></h2>
+        <?php endwhile; ?>
+    <?php endif; ?>
 </main>
 <? get_footer(); ?>
