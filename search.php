@@ -158,15 +158,15 @@ $count2 = 0;
             //     $result[] = get_query_var("");
             // }
 
-            // $result = [
-            // $area_slug = get_query_var('area'),
-            // $age_type_slug = get_query_var('age_type'),
-            // $classtype_slug = get_query_var('classtype'),
-            // $weektimes_slug = get_query_var('weektimes'),
-            // $cost_type_slug = get_query_var('cost_type'),
-            // $personality_type_slug = get_query_var('personality_type'),
-            // $skill_type_slug = get_query_var('skill_type'),
-            // ];
+            $result = [
+                $area_slug = get_query_var('area'),
+                $age_type_slug = get_query_var('age_type'),
+                $classtype_slug = get_query_var('classtype'),
+                $weektimes_slug = get_query_var('weektimes'),
+                $cost_type_slug = get_query_var('cost_type'),
+                $personality_type_slug = get_query_var('personality_type'),
+                $skill_type_slug = get_query_var('skill_type'),
+            ];
 
             $classtype_slug = get_query_var('classtype'); //仮
             $args = [
@@ -175,26 +175,26 @@ $count2 = 0;
             ];
             $taxquerysp = ['relation' => 'AND'];
 
-            // foreach ($result as $value) {
-            //     if (!empty($value)) {
-            //         $taxquerysp[] = [
-            //             'taxonomy' => "$taxonomy_name[$count2]", //↑と違うカウントを使う
-            //             'terms' => $value,
-            //             'field' => 'slug',
-            //             'operator' => 'IN',
-            //         ];
-            //     }
-            //     $count2++;
-            // }
-
-            if (!empty($classtype_slug)) {
-                $taxquerysp[] = [
-                    'taxonomy' => "classtype", //↑と違うカウントを使う
-                    'terms' => $classtype_slug,
-                    'field' => 'slug',
-                    'operator' => 'IN',
-                ];
+            foreach ($result as $value) {
+                if (!empty($value)) {
+                    $taxquerysp[] = [
+                        'taxonomy' => "$taxonomy_name[$count2]", //↑と違うカウントを使う
+                        'terms' => $value,
+                        'field' => 'slug',
+                        'operator' => 'IN',
+                    ];
+                }
+                $count2++;
             }
+
+            // if (!empty($classtype_slug)) {
+            //     $taxquerysp[] = [
+            //         'taxonomy' => "classtype", //↑と違うカウントを使う
+            //         'terms' => $classtype_slug,
+            //         'field' => 'slug',
+            //         'operator' => 'IN',
+            //     ];
+            // }
 
             $args['tax_query'] = $taxquerysp;
             $the_query = new WP_Query($args);
