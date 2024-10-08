@@ -71,8 +71,6 @@ $count2 = 0;
                     </td>
                 </tr>
             </table> -->
-                <?php //$count++;
-                ?>
 
                 <!--対象年齢検索-->
                 <table>
@@ -168,7 +166,12 @@ $count2 = 0;
                 $skill_type_slug = get_query_var('skill_type'),
             ];
 
-            $classtype_slug = get_query_var('classtype'); //仮
+
+
+            // $classtype_slug = get_query_var('classtype'); //仮
+            // print_r($classtype_slug);
+
+
             $args = [
                 'post_type' => 'classroom',
                 'posts_per_page' => -1,
@@ -202,6 +205,7 @@ $count2 = 0;
             // print_r($the_query);
             // echo '</pre>';
             ?>
+
             <!-- 条件検索の結果 -->
             <h1>検索結果（<?php echo $the_query->found_posts; ?>件）</h1>
 
@@ -219,6 +223,7 @@ $count2 = 0;
                     <h4>条件に合う習いごとは見つかりませんでした。</h4>
                 <?php endif; ?>
             </div>
+
         <?php endif; ?>
     </div>
 </main>
