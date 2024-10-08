@@ -151,8 +151,11 @@ a:hover {
 .card_title {
     font-size: 2rem;
     margin-bottom: 10px;
-    /* white-space: nowrap; */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     /* 折り返さないとはみ出ます（堀） */
+    /* 折り返しは避けたく、はみ出さないようにしました（山本） */
 }
 
 /* 住所 */

@@ -6,13 +6,13 @@ main{
     background-color: #FFF;
 }
 
-.inner_main{
+.inner__main{
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
 }
 
-.container_breadCrumb{
+.container__breadCrumb{
     width: 100%;
     padding-top: 15px;
 }
@@ -27,7 +27,7 @@ main{
 /*** ここから コラム一覧部分 ***/
 
 /* コラム エリア */
-.column_area {
+.column__area {
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
@@ -38,7 +38,7 @@ main{
 }
 
 /* コラム ページタイトル */
-.column_title {
+.column__title {
     color: #00B0AA;
     text-align: center;
     width: 330px;
@@ -47,13 +47,13 @@ main{
 }
 
 /* コラム ページタイトル */
-.column_title>h1 {
+.column__title>h1 {
     font-size: 7.0rem;
     width: 100%;
 }
 
 /* コラム ページタイトル 添字 */
-.column_title>p {
+.column__title>p {
     font-size: 1.6rem;
     position: absolute;
     right: 13px;
@@ -61,7 +61,7 @@ main{
 }
 
 /* カードエリアの囲い */
-.inner_column-area {
+.inner__column-area {
     width: 390px;
     margin: 0 auto;
     display: flex;
@@ -71,7 +71,7 @@ main{
 }
 
 /* カードの囲い */
-.wrap_column-card{
+.wrap__column-card{
     width: 350px;
     background-color: transparent;
     margin: 15px auto;
@@ -79,20 +79,20 @@ main{
 }
 
 /* カード幅 */
-.inner_column-card {
+.inner__column-card {
     width: 350px;
     height: auto;
 }
 
 /* 施設写真幅 */
-.container_card-img {
+.container__card-img {
     width: 350px;
     margin-bottom: 20px;
     position: relative;
 }
 
 /* 説明エリア */
-.container_cardInfo {
+.container__card-info {
     text-align: center;
 }
 
@@ -101,13 +101,10 @@ main{
     width:100%;
     font-size: 2.7rem;
     line-height: 39px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
 }
 
 /* 説明文 */
-.card_note>p {
+.card__note>p {
     height: 150px;
     font-size: 1.7rem;
     line-height: 24.6px;
@@ -117,33 +114,33 @@ main{
 }
 
 /* 編集日エリア */
-.wrap_card-date {
+.wrap__card-date {
     display: flex;
     align-items: center;
 }
 
 /* 編集日アイコン */
-.card_edit-icon>img {
+.card__edit-icon>img {
     width: 30px;
     height: 30px;
 }
 
 /* 編集日 */
-.card_date {
+.card__date {
     font-size: 1.7rem;
     line-height: 24.6px;
     text-align: left;
 }
 
 /* ページ数 容器 */
-.container_pageNum {
+.container__page-num {
     width: 390px;
     height: 130px;
     margin: 0 auto;
 }
 
 /* ページ数 */
-.column_pageNum {
+.column_page-num {
     font-size: 2rem;
     font-weight: 700;
     color: #463D3B;
@@ -157,13 +154,13 @@ main{
 
 @media screen and (min-width: 780px) {
 
-.inner_column-area {
+.inner__column-area {
     max-width: 1040px;
     width: 100%;
 }
 
 /* カード落ち 補完 */
-.inner_column-area::after {
+.inner__column-area::after {
     content: "";
     display: block;
     width: 50%;
@@ -171,13 +168,13 @@ main{
 }
 
 @media screen and (min-width: 1170px) {
-.inner_column-area {
+.inner__column-area {
     max-width: 1200px;
     width: 100%;
 }
 
 /* カード落ち 補完 */
-.inner_column-area::after {
+.inner__column-area::after {
     width: 33.3%;
 }
 }
