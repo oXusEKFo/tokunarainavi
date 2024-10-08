@@ -14,7 +14,7 @@
                         <h2><?php the_title(); ?></h2>
                     </div>
                     <div class="note__column">
-                        <p><?php echo the_excerpt(); ?><!-- 抜粋 --></p>
+                        <?php echo the_excerpt(); ?><!-- 抜粋 -->
                     </div>
                     <div class="container__date">
                         <div class="icon__edit">
