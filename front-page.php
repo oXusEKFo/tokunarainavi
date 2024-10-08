@@ -52,26 +52,38 @@
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/greencircle.png" alt="みどり円">
                 </div>
                 <div class="options__search">
+
                     <ul>
-                        <li class="option__search">エリアを選ぶ</li>
+                        <li class="option__search">
+                            <input type="button" class="option_button_search" value="エリアを選ぶ" onclick="window.location.href=' <?php echo home_url('/search');  ?>'">
+                        </li>
                         <!-- <?php get_template_part('template-parts/search', 'area'); ?> -->
-                        <li class="option__search">年齢を選ぶ</li>
+                        <li class="option__search">
+                            <input type="button" class="option_button_search" value="年齢を選ぶ" onclick="">
+                        </li>
                         <!-- <?php get_template_part('template-parts/search', 'age'); ?> -->
-                        <li class="option__search">ジャンルを選ぶ</li>
+
+                        <li class="option__search">
+                            <input type="button" class="option_button_search" value="ジャンルを選ぶ" onclick="">
+                        </li>
                         <!-- <?php get_template_part('template-parts/search', 'classtype'); ?> -->
-                        <li class="detail__search">詳細検索ページへ</li>
+                        <!-- <li class="detail__search">
+                                <input type="submit" class="detail_submit_search" value="詳細検索ページへ" onclick="">
+                            </li> -->
                     </ul>
-                    <div class="box__search">
-                        <div class="inner__search-box">
-                            <input type="search" placeholder="キーワードを入力してください" value="">
-                            <button>
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </button>
+                    <form action="">
+                        <div class="box__search">
+                            <div class="inner__search-box">
+                                <input type="search" placeholder="キーワードを入力してください" value="">
+                                <button type="submit">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
                 <button class="button__more-search">
-                    <a href="">詳細検索は<br>こちら</a>
+                    <a href="<?php echo home_url('/search') ?>">詳細検索は<br>こちら</a>
                 </button>
             </div>
         </section>
@@ -172,14 +184,14 @@
                 </div>
                 <!-- スライダー ここまで -->
                 <button class="button__more-column">
-                    <a href="">コラムを<br>もっと見る</a>
+                    <a href="<?php echo home_url('/column'); ?>">コラムを<br>もっと見る</a>
                 </button>
             </div>
         </section>
         <!-- 白背景の余白スペース -->
         <div class="clearance"></div>
-        <!-- NEWS -->
 
+        <!-- NEWS -->
         <section class="news">
             <div class="title__news">
                 <h1>NEWS</h1>
