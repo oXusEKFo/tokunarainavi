@@ -26,7 +26,6 @@
 
                 </div>
             </section>
-            </div>
         </main>
 
     <?php endwhile; ?>
