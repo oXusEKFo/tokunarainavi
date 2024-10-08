@@ -1,64 +1,72 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-
 .search_container {
+    background-color:#ffffff;
     width: 100%;
-    max-width: 390px;
-    padding: 20px;
+    max-width: 430px;
+    padding: 20px 20px 50px 20px;
     text-align: center;
+    position: fixed; /* 固定位置に設定 */
+    top: 50%; /* 縦中央 */
+    left: 50%; /* 横中央 */
+    transform: translate(-50%, -50%); /* 中心に移動 */
+    max-height: 80%; /* 最大高さを設定 */
+    overflow-y: auto; /* 縦方向のスクロールを許可 */
+    z-index: 1000; /* 他の要素の上に表示 */
 }
 
-.search_header {
+.allsearch_header {
+    color: #00B0AA;
+    text-align: center;
+    width: 350px;
+    margin: 0 auto;
     position: relative;
-    text-align: left;
-    padding-left: 40px; /* ロゴの幅 + 余白 */
-    min-height: 100px; /* ロゴの高さと同じ */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    margin-top: 60px; /* 上に余白を追加 */
+    margin-bottom: 150px; /* 下に余白を追加 */
 }
 
-.search_header img {
+.allsearch_header img {
     width: 100px;
     height: 100px;
     position: absolute;
     top: 50%;
-    left: 15px;
+    margin-top: 20px; /* 上に余白を追加 */
+    left: 10px;
     transform: translateY(-50%);
     object-fit: cover;
 }
 
-.search_header h1 {
-    font-size: 16px;
-    color: #00B0AA;
-    margin: 0;
-    line-height: 1;
+.allsearch_header h1 {
+    font-size: 7.0rem;
+    width: 100%;
+    margin: 0 auto;
+    position: absolute;
+    bottom: -60px;
+    z-index: 1;
 }
 
-.highlight {
-    font-size: 70px;
-    color: #00B0AA;
-    display: block;
-    letter-spacing: -2px;
-    line-height: 1;
-    margin-top: 0px; /* 上の文字との間隔を調整 */
+.allsearch_header p {
+    font-size: 1.6rem;
     position: absolute;
+    right: 45px;
+    bottom: -65px;
+    z-index: 1;
+}
+
+.search_header {
+    color: #463D3B;
     text-align: center;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 100;
+    width: 350px;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 30px;
+    /* 上に余白を追加 */
+    margin-bottom: 90px;
+    /* 下に余白を追加 */
+}
+
+.search_header h1 {
+    font-size: 3.0rem;
+    width: 100%;
+    position: absolute;
 }
 
 .search_options {
@@ -74,7 +82,7 @@ body {
     border: none;
     border-radius: 10px;
     padding: 15px 16px;
-    font-size: 16px;
+    font-size: 1.6rem;
     text-align: center;
     color: #463D3B;
     cursor: pointer;
@@ -96,7 +104,7 @@ body {
     border: none;
     border-radius: 10px;
     padding: 15px 16px;
-    font-size: 16px;
+    font-size: 1.6rem;
     text-align: center;
     color: #463D3B;
     cursor: pointer;
@@ -124,7 +132,7 @@ body {
     border: none;
     border-radius: 10px;
     padding: 15px;
-    font-size: 18px;
+    font-size: 2.0rem;
     cursor: pointer;
     width: 100%;
     transition: background-color 0.3s ease;
@@ -140,7 +148,7 @@ body {
     border: 2px solid #463D3B;
     border-radius: 10px;
     padding: 15px;
-    font-size: 18px;
+    font-size: 2.0rem;
     cursor: pointer;
     width: 100%;
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -150,21 +158,6 @@ body {
     background-color: #FFEADD;
     border-color: #ED6D1F;
     color: #ED6D1F;
-}
-
-.plus {
-    position: absolute;
-    /* 絶対配置 */
-    right: 16px;
-    /* 右端から16pxの位置に配置 */
-    top: 50%;
-    /* 垂直中央に配置 */
-    transform: translateY(-50%);
-    /* 垂直中央に調整 */
-    font-size: 18px;
-    /* フォントサイズを調整 */
-    color: #463D3B;
-    /* 色を設定 */
 }
 
 .accordion_content {
@@ -208,7 +201,7 @@ body {
     border: 1px solid #463D3B;
     border-radius: 10px;
     padding: 10px;
-    font-size: 14px;
+    font-size: 1.4rem;
     text-align: center;
     color: #463D3B;
     cursor: pointer;
@@ -239,7 +232,7 @@ body {
     /* 垂直中央に配置 */
     transform: translateY(-50%);
     /* 垂直中央に調整 */
-    font-size: 18px;
+    font-size: 1.8rem;
     /* フォントサイズを調整 */
     color: #463D3B;
     /* 色を設定 */
@@ -258,4 +251,53 @@ body {
 
 .accordion_item:hover {
     background-color: #FFEADD;
+}
+
+.close_button {
+    position: absolute;
+    top: 5px;
+    left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 5.0rem;
+    color: #463D3B;
+    transition: background-color 0.3s ease;
+    font-weight: 300; /* フォントを細字に設定 */
+}
+
+.close_button:hover {
+    color: #e0e0e0;
+}
+
+.additional-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.additional-buttons button {
+    width: 100%;
+    background-color: #D6D5D5;
+    border: 2px solid #463D3B;
+    border-radius: 10px;
+    padding: 15px 20px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.additional-buttons button:hover {
+    background-color: #00B0AA;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* 背景を暗くする */
+    z-index: 999; /* ポップアップの下に表示 */
 }

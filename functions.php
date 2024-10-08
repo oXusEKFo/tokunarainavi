@@ -52,9 +52,10 @@ function add_style_script()
         'mytop',
         get_template_directory_uri() . '/assets/css/top.css'
     );
-
+    //  common.js
     wp_enqueue_script('common-js', get_template_directory_uri() . '/assets/js/common.js', ['jquery'], true);
-
+    // column_slider . js
+    wp_enqueue_script('column_slider-js', get_template_directory_uri() . '/assets/js/column_slider.js', ['jquery'], true);
 
     wp_enqueue_style('abouttokunavi', get_template_directory_uri() . '/assets/css/about.css');
     // about.css
@@ -85,6 +86,14 @@ function add_style_script()
             array('jquery'), // jQuery に依存
             '', // バージョン指定なし
             true // フッターに出力
+        );
+    }
+
+    // お気に入りリスト
+    if (is_page('favor')) {
+        wp_enqueue_style(
+            'favorite',
+            get_template_directory_uri() . '/assets/css/favorite.css'
         );
     }
 }

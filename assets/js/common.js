@@ -1,3 +1,5 @@
+"use strict";
+
 // header ハンバーガー
 function toggleMenu() {
     const menu = document.getElementById("menu");
@@ -13,16 +15,20 @@ function toggleMenu() {
     }
 }
 
-// footer TOPボタン スムーズスクロール機能
-document.addEventListener('DOMContentLoaded', function () {
-    const backToTop = document.querySelector('.back_to_top');
-    if (backToTop) {
-        backToTop.addEventListener('click', function (e) {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth' // スムーズスクロール
-            });
-        });
+
+// Topへ戻るボタン
+$(function () {
+  let top = $(".back-to-top");
+  top.hide();
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 100) {
+      top.fadeIn();
+    } else {
+      top.fadeOut();
     }
+  });
+  top.click(function () {
+    $("body, html").animate({ scrollTop: 0 }, 200, "swing");
+    return false;
+  });
 });

@@ -27,7 +27,7 @@
 /*** 検索結果 共通部分 ここまで ***/
 
 /*** ここから施設写真(スライダー) ****/
-.Outline_results {
+.outline_results {
     min-width: 350px;
     width: 100%;
     margin: 0 auto;
@@ -98,7 +98,7 @@
     background-color: #ED6D1F;
     font-size: 2rem;
     font-weight: 700;
-    text-align: center;
+    padding-left: 20px;
     align-content: center;
     margin: 18px auto 18px 0;
 }
@@ -129,13 +129,7 @@
     margin: 35px auto 0;
 }
 
-.details_age,
-.details_price,
-.details_course,
-.details_dow,
-.details_url,
-.details_telNo,
-.details_remarks{
+.details_genre{
     padding:15px 0;
     border-bottom: solid 1px #463D3B;
 }
@@ -144,29 +138,18 @@
     border-bottom: none;
 }
 
-.details_age>h4,
-.details_price>h4,
-.details_course>h4,
-.details_dow>h4,
-.details_url>h4,
-.details_telNo>h4,
-.details_remarks>h4 {
+.details_genre>h4 {
     color: #ED6D1F;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 700;
     line-height: 2.3rem;
     margin-bottom: 8px;
 }
 
-.details_age>p,
-.details_price>p,
-.details_course>p,
-.details_dow>p,
-.details_url>p,
-.details_telNo>p,
-.details_remarks>p {
-    font-size: 1.4rem;
-    font-weight: 700;
+.details_genre>p,
+.details_genre>a {
+    font-size: 1.6rem;
+    font-weight: 500;
     line-height: 2.5rem;
 }
 
@@ -472,7 +455,7 @@ text-align: right;
 
 @media screen and (min-width: 768px) {
 
-    .Outline_results {
+    .outline_results {
         min-width: 350px;
         width: 95%;
         margin: 0 auto;
@@ -556,7 +539,7 @@ text-align: right;
             width: 90%;
     }
 
-    .Outline_results {
+    .outline_results {
         width: 100%;
         margin: 0 auto;
         display: flex;
@@ -585,7 +568,7 @@ text-align: right;
     }
 
     .details_title {
-        font-size: 2vw;
+        font-size: 3rem;
         line-height: 4.34rem;
         width: clamp(100px, 35vw, 590px);
         height: 80px;
@@ -597,8 +580,8 @@ text-align: right;
     }
 
     .details_description{
-        font-size: 1.7vw;
-        line-height: 4.0rem;
+        font-size: 1.8rem;
+        line-height: 3.5rem;
         margin-top: 26px;
     }
 
@@ -617,15 +600,15 @@ text-align: right;
 
     .details_containerL h4,
     .details_containerR h4 {
-        font-size: 1.9vw;
-        line-height: 4.0rem;
+        font-size: 2rem;
+        line-height: 3.5rem;
         width: 100%;
     }
 
     .details_containerL p,
     .details_containerR p{
-        font-size: 1.7vw;
-        line-height: 4.0rem;
+        font-size: 1.8rem;
+        line-height: 3.5rem;
         width: 100%;
     }
 
@@ -667,11 +650,7 @@ text-align: right;
         line-height: 4.0rem;
     }
 
-    /* .review_item{
-        font-size: 1.9vw;
-        line-height: 4.0rem;
-        width: 100%;
-    } */
+
 
     .wrap_details-review {
         width: 100%;
@@ -679,7 +658,7 @@ text-align: right;
 
 
     .review_name {
-        font-size: 1.9vw;
+        font-size: 1.8rem;
         line-height: 4.0rem;
     }
 

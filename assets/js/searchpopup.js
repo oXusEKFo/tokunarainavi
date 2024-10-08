@@ -42,3 +42,19 @@ function selectAll(groupId, button) {
         button.classList.add('selected');
     }
 }
+
+// ポップアップ、閉じるボタンを取得
+const popup = document.getElementById('popup');
+const closeBtn = document.querySelector('.close_button');
+
+// 閉じるボタンがクリックされた時にポップアップを非表示
+closeBtn.addEventListener('click', function() {
+    popup.style.display = 'none';
+});
+
+// ポップアップの外側がクリックされた時も非表示にする
+window.addEventListener('click', function(event) {
+    if (event.target == popup) {
+        popup.style.display = 'none';
+    }
+});

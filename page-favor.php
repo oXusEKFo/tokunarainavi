@@ -8,25 +8,27 @@ $event_count = 0;
 
 <!-- main -->
 <main>
-    <div class="inner_main">
 
-        <?php
-        get_template_part('template-parts/breadcrumb');
-        ?>
+    <div class="inner_main">
+        <!-- パンくず -->
+        <div class="container_breadCrumb">
+            <div class="breadCrumb">
+                <?php
+                get_template_part('template-parts/breadcrumb');
+                ?>
+            </div>
+        </div>
 
         <h1>お気に入りリスト</h1>
 
-        <div class="favorite_card">
-            <!-- ここからお気に入りの施設一覧が表示されます -->
-
+        <!-- ここからお気に入り一覧が表示されます -->
+        <div class="results_card"> <!-- ← results.htmlから借用 -->
 
             <?php
             if (function_exists('get_user_favorites')) :
-                // 現在のユーザーのお気に入り投稿IDを取得
-                $favorites = get_user_favorites();
-                // お気に入りリストを降順に並べ替える
-                //（新しく追加したものが先頭にくるように）
-                krsort($favorites);
+                // code...
+                $favorites = get_user_favorites(); // 現在のユーザーのお気に入り投稿IDを取得
+                krsort($favorites); // リストを降順に並べる（新規追加したものが先頭にくるように）
 
                 // print_r($favorites);
 
@@ -47,15 +49,12 @@ $event_count = 0;
                             $events['text'][] = $classname;
             ?>
 
-                            <?php
-                            $thumbnail_id = get_post_thumbnail_id(get_the_ID());
-                            $thumbnail_data = wp_get_attachment_image_src($thumbnail_id, 'large');
-                            $thumbnail_url = $thumbnail_data[0]; // URLを取得
-                            ?>
 
-                            <!-- お気に入り一覧カード -->
-                            <?php get_template_part('template-parts/loop', 'classroom') ?>
-
+                            <div class="wrap_card">
+                                <div class="inner_card">
+                                    <?php get_template_part('template-parts/loop', 'classroom') ?>
+                                </div>
+                            </div>
 
 
                         <?php
@@ -78,20 +77,17 @@ $event_count = 0;
             // print_r($event_count);
             ?>
 
-            </section>
-
-            <?php
-            if ($event_count == 0) :
-            ?>
-                <!-- 登録物がないときは下記の文章を使用します -->
-                <p>
-                    <center>お気に入りはありません。</center>
-                </p>
-            <?php
-            endif;
-            ?>
-
         </div>
+        <?php
+        if ($event_count == 0) :
+        ?>
+            <!-- 登録物がないときは下記の文章を使用します -->
+            <p>
+                <center>お気に入りはありません。</center>
+            </p>
+        <?php
+        endif;
+        ?>
 
         <section class="favorite_info">
             <h2>お気に入りページの注意点</h2>
@@ -101,6 +97,5 @@ $event_count = 0;
 
     </div>
 </main>
-
 
 <?php get_footer(); ?>
