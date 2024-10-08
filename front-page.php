@@ -143,6 +143,7 @@
             </div>
         </section>
         <!-- column -->
+
         <section class="column">
             <div class="inner__column">
                 <div class="title__column">
@@ -155,6 +156,9 @@
                         <?php
                         $args = [
                             'post_type' => 'column',
+                            // 'posts_per_page'     => 2,
+                            'orderby'        => 'date',
+                            'order'          => 'DESC',
                         ];
                         $column_query = new WP_query($args);
                         if ($column_query->have_posts()):
@@ -164,8 +168,6 @@
                             <?php endwhile; ?>
                             <?php wp_reset_postdata(); ?>
                         <?php endif ?>
-
-
                     </div>
                 </div>
                 <!-- スライダー ここまで -->
@@ -177,6 +179,7 @@
         <!-- 白背景の余白スペース -->
         <div class="clearance"></div>
         <!-- NEWS -->
+
         <section class="news">
             <div class="title__news">
                 <h1>NEWS</h1>
@@ -184,29 +187,27 @@
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/creamcircle.png" alt="クリーム円">
             </div>
             <!-- ここからニュース記事 -->
-            <div class="wrap__news">
-                <div class="container__news">
-                    <div class="items__news">
-                        <ul>
-                            <?php
-                            $args = [
-                                'post_type' => 'post',
-                            ];
-                            $the_query = new WP_Query($args);
-                            if ($the_query->have_posts()):
-                                while ($the_query->have_posts()): $the_query->the_post();
-                            ?>
+            <?php if (have_posts()) : ?>
+                <div class="wrap__news">
+                    <div class="container__news">
+                        <div class="items__news">
+                            <ul>
+                                <?php
+                                $news = get_term_by('slug', 'news', 'category');
+                                $news_link = get_term_link($news, 'category');
+                                ?>
+                                <?php while (have_posts()) : the_post(); ?>
                                     <?php get_template_part('template-parts/loop', 'news'); ?>
                                 <?php endwhile; ?>
                                 <?php wp_reset_postdata(); ?>
-                            <?php endif ?>
-                        </ul>
+                            </ul>
+                        </div>
+                        <button class="button__more-news">
+                            <a href="<?php echo $news_link; ?>">新着情報を<br>もっと見る</a>
+                        </button>
                     </div>
-                    <button class="button__more-news">
-                        <a href="">新着情報を<br>もっと見る</a>
-                    </button>
                 </div>
-            </div>
+            <?php endif ?>
         </section>
         <!-- 白背景の余白スペース -->
         <div class="clearance"></div>
