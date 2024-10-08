@@ -13,27 +13,44 @@ function toggleAccordion(id) {
     }
 }
 
-function selectItem(button) {
-    button.classList.toggle('selected');
+function selectItem(checkbox) {
+    const label = checkbox.parentElement; // チェックボックスの親要素（label）を取得
+    if (checkbox.checked) {
+        label.classList.add('selected'); // チェックボックスが選択された場合、selectedクラスを追加
+    } else {
+        label.classList.remove('selected'); // チェックボックスが選択解除された場合、selectedクラスを削除
+    }
 }
 
 function clearSelections() {
-    const selectedItems = document.querySelectorAll('.accordion_item.selected');
-    selectedItems.forEach(item => item.classList.remove('selected'));
+    // すべてのチェックボックスを取得
+    const allCheckboxes = document.querySelectorAll('input[type="checkbox"]');
+
+    allCheckboxes.forEach(checkbox => {
+        checkbox.checked = false; // チェックボックスを解除
+        checkbox.parentElement.classList.remove('selected'); // 親のlabelからselectedクラスを削除
+    });
+
+    // 全域ボタンの選択状態を解除
+    const allAreaButtons = document.querySelectorAll('.accordion_item.full_width');
+    allAreaButtons.forEach(button => {
+        button.classList.remove('selected'); // 全域ボタンの選択状態を解除
+    });
 }
 
 function selectAll(groupId, button) {
     const group = document.getElementById(groupId);
-    const buttons = group.getElementsByClassName('accordion_item');
-    const allSelected = Array.from(buttons).every(btn => btn.classList.contains('selected'));
+    const checkboxes = group.querySelectorAll('input[type="checkbox"]');
+    const allSelected = Array.from(checkboxes).every(checkbox => checkbox.checked);
 
-    for (let btn of buttons) {
-        if (allSelected) {
-            btn.classList.remove('selected'); // すべて解除
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = !allSelected; // すべて選択または解除
+        if (checkbox.checked) {
+            checkbox.parentElement.classList.add('selected'); // 親のlabelにselectedクラスを追加
         } else {
-            btn.classList.add('selected'); // すべて選択
+            checkbox.parentElement.classList.remove('selected'); // 親のlabelからselectedクラスを削除
         }
-    }
+    });
 
     // ボタン自体の選択状態を切り替え
     if (allSelected) {
