@@ -14,7 +14,7 @@
             </section>
             <!-- 本文記述 -->
             <section class="wrap_about">
-                <h1 class="title_about">
+                <h1 class="title__about">
                     <?php the_title(); ?>
                 </h1>
                 <div class="wrap_description">
