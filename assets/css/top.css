@@ -304,7 +304,9 @@ header{
     margin: 18px auto;
     border-radius: 10px;
 }
-
+.sub-menu {
+    display: none;
+}
 /* 詳細検索ページへ */
 .detail__search {
     background-color: #463D3B;
