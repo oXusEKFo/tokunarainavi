@@ -347,7 +347,15 @@ header{
     display: flex;
 }
 
-.search__button {
+.window__search {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:0 0 0 20px;
+}
+
+.button__search {
     /* background-color: #00B0AA; */
     /* ボタンの背景色 */
     border: none;
