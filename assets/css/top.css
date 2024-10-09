@@ -283,16 +283,88 @@ input[type="search"]::-webkit-search-cancel-button {
     border-bottom: solid 1px #463D3B;
 }
 
-.order::before {
-    content: '';
-    display: inline-block;
-    background-image: url(../images/crown.png) ;
-    width: 50px;
-    height: 30px;
+.order__ranking {
+    counter-reset: rank;
+}
+
+.order__ranking li {
+    position: relative;
+}
+
+/* ランキングの王冠 */
+.order__ranking li:nth-child(-n+5)::before {
+    /* 1位から5位まで */
+    font: var(--fa-font-solid);
+    content: "\f521";
+    /* FontAwesome 王冠アイコン */
     margin: 0 10px 0 0;
     background-size: contain;
-    vertical-align: middle;
 }
+
+.order__ranking li:nth-child(1)::before {
+    /* 1位（王冠）のスタイル */
+    color: #C9B037;
+    font-size: 4.5rem;
+}
+
+
+.order__ranking li:nth-child(2)::before {
+    /* 2位（王冠）のスタイル */
+    color: #d7d7d7;
+    font-size: 4.0rem;
+    padding-left: 3px;
+}
+
+.order__ranking li:nth-child(3)::before {
+    /* 3位（王冠）のスタイル */
+    color: #ad8a56;
+    font-size: 3.5rem;
+    padding-left: 5px;
+}
+
+.order__ranking li:nth-child(4)::before,
+.order__ranking li:nth-child(5)::before {
+    /* 4,5位（王冠）のスタイル */
+    color: #463D3B;
+    font-size: 3.5rem;
+    padding-left: 5px;
+}
+
+.order__ranking li:nth-child(1)::after {
+    /* 1位（文字）のスタイル */
+    counter-increment: rank;
+    content: counter(rank);
+    position: absolute;
+    top: -1px;
+    left: 27px;
+    font-size: 2.5rem;
+    color: #463D3B;
+}
+
+.order__ranking li:nth-child(2)::after {
+    /* 2位（文字）のスタイル */
+    counter-increment: rank;
+    content: counter(rank);
+    position: absolute;
+    top: -1px;
+    left: 30px;
+    font-size: 2.0rem;
+    color: #463D3B;
+}
+
+.order__ranking li:nth-child(3)::after,
+.order__ranking li:nth-child(4)::after,
+.order__ranking li:nth-child(5)::after {
+    /* 3,4,5位（文字）のスタイル */
+    counter-increment: rank;
+    content: counter(rank);
+    position: absolute;
+    top: -1px;
+    left: 29px;
+    font-size: 1.8rem;
+    color: #FFF;
+}
+
 
 /* とくしまの習いごとアンケート結果 */
 .inner__survey {
