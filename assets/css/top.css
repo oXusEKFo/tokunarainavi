@@ -267,8 +267,8 @@ header{
     width: 100px;
     height: 100px;
     position: absolute;
-    bottom: -65px;
-    left: 0px;
+    bottom: -42px;
+    left: -23px;
     z-index: -1;
 }
 
@@ -286,55 +286,82 @@ header{
     background-color: #FFF;
     width: 350px;
     height: 415px;
-    padding: 50px 0 0;
+    padding: 35px 25px;
     margin: 20px auto;
     border-radius: 20px;
 }
 
 /* 選択ボタン */
 .option__search,
-.detail__search,
-.box__search {
-    background-color: #D6D5D5;
-    font-size: 2.0rem;
+.detail__search {
     text-align: center;
-    line-height: 50px;
     width: 300px;
     height: 50px;
-    margin: 18px auto;
+    margin: 8px auto;
+    width: 100%;
+    background-color: #D6D5D5;
+    border: 2px solid #463D3B;
     border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
+
+.option__search:hover {
+    background-color: #00B0AA;
+}
+
 .sub-menu {
     display: none;
 }
+
 /* 詳細検索ページへ */
 .detail__search {
+    border: none;
     background-color: #463D3B;
     color: #FFF;
 }
 
-/* 詳細検索 丸ボタン(PC時に表示)を非表示に */
-.button__more-search {
-    display: none;
+.detail__search:hover {
+    background-color: #ED6D1F;
+    color: #FFF;
 }
+
+/* 詳細検索 丸ボタン(PC時に表示)を非表示に */
+/* .button__more-search {
+    display: none;
+} */
 
 /* 検索窓 */
 .box__search{
     background-color: #FFF;
-    font-size: 1.7rem;
-    text-align: left;
+    font-size: 1.4rem;
+    flex: 1;
     border: solid 1px #463D3B;
+    border-radius: 10px;
 }
 
 .inner__search-box{
     width: 100%;
     display: flex;
-    justify-content: center;
-    align-content: center;
 }
 
-.inner__search-box>input {
-    width: 85%;
+.search__button {
+    /* background-color: #00B0AA; */
+    /* ボタンの背景色 */
+    border: none;
+    /* ボーダーを削除 */
+    border-radius: 5px 0px 0px 5px;
+    /* 右側の角を丸くする */
+    padding: 20px;
+    /* パディングを追加 */
+    display: flex;
+    /* フレックスボックスを使用 */
+    align-items: center;
+    /* アイコンを中央に揃える */
+    justify-content: center;
+    /* アイコンを中央に揃える */
 }
 
 /* ランキング */
