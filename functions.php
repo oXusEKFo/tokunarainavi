@@ -70,7 +70,6 @@ function add_style_script()
         );
         // <!-- ポップアップCSS -->
         wp_enqueue_style('tokunavi_searchpopup_css', get_template_directory_uri() . '/assets/css/searchpopup.css');
-
         // column_slider . js
         wp_enqueue_script('tokunavi_column_slider_js', get_template_directory_uri() . '/assets/js/column_slider.js', ['jquery'], true);
         //search
@@ -88,7 +87,7 @@ function add_style_script()
     } elseif (is_singular('column')) {
         //コラム記事CSS
         wp_enqueue_style(
-            'column-style',
+            'tokunavi_column_style',
             get_template_directory_uri() . '/assets/css/column.css',
         );
     } elseif (is_page('contact') || is_page('confirm') || is_page('thanks')) {
