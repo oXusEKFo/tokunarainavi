@@ -157,8 +157,12 @@
 .details_map{
     font-size: 2.0rem;
     display: flex;
-    padding: 10px 0 0;
-    margin: 0 auto;
+    padding: 10px 20px;
+    min-width: 350px;
+    width: 60%;
+    margin: 20px 0 10px;
+    background-color: rgb(246, 239, 231);
+
 }
 
 
@@ -234,7 +238,7 @@
     justify-content: space-between;
     gap: 22px;
     padding-bottom: 9px;
-    margin-bottom: 12px;
+    margin: 15px 0;
 }
 
 .review_title{
@@ -328,11 +332,11 @@ text-align: right;
     align-items: center;
     justify-content: center;
     min-width: 350px;
-    width:70%;
+    width:60%;
     height: 70px;
     margin: 0 auto;
-    border: solid 2px #463D3B;
-}
+    margin-top: 50px;
+    background-color: rgb(246, 239, 231);}
 
 .relatedReview_title p {
     font-size: 2.0rem;
@@ -341,8 +345,8 @@ text-align: right;
 }
 
 .relatedReview_title img{
-    width: 50px;
-    height: 28px;
+    width: 60px;
+
 }
 
 /* レビューエリア ここまで */
@@ -356,7 +360,7 @@ text-align: right;
 .results_card{
     width: 390px;
     padding: 7.5px 0 7.5px 0;
-    margin: 0 auto;
+    margin: 10px auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -550,13 +554,13 @@ text-align: right;
 
     .relatedReview_title {
         max-width: 1120px;
-        width: 70%;
-        margin: 0 auto;
+        width: 95%;
+
     }
 
     .results_card {
     max-width: 1200px;
-    width: 100%;
+    width: 95%;
     }
 
     .results_card::after {
@@ -694,7 +698,11 @@ text-align: right;
 
     .details_map {
         font-size: 3.0rem;
-        line-height: 4.0rem;
+
+    }
+    .details_map p {
+        display: flex;
+        justify-content: center;
     }
     .card_img {
         width: 100%;
@@ -751,7 +759,7 @@ text-align: right;
 
     .relatedReview_title img {
         width: 70px;
-        height: 40px;
+
     }
 
     .results_card::after {
