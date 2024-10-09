@@ -1,5 +1,6 @@
 <?php get_header(); ?>
 
+<link href="../../assets/css/searchpopup.css" rel="stylesheet" />
 <main>
     <div class="inner__main">
         <section class="landing">
@@ -55,16 +56,136 @@
 
                     <ul>
                         <li class="option__search">
-                            <input type="button" class="option_button_search" value="エリアを選ぶ" onclick="window.location.href=' <?php echo home_url('/search');  ?>'">
+                            <button onclick="togglePopup('popup_area')">エリアを選ぶ</button>
+                            <div class="search_container" id="popup_area" style="display: none;">
+                                <div class="close_button">×</div>
+                                <div class="search_header">
+                                    <h1>エリアを選ぶ</h1>
+                                </div>
+                                <div class="search_options">
+                                    <button class="accordion_item full_width" onclick="selectAll('tokushima', this);">徳島市全域</button>
+                                    <div id="tokushima" class="single_column">
+                                        <label class="accordion_item">
+                                            <input type="checkbox" value="徳島市中心部" onclick="selectItem(this)">
+                                            徳島市中心部(徳島駅前周辺)
+                                        </label>
+                                        <label class="accordion_item">
+                                            <input type="checkbox" value="徳島市北部" onclick="selectItem(this)">
+                                            徳島市北部(応神〜川内周辺)
+                                        </label>
+                                        <label class="accordion_item">
+                                            <input type="checkbox" value="徳島市南部" onclick="selectItem(this)">
+                                            徳島市南部(昭和〜新浜周辺)
+                                        </label>
+                                        <label class="accordion_item">
+                                            <input type="checkbox" value="徳島市東部" onclick="selectItem(this)">
+                                            徳島市東部(住吉〜沖洲周辺)
+                                        </label>
+                                        <label class="accordion_item">
+                                            <input type="checkbox" value="徳島市西部" onclick="selectItem(this)">
+                                            徳島市西部(田宮〜国府周辺)
+                                        </label>
+                                    </div>
+                                    <button class="accordion_item full_width" onclick="selectAll('itano',this);">板野郡全域</button>
+                                    <div id="itano" class="double_column">
+                                        <label class="accordion_item">
+                                            <input type="checkbox" value="板野郡藍住町" onclick="selectItem(this)">
+                                            板野郡藍住町
+                                        </label>
+                                        <label class="accordion_item">
+                                            <input type="checkbox" value="板野郡北島町" onclick="selectItem(this)">
+                                            板野郡北島町
+                                        </label>
+                                        <label class="accordion_item">
+                                            <input type="checkbox" value="板野郡松茂町" onclick="selectItem(this)">
+                                            板野郡松茂町
+                                        </label>
+                                        <label class="accordion_item">
+                                            <input type="checkbox" value="板野郡板野町" onclick="selectItem(this)">
+                                            板野郡板野町
+                                        </label>
+                                        <label class="accordion_item">
+                                            <input type="checkbox" value="板野郡上板町" onclick="selectItem(this)">
+                                            板野郡上板町
+                                        </label>
+                                    </div>
+                                    <div class="double_column">
+                                        <label class="accordion_item">
+                                            <input type="checkbox" value="阿南市" onclick="selectItem(this)">
+                                            阿南市
+                                        </label>
+                                        <label class="accordion_item">
+                                            <input type="checkbox" value="鳴門市" onclick="selectItem(this)">
+                                            鳴門市
+                                        </label>
+                                        <label class="accordion_item">
+                                            <input type="checkbox" value="吉野川市" onclick="selectItem(this)">
+                                            吉野川市
+                                        </label>
+                                        <label class="accordion_item">
+                                            <input type="checkbox" value="小松島市" onclick="selectItem(this)">
+                                            小松島市
+                                        </label>
+                                        <label class="accordion_item">
+                                            <input type="checkbox" value="阿波市" onclick="selectItem(this)">
+                                            阿波市
+                                        </label>
+                                        <label class="accordion_item">
+                                            <input type="checkbox" value="名西郡" onclick="selectItem(this)">
+                                            名西郡
+                                        </label>
+                                        <label class="accordion_item">
+                                            <input type="checkbox" value="美馬市" onclick="selectItem(this)">
+                                            美馬市
+                                        </label>
+                                        <label class="accordion_item">
+                                            <input type="checkbox" value="三好市" onclick="selectItem(this)">
+                                            三好市
+                                        </label>
+                                        <label class="accordion_item">
+                                            <input type="checkbox" value="海部郡" onclick="selectItem(this)">
+                                            海部郡
+                                        </label>
+                                        <label class="accordion_item">
+                                            <input type="checkbox" value="美馬郡" onclick="selectItem(this)">
+                                            美馬郡
+                                        </label>
+                                        <label class="accordion_item">
+                                            <input type="checkbox" value="那賀郡" onclick="selectItem(this)">
+                                            那賀郡
+                                        </label>
+                                        <label class="accordion_item">
+                                            <input type="checkbox" value="三好郡" onclick="selectItem(this)">
+                                            三好郡
+                                        </label>
+                                        <label class="accordion_item">
+                                            <input type="checkbox" value="勝浦郡" onclick="selectItem(this)">
+                                            勝浦郡
+                                        </label>
+                                        <label class="accordion_item">
+                                            <input type="checkbox" value="名東郡" onclick="selectItem(this)">
+                                            名東郡
+                                        </label>
+                                    </div>
+                                    <div class="search_actions">
+                                        <button class="search_button">この条件で検索する</button>
+                                        <div class="additional-buttons">
+                                            <button>年齢も選ぶ</button>
+                                            <button>ジャンルも選ぶ</button>
+                                        </div>
+                                        <button class="clear_button" onclick="clearSelections()">すべてクリア</button>
+                                    </div>
+                                </div>
+                            </div>
                         </li>
                         <!-- <?php get_template_part('template-parts/search', 'area'); ?> -->
-                        <li class="option__search">
-                            <input type="button" class="option_button_search" value="年齢を選ぶ" onclick="">
+                        <li class=" option__search">
+                            <input type="button" class="option_button_search" value="年齢を選ぶ" data-target="age" onclick="showSubMenu(this)">
                         </li>
                         <!-- <?php get_template_part('template-parts/search', 'age'); ?> -->
 
                         <li class="option__search">
-                            <input type="button" class="option_button_search" value="ジャンルを選ぶ" onclick="">
+                            <input type="button" class="option_button_search" value="ジャンルを選ぶ" data-target="genre" onclick="showSubMenu(this)">
                         </li>
                         <!-- <?php get_template_part('template-parts/search', 'classtype'); ?> -->
                         <!-- <li class="detail__search">
@@ -114,9 +235,6 @@
                         ];
 
                         $terms = get_terms($args);
-                        // $termc = get_terms($argc);
-                        // $term_object = get_term_by('slug', $terms, $taxonomy);
-                        // $term_id = $term_object->term_id;
                         if (!empty($terms) && !is_wp_error($terms)) :
                             $number = 0;
                             foreach ($terms as $term) {
@@ -125,12 +243,13 @@
                                 }
                                 $number++;
                                 $view_count = get_term_meta($term->term_id, 'view_count', true);
-                                $term_link = get_term_link($term); // 分類リンクの取得
+                                // $term_link = get_term_link($term); // 分類リンクの取得
+                                $search_link = get_search_link($term->name);
 
-                                if (!is_wp_error($term_link)) :
+                                if (!is_wp_error($search_link)) :
                         ?>
                                     <li class="order">
-                                        <a href="<?php echo esc_url($term_link); ?>"><?php echo  esc_html($term->name); ?>
+                                        <a href="<?php echo esc_url($search_link); ?>"><?php echo  esc_html($term->name); ?>
 
                                             <?php
                                             echo '回数: ' . esc_html($view_count);

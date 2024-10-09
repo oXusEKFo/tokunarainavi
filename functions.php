@@ -67,6 +67,10 @@ function add_style_script()
         );
         // column_slider . js
         wp_enqueue_script('column_slider-js', get_template_directory_uri() . '/assets/js/column_slider.js', ['jquery'], true);
+        //search
+        wp_enqueue_script('searchpopup', get_template_directory_uri() . '/assets/js/searchpopup.js', ['jquery'], true);
+        // <!-- ポップアップCSS -->
+        wp_enqueue_style('searchpopup', get_template_directory_uri() . '/assets/css/searchpopup.css');
     } elseif (is_404()) {
         wp_enqueue_style(
             'error404',
