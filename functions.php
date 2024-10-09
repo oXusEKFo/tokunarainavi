@@ -69,35 +69,35 @@ function add_style_script()
             get_template_directory_uri() . '/assets/css/top.css'
         );
         // <!-- ポップアップCSS -->
-        wp_enqueue_style('searchpopup', get_template_directory_uri() . '/assets/css/searchpopup.css');
+        wp_enqueue_style('tokunavi_searchpopup', get_template_directory_uri() . '/assets/css/searchpopup.css');
 
         // column_slider . js
-        wp_enqueue_script('column_slider-js', get_template_directory_uri() . '/assets/js/column_slider.js', ['jquery'], true);
+        wp_enqueue_script('tokunavi_column_slider_js', get_template_directory_uri() . '/assets/js/column_slider.js', ['jquery'], true);
         //search
-        wp_enqueue_script('searchpopup', get_template_directory_uri() . '/assets/js/searchpopup.js', ['jquery'], true);
+        wp_enqueue_script('tokunavi_searchpopup', get_template_directory_uri() . '/assets/js/searchpopup.js', ['jquery'], true);
     } elseif (is_404()) {
         wp_enqueue_style(
-            'error404',
+            'tokunavi_error404',
             get_template_directory_uri() . '/assets/css/404.css'
         );
     } elseif (is_search()) {
         //条件検索CSS
-        wp_enqueue_style('search-style', get_template_directory_uri() . '/assets/css/results.css');
+        wp_enqueue_style('tokunavi_search_style', get_template_directory_uri() . '/assets/css/results.css');
         wp_enqueue_style('searchpopup-style', get_template_directory_uri() . '/assets/css/searchpopup.css');
-        wp_enqueue_script('searchpopup-script', get_template_directory_uri() . '/assets/js/searchpopup.js');
+        wp_enqueue_script('tokunavi_searchpopup_script', get_template_directory_uri() . '/assets/js/searchpopup.js');
     } elseif (is_singular('column')) {
         //コラム記事CSS
         wp_enqueue_style(
-            'column-style',
+            'tokunavi_column_style',
             get_template_directory_uri() . '/assets/css/column.css',
         );
     } elseif (is_page('contact') || ('confirm') || ('thanks')) {
         wp_enqueue_style(
-            'tikunarainavi-input',
+            'tokunavi_input',
             get_template_directory_uri() . '/assets/css/input.css',
         );
         wp_enqueue_script(
-            'tokunarainavi-mail-js',
+            'tokunavi_mail_js',
             get_template_directory_uri() . '/assets/js/mail_form.js',
             array('jquery'), // jQuery に依存
             '', // バージョン指定なし
@@ -106,12 +106,12 @@ function add_style_script()
     } elseif (is_page('favor')) {
         // お気に入りリスト
         wp_enqueue_style(
-            'favorite',
+            'tokunavi_favorite',
             get_template_directory_uri() . '/assets/css/favorite.css'
         );
     } elseif (is_page('about')) {
         // page-about.php
-        wp_enqueue_style('abouttokunavi', get_template_directory_uri() . '/assets/css/about.css');
+        wp_enqueue_style('tokunavi_about', get_template_directory_uri() . '/assets/css/about.css');
     }
 }
 add_action('wp_enqueue_scripts', 'add_style_script');
