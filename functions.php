@@ -152,7 +152,7 @@ function my_pre_get_posts($query)
 /*
 * 管理画面、施設の記事にを施設の種別分類フィルタの追加
 */
-function tokunabi_classroom_taxonomy_filter()
+function wpkj_product_taxonomy_filter()
 {
     global $typenow;
     $post_type = 'classroom'; //slug
