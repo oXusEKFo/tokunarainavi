@@ -62,7 +62,7 @@ function add_style_script()
      */
     if (is_home()) {
         wp_enqueue_style(
-            'tukunavi_top',
+            'tokunavi_top',
             get_template_directory_uri() . '/assets/css/top.css'
         );
         // <!-- ポップアップCSS -->
