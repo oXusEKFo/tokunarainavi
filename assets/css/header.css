@@ -6,6 +6,7 @@ header {
     width: 100%;
     height: auto;
     position: fixed;
+    z-index: 50;
 }
 
 .inner__header {
@@ -143,4 +144,10 @@ header {
         margin: 0 0 0 10px;
     }
 
+    /* ハンバーガーメニュー */
+    .container__hbg {
+        width: 37.5px;
+        height: 30px;
+        margin: 0 37.5px 0 0;
+    }
 }

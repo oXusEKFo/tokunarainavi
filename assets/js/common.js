@@ -8,6 +8,22 @@ jQuery(function ($) {
     });
 
 
+
+    // Enterキーで検索ボタンクリック
+    const window__search = document.getElementById("window__search");
+
+    window__search.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+            const btn__search = document.getElementById("btn__search");
+            btn__search.dispatchEvent(new PointerEvent("click"));
+
+        e.preventDefault();  // Enterキー入力の伝搬防止
+    }
+    return false;
+    });
+
+
+
     // Topへ戻るボタン
     $(function () {
         let top = $(".back-to-top");
