@@ -24,11 +24,6 @@ function add_style_script()
     *共通CSS
     */
 
-    //リセットCSS
-    wp_enqueue_style(
-        'destyle',
-        get_template_directory_uri() . '/assets/css/destyle.css'
-    );
 
     // 外部のスタイルシート
     wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css'); //外部のスタイルシート:FontAwesome CDN
@@ -40,21 +35,28 @@ function add_style_script()
     wp_enqueue_script('slick-js', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js'); //slick.js スライダー用
 
 
+    //リセットCSS
     wp_enqueue_style(
-        'mycommon',
+        'destyle',
+        get_template_directory_uri() . '/assets/css/destyle.css'
+    );
+
+    // common CSS
+    wp_enqueue_style(
+        'tokunavi_common',
         get_template_directory_uri() . '/assets/css/common.css'
     );
     wp_enqueue_style(
-        'myheader',
+        'tokunavi_header',
         get_template_directory_uri() . '/assets/css/header.css'
     );
     wp_enqueue_style(
-        'myfooter',
+        'tokunavi_footer',
         get_template_directory_uri() . '/assets/css/footer.css'
     );
 
     //  common.js
-    wp_enqueue_script('common-js', get_template_directory_uri() . '/assets/js/common.js', ['jquery'], true);
+    wp_enqueue_script('tokunavi_common_js', get_template_directory_uri() . '/assets/js/common.js', ['jquery'], true);
 
 
     /**
