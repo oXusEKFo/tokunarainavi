@@ -31,6 +31,7 @@ function add_style_script()
     wp_enqueue_style('google-web-fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap'); //外部のスタイルシート:GoogleFonts
     wp_enqueue_style('slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css'); //slick
     wp_enqueue_style('slick-theme', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css'); //slick-theme
+
     wp_enqueue_script('jquery');  //jQueryを読み込む
     wp_enqueue_script('slick-js', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js'); //slick.js スライダー用
 
@@ -41,7 +42,7 @@ function add_style_script()
         get_template_directory_uri() . '/assets/css/destyle.css'
     );
 
-    // common CSS
+    // 共通CSS
     wp_enqueue_style(
         'tokunavi_common',
         get_template_directory_uri() . '/assets/css/common.css'
@@ -57,7 +58,7 @@ function add_style_script()
 
     //  common.js
     wp_enqueue_script('tokunavi_common_js', get_template_directory_uri() . '/assets/js/common.js', ['jquery'], true);
-
+    wp_enqueue_script('tokunavi_common_slider', get_template_directory_uri() . '/assets/js/common_slider.js', ['jquery'], true);
 
     /**
      * 個々のページ
