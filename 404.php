@@ -1,14 +1,7 @@
 <?php get_header(); ?>
 
 <main>
-    <section class="container_bread-crumb">
-        <div class="bread-crumb">
-            <p><a href="<?php echo home_url(); ?>">TOP</a> &gt;
-                <span class="under-line">404</span>
-            </p>
-        </div>
-        </div>
-    </section>
+
 
 
     <div class="container">
