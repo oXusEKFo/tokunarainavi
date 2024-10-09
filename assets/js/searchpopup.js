@@ -74,38 +74,96 @@ changeButtons.forEach(button => {
     });
 });
 
-function togglePopup(popupId) {
-    const popup = document.getElementById(popupId);
-    const overlay = document.querySelector('.overlay');
-    const isVisible = popup.style.display === 'block';
-    popup.style.display = isVisible ? 'none' : 'block';
-    overlay.style.display = isVisible ? 'none' : 'block';
+// 選択状態を保存する関数
+function saveSelections() {
+    const selectedValues = {};
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+    checkboxes.forEach(checkbox => {
+        selectedValues[checkbox.value] = checkbox.checked;
+    });
+
+    return selectedValues;
 }
 
-// ポップアップ、閉じるボタンを取得
-const closeBtns = document.querySelectorAll('.close_button');
-const overlays = document.querySelectorAll('.overlay');
+// 選択状態を復元する関数
+function restoreSelections(selectedValues) {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
-// 各閉じるボタンにイベントリスナーを追加
-closeBtns.forEach(closeBtn => {
-    closeBtn.addEventListener('click', function() {
-        const popup = closeBtn.closest('.search_container');
-        const overlay = document.querySelector('.overlay');
-        popup.style.display = 'none';
-        overlay.style.display = 'none'; // オーバーレイも非表示にする
-    });
-});
-
-// ポップアップの外側がクリックされた時も非表示にする
-overlays.forEach(overlay => {
-    overlay.addEventListener('click', function(event) {
-        // クリックされた要素がポップアップの外側であることを確認
-        if (event.target === overlay) {
-            const popups = document.querySelectorAll('.search_container');
-            popups.forEach(popup => {
-                popup.style.display = 'none'; // すべてのポップアップを非表示にする
-            });
-            overlay.style.display = 'none'; // オーバーレイも非表示にする
+    checkboxes.forEach(checkbox => {
+        if (selectedValues[checkbox.value] !== undefined) {
+            checkbox.checked = selectedValues[checkbox.value];
+            if (checkbox.checked) {
+                checkbox.parentElement.classList.add('selected');
+            } else {
+                checkbox.parentElement.classList.remove('selected');
+            }
         }
     });
+}
+
+// ポップアップを切り替える関数
+function togglePopup(popupId) {
+    // すべてのポップアップを非表示にする
+    const popups = document.querySelectorAll('.search_container');
+    popups.forEach(popup => {
+        popup.style.display = 'none';
+    });
+
+    // オーバーレイを非表示にする
+    const overlay = document.querySelector('.overlay');
+    overlay.style.display = 'none';
+
+    // 指定されたポップアップを表示する
+    const popupToShow = document.getElementById(popupId);
+    if (popupToShow) {
+        popupToShow.style.display = 'block';
+        overlay.style.display = 'block'; // オーバーレイを表示
+    }
+}
+
+// ポップアップを表示する関数
+function showPopup(popupId) {
+    const selectedValues = saveSelections();
+    togglePopup(popupId);
+    restoreSelections(selectedValues);
+}
+
+// 年齢ポップアップを表示する関数
+function toggleAgePopup() {
+    showPopup('popup_age');
+}
+
+// エリアポップアップを表示する関数
+function toggleAreaPopup() {
+    showPopup('popup_area');
+}
+
+// ジャンルポップアップを表示する関数
+function toggleGenrePopup() {
+    showPopup('popup_genre');
+}
+
+// オーバーレイをクリックしたときにポップアップを閉じる
+document.querySelector('.overlay').addEventListener('click', function() {
+    this.style.display = 'none'; // オーバーレイを非表示
+    const popups = document.querySelectorAll('.search_container');
+    popups.forEach(popup => {
+        popup.style.display = 'none'; // ポップアップを非表示
+    });
 });
+
+// ポップアップを閉じる関数
+function closePopup() {
+    const popups = document.querySelectorAll('.search_container');
+    popups.forEach(popup => {
+        popup.style.display = 'none'; // ポップアップを非表示
+    });
+
+    // オーバーレイを非表示にする
+    const overlay = document.querySelector('.overlay');
+    overlay.style.display = 'none';
+}
+
+// オーバーレイをクリックしたときにポップアップを閉じる
+document.querySelector('.overlay').addEventListener('click', closePopup);
