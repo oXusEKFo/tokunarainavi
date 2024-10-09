@@ -1,7 +1,7 @@
 .search_container {
 background-color:#ffffff;
-width: 100%;
-max-width: 430px;
+width: 90%;
+max-width: 390px;
 padding: 20px 20px 50px 20px;
 text-align: center;
 position: fixed; /* 固定位置に設定 */
@@ -15,13 +15,16 @@ display: none; /* 初期状態は非表示 */
 }
 
 .allsearch_header {
+position: fixed;
+background-color: #ffffff;
 color: #00B0AA;
 text-align: center;
-width: 350px;
+width: 100%;
 margin: 0 auto;
 position: relative;
 margin-top: 60px; /* 上に余白を追加 */
 margin-bottom: 150px; /* 下に余白を追加 */
+z-index: 1000;
 }
 
 .allsearch_header img {
@@ -284,7 +287,7 @@ background-color: #D6D5D5;
 border: 2px solid #463D3B;
 border-radius: 10px;
 padding: 15px 20px;
-font-size: 1.8rem;
+font-size: 1.6rem;
 cursor: pointer;
 transition: background-color 0.3s ease;
 }

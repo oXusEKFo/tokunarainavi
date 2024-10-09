@@ -38,26 +38,25 @@ function clearSelections() {
     });
 }
 
-function selectAll(groupId, button) {
+function selectAll(groupId, checkbox) {
     const group = document.getElementById(groupId);
-    const checkboxes = group.querySelectorAll('input[type="checkbox"]');
-    const allSelected = Array.from(checkboxes).every(checkbox => checkbox.checked);
+    const checkboxes = group.querySelectorAll('input[type="checkbox"]'); // すべてのチェックボックス
+    let allChecked = true; // すべて選択されているかのフラグ
 
-    checkboxes.forEach(checkbox => {
-        checkbox.checked = !allSelected; // すべて選択または解除
-        if (checkbox.checked) {
-            checkbox.parentElement.classList.add('selected'); // 親のlabelにselectedクラスを追加
+    checkboxes.forEach(item => {
+        item.checked = checkbox.checked; // 全選択チェックボックスの状態に合わせる
+        if (!item.checked) {
+            allChecked = false; // 1つでも未選択があればフラグをfalseに
+        }
+        if (item.checked) {
+            item.parentElement.classList.add('selected');
         } else {
-            checkbox.parentElement.classList.remove('selected'); // 親のlabelからselectedクラスを削除
+            item.parentElement.classList.remove('selected');
         }
     });
 
-    // ボタン自体の選択状態を切り替え
-    if (allSelected) {
-        button.classList.remove('selected');
-    } else {
-        button.classList.add('selected');
-    }
+    // 全選択チェックボックスの状態を更新
+    checkbox.checked = allChecked; // すべて選択されている場合はチェックを入れる
 }
 
 // change_btnがクリックされたときの処理

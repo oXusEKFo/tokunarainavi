@@ -84,6 +84,11 @@ function add_style_script()
         wp_enqueue_style('tokunavi_search', get_template_directory_uri() . '/assets/css/results.css');
         wp_enqueue_style('tokunavi_searchpopup_css', get_template_directory_uri() . '/assets/css/searchpopup.css');
         wp_enqueue_script('tokunavi_searchpopup-js', get_template_directory_uri() . '/assets/js/searchpopup.js');
+    } elseif (is_archive('column')) {
+        wp_enqueue_style(
+            'tokunavi_columnlist',
+            get_template_directory_uri() . '/assets/css/column_list.css',
+        );
     } elseif (is_singular('column')) {
         //コラム記事CSS
         wp_enqueue_style(
