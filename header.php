@@ -17,30 +17,30 @@
                 <div class="gnav__wrap">
                     <ul class="gnav__menu">
                         <li class="gnav__menu__item">
-                            <a href="<?php echo home_url('/search'); ?>">
-                                　条件検索
+                            <a href="<?php echo home_url(); ?>/?s=">
+                                &nbsp;&nbsp;条件検索
                             </a>
                         </li>
                         <li class="gnav__menu__item">
                             <a href="<?php echo home_url('/fushion'); ?>">
-                                　徳島の習いごと事情
+                                &nbsp;&nbsp;徳島の習いごと事情
                             </a>
                         </li>
                         <li class="gnav__menu__item">
                             <a href="<?php echo home_url('/column'); ?>">
-                                　コラム
+                                &nbsp;&nbsp;コラム
                             </a>
                         </li>
                         <li class="gnav__menu__item">
-                            <a href="<?php echo home_url('/category/news');  ?>">　新着情報
+                            <a href="<?php echo home_url('/category/news');  ?>">&nbsp;&nbsp;新着情報
                             </a>
                         </li>
                         <li class="gnav__menu__item">
-                            <a href="<?php echo home_url('/favor') ?>">　お気に入りリスト
+                            <a href="<?php echo home_url('/favor') ?>">&nbsp;&nbsp;お気に入りリスト
                             </a>
                         </li>
                         <li class="gnav__menu__item">
-                            <a href="<?php echo home_url('/contact') ?>">　お問い合わせ
+                            <a href="<?php echo home_url('/contact') ?>">&nbsp;&nbsp;お問い合わせ
                             </a>
                         </li>
                         <li>
