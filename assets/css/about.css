@@ -64,11 +64,11 @@
 .description__for-class>h2 {
     background-color: #F5F5F5;
     font-size: 1.6rem;
-    line-height: 50px;
-    height: 50px;
+    line-height: 3.0rem;
+    height: auto;
     margin: 20px auto 0;
-    border-radius: 10px;
-    text-align: center;
+    display: flex;
+    justify-content: center
 }
 
 .note__about,
@@ -76,10 +76,19 @@
 .note__sub,
 .note__for-class {
     background-color: #FFF;
-    font-size: 1.2rem;
-    line-height: 20px;
+    font-size: 1.6rem;
+    line-height: 3.0rem;
     min-height: 225px;
     margin: 25px auto 0;
+    text-indent: 1rem;
+    padding-left: -1rem;
+}
+
+.note__about span,
+.note__howto span,
+.note__sub span,
+.note__for-class span {
+    display: inline-block;
 }
 
 /*** メディアクエリここから ***/
@@ -90,6 +99,7 @@
     .description__howto>h2,
     .description__for-class>h2 {
         font-size: 2.4rem;
+        line-height: 4.0rem;
     }
 
     .note__about,
@@ -98,7 +108,7 @@
     .note__for-class {
 
         font-size: 1.8rem;
-        line-height: 26px;
+        line-height: 3.5rem;
     }
 }
 
