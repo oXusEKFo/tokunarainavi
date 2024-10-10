@@ -6,7 +6,7 @@ header {
     width: 100%;
     height: auto;
     position: fixed;
-    z-index: 45;
+    z-index: 1;
 }
 
 .inner__header {
