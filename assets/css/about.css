@@ -64,7 +64,7 @@
 .description__for-class>h2 {
     background-color: #F5F5F5;
     font-size: 1.6rem;
-    line-height: 2.0;
+    line-height: 3.0rem;
     height: auto;
     margin: 20px auto 0;
     display: flex;
@@ -99,6 +99,7 @@
     .description__howto>h2,
     .description__for-class>h2 {
         font-size: 2.4rem;
+        line-height: 4.0rem;
     }
 
     .note__about,
@@ -107,7 +108,7 @@
     .note__for-class {
 
         font-size: 1.8rem;
-        line-height: 26px;
+        line-height: 3.5rem;
     }
 }
 
