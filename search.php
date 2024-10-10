@@ -47,10 +47,19 @@ $count2 = 0;
                 <div>
                     <h1>条件検索</h1>
 
+                    <?php
+                    // echo '<pre>';
+                    // print_r($_GET);
+                    // echo '</pre>';
+                    ?>
+
                     <?php foreach ($data as $value) {
                         // チェックしたものを検索した後も保持するための記述
                         // 「エリア」のチェックを保持
                         $select = filter_input(INPUT_GET, "$taxonomy_name[$count]", FILTER_DEFAULT, FILTER_REQUIRE_ARRAY) ?: [];
+                        // echo 'select<pre>';
+                        // print_r($select);
+                        // echo '</pre>';
                         foreach ($value as $value2) {
                             $checked[$value2->taxonomy][$value2->slug] = "";
                         }
@@ -58,11 +67,28 @@ $count2 = 0;
                             $checked[$taxonomy_name[$count]][$val] = " checked";
                         }
                         $count++;
-                    } ?>
+
+                        //選択項目の名前の取得
+                        foreach ($value as $value2) {
+                            foreach ($select as $val) {
+                                if ($val === $value2->slug) {
+                                    $aaa[] = $value2->name;
+                                }
+                            }
+                        }
+                        // print_r($aaa);
+                    }
+                    $name_imp = "エリアを選択";
+                    if (!empty($aaa)) {
+                        $name_imp = implode(",", $aaa);
+                    }
+
+                    ?>
+
                     <div class="search_filters">
                         <div class="filter_row">
                             <span class="filter_label">エリア</span>
-                            <span class="filter_value"><?php ?></span>
+                            <span class="filter_value"><?= $name_imp ?></span>
                             <button class="change_btn" onclick="togglePopup('popup_area')">変更</button>
                         </div>
                         <div class="search_container" id="popup_area" style="display: none;">
@@ -75,7 +101,7 @@ $count2 = 0;
                                 <div class="search_options">
                                     <div class="single_column">
                                         <?php foreach ($area_terms as $value): ?>
-                                            <label class="accordion_item"><input type="checkbox" name="area[]" value="<?php echo $value->slug ?>" <?= $checked["area"]["$value->slug"] ?> onclick="selectItem(this)"><?php echo $value->name ?></label>
+                                            <label class="accordion_item <?= $checked["area"]["$value->slug"] ?>"><input type="checkbox" name="area[]" value="<?php echo $value->slug ?>" <?= $checked["area"]["$value->slug"] ?> onclick="selectItem(this)"><?php echo $value->name ?></label>
                                         <?php endforeach; ?>
                                     </div>
                                     <div class="search_actions">
@@ -84,6 +110,7 @@ $count2 = 0;
                                             <button>年齢も選ぶ</button>
                                             <button>ジャンルも選ぶ</button>
                                         </div>
+                                        <!-- <input type="reset" value="すべてクリア"> -->
                                         <button class="clear_button" onclick="clearSelections()">すべてクリア</button>
                                     </div>
                                 </div>
@@ -437,12 +464,13 @@ $count2 = 0;
                     </div>
                 </div>
 
-                <h1 class="results_count">検索結果：<?php echo count($posts); ?>件（1-5件表示）</h1>
+
             </section>
 
             <!-- 検索結果一覧カード -->
             <!-- フリーワード検索の結果 -->
             <?php if (!empty(get_search_query())): ?>
+                <h1 class="results_count">検索結果：<?php echo count($posts); ?>件（1-5件表示）</h1>
                 <?php if (have_posts()) : ?>
                     <?php while (have_posts()) : the_post(); ?>
                         <div class="results_card">
@@ -493,7 +521,7 @@ $count2 = 0;
                 $the_query = new WP_Query($args);
                 ?>
                 <!-- 条件検索の結果 -->
-                <!-- <h1 class="results_count">検索結果：<?php echo $the_query->found_posts; ?>件（1-5件表示）</h1> -->
+                <h1 class="results_count">検索結果：<?php echo $the_query->found_posts; ?>件（1-5件表示）</h1>
                 <div>
 
                     <div class="results_card">
