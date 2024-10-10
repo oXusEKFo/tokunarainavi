@@ -94,7 +94,7 @@ $count2 = 0;
                         <div class="search_container" id="popup_area" style="display: none;">
                             <form method="GET" action="<?php echo esc_url(home_url('/')); ?>">
                                 <input type="hidden" name="s" value="">
-                                <div class="close_button" onclick="">×</div>
+                                <div class="close_button" onclick="closePopup()">×</div>
                                 <div class="search_header">
                                     <h1>エリアを選ぶ</h1>
                                 </div>
