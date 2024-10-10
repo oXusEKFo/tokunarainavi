@@ -246,7 +246,7 @@ wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js'
                                 ?>
                                         </div>
                                         <div class="search_actions">
-                                            <button class="search_button">この条件で検索する</button>
+                                            <button class="search_button" onclick="">この条件で検索する</button>
                                             <div class="additional-buttons">
                                                 <button onclick="toggleAreaPopup()">エリアも選ぶ</button>
                                                 <button onclick="toggleAgePopup()">年齢も選ぶ</button>
@@ -255,7 +255,7 @@ wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js'
                                         </div>
 
                         </div>
-                        <button class="detail__search">詳細検索ページへ</button>
+                        <button class="detail__search" onclick="window.location.href='<?php echo home_url(); ?>/?s='">詳細検索ページへ</button>
                         <div class="box__search">
                             <div class="inner__search-box">
                                 <input class="window__search" type="search" placeholder="キーワードを入力してください">
@@ -266,7 +266,7 @@ wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js'
                         </div>
                     </div>
                     <!-- <button class="button__more-search">
-                        <a href="">詳細検索は<br>こちら</a>
+                        <a href="<?php echo home_url(); ?>/?s=">詳細検索は<br>こちら</a>
                     </button> -->
                 </div>
         </section>
