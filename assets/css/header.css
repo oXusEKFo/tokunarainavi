@@ -6,7 +6,7 @@ header {
     width: 100%;
     height: auto;
     position: fixed;
-    z-index: 50;
+    z-index: 45;
 }
 
 .inner__header {
@@ -36,7 +36,7 @@ header {
     right: 20px;
     top: 20px;
     width: 30px;
-    z-index: 99;
+    z-index: 50;
 }
 
 .menu__line {
