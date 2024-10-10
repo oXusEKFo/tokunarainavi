@@ -69,6 +69,8 @@ wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js'
                                     'taxonomy' => 'area',
                                     'parent' => $parent_term->term_id,
                                     'hide_empty' => false,
+                                    'orderby' => 'slug',
+                                    'order' => 'ASC',
                                 ));
                                 //  print_r($child_terms);
                                 if (! empty($child_terms) && ! is_wp_error($child_terms)):
@@ -94,77 +96,50 @@ wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js'
                                     'taxonomy' => 'area',
                                     'parent' => $parent_term->term_id,
                                     'hide_empty' => false,
+                                    'orderby' => 'slug',
+                                    'order' => 'ASC',
                                 ));
                                 if (!empty($child_terms) && ! is_wp_error($child_terms)):
                                     foreach ($child_terms as $child_term) :
+
                                 ?>
                                         <label class="accordion_item">
                                             <input type="checkbox" value="<?php echo $child_term->name; ?>" onclick="selectItem(this)">
                                             <?php echo $child_term->name; ?>
                                         </label>
                                 <?php
+
                                     endforeach;
                                     wp_reset_postdata();
                                 endif;
                                 ?>
                             </div>
                             <div class="double_column">
-                                <label class="accordion_item">
-                                    <input type="checkbox" value="阿南市" onclick="selectItem(this)">
-                                    阿南市
-                                </label>
-                                <label class="accordion_item">
-                                    <input type="checkbox" value="鳴門市" onclick="selectItem(this)">
-                                    鳴門市
-                                </label>
-                                <label class="accordion_item">
-                                    <input type="checkbox" value="吉野川市" onclick="selectItem(this)">
-                                    吉野川市
-                                </label>
-                                <label class="accordion_item">
-                                    <input type="checkbox" value="小松島市" onclick="selectItem(this)">
-                                    小松島市
-                                </label>
-                                <label class="accordion_item">
-                                    <input type="checkbox" value="阿波市" onclick="selectItem(this)">
-                                    阿波市
-                                </label>
-                                <label class="accordion_item">
-                                    <input type="checkbox" value="名西郡" onclick="selectItem(this)">
-                                    名西郡
-                                </label>
-                                <label class="accordion_item">
-                                    <input type="checkbox" value="美馬市" onclick="selectItem(this)">
-                                    美馬市
-                                </label>
-                                <label class="accordion_item">
-                                    <input type="checkbox" value="三好市" onclick="selectItem(this)">
-                                    三好市
-                                </label>
-                                <label class="accordion_item">
-                                    <input type="checkbox" value="海部郡" onclick="selectItem(this)">
-                                    海部郡
-                                </label>
-                                <label class="accordion_item">
-                                    <input type="checkbox" value="美馬郡" onclick="selectItem(this)">
-                                    美馬郡
-                                </label>
-                                <label class="accordion_item">
-                                    <input type="checkbox" value="那賀郡" onclick="selectItem(this)">
-                                    那賀郡
-                                </label>
-                                <label class="accordion_item">
-                                    <input type="checkbox" value="三好郡" onclick="selectItem(this)">
-                                    三好郡
-                                </label>
-                                <label class="accordion_item">
-                                    <input type="checkbox" value="勝浦郡" onclick="selectItem(this)">
-                                    勝浦郡
-                                </label>
-                                <label class="accordion_item">
-                                    <input type="checkbox" value="名東郡" onclick="selectItem(this)">
-                                    名東郡
-                                </label>
+                                <?php
+                                $terms = get_terms(array(
+                                    'taxonomy' => 'area',
+                                    'hide_empty' => false,
+                                    'orderby' => 'slug',
+                                    'order' => 'ASC',
+
+                                ));
+                                if (!empty($terms) && ! is_wp_error($terms)):
+                                    foreach ($terms as $term):
+                                        if ($term->parent == 0):
+                                            if ($term->slug == 'area01' || $term->slug == 'area02') {
+                                                continue;
+                                            }
+                                ?>
+                                            <label class="accordion_item">
+                                                <input type="checkbox" value="<?php echo $term->name; ?>" onclick="selectItem(this)">
+                                                <?php echo $term->name; ?>
+                                            </label>
+                                <?php
+                                        endif;
+                                    endforeach;
+                                    wp_reset_postdata();
+                                endif;
+                                ?>
                             </div>
                             <div class="search_actions">
                                 <button class="search_button">この条件で検索する</button>
