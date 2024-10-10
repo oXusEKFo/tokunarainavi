@@ -164,6 +164,12 @@ function add_style_script()
             'tokunavi_news_list',
             get_template_directory_uri() . '/assets/css/news_list.css'
         );
+    } elseif (is_page('service')) {
+        // 利用規約
+        wp_enqueue_style(
+            'tokunavi_service',
+            get_template_directory_uri() . '/assets/css/rule.css'
+        );
     }
 
     // ニュース一覧
