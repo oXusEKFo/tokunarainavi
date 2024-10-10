@@ -219,7 +219,7 @@ class Custom_Walker_Nav_Menu extends Walker_Nav_Menu
         $classes = empty($item->classes) ? [] : (array) $item->classes;
 
         // Add custom class to <li>
-        $classes[] = 'site_nav_item';
+        $classes[] = 'gnav__menu__item';
 
         // Join class array to string
         $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args, $depth));
