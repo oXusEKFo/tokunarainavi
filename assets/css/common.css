@@ -35,12 +35,12 @@ a:hover {
 }
 
 main{
-    margin-top: 60px;
+    padding-top: 60px;
 }
 
 @media screen and (min-width: 780px) {
     main{
-        margin-top: 90px;
+        padding-top: 90px;
     }
 
 }
