@@ -10,7 +10,7 @@
         <div class="container__sitemap">
             <ul class="wrap__items">
                 <li>
-                    <a href="<?php echo home_url('/search'); ?>" class="search__sitemap">
+                    <a href="<?php echo home_url(); ?>/?s=" class="search__sitemap">
                         条件検索
                     </a>
                 </li>
