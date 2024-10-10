@@ -205,3 +205,15 @@ main{
 
 
 /*** 共通部分ここまで ***/
+
+
+
+/*** メディアクエリここから ***/
+
+@media screen and (min-width: 780px) {
+    .results_card {
+        margin-top: 90px;
+    }
+}
+
+/*** メディアクエリここまで ***/
