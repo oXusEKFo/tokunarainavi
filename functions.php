@@ -149,6 +149,14 @@ function add_style_script()
             '', // バージョン指定なし
             true // フッターに出力
         );
+        /**
+         * contact Formのときには整形機能をOFFにする
+         */
+        add_filter('wpcf7_autop_or_not', 'my_wpcf7_autop');
+        function my_wpcf7_autop()
+        {
+            return false;
+        }
     } elseif (is_page('favor')) {
         // お気に入りリスト
         wp_enqueue_style(
