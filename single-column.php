@@ -26,8 +26,6 @@
                     </div>
                     <div class="column_content">
                         <?php the_content(); ?>
-
-                        <?php the_field('check'); ?>
                     </div>
                 </article>
             </div>
