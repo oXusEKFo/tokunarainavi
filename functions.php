@@ -81,6 +81,7 @@ function add_style_script()
         true
     );
 
+
     /**
      * 個々のページ
      */
@@ -125,7 +126,7 @@ function add_style_script()
             '',
             true
         );
-    } elseif (is_archive('column')) {
+    } elseif (is_post_type_archive('column')) {
         wp_enqueue_style(
             'tokunavi_columnlist',
             get_template_directory_uri() . '/assets/css/column_list.css',
@@ -164,6 +165,12 @@ function add_style_script()
             get_template_directory_uri() . '/assets/css/news_list.css'
         );
     }
+
+    // ニュース一覧
+    // wp_enqueue_style(
+    //     'tokunavi_news_list',
+    //     get_template_directory_uri() . '/assets/css/news_list.css'
+    // );
 }
 add_action('wp_enqueue_scripts', 'add_style_script');
 
