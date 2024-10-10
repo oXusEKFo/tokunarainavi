@@ -8,7 +8,10 @@ main {
     /* max-width: 600px; */
     max-width: 1200px;
     /* 阿波農ライフが1200pxにしていたので（堀） */
-    padding: 20px;
+    padding-top: 70px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
     align-items: center;
     margin: 0 auto;
 }
@@ -180,14 +183,7 @@ main {
     position: relative;
 }
 
-/* 変な表示になるのでいったんposition切ってます（堀） */
-.icon_category {
-    /* position: absolute;
-    bottom: -35px;
-    right: 10px; */
-    width: 50px;
-    height: auto;
-}
+
 
 .inner_card {
     border-radius: 8px;
@@ -254,3 +250,16 @@ main {
 .card_title {
     border-bottom: 6px dotted #a0d3b2;
 }
+
+
+/*** メディアクエリここから ***/
+
+@media screen and (min-width: 780px) {
+    .inner_main {
+        padding-top: 110px;
+        padding-right: 40px;
+        padding-left: 40px;
+    }
+}
+
+/*** メディアクエリここまで ***/

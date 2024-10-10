@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
-    <?php wp_head(); ?> <!-- 必ず書いてください-->
 
 
+    <?php wp_head(); ?>
+    <!-- 必ず書いてください-->
 </head>
 
 <body <?php body_class(); ?>>

@@ -53,8 +53,10 @@
             <p>&copy;2024&nbsp;QLIP&nbsp;とくしま習いごとナビ&#44;&nbsp;All&nbsp;rights&nbsp;reserved</p>
         </div>
     </div>
+
 </footer>
 
+<?php wp_footer(); ?>
 </body>
 
 </html>

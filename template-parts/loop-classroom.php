@@ -57,7 +57,7 @@
         <div class="card_area">
             <div class="design_area">
                 <img class="icon_design" src="<?php echo get_template_directory_uri(); ?>/assets/images/LINE1.png" alt="デザイン画像" />
-                <img class="icon_category" src="<?php echo get_template_directory_uri(); ?>/assets/icon/class01/icon_sports16.png" alt="カテゴリーアイコン" />
+                <img class="icon_category" src="<?php echo get_template_directory_uri(); ?>/assets/icon/icon_sports16.png" alt="カテゴリーアイコン" />
             </div>
             <div class="genre_area">
                 <div class="genre_detail">

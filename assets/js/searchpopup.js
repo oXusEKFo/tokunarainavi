@@ -16,9 +16,11 @@ function toggleAccordion(id) {
 function selectItem(checkbox) {
     const label = checkbox.parentElement; // チェックボックスの親要素（label）を取得
     if (checkbox.checked) {
-        label.classList.add('selected'); // チェックボックスが選択された場合、selectedクラスを追加
+        label.classList.add('checked'); // チェックボックスが選択された場合、selectedクラスを追加
+        //10月10日 selectedからcheckedに変更しました 以西
     } else {
-        label.classList.remove('selected'); // チェックボックスが選択解除された場合、selectedクラスを削除
+        label.classList.remove('checked'); // チェックボックスが選択解除された場合、selectedクラスを削除
+        //10月10日 selectedからcheckedに変更しました 以西
     }
 }
 
@@ -28,13 +30,15 @@ function clearSelections() {
 
     allCheckboxes.forEach(checkbox => {
         checkbox.checked = false; // チェックボックスを解除
-        checkbox.parentElement.classList.remove('selected'); // 親のlabelからselectedクラスを削除
+        checkbox.parentElement.classList.remove('checked'); // 親のlabelからselectedクラスを削除
+        //10月10日 selectedからcheckedに変更しました 以西
     });
 
     // 全域ボタンの選択状態を解除
     const allAreaButtons = document.querySelectorAll('.accordion_item.full_width');
     allAreaButtons.forEach(button => {
-        button.classList.remove('selected'); // 全域ボタンの選択状態を解除
+        button.classList.remove('checked'); // 全域ボタンの選択状態を解除
+        //10月10日 selectedからcheckedに変更しました 以西
     });
 }
 
@@ -49,9 +53,9 @@ function selectAll(groupId, checkbox) {
             allChecked = false; // 1つでも未選択があればフラグをfalseに
         }
         if (item.checked) {
-            item.parentElement.classList.add('selected');
+            item.parentElement.classList.add('checked');//10月10日 selectedからcheckedに変更しました 以西
         } else {
-            item.parentElement.classList.remove('selected');
+            item.parentElement.classList.remove('checked');//10月10日 selectedからcheckedに変更しました 以西
         }
     });
 
@@ -63,7 +67,7 @@ function selectAll(groupId, checkbox) {
 const changeButtons = document.querySelectorAll('.change_btn');
 
 changeButtons.forEach(button => {
-    button.addEventListener('click', function() {
+    button.addEventListener('click', function () {
         const popup = document.getElementById('popup');
         const overlay = document.querySelector('.overlay');
 
@@ -93,9 +97,9 @@ function restoreSelections(selectedValues) {
         if (selectedValues[checkbox.value] !== undefined) {
             checkbox.checked = selectedValues[checkbox.value];
             if (checkbox.checked) {
-                checkbox.parentElement.classList.add('selected');
+                checkbox.parentElement.classList.add('checked');//10月10日 selectedからcheckedに変更しました 以西
             } else {
-                checkbox.parentElement.classList.remove('selected');
+                checkbox.parentElement.classList.remove('checked');//10月10日 selectedからcheckedに変更しました 以西
             }
         }
     });
@@ -144,7 +148,7 @@ function toggleGenrePopup() {
 }
 
 // オーバーレイをクリックしたときにポップアップを閉じる
-document.querySelector('.overlay').addEventListener('click', function() {
+document.querySelector('.overlay').addEventListener('click', function () {
     this.style.display = 'none'; // オーバーレイを非表示
     const popups = document.querySelectorAll('.search_container');
     popups.forEach(popup => {
