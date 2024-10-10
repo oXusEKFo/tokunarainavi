@@ -22,33 +22,34 @@ $event_count = 0;
         <h1>お気に入りリスト</h1>
 
         <!-- ここからお気に入り一覧が表示されます -->
-        <div class="results_card"> <!-- ← results.htmlから借用 -->
+        <div class="results_card">
 
             <?php
             if (function_exists('get_user_favorites')) :
-                // code...
-                $favorites = get_user_favorites(); // 現在のユーザーのお気に入り投稿IDを取得
-                krsort($favorites); // リストを降順に並べる（新規追加したものが先頭にくるように）
+                // 現在のユーザーのお気に入り投稿IDを取得
+                $favorites = get_user_favorites();
 
-                // print_r($favorites);
+                if (!empty($favorites)) {
+                    krsort($favorites); // リストを降順に並べる
 
-                if ($favorites) :
+                    // 現在のページ番号を取得
+                    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
                     $the_query = new WP_Query([
                         'post_type' => 'classroom', // カスタム投稿 'classroom'
-                        'posts_per_page' => -1, // すべての投稿を取得
+                        'posts_per_page' => 6, // 1ページに表示する投稿数を6件に制限
                         'ignore_sticky_posts' => true,
                         'post__in' => $favorites, // お気に入りの投稿ID
                         'orderby' => 'post__in', // お気に入りに登録された順に並び替え
+                        'paged' => $paged, // ページネーション対応
                     ]);
+
                     if ($the_query->have_posts()) :
                         while ($the_query->have_posts()) :
                             $the_query->the_post();
 
                             $classname = esc_html(get_the_title());  // 教室名
-
-                            $events['text'][] = $classname;
             ?>
-
 
                             <div class="wrap_card">
                                 <div class="inner_card">
@@ -56,35 +57,30 @@ $event_count = 0;
                                 </div>
                             </div>
 
-
-                        <?php
-                            $event_count++;
-                        // end ループ while
-                        endwhile;
-                        wp_reset_postdata();
-                        // else :
-                        ?>
-
-
             <?php
-                    else :
+                            $event_count++;
+                        endwhile;
 
-                    endif;
-                endif;
-            // end favorites
-            endif;
-            // print_r($events);
-            // print_r($event_count);
+                        wp_reset_postdata();
+                    endif; // $the_query->have_posts()
+                }
+            endif; // function_exists('get_user_favorites')
             ?>
 
-        </div>
+        </div> <!-- results_card -->
+
+        <!-- ページナビゲーション -->
+        <?php
+        if (function_exists('wp_pagenavi')) {
+            wp_pagenavi(['query' => $the_query]);
+        }
+        ?>
+
         <?php
         if ($event_count == 0) :
         ?>
             <!-- 登録物がないときは下記の文章を使用します -->
-            <p>
-                <center>お気に入りはありません。</center>
-            </p>
+            <p class="no__favorite">お気に入りはありません。</p>
         <?php
         endif;
         ?>
