@@ -12,15 +12,27 @@ document.addEventListener('DOMContentLoaded', function() {
     checkbox.addEventListener('change', function() {
         if (this.checked) {
             submitButton.disabled = false; // チェックされたら送信ボタンを有効化
+
             // 確認ボタンのhover時のボタンの色を変える
-            hover.addEventListener('mouseover', () => {
-                hover.style.backgroundColor = '#ed6d1f';  // 背景色を変える
-            });
-             hover.addEventListener('mouseout', () => {
-             hover.style.backgroundColor = '#ccc';  // 元の背景色に戻す
-            });
+            hover.addEventListener('mouseover', handleMouseOver);
+            hover.addEventListener('mouseout', handleMouseOut);
         } else {
             submitButton.disabled = true; // チェックが外れたら送信ボタンを無効化
+
+            // ホバーイベントを解除
+            hover.removeEventListener('mouseover', handleMouseOver);
+            hover.removeEventListener('mouseout', handleMouseOut);
+
+            // ボタンの色を元に戻す
+            hover.style.backgroundColor = '#ccc';
         }
     });
+
+    function handleMouseOver() {
+        hover.style.backgroundColor = '#ed6d1f';  // 背景色を変える
+    }
+
+    function handleMouseOut() {
+        hover.style.backgroundColor = '#ccc';  // 元の背景色に戻す
+    }
 });
