@@ -15,29 +15,47 @@
         <div class="inner__header">
             <nav class="gnav">
                 <div class="gnav__wrap">
-                    <!-- Gnav -->
-                    <?php
-                    $args = [
-                        'menu' => 'Gnav', //管理画面で作成したメニューの名前
-                        'menu_class' => 'gnav__menu', //メニューを構成するulタグのクラス名
-                        'container' => false, //<ul>タグを囲んでいるdivタグを消除
-                        'walker' => new Custom_Walker_Nav_Menu() // カスタム Walker クラスを指定
-                    ];
-                    wp_nav_menu($args);
-                    ?>
+                    <ul class="gnav__menu">
+                        <li class="gnav__menu__item">
+                            <a href="<?php echo home_url('/search'); ?>">
+                                　条件検索
+                            </a>
+                        </li>
+                        <li class="gnav__menu__item">
+                            <a href="<?php echo home_url('/fushion'); ?>">
+                                　徳島の習いごと事情
+                            </a>
+                        </li>
+                        <li class="gnav__menu__item">
+                            <a href="<?php echo home_url('/column'); ?>">
+                                　コラム
+                            </a>
+                        </li>
+                        <li class="gnav__menu__item">
+                            <a href="<?php echo home_url('/category/news');  ?>">　新着情報
+                            </a>
+                        </li>
+                        <li class="gnav__menu__item">
+                            <a href="<?php echo home_url('/favor') ?>">　お気に入りリスト
+                            </a>
+                        </li>
+                        <li class="gnav__menu__item">
+                            <a href="<?php echo home_url('/contact') ?>">　お問い合わせ
+                            </a>
+                        </li>
+                        <li>
+                            <div class="wrap__sns-logo">
+                                <a href="https://www.instagram.com/tokunavi17" target="_blank">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </a>
+                                <a href="https://x.com/tokunavi17" target="_blank">
+                                    <i class=" fa-brands fa-x-twitter"></i>
+                                </a>
 
+                            </div>
 
-                    <div class="wrap__sns-logo">
-                        <a href="https://www.instagram.com/tokunavi17">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                        <a href="https://x.com/tokunavi17">
-                            <i class="fa-brands fa-x-twitter"></i>
-                        </a>
-
-                    </div>
-
-
+                        </li>
+                    </ul>
                 </div>
             </nav>
 
