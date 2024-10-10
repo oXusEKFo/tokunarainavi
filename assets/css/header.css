@@ -36,7 +36,7 @@ header {
     right: 20px;
     top: 20px;
     width: 30px;
-    z-index: 50;
+    z-index: 20;
 }
 
 .menu__line {
@@ -82,7 +82,7 @@ header {
     height: 100%;
     position: fixed;
     width: 100%;
-    z-index: 98;
+    z-index: 10;
 }
 
 .gnav__wrap {
