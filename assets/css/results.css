@@ -4,7 +4,6 @@
 
 .inner_main {
     max-width: 600px;
-    align-items: center;
     margin: 0 auto;
 }
 
@@ -36,8 +35,6 @@
 
 .filter_row:last-child {
     border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
 }
 
 .filter_label {
@@ -76,32 +73,23 @@
 .card_details {
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    margin-top: 10px;
-
+    gap: 10px;
 }
 
 .card_detail {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #e0e0e0;
-    padding: 8px;
-    overflow: hidden;
-
-}
-
-.card_detail:last-child {
-    border-bottom: none;
+    margin-top: 8px;
 }
 
 .detail_label {
-    background-color: #D6D5D5;
-    color: #463D3B;
-    padding: 2px 8px;
-    border-radius: 3px;
+    color: #ffffff;
+    padding: 3px 8px;
+    background-color: #b7b0ac;
+    border-radius: 8px;
     font-size: 1.2rem;
     margin-right: 10px;
-    min-width: 68px;
+    min-width: 65px;
     text-align: center;
 }
 
@@ -111,37 +99,30 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: calc(100% - 80px); /* detail_labelの幅とマージンを考慮 */
+    max-width: calc(100% - 80px);
 }
-
 
 .card_title h2 {
     font-size: 1.8rem;
-    color: #463d3b;
-    margin: 20px 0;
+    margin-bottom: 10px;
+    color: #333;
+    b
 }
 
 .container_cardinfo {
-    padding: 10px;
+    padding: 30px 0;
+    border-radius: 10px;
     position: relative;
 }
 
 .container_cardimg {
     position: relative;
 }
+
 .tag_favorite {
     position: absolute;
     right: -15px;
     bottom: -15px;
-}
-
-/* ページ数 */
-.results_pagenum {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #463d3b;
-    padding-top: 7.5px;
-    text-align: center;
 }
 
 .results_card {
@@ -152,21 +133,88 @@
 
 .wrap_card {
     margin: 30px;
+    width: 340px;
 }
 
 .inner_card {
     border-radius: 8px;
-
 }
 
-.icon_category {
+.card_area {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    position: relative;
+}
+
+.design_area {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+
+.genre_area {
     position: absolute;
     bottom: -35px;
-    right: 10px;
-    width: 50px;
-    height: auto;
+    right: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+}
+.genre_detail {
+        display: flex;
+        flex-direction: column;
+    }
+
+.genre_label{
+    color: #ffffff;
+    padding: 3px 8px;
+        background-color: #b7b0ac;
+        border-radius: 8px;
+    font-size: 1.2rem;
+    margin-right: 10px;
+    min-width: 60px;
+    text-align: center;
+    width: 80px;
+    margin-bottom: 10px;
+
 }
 
+.genre_value{
+    font-size: 2rem;
+}
+
+.icon_design {
+    width: 50px;
+
+
+}
+
+.icon_category{
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 30px;
+    top: 28px;
+    }
+
+.card_title {
+    border-bottom: 6px dotted #a0d3b2;
+
+}
+
+/* ページ数 */
+.results_pagenum {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #463d3b;
+    padding-top: 7.5px;
+    text-align: center;
+}
 
 /*** 検索結果一覧部分 ここまで ***/
 
@@ -189,12 +237,6 @@
         width: 100%;
     }
 
-    .results_card::after {
-        width: 33.33%;
-    }
-
-
-
     .search_filters {
         padding: 10px;
         font-size: 1.6rem;
@@ -206,5 +248,3 @@
 }
 
 /*** メディアクエリここまで ***/
-
-/* コメントアウトされた部分は省略しました */
