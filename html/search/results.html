@@ -41,36 +41,36 @@
                         <div class="search_container" id="popup_area" style="display: none;">
                             <div class="close_button" onclick="closePopup()">×</div>
                             <div class="search_header">
-                                <h1>エリアを選ぶ</h1>
+                                <h2>エリアを選ぶ</h2> <!-- h1からh2に変更 -->
                             </div>
                             <div class="search_options">
                                 <label class="accordion_item full_width">
-                                    <input type="checkbox" onclick="selectAll('tokushima', this);">徳島市全域
+                                    <input type="checkbox" value="徳島市全域" onclick="selectAll('tokushima', this);">徳島市全域
                                 </label>
                                 <div id="tokushima" class="single_column">
                                     <label class="accordion_item">
-                                        <input type="checkbox" value="徳島市中心部"  onclick="selectItem(this)">
+                                        <input type="checkbox" value="徳島市中心部" onclick="selectItem(this)">
                                         徳島市中心部(徳島駅前周辺)
                                     </label>
                                     <label class="accordion_item">
-                                        <input type="checkbox" value="徳島市北部"  onclick="selectItem(this)">
+                                        <input type="checkbox" value="徳島市北部" onclick="selectItem(this)">
                                         徳島市北部(応神〜川内周辺)
                                     </label>
                                     <label class="accordion_item">
-                                        <input type="checkbox" value="徳島市南部"  onclick="selectItem(this)">
+                                        <input type="checkbox" value="徳島市南部" onclick="selectItem(this)">
                                         徳島市南部(昭和〜新浜周辺)
                                     </label>
                                     <label class="accordion_item">
-                                        <input type="checkbox" value="徳島市東部"  onclick="selectItem(this)">
+                                        <input type="checkbox" value="徳島市東部" onclick="selectItem(this)">
                                         徳島市東部(住吉〜沖洲周辺)
                                     </label>
                                     <label class="accordion_item">
-                                        <input type="checkbox" value="徳島市西部"  onclick="selectItem(this)">
+                                        <input type="checkbox" value="徳島市西部" onclick="selectItem(this)">
                                         徳島市西部(田宮〜国府周辺)
                                     </label>
                                 </div>
                                 <label class="accordion_item full_width">
-                                    <input type="checkbox" onclick="selectAll('itano', this);">板野郡全域
+                                    <input type="checkbox" value="板野郡全域" onclick="selectAll('itano', this);">板野郡全域
                                 </label>
                                 <div id="itano" class="double_column">
                                     <label class="accordion_item">
@@ -167,7 +167,7 @@
                         <div class="search_container" id="popup_age" style="display: none;">
                             <div class="close_button" onclick="closePopup()">×</div>
                             <div class="search_header">
-                                <h1>年齢を選ぶ</h1>
+                                <h2>年齢を選ぶ</h2> <!-- h1からh2に変更 -->
                             </div>
                             <div class="search_options">
                                 <div class="double_column">
@@ -235,13 +235,13 @@
                         <div class="search_container" id="popup_genre" style="display: none;">
                             <div class="close_button" onclick="closePopup()">×</div>
                             <div class="search_header">
-                                <h1>ジャンルを選ぶ</h1>
+                                <h2>ジャンルを選ぶ</h2> <!-- h1からh2に変更 -->
                             </div>
                             <div class="search_options">
                                 <button class="search_option_suboption" onclick="toggleAccordion('sports')">スポーツ <span class="plus">+</span></button>
                                 <div id="sports" class="accordion_content">
                                     <label class="accordion_item full_width">
-                                        <input type="checkbox" onclick="selectAll('sports', this);">スポーツをすべて選択
+                                        <input type="checkbox" value="スポーツをすべて選択" onclick="selectAll('sports', this);">スポーツをすべて選択
                                     </label>
                                     <div id="sports_list" class="double_column">
                                         <label class="accordion_item">
@@ -309,7 +309,7 @@
                                 <button class="search_option_suboption" onclick="toggleAccordion('dance')">ダンス <span class="plus">+</span></button>
                                 <div id="dance" class="accordion_content">
                                     <label class="accordion_item full_width">
-                                        <input type="checkbox" onclick="selectAll('dance', this);">ダンスをすべて選択
+                                        <input type="checkbox" value="ダンスをすべて選択" onclick="selectAll('dance', this);">ダンスをすべて選択
                                     </label>
                                     <div id="dance_list" class="double_column">
                                         <label class="accordion_item">
@@ -337,7 +337,7 @@
                                 <button class="search_option_suboption" onclick="toggleAccordion('music')">音楽 <span class="plus">+</span></button>
                                 <div id="music" class="accordion_content">
                                     <label class="accordion_item full_width">
-                                        <input type="checkbox" onclick="selectAll('music', this);">音楽をすべて選択
+                                        <input type="checkbox" value="音楽をすべて選択" onclick="selectAll('music', this);">音楽をすべて選択
                                     </label>
                                     <div id="music_list" class="double_column">
                                         <label class="accordion_item">
@@ -373,7 +373,7 @@
                                 <button class="search_option_suboption" onclick="toggleAccordion('art')">アート <span class="plus">+</span></button>
                                 <div id="art" class="accordion_content">
                                     <label class="accordion_item full_width">
-                                        <input type="checkbox" onclick="selectAll('art', this);">アートをすべて選択
+                                        <input type="checkbox" value="アートをすべて選択" onclick="selectAll('art', this);">アートをすべて選択
                                     </label>
                                     <div id="art_list" class="double_column">
                                         <label class="accordion_item">
@@ -397,7 +397,7 @@
                                 <button class="search_option_suboption" onclick="toggleAccordion('cooking')">料理 <span class="plus">+</span></button>
                                 <div id="cooking" class="accordion_content">
                                     <label class="accordion_item full_width">
-                                        <input type="checkbox" onclick="selectAll('cooking', this);">料理をすべて選択
+                                        <input type="checkbox" value="料理をすべて選択" onclick="selectAll('cooking', this);">料理をすべて選択
                                     </label>
                                     <div id="cooking_list" class="double_column">
                                         <label class="accordion_item">
@@ -417,7 +417,7 @@
                                 <button class="search_option_suboption" onclick="toggleAccordion('crafts')">伝統工芸 <span class="plus">+</span></button>
                                 <div id="crafts" class="accordion_content">
                                     <label class="accordion_item full_width">
-                                        <input type="checkbox" onclick="selectAll('crafts', this);">伝統工芸をすべて選択
+                                        <input type="checkbox" value="伝統工芸をすべて選択" onclick="selectAll('crafts', this);">伝統工芸をすべて選択
                                     </label>
                                     <div id="crafts_list" class="double_column">
                                         <label class="accordion_item">
@@ -445,7 +445,7 @@
                                 <button class="search_option_suboption" onclick="toggleAccordion('academics')">学習 <span class="plus">+</span></button>
                                 <div id="academics" class="accordion_content">
                                     <label class="accordion_item full_width">
-                                        <input type="checkbox" onclick="selectAll('academics', this);">学習をすべて選択
+                                        <input type="checkbox" value="学習をすべて選択" onclick="selectAll('academics', this);">学習をすべて選択
                                     </label>
                                     <div id="academics_list" class="double_column">
                                         <label class="accordion_item">
@@ -461,7 +461,7 @@
                                 <button class="search_option_suboption" onclick="toggleAccordion('it')">IT・コンピュータ <span class="plus">+</span></button>
                                 <div id="it" class="accordion_content">
                                     <label class="accordion_item full_width">
-                                        <input type="checkbox" onclick="selectAll('it', this);">IT・コンピュータをすべて選択
+                                        <input type="checkbox" value="IT・コンピュータをすべて選択" onclick="selectAll('it', this);">IT・コンピュータをすべて選択
                                     </label>
                                     <div id="it_list" class="double_column">
                                         <label class="accordion_item">
@@ -489,7 +489,7 @@
                         <div class="search_container" id="popup_day_time" style="display: none;">
                             <div class="close_button" onclick="closePopup()">×</div>
                             <div class="search_header">
-                                <h1>曜日・時間帯を選ぶ</h1>
+                                <h2>曜日・時間帯を選ぶ</h2> <!-- h1からh2に変更 -->
                             </div>
                             <div class="search_options">
 
@@ -562,7 +562,7 @@
                         <div class="search_container" id="popup_conditions" style="display: none;">
                             <div class="close_button" onclick="closePopup()">×</div>
                             <div class="search_header">
-                                <h1>こだわり条件を選ぶ</h1>
+                                <h2>こだわり条件を選ぶ</h2> <!-- h1からh2に変更 -->
                             </div>
                             <div class="search_options">
 
@@ -624,7 +624,7 @@
                         <div class="search_container" id="popup_personality" style="display: none;">
                             <div class="close_button" onclick="closePopup()">×</div>
                             <div class="search_header">
-                                <h1>子供の性格を選ぶ</h1>
+                                <h2>子供の性格を選ぶ</h2> <!-- h1からh2に変更 -->
                             </div>
                             <div class="search_options">
 
@@ -682,7 +682,7 @@
                         <div class="search_container" id="popup_skills" style="display: none;">
                             <div class="close_button" onclick="closePopup()">×</div>
                             <div class="search_header">
-                                <h1>UPさせたいスキルを選ぶ</h1>
+                                <h2>UPさせたいスキルを選ぶ</h2> <!-- h1からh2に変更 -->
                             </div>
                             <div class="search_options">
 
@@ -720,7 +720,7 @@
 
 
                 <!-- 検索結果一覧カード -->
-                <section class="results_card">
+                <div class="results_card">
                     <div class="wrap_card">
                         <div class="inner_card">
                             <div class="container_cardimg">
@@ -766,7 +766,7 @@
                             document.querySelector('.results_card').appendChild(clone);
                         }
                     </script>
-                </section>
+                </div>
                 <!-- 検索結果一覧カードここまで -->
 
                 <div class="footer_results">
