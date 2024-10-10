@@ -1,19 +1,42 @@
 <?php get_header(); ?>
 
 <main>
+    <div class="news">
+        <div class="inner_main">
+            <!-- パンくず -->
+            <div class="container_breadCrumb">
+                <div class="breadCrumb">
+                    <?php
+                    get_template_part('template-parts/breadcrumb');
+                    ?>
+                </div>
+            </div>
 
-    <!--メモ：タイトルを取得して何らかの加工をしたい場合は「get_the_title()」に変更するといいかもしれません。ただ出力するだけなら↓のものでOK。 -->
+
+            <div class="news__area">
+                <div class="wrap__news">
+                    <div class="container__news">
+
+                        <div class="news__more">
+                            <!-- ニュース記事タイトル -->
+                            <h1 class="newsmore__title"><?php the_title(); ?></h1>
+                            <!-- 日付 -->
+                            <p><?php echo get_the_date(); ?></p>
+                        </div>
+
+                        <div class="note__news">
+                            <p class="newsmore__content"><?php the_content(); ?></p>
+                        </div>
 
 
-    <!-- 取得したタイトルを出力する -->
-    <h1><?php the_title(); ?></h1>
+                    </div> <!-- container__news -->
+                </div> <!-- wrap__news -->
+            </div> <!-- news__area -->
 
-    <!-- 取得した日付を出力する -->
-    <?php echo get_the_date(); ?>
 
-    <!-- 投稿の記事本文を出力する -->
-    <p><?php the_content(); ?></p>
-
+        </div> <!-- inner_main -->
+    </div> <!-- news -->
 </main>
+
 
 <?php get_footer(); ?>
