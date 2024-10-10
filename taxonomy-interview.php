@@ -1,12 +1,13 @@
 <?php get_header(); ?>
 <main>
-    <!--  -->
     <div class="inner__main">
+        <h2>コラム<?php single_term_title(''); ?></h2>
         <div class="container__breadCrumb">
             <div class="breadCrumb">
                 <?php get_template_part('template-parts/breadcrumb'); ?>
             </div>
         </div>
+
 
         <!-- コラム一覧カード -->
         <div class="column__area">
@@ -16,6 +17,16 @@
             </div>
 
             <div class="inner__column-area">
+                <?php
+                $column_terms=get_terms(['taxonomy'=>'column']);
+                if(!empty($column_terms)):?>
+                <?php foreach($column_terms as $value):?>
+                    <div>
+                        <div>
+                            <a href="<?php echo get_term_link($value); ?>"><?php echo $value->name;?></a>
+                        </div>
+                    </div>
+
                 <div class="wrap__column-card">
                     <div class="inner__column-card">
                         <?php if (have_posts()): ?>
@@ -54,18 +65,5 @@
                 </script> -->
             </div>
         </div>
-        <!-- コラムカードここまで -->
-
-        <!-- <div class="column__footer">
-            <div class="container__page-num">
-                <div class="column_page-num">
-                    <p>
-                        &lt;　1　2　3　&gt;
-                    </p>
-                </div>
-            </div>
-        </div> -->
     </div>
 </main>
-
-<?php get_footer(); ?>
