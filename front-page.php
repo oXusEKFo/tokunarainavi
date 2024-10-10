@@ -205,19 +205,22 @@ wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js'
                                 'orderby' => 'slug',
                                 'order' => 'ASC',
                             ));
-                            if (!empty($parent_terms) && is_wp_error($parent_terms)):
+
+                            if (!empty($parent_terms) && !is_wp_error($parent_terms)):
                                 foreach ($parent_terms as $parent_term):
-                                    if ($parent_term->parent == 0):
+                                    if ($parent_term->parent == 0): // 只获取父分类
                             ?>
-                                        <button class="search_option_suboption" onclick="toggleAccordion('<php echo $parent_term->slug; ?>')">
+                                        <button class="search_option_suboption" onclick="toggleAccordion('<?php echo $parent_term->slug; ?>')">
                                             <?php echo $parent_term->name; ?>
-                                            <span class="plus">+</span></button>
-                                        <div id="<php echo $parent_term->slug; ?>" class="accordion_content">
+                                            <span class="plus">+</span>
+                                        </button>
+                                        <div id="<?php echo $parent_term->slug; ?>" class="accordion_content">
 
                                             <label class="accordion_item full_width">
-                                                <input type="checkbox" onclick="selectAll('<php echo $parent_term->slug; ?>', this);"><?php echo $child_term->name; ?>をすべて選択
+                                                <input type="checkbox" onclick="selectAll('<?php echo $parent_term->slug; ?>', this);">
+                                                <?php echo $parent_term->name; ?> をすべて選択
                                             </label>
-                                            <div id="<php echo $parent_term->slug; ?>_list" class="double_column">
+                                            <div id="<?php echo $parent_term->slug; ?>_list" class="double_column">
                                                 <?php
                                                 $child_terms = get_terms(array(
                                                     'taxonomy' => 'classtype',
@@ -226,49 +229,51 @@ wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js'
                                                     'orderby' => 'slug',
                                                     'order' => 'ASC',
                                                 ));
+
                                                 if (!empty($child_terms) && !is_wp_error($child_terms)):
                                                     foreach ($child_terms as $child_term):
                                                 ?>
                                                         <label class="accordion_item">
-                                                            <input type="checkbox" value="<?php echo $child_term->name; ?>" onclick="selectItem(this)">
-                                                            <?php echo $child_term->name; ?>
+                                                            <input type="checkbox" value="<?php echo esc_attr($child_term->name); ?>" onclick="selectItem(this)">
+                                                            <?php echo esc_html($child_term->name); ?>
                                                         </label>
                                                 <?php
                                                     endforeach;
                                                 endif;
-
                                                 ?>
                                             </div>
-                                <?php
+                                        </div>
+                            <?php
                                     endif;
                                 endforeach;
                             endif;
-                                ?>
-                                        </div>
-                                        <div class="search_actions">
-                                            <button class="search_button" onclick="">この条件で検索する</button>
-                                            <div class="additional-buttons">
-                                                <button onclick="toggleAreaPopup()">エリアも選ぶ</button>
-                                                <button onclick="toggleAgePopup()">年齢も選ぶ</button>
-                                            </div>
-                                            <button class="clear_button" onclick="clearSelections()">すべてクリア</button>
-                                        </div>
-
-                        </div>
-                        <button class="detail__search" onclick="window.location.href='<?php echo home_url(); ?>/?s='">詳細検索ページへ</button>
-                        <div class="box__search">
-                            <div class="inner__search-box">
-                                <input class="window__search" type="search" placeholder="キーワードを入力してください">
-                                <button class="btn__search">
-                                    <i class="fa-solid fa-magnifying-glass"></i>
-                                </button>
+                            ?>
+                            <div class="search_actions">
+                                <button class="search_button" onclick="">この条件で検索する</button>
+                                <div class="additional-buttons">
+                                    <button onclick="toggleAreaPopup()">エリアも選ぶ</button>
+                                    <button onclick="toggleAgePopup()">年齢も選ぶ</button>
+                                </div>
+                                <button class="clear_button" onclick="clearSelections()">すべてクリア</button>
                             </div>
                         </div>
+
+
                     </div>
-                    <!-- <button class="button__more-search">
+                    <button class="detail__search" onclick="window.location.href='<?php echo home_url(); ?>/?s='">詳細検索ページへ</button>
+                    <div class="box__search">
+                        <div class="inner__search-box">
+                            <input class="window__search" type="search" placeholder="キーワードを入力してください">
+                            <button class="btn__search">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- <button class="button__more-search">
                         <a href="<?php echo home_url(); ?>/?s=">詳細検索は<br>こちら</a>
                     </button> -->
-                </div>
+            </div>
         </section>
 
         <!-- 白背景の余白スペース -->
