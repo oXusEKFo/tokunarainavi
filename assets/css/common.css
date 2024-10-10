@@ -34,6 +34,18 @@ a:hover {
     cursor: pointer;
 }
 
+main{
+    margin-top: 60px;
+}
+
+@media screen and (min-width: 780px) {
+    main{
+        margin-top: 90px;
+    }
+
+}
+
+
 
 /*** ここから カード部分 ***/
 
