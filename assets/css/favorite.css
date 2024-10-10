@@ -8,7 +8,10 @@ main {
     /* max-width: 600px; */
     max-width: 1200px;
     /* 阿波農ライフが1200pxにしていたので（堀） */
-    padding: 20px;
+    padding-top: 85px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
     align-items: center;
     margin: 0 auto;
 }
@@ -254,3 +257,16 @@ main {
 .card_title {
     border-bottom: 6px dotted #a0d3b2;
 }
+
+
+/*** メディアクエリここから ***/
+
+@media screen and (min-width: 780px) {
+    .inner_main {
+        padding-top: 130px;
+        padding-right: 40px;
+        padding-left: 40px;
+    }
+}
+
+/*** メディアクエリここまで ***/
