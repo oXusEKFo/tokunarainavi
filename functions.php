@@ -158,7 +158,7 @@ function add_style_script()
     } elseif (is_page('about')) {
         // page-about.php
         wp_enqueue_style('tokunavi_about', get_template_directory_uri() . '/assets/css/about.css');
-    } elseif (is_category()) {
+    } elseif (is_category('news')) {
         // ニュース一覧
         wp_enqueue_style(
             'tokunavi_news_list',
