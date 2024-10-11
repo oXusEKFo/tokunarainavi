@@ -398,39 +398,41 @@ wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js'
                         <?php while ($column_query->have_posts()): $column_query->the_post(); ?>
                             <div class="inner__slider">
                                 <div class="wrap__card">
-                                    <div class="container__card">
-                                        <div class="container__img">
-                                            <img class="img__card" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="施設写真">
-                                        </div>
-                                        <div class="container__info">
-                                            <div class="title__info">
-                                                <h2><?php echo the_title(); ?></h2>
+                                    <a href="<?php echo the_permalink(); ?>">
+                                        <div class="container__card">
+                                            <div class="container__img">
+                                                <img class="img__card" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="施設写真">
                                             </div>
-                                            <div class="note__column">
-                                                <?php echo the_excerpt(); ?><!-- 抜粋 -->
-                                            </div>
-                                            <div class="container__date">
-                                                <div class="icon__edit">
-                                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/pencil.png" alt="編集アイコン">
+                                            <div class="container__info">
+                                                <div class="title__info">
+                                                    <h2><?php echo the_title(); ?></h2>
                                                 </div>
-                                                <time class="date__edit" datetime="<?php the_time('y-m-d'); ?>">
-                                                    <?php the_time('Y年m月d日') ?>
-                                                </time>
+                                                <div class="note__column">
+                                                    <?php echo the_excerpt(); ?><!-- 抜粋 -->
+                                                </div>
+                                                <div class="container__date">
+                                                    <div class="icon__edit">
+                                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/pencil.png" alt="編集アイコン">
+                                                    </div>
+                                                    <time class="date__edit" datetime="<?php the_time('y-m-d'); ?>">
+                                                        <?php the_time('Y年m月d日') ?>
+                                                    </time>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
-                        <?php endwhile; ?>
-                        <?php wp_reset_postdata(); ?>
-                    <?php endif ?>
                 </div>
+            <?php endwhile; ?>
+            <?php wp_reset_postdata(); ?>
+        <?php endif ?>
             </div>
-            <!-- スライダー ここまで -->
-            <button class=" button__more-column">
-                <a href="">MORE</a>
-            </button>
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bear2.png" alt="Bear" class="bear__image-column">
+        </div>
+        <!-- スライダー ここまで -->
+        <button class=" button__more-column">
+            <a href="<?php echo home_url('/column'); ?>">MORE</a>
+        </button>
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bear2.png" alt="Bear" class="bear__image-column">
         </div>
     </section>
 
@@ -463,7 +465,7 @@ wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js'
                         </ul>
                     </div>
                     <button class="button__more-news">
-                        <a href="">MORE</a>
+                        <a href="<?php echo home_url('/category/news') ?>">MORE</a>
                     </button>
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bear2.png" alt="Bear" class="bear__image-news">
                 </div>
