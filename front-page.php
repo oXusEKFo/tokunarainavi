@@ -434,12 +434,8 @@ wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js'
         </div>
     </section>
 
-    <!-- スライダー ここまで -->
-    <button class="button__more-column">
-        <a href="<?php echo home_url('/column'); ?>">コラムを<br>もっと見る</a>
-    </button>
     </div>
-    </section> -->
+    </section>
     <!-- 白背景の余白スペース -->
     <div class="clearance"></div>
 
@@ -467,8 +463,9 @@ wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js'
                         </ul>
                     </div>
                     <button class="button__more-news">
-                        <a href="<?php echo $news_link; ?>">新着情報を<br>もっと見る</a>
+                        <a href="">MORE</a>
                     </button>
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bear2.png" alt="Bear" class="bear__image-news">
                 </div>
             </div>
         <?php endif ?>
