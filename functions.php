@@ -92,7 +92,9 @@ function add_style_script()
         );
         // <!-- ポップアップCSS -->
         wp_enqueue_style('tokunavi_searchpopup_css', get_template_directory_uri() . '/assets/css/searchpopup.css');
-
+        // column_slider
+        wp_enqueue_style('tokunavi_column_slider_css', get_template_directory_uri() . '/assets/css/column_slider
+.css');
         // column_slider . js
         wp_enqueue_script(
             'tokunavi_column_slider_js',
