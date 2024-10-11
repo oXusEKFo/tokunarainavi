@@ -1,14 +1,14 @@
 @charset "UTF-8";
 
 /*** ここから 検索結果 共通部分 ***/
-.inner_main{
+.inner__main{
     max-width: 1440px;
     width: 100%;
     margin: 0 auto;
 }
 
 /* 結果一覧背景 */
-.container_bread-crumb {
+.container__bread-crumb {
     width: 100%;
     padding-top: 15px;
     margin: 0 auto;
@@ -20,33 +20,33 @@
 }
 
 /* 下線 */
-.under-Line {
+.under__Line {
     border-bottom: solid 1px #463D3B;
 }
 
 /*** 検索結果 共通部分 ここまで ***/
 
 /*** ここから施設写真(スライダー) ****/
-.outline_results {
+.outline__results {
     min-width: 350px;
     width: 100%;
     margin: 0 auto;
 }
 
-.details_slide {
+.details__slide {
     min-width: 350px;
     width: 66%;
     margin: 0 auto;
     background-color: transparent;
 }
 
-.container_slide {
+.container__slide {
     width: 350px;
     margin: 0 auto;
 }
 
 /* スライダーエリア */
-.slider_area {
+.slider__area {
     width: 100%;
     margin: 20px 0;
     position: relative;
@@ -54,7 +54,7 @@
 }
 
 /* 施設写真 */
-.wrap_mainImg img {
+.wrap__mainImg img {
     width: 100%;
     border-radius: 20px;
 }
@@ -78,7 +78,7 @@
 }
 
 /* サムネイル */
-.wrap_thumbnailImg {
+.wrap__thumbnailImg {
     width: 87.5px;
 }
 
@@ -93,7 +93,7 @@
 
 /*** 検索結果詳細部分 ここから ***/
 
-.details_title{
+.details__title{
     width: 350px;
     height: 55px;
     background-color: #ED6D1F;
@@ -104,23 +104,23 @@
     margin: 18px auto 18px 0;
 }
 
-.wrap_details-outline {
+.wrap__details-outline {
     width: 350px;
     margin: 0 auto;
 }
 
-.details_address{
+.details__address{
     font-size: 1.6rem;
     margin-bottom: 4px;
 }
 
-.details_description{
+.details__description{
     font-size: 1.4rem;
     line-height: 2.5rem;
     margin-top: 14px;
 }
 
-.details_container{
+.details__container{
     background-color: #F5F5F5;
     font-size: 1.4rem;
     width: 350px;
@@ -130,16 +130,16 @@
     margin: 35px auto 0;
 }
 
-.details_genre{
+.details__genre{
     padding:15px 0;
     border-bottom: solid 1px #463D3B;
 }
 
-.details_remarks {
+.details__remarks {
     border-bottom: none;
 }
 
-.details_genre>h4 {
+.details__genre>h3 {
     color: #ED6D1F;
     font-size: 1.4rem;
     font-weight: 700;
@@ -147,14 +147,14 @@
     margin-bottom: 8px;
 }
 
-.details_genre>p,
-.details_genre>a {
+.details__genre>p,
+.details__genre>a {
     font-size: 1.6rem;
     font-weight: 500;
     line-height: 2.5rem;
 }
 
-.details_map{
+.details__map{
     font-size: 2.0rem;
     display: flex;
     padding: 10px 20px;
@@ -169,18 +169,18 @@
 /* アコーディオンメニュー ここから */
 
 /* アコーディオン囲い */
-.wrap_accordion {
+.wrap__accordion {
     width: 350px;
     /* margin: 0 auto; */
 }
 
 /* 通常は表示しない */
-.accordion-content {
+.accordion__content {
     display: none;
 }
 
 /* 閉じている時の表示 */
-.accordion-header {
+.accordion__header {
     width: 350px;
     transition: .3s ease;
     cursor: pointer;
@@ -188,8 +188,8 @@
 }
 
 /* ＋の表示 */
-.accordion-header::before,
-.accordion-header::after {
+.accordion__header::before,
+.accordion__header::after {
     position: absolute;
     content: '';
     top: 1px;
@@ -202,35 +202,29 @@
 }
 
 /* タップ時の変形 ＋ → ー */
-.accordion-header::after {
+.accordion__header::after {
     transform: rotate(-90deg);
     transition: transform 0.3s;
 }
 
-.accordion-header.active::after {
+.accordion__header.active::after {
     transform: rotate(0deg);
 }
 
-.accordion-content {
+.accordion__content {
     width: 100%;
-}
-
-.accordion-header div,
-.accordion-content div {
-    /* padding-left: 25px;
-    position: relative; */
 }
 
 /* アコーディオンメニュー ここまで */
 
 
 /* レビューエリア ここから */
-.details_review{
+.details__review{
     width: 350px;
     margin: 0 auto;
 }
 
-.wrap_details-review{
+.wrap__details-review{
     width: 100%;
     border-bottom: solid 1px #463D3B;
     display: flex;
@@ -241,7 +235,7 @@
     margin: 15px 0;
 }
 
-.review_title{
+.review__title{
     font-size: 1.8rem;
     font-weight: 700;
     line-height: 2.6rem;
@@ -249,29 +243,29 @@
     margin: 0 0 16px 0;
 }
 
-/* .review_item{
+/* .review__item{
     font-size: 1.2rem;
     line-height: 1.74rem;
 } */
-.review_name {
+.review__name {
     font-size: 1.4rem;
     line-height: 2.03rem;
     margin:2.5px 0;
 }
 
-.review_date {
+.review__date {
     font-size: 1.2rem;
     line-height: 1.74rem;
     margin: 2.5px 0;
 }
 
-.review_comment {
+.review__comment {
     font-size: 1.6rem;
     line-height: 2.3rem;
     margin: 2.5px 0;
 }
 
-.reply_btn{
+.reply__btn{
     font-size: 1.2rem;
     font-weight: 700;
     color: #fff;
@@ -311,11 +305,11 @@
     border-radius: 5px;
 }
 
-.btn_container{
+.btn__container{
 text-align: right;
 }
 
-.reviewSend_btn {
+.reviewSend__btn {
     font-size: 1.2rem;
     font-weight: 700;
     color: #fff;
@@ -327,7 +321,7 @@ text-align: right;
     margin: 17px 0;
 }
 
-.relatedReview_title{
+.relatedReview__title{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -338,13 +332,17 @@ text-align: right;
     margin-top: 50px;
     background-color: rgb(246, 239, 231);}
 
-.relatedReview_title p {
+.relatedReview__title>h2 {
+    font-size: 2rem;
+}
+
+.relatedReview__title p {
     font-size: 2.0rem;
     font-weight: 700;
 
 }
 
-.relatedReview_title img{
+.relatedReview__title img{
     width: 60px;
 
 }
@@ -357,7 +355,7 @@ text-align: right;
 
 /*** ここから カード部分 ***/
 
-.results_card{
+.results__card{
     width: 390px;
     padding: 7.5px 0 7.5px 0;
     margin: 10px auto;
@@ -369,7 +367,7 @@ text-align: right;
 
 
 /* カード白背景部分 */
-.wrap_card{
+.wrap__card{
     padding: 20px 0 0 0;
     margin: 7.5px auto;
     background-color: #F5F5F5;
@@ -377,20 +375,20 @@ text-align: right;
 }
 
 /* カード内側の枠 */
-.inner_card{
+.inner__card{
 
     height: auto;
     margin: 0 auto;
 }
 
 /* カード写真部分の容器 */
-.container_cardImg{
+.container__cardImg{
     margin-bottom: 20px;
     position: relative;
 }
 
 /* 施設写真 */
-.card_img {
+.card__img {
     width: 100%;
     height: auto;   /*アスペクト比を維持*/
     margin: 0 auto;
@@ -399,22 +397,22 @@ text-align: right;
 }
 
 /* お気に入りリストに追加 タグ */
-.tag_favorite{
+.tag__favorite{
     width:170px;
 
 }
 
 /* お気に入りリストに追加 タグ 位置調整（カード）*/
-.container_cardImg>.tag_favorite {
+.container__cardImg>.tag__favorite {
     bottom: -17px;
 }
 /* お気に入りリストに追加 タグ 位置調整（結果詳細スライダ）*/
-.slider_area>.tag_favorite{
+.slider__area>.tag__favorite{
     bottom: -15px;
 }
 
 /* 施設名 */
-.card_title {
+.card__title {
     font-size: 2rem;
     margin-bottom: 8px;
     white-space: nowrap;
@@ -424,7 +422,7 @@ text-align: right;
 
 
 
-.detail_label {
+.detail__label {
     color: #f39c1f;
     padding: 5px 2px;
     border-radius: 5px;
@@ -434,7 +432,7 @@ text-align: right;
 
 }
 
-.detail_value {
+.detail__value {
     font-size: 1.6rem;
     color: #333;
     white-space: nowrap;
@@ -446,7 +444,7 @@ text-align: right;
 
 
 
-.card_title h2 {
+.card__title h2 {
     font-size: 1.8rem;
     color: #463d3b;
     margin: 20px 0;
@@ -454,23 +452,23 @@ text-align: right;
     overflow: hidden;
 }
 
-.container_cardinfo {
+.container__cardinfo {
     padding: 10px;
 }
 
-.container_cardimg {
+.container__cardimg {
     position: relative;
 }
 
 
 
-.card_details {
+.card__details {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.card_detail {
+.card__detail {
     display: ;
     align-items: center;
     }
@@ -478,13 +476,13 @@ text-align: right;
 
 
 
-.icon_category {
+.icon__category {
     width: 50px;
     height: 50px;
     margin-right: 10px;
 }
 
-.card_area {
+.card__area {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -498,7 +496,7 @@ text-align: right;
 
 @media screen and (min-width: 768px) {
 
-    .outline_results {
+    .outline__results {
         min-width: 350px;
         width: 95%;
         margin: 0 auto;
@@ -506,32 +504,32 @@ text-align: right;
         justify-content: center;
     }
 
-    .details_slide {
+    .details__slide {
         width: 100%;
         margin: 0 0;
     }
 
-    .container_slide {
+    .container__slide {
         width: 100%;
         margin: 0 0;
     }
 
-    .details_info {
+    .details__info {
         min-width: 350px;
         width: 100%;
         margin: 0 auto 0 3vw;
     }
 
-    .inner_details-info{
+    .inner__details-info{
         width: 100%;
     }
 
-    .wrap_details-outline {
+    .wrap__details-outline {
         width: 100%;
         margin: 0 0;
 }
 
-    .details_container {
+    .details__container {
         width: 95%;
         height: auto;
         display: flex;
@@ -539,46 +537,50 @@ text-align: right;
         gap: 30px;
     }
 
-    .details_containerL,
-    .details_containerR {
+    .details__containerL,
+    .details__containerR {
         width: 47%;
     }
 
-    .details_review {
+    .details__review {
         width: 80%;
     }
 
-    .wrap_accordion {
+    .wrap__accordion {
         width: 100%;
     }
 
-    .relatedReview_title {
+    .relatedReview__title {
         max-width: 1120px;
         width: 95%;
 
     }
 
-    .results_card {
+    .relatedReview__title>h2 {
+        font-size: 4rem;
+    }
+
+    .results__card {
     max-width: 1200px;
     width: 95%;
     }
 
-    .results_card::after {
+    .results__card::after {
         content: "";
         display: block;
         width: 25%;
     }
 
-    .results_card::after {
+    .results__card::after {
         content: "";
         display: block;
         width: 50%;
     }
-    .card_img {
+    .card__img {
         width: 85%;
 }
 
-.tag_favorite {
+.tag__favorite {
     width: 50%;
 
     bottom: -15px;
@@ -586,23 +588,23 @@ text-align: right;
 }
 
 @media screen and (min-width: 1050px) {
-    .inner_main {
+    .inner__main {
             max-width: 1200px;
             width: 90%;
     }
 
-    .outline_results {
+    .outline__results {
         width: 100%;
         margin: 0 auto;
         display: flex;
         justify-content: center;
     }
 
-    .details_slide {
+    .details__slide {
         width: 540px;
     }
 
-    .container_slide {
+    .container__slide {
         width: 100%;
         margin: 0 auto;
     }
@@ -614,30 +616,30 @@ text-align: right;
         white-space: nowrap;
     }
 
-    .details_info {
+    .details__info {
         width: clamp(100px, 40vw, 590px);
         margin: 0 0 0 5vw;
     }
 
-    .details_title {
+    .details__title {
         font-size: 3rem;
         line-height: 4.34rem;
         width: clamp(100px, 35vw, 590px);
         height: 80px;
     }
 
-    .wrap_details-outline{
+    .wrap__details-outline{
         max-width:590px;
         width: 100%;
     }
 
-    .details_description{
+    .details__description{
         font-size: 1.8rem;
         line-height: 3.5rem;
         margin-top: 26px;
     }
 
-    .details_container {
+    .details__container {
         width: 100%;
         height: auto;
         display: flex;
@@ -645,103 +647,103 @@ text-align: right;
         gap: 30px;
     }
 
-    .details_containerL,
-    .details_containerR {
+    .details__containerL,
+    .details__containerR {
         width: 47%;
     }
 
-    .details_containerL h4,
-    .details_containerR h4 {
+    .details__containerL h3,
+    .details__containerR h3 {
         font-size: 2rem;
         line-height: 3.5rem;
         width: 100%;
     }
 
-    .details_containerL p,
-    .details_containerR p{
+    .details__containerL p,
+    .details__containerR p{
         font-size: 1.8rem;
         line-height: 3.5rem;
         width: 100%;
     }
 
-    .wrap_accordion {
+    .wrap__accordion {
         width: 100%;
         margin: 0 auto;
         border-radius: 10px;
     }
 
-    .details_review {
+    .details__review {
         max-width: 950px;
         width: 85%;
         margin-top: 50px;
 
     }
 
-    /* .wrap_details-review{
+    /* .wrap__details-review{
         width: 100%;
         display: flex;
         justify-content: space-between;
     } */
 
 
-    .review_title {
+    .review__title {
         font-size: 3.0rem;
         line-height: 4.0rem;
         font-weight: 700;
         margin: 50px 0 0 0;
     }
 
-    .results_card::after {
+    .results__card::after {
         content: "";
         display: block;
         width: 50%;
     }
 
-    .details_map {
+    .details__map {
         font-size: 3.0rem;
 
     }
-    .details_map p {
+    .details__map p {
         display: flex;
         justify-content: center;
     }
-    .card_img {
+    .card__img {
         width: 100%;
 }
 
 
 
-    .wrap_details-review {
+    .wrap__details-review {
         width: 100%;
     }
 
 
-    .review_name {
+    .review__name {
         font-size: 1.8rem;
         line-height: 4.0rem;
     }
 
-    .review_date {
+    .review__date {
         font-size: 1.7rem;
         line-height: 4.0rem;
     }
 
-    .review_comment {
+    .review__comment {
         font-size: 1.4rem;
         line-height: 2.5rem;
     }
 
-    #input_name,
-    #input_email,
-    #input_comment {
+    #input__name,
+    #input__email,
+    #input__comment {
         width: 100%;
     }
 
-        #input_comment {
+        #input__comment {
             height: 110px;
         }
 
-    .reviewSend_btn {
+    .reviewSend__btn {
         font-size: 1.4rem;
         width: 150px;
         height: 30px;
@@ -750,20 +752,20 @@ text-align: right;
         margin: 17px 0;
     }
 
-    .relatedReview_title {
+    .relatedReview__title {
         height: 100px;
     }
 
-    .relatedReview_title p {
+    .relatedReview__title p {
         font-size: 3.0rem;
     }
 
-    .relatedReview_title img {
+    .relatedReview__title img {
         width: 70px;
 
     }
 
-    .results_card::after {
+    .results__card::after {
         content: "";
         display: block;
         width: 33.33%;
@@ -771,25 +773,25 @@ text-align: right;
 }
 
 @media screen and (min-width: 1184px) {
-    .inner_main {
+    .inner__main {
             max-width: 1200px;
             width: 90%;
         }
 
-    .wrap_details-outline {
+    .wrap__details-outline {
         /* width: 100%; */
         margin: 0 auto;
 }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1050px) {
-    .results_card {
+    .results__card {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
     }
 
-    .wrap_card {
+    .wrap__card {
         width: calc(33.33% - 20px);
         /* 3つ並べるための幅調整 */
         margin: 10px;
@@ -801,7 +803,7 @@ text-align: right;
 
 
 /* バックハンド班による修正ここから */
-.details_description > .simplefavorite-button{
+.details__description > .simplefavorite-button{
     display: none;  /*プラグインによるお気に入りの配置を無効 */
 }
 
