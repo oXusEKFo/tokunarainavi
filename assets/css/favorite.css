@@ -120,7 +120,7 @@ main {
 }
 
 /* 少し浮く（ホバー時） */
-.tag_favorite:hover {
+.tag__favorite:hover {
     transform: translateY(-3px);
 }
 

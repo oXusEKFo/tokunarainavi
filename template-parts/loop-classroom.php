@@ -8,12 +8,12 @@
             <?php if (has_post_thumbnail()): ?>
                 <?php the_post_thumbnail('medium', array('class' => 'card_img')); ?>
             <?php else: ?>
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/noimage.png" alt="">
+                <img class="card_img" src="<?php echo get_template_directory_uri(); ?>/assets/images/noimage.png" alt="">
             <?php endif; ?>
         </a>
 
         <!-- お気に入りボタン -->
-        <div class="tag_favorite"> <!-- ← results.htmlから借用 -->
+        <div class="tag__favorite"> <!-- ← results.htmlから借用 -->
             <!-- ※ 以下svgはプラグイン内に直接記述しています -->
             <!-- <svg class="layer_2" data-name="layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132 37">
                 <g class="layer_1" data-name="layer_1">

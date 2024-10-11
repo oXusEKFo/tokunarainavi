@@ -9,49 +9,31 @@
         </div>
 
         <!-- コラム一覧カード -->
-        <div class="column__area">
-            <div class="column__title">
+        <div class="inner__column">
+            <div class="title__column">
                 <h1>COLUMN</h1>
                 <p>コラム</p>
             </div>
-
-            <div class="inner__column-area">
-                <div class="wrap__column-card">
-                    <div class="inner__column-card">
-                        <?php if (have_posts()): ?>
-                            <?php while (have_posts()): the_post(); ?>
-                                <?php get_template_part('template-parts/loop', 'column'); ?>
-                            <?php endwhile; ?>
-                        <?php endif; ?>
-                        <!-- <div class="container__card-img">
-                            <img class="card_img" src="../../assets/images/pcchild.jpg" alt="施設写真" width="300" height="200" />
-                        </div>
-                        <div class="container__card-info">
-                            <div class="card_title">
-                                <h2>PROGRAMMING SCHOOL GEEK</h2>
-                            </div>
-                            <div class="card__note">
-                                <p>みんな パソコン教室に行ったことある？この間 ぼくは初めてパソコン教室に行ったよ！まずは タイピング練習！先生がわかりやすく教えてくれるから すぐできるようになったんだ。それから、プログラミングで自分だけのゲームを作る体験もできたよ。自分のゲームが動いた瞬間は、思わず「やったー！」って声が出た！すごく楽しい一日だったよ。みんなも体験してみて！</p>
-                            </div>
-                            <div class="wrap__card-date">
-                                <div class="card__edit-icon">
-                                    <img src="../../assets/images/pencil.png" alt="編集アイコン" width="30" height="30">
-                                </div>
-                                <div class="card__date">
-                                    2024年&#9679;月&#9679;日
-                                </div>
-                            </div>
-                        </div> -->
-                    </div>
+            <!-- スライダー ここから -->
+            <div class="slider">
+                <div class="auto-slider">
+                    <?php
+                    $args = [
+                        'post_type' => 'column',
+                        'posts_per_page'     => 5,
+                        'orderby'        => 'date',
+                        'order'          => 'DESC',
+                    ];
+                    $column_query = new WP_query($args); ?>
+                    <?php
+                    if ($column_query->have_posts()):
+                    ?>
+                        <?php while ($column_query->have_posts()): $column_query->the_post(); ?>
+                            <?php get_template_part('template-parts/loop', 'column'); ?>
                 </div>
-                <!-- <script>
-                    // コラムカード 繰り返し表示
-                    for (let i = 0; i < 3; i++) {
-                        const card = document.querySelector('.wrap__column-card');
-                        const clone = card.cloneNode(true);
-                        document.querySelector('.inner__column-area').appendChild(clone);
-                    }
-                </script> -->
+            <?php endwhile; ?>
+            <?php wp_reset_postdata(); ?>
+        <?php endif ?>
             </div>
         </div>
         <!-- コラムカードここまで -->
