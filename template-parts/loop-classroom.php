@@ -13,7 +13,7 @@
         </a>
 
         <!-- お気に入りボタン -->
-        <div class="tag_favorite"> <!-- ← results.htmlから借用 -->
+        <div class="tag__favorite"> <!-- ← results.htmlから借用 -->
             <!-- ※ 以下svgはプラグイン内に直接記述しています -->
             <!-- <svg class="layer_2" data-name="layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132 37">
                 <g class="layer_1" data-name="layer_1">
