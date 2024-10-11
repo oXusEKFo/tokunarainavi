@@ -286,7 +286,7 @@ function increment_term_view_count($term_id)
     if (false === get_transient($transient_key)) {
 
         $view_count = get_term_meta($term_id, 'view_count', true);
-        $view_count = $view_count ? intval($view_count) : 5;
+        $view_count = $view_count ? intval($view_count) : 0;
 
         update_term_meta($term_id, 'view_count', $view_count + 1);
 
