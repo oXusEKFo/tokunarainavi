@@ -293,3 +293,11 @@ function increment_term_view_count($term_id)
         set_transient($transient_key, 'viewed', 3600); // transientを設定します。有効期限は1時間（3600秒）です。
     }
 }
+// // 制限なし
+// function increment_term_view_count($term_id)
+// {
+//     $view_count = get_term_meta($term_id, 'view_count', true);
+//     $view_count = $view_count ? intval($view_count) : 1;
+
+//     update_term_meta($term_id, 'view_count', $view_count + 1);
+// }
