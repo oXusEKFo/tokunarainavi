@@ -137,6 +137,18 @@ function add_style_script()
             'tokunavi_column_style',
             get_template_directory_uri() . '/assets/css/column.css',
         );
+    } elseif (is_singular('classroom')) {
+        wp_enqueue_style(
+            'tokunavi_classroom_style',
+            get_template_directory_uri() . '/assets/css/details.css',
+        );
+        wp_enqueue_script(
+            'tokunavi_slider_js',
+            get_template_directory_uri() . '/assets/js/slider.js',
+            ['jquery'], // jQuery に依存
+            '', // バージョン指定なし
+            true // フッターに出力
+        );
     } elseif (is_page('contact') || is_page('confirm') || is_page('thanks')) {
         wp_enqueue_style(
             'tokunavi_input',

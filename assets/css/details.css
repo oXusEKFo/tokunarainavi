@@ -583,6 +583,7 @@ text-align: right;
 
     bottom: -15px;
 }
+}
 
 @media screen and (min-width: 1050px) {
     .inner_main {
@@ -797,3 +798,15 @@ text-align: right;
 }
 
 /*** メディアクエリここまで ***/
+
+
+/* バックハンド班による修正ここから */
+.details_description > .simplefavorite-button{
+    display: none;  /*プラグインによるお気に入りの配置を無効 */
+}
+
+
+/* お気に入りリストのボタン配置の優先 */
+.slick-slide {
+    height: auto !important;
+}
