@@ -196,6 +196,12 @@ function add_style_script()
             'tokunavi_service',
             get_template_directory_uri() . '/assets/css/rule.css'
         );
+    } elseif (is_page('praivacy')) {
+        // プライバシーポリシー
+        wp_enqueue_style(
+            'tokunavi_praivacy',
+            get_template_directory_uri() . '/assets/css/privacy.css'
+        );
     }
 
     // ニュース一覧

@@ -106,6 +106,7 @@
     width: 100%;
     position: absolute;
     bottom: -30px;
+    z-index: 5;
 }
 
 
@@ -117,6 +118,7 @@
     position: absolute;
     right: 13px;
     bottom: -35px;
+    z-index: 1;
 }
 
 .title__ranking>p {
@@ -126,11 +128,11 @@
 /* クリーム円 */
 .title__ranking>img,
 .title__news>img {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     position: absolute;
-    bottom: -65px;
-    left: -40px;
+    bottom: -40px;
+    left: -20px;
     z-index: -1;
 }
 
@@ -142,7 +144,7 @@
     position: absolute;
     bottom: -42px;
     left: -23px;
-    z-index: -1;
+    /* z-index: -1; */
 }
 
 /*** タイトル関連 ここまで ***/
@@ -213,6 +215,7 @@
     flex: 1;
     border: solid 1px #463D3B;
     border-radius: 10px;
+    margin-top: 10px;
 }
 
 .inner__search-box{
@@ -420,9 +423,11 @@ input[type="search"]::-webkit-search-cancel-button {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    position: absolute;
-    right: 30px;
-    bottom: 0px;
+    position: relative;
+    /* ボタンの位置を相対に設定 */
+    right: -270px;
+    bottom: 100px;
+    z-index: 2;
 }
 
 /* NEWS */
@@ -440,7 +445,7 @@ input[type="search"]::-webkit-search-cancel-button {
     background-color: #FFF;
     width: 350px;
     height: auto;
-    padding: 25px 0 80px 0;
+    /* padding: 25px 0 80px 0; */
     margin: 0 auto;
     border-radius: 20px;
     position: relative;    /* NEWS詳細ボタンの位置調整用 */
@@ -483,9 +488,11 @@ input[type="search"]::-webkit-search-cancel-button {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    position: absolute;
-    right: -35px;
-    bottom: -70px;
+    position: relative;
+    /* ボタンの位置を相対に設定 */
+    right: -250px;
+    bottom: -50px;
+    z-index: 2;
 }
 
 .clearance{
@@ -496,6 +503,11 @@ input[type="search"]::-webkit-search-cancel-button {
     margin: 0 auto;
 }
 
+.bear__image-column,
+.bear__image-news {
+    display: none;
+    /* 通常時は非表示 */
+}
 
 @media screen and (min-width: 780px){
 
@@ -532,15 +544,23 @@ input[type="search"]::-webkit-search-cancel-button {
         max-width: 1440px;
         width: 100%;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
+        /* 中央寄せに変更 */
+        align-items: center;
+        /* 縦方向も中央寄せ */
     }
 
     .image__about {
         width: 390px;
         height: auto;
-        margin: 0 auto;
+        margin: 0 20px;
         display: block;
         align-content: center;
+    }
+
+    .note__about {
+        margin: 0 20px;
+        /* 左右のマージンを追加 */
     }
 
     /* タイトル */
@@ -555,7 +575,7 @@ input[type="search"]::-webkit-search-cancel-button {
     /* メイン */
     .title__search>h1,
     .title_ranking>h1 {
-        font-size: 9.1rem;
+        font-size: 7rem;
         width: 100%;
     }
 
@@ -601,21 +621,25 @@ input[type="search"]::-webkit-search-cancel-button {
     /* コラム詳細ボタン*/
     .button__more-column {
         display: block;
-        width: 160px;
-        height: 160px;
+        width: 130px;
+        height: 130px;
         position: absolute;
-        right: 30px;
-        bottom: -70px;
+        right: 90px;
+        bottom: -20px;
+    }
+
+    .button__more-column a {
+        font-size: 2.7rem;
     }
 
     /* NEWS概要 */
     .container__news {
-        width: 600px;
+        width: 450px;
         height: auto;
-   }
+    }
 
     .item__news {
-        width: 500px;
+        width: 400px;
         height: 170px;
     }
 
@@ -623,15 +647,81 @@ input[type="search"]::-webkit-search-cancel-button {
     /* NEWS詳細ボタン*/
     .button__more-news {
         display: block;
-        width: 160px;
-        height: 160px;
+        width: 130px;
+        height: 130px;
         position: absolute;
-        right: -70px;
-        bottom: -70px;
+        right: -80px;
+        bottom: -30px;
+    }
+
+    .button__more-news a {
+        font-size: 2.7rem;
     }
 
     .clearance {
         height: 70px;
     }
+
+/* bear__image */
+.bear__image-column {
+    position: absolute;
+    /* 絶対位置を設定 */
+    display: block;
+    bottom: -1px;
+    /* 初期位置をボタンの下に設定 */
+    right: 100px;
+    /* 初期位置をボタンの右に設定 */
+    opacity: 0;
+    /* 初期状態は透明 */
+    width: 110px;
+    /* サイズを調整（ボタンより少し小さく） */
+    height: auto;
+    /* アスペクト比を維持 */
+    transition: opacity 0.5s ease, bottom 0.5s ease;
+    /* アニメーションのトランジションを設定 */
+    z-index: 1;
+    /* bear-imageをボタンの後ろに配置 */
+}
+
+.bear__image-news {
+    position: absolute;
+    /* 絶対位置を設定 */
+    display: block;
+    bottom: -1px;
+    /* 初期位置をボタンの下に設定 */
+    right: -70px;
+    /* 初期位置をボタンの右に設定 */
+    opacity: 0;
+    /* 初期状態は透明 */
+    width: 110px;
+    /* サイズを調整（ボタンより少し小さく） */
+    height: auto;
+    /* アスペクト比を維持 */
+    transition: opacity 0.5s ease, bottom 0.5s ease;
+    /* アニメーションのトランジションを設定 */
+    z-index: 1;
+    /* bear-imageをボタンの後ろに配置 */
+}
+
+/* ボタンにホバーしたときにbear__imageを表示 */
+.button__more-column:hover+.bear__image-column {
+    bottom: 60px;
+    /* 最終位置 */
+    opacity: 1;
+    /* 不透明 */
+}
+
+.button__more-news:hover+.bear__image-news {
+    bottom: 60px;
+    /* 最終位置 */
+    opacity: 1;
+    /* 不透明 */
+}
+
+.button__more-column:hover,
+.button__more-news:hover {
+    text-decoration: underline;
+    /* 下線を追加 */
+}
 
 }
