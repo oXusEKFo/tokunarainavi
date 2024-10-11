@@ -8,7 +8,7 @@
             <?php if (has_post_thumbnail()): ?>
                 <?php the_post_thumbnail('medium', array('class' => 'card_img')); ?>
             <?php else: ?>
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/noimage.png" alt="">
+                <img class="card_img" src="<?php echo get_template_directory_uri(); ?>/assets/images/noimage.png" alt="">
             <?php endif; ?>
         </a>
 
