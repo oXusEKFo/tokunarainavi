@@ -289,8 +289,6 @@ wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js'
                                 </div>
                         </form>
                     </div>
-
-
                 </div>
                 <!-- end ジャンルを選ぶ -->
 
@@ -315,6 +313,7 @@ wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js'
 
     <!-- 白背景の余白スペース -->
     <div class="clearance"></div>
+
     <!-- ランキング -->
     <section class="ranking">
         <div class="inner__ranking">
@@ -356,9 +355,10 @@ wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js'
                                 <li class="order">
                                     <a href="<?php echo esc_url($search_link); ?>"><?php echo  esc_html($term->name); ?>
 
-                                        <?php
-                                        echo '回数: ' . esc_html($view_count);
-                                        ?></a>
+                                        <small><?php
+                                                echo 'click' . esc_html($view_count);
+                                                ?></small>
+                                    </a>
                                 </li>
                             <?php endif; ?>
                     <?php
