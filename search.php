@@ -38,7 +38,7 @@ $count2 = 0;
       <section class="search_results">
         <!--検索フォーム-->
         <div>
-          <h1>条件検索</h1>
+          <h1 class="results_count">条件検索</h1>
           <?php
           //選択項目の保持と選択項目の名前の取得（エリア）
           //各タクソノミーでループ 名前の取得まで(area)
@@ -72,11 +72,6 @@ $count2 = 0;
           echo '</pre>';
           ?>
 
-          <h1>フリーワード検索</h1>
-          <form action="<?php echo home_url('/'); ?>" method="get">
-            <input type="text" name="s" value="<?php the_search_query(); ?>" placeholder="キーワードを入力してください">
-            <button type="submit">🔍</button>
-          </form>
         </div>
         <div class="search_filters">
           <form method="GET" action="<?php echo esc_url(home_url('/')); ?>">
@@ -112,7 +107,7 @@ $count2 = 0;
                         <?php echo $child_term->name; ?></label>
                   <?php
                     endforeach;
-                    wp_reset_postdata();
+                  // wp_reset_postdata();
                   endif;
                   ?>
                 </div>
@@ -139,7 +134,7 @@ $count2 = 0;
                   <?php
 
                     endforeach;
-                    wp_reset_postdata();
+                  // wp_reset_postdata();
                   endif;
                   ?>
                 </div>
@@ -474,6 +469,12 @@ $count2 = 0;
             </div>
           </form>
         </div>
+
+        <h1 class="results_count">フリーワード検索</h1>
+        <form action="<?php echo home_url('/'); ?>" method="get">
+          <input type="text" name="s" value="<?php the_search_query(); ?>" placeholder="キーワードを入力してください">
+          <button type="submit">🔍</button>
+        </form>
       </section>
 
       <!-- 検索結果一覧カード -->
