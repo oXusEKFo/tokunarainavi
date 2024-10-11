@@ -8,6 +8,7 @@ wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js'
     <div class="inner__main">
         <section class="landing">
             <div class="inner__landing">
+                <!-- KV 静的-->
                 <div class="wrap__kv">
                     <div class="container__kv-Mo">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/kv_mo.png" alt="kv_mobile">
@@ -16,11 +17,14 @@ wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js'
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/kv_p.png" alt="kv_pc">
                     </div>
                 </div>
+                <!-- end KV -->
+
+                <!-- about 動的 -->
                 <div class="about">
                     <?php
                     $args = [
                         'post_type' => 'page',
-                        'post__in' => ['174'], // サーバ環境用
+                        'post__in' => ['174'],
                     ];
                     $the_query = new WP_Query($args);
                     if ($the_query->have_posts()):
@@ -38,11 +42,15 @@ wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js'
                         <?php wp_reset_postdata(); ?>
                     <?php endif ?>
                 </div>
+                <!-- end about -->
+
             </div>
         </section>
+
         <!-- 白背景の余白スペース -->
         <div class="clearance"></div>
-        <!-- search -->
+
+        <!-- 検索search -->
         <section class="search">
             <div class="container__search">
                 <div class="title__search">
@@ -51,110 +59,123 @@ wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js'
                     <img src="<?php echo get_template_directory_uri();  ?>/assets/images/matcha.png" alt="みどり円">
                 </div>
                 <div class="options__search">
+                    <!-- エリアを選ぶ -->
                     <button class="option__search" onclick="togglePopup('popup_area')">エリアを選ぶ</button>
                     <div class="overlay" style="display: none;"></div>
                     <div class="search_container" id="popup_area" style="display: none;">
-                        <div class="close_button" onclick="closePopup()">×</div>
+                        <div class="close_button" onclick="closePopup()">&times;</div> <!-- &times; --× -->
                         <div class="search_header">
                             <h1>エリアを選ぶ</h1>
                         </div>
-                        <div class="search_options">
-                            <label class="accordion_item full_width">
-                                <input type="checkbox" onclick="selectAll('tokushima', this);">徳島市全域
-                            </label>
-                            <div id="tokushima" class="single_column">
-                                <?php
-                                $parent_term = get_term_by('slug', 'area01', 'area');
-                                $child_terms = get_terms(array(
-                                    'taxonomy' => 'area',
-                                    'parent' => $parent_term->term_id,
-                                    'hide_empty' => false,
-                                    'orderby' => 'slug',
-                                    'order' => 'ASC',
-                                ));
-                                //  print_r($child_terms);
-                                if (! empty($child_terms) && ! is_wp_error($child_terms)):
-                                    foreach ($child_terms as $child_term) :
-                                ?>
-                                        <label class="accordion_item">
-                                            <input type="checkbox" value=" <?php echo $child_term->name; ?>" onclick="selectItem(this)">
-                                            <?php echo $child_term->name; ?>
-                                        </label>
-                                <?php
-                                    endforeach;
-                                    wp_reset_postdata();
-                                endif;
-                                ?>
-                            </div>
-                            <label class="accordion_item full_width">
-                                <input type="checkbox" onclick="selectAll('itano', this);">板野郡全域
-                            </label>
-                            <div id="itano" class="double_column">
-                                <?php
-                                $parent_term = get_term_by('slug', 'area02', 'area');
-                                $child_terms = get_terms(array(
-                                    'taxonomy' => 'area',
-                                    'parent' => $parent_term->term_id,
-                                    'hide_empty' => false,
-                                    'orderby' => 'slug',
-                                    'order' => 'ASC',
-                                ));
-                                if (!empty($child_terms) && ! is_wp_error($child_terms)):
-                                    foreach ($child_terms as $child_term) :
-
-                                ?>
-                                        <label class="accordion_item">
-                                            <input type="checkbox" value="<?php echo $child_term->name; ?>" onclick="selectItem(this)">
-                                            <?php echo $child_term->name; ?>
-                                        </label>
-                                <?php
-
-                                    endforeach;
-                                    wp_reset_postdata();
-                                endif;
-                                ?>
-                            </div>
-                            <div class="double_column">
-                                <?php
-                                $terms = get_terms(array(
-                                    'taxonomy' => 'area',
-                                    'hide_empty' => false,
-                                    'orderby' => 'slug',
-                                    'order' => 'ASC',
-
-                                ));
-                                if (!empty($terms) && ! is_wp_error($terms)):
-                                    foreach ($terms as $term):
-                                        if ($term->parent == 0):
-                                            if ($term->slug == 'area01' || $term->slug == 'area02') {
-                                                continue;
-                                            }
-                                ?>
+                        <form method="GET" action="<?php echo esc_url(home_url('/')); ?>">
+                            <div class="search_options">
+                                <label class="accordion_item full_width">
+                                    <input type="checkbox" onclick="selectAll('tokushima', this);">徳島市全域
+                                </label>
+                                <div id="tokushima" class="single_column">
+                                    <!-- 徳島市全域の子要素 -->
+                                    <?php
+                                    $parent_term = get_term_by('slug', 'area01', 'area');
+                                    $child_terms = get_terms(array(
+                                        'taxonomy' => 'area',
+                                        'parent' => $parent_term->term_id,
+                                        'hide_empty' => false,
+                                        'orderby' => 'slug',
+                                        'order' => 'ASC',
+                                    ));
+                                    //  print_r($child_terms);
+                                    if (! empty($child_terms) && ! is_wp_error($child_terms)):
+                                        foreach ($child_terms as $child_term) :
+                                    ?>
                                             <label class="accordion_item">
-                                                <input type="checkbox" value="<?php echo $term->name; ?>" onclick="selectItem(this)">
-                                                <?php echo $term->name; ?>
+                                                <input type="checkbox" value=" <?php echo $child_term->name; ?>" onclick="selectItem(this)">
+                                                <?php echo $child_term->name; ?>
                                             </label>
-                                <?php
-                                        endif;
-                                    endforeach;
-                                    wp_reset_postdata();
-                                endif;
-                                ?>
-                            </div>
-                            <div class="search_actions">
-                                <button class="search_button">この条件で検索する</button>
-                                <div class="additional-buttons">
-                                    <button onclick="toggleAgePopup()">年齢も選ぶ</button>
-                                    <button onclick="toggleGenrePopup()">ジャンルも選ぶ</button>
+                                    <?php
+                                        endforeach;
+                                        wp_reset_postdata();
+                                    endif;
+                                    ?>
+                                    <!-- end 徳島市全域の子要素 -->
                                 </div>
-                                <button class="clear_button" onclick="clearSelections()">すべてクリア</button>
+                                <label class="accordion_item full_width">
+                                    <input type="checkbox" onclick="selectAll('itano', this);">板野郡全域
+                                </label>
+                                <div id="itano" class="double_column">
+                                    <!-- 板野郡全域の子要素 -->
+                                    <?php
+                                    $parent_term = get_term_by('slug', 'area02', 'area');
+                                    $child_terms = get_terms(array(
+                                        'taxonomy' => 'area',
+                                        'parent' => $parent_term->term_id,
+                                        'hide_empty' => false,
+                                        'orderby' => 'slug',
+                                        'order' => 'ASC',
+                                    ));
+                                    if (!empty($child_terms) && ! is_wp_error($child_terms)):
+                                        foreach ($child_terms as $child_term) :
+                                    ?>
+                                            <label class="accordion_item">
+                                                <input type="checkbox" value="<?php echo $child_term->name; ?>" onclick="selectItem(this)">
+                                                <?php echo $child_term->name; ?>
+                                            </label>
+                                    <?php
+
+                                        endforeach;
+                                        wp_reset_postdata();
+                                    endif;
+                                    ?>
+                                    <!-- end 板野郡全域の子要素 -->
+                                </div>
+                                <div class="double_column">
+                                    <!-- 徳島市と板野郡以外の域 -->
+                                    <?php
+                                    $terms = get_terms(array(
+                                        'taxonomy' => 'area',
+                                        'hide_empty' => false,
+                                        'orderby' => 'slug',
+                                        'order' => 'ASC',
+
+                                    ));
+                                    if (!empty($terms) && ! is_wp_error($terms)):
+                                        foreach ($terms as $term):
+                                            if ($term->parent == 0):
+
+                                                // 徳島市area01と板野郡area02を判断
+                                                if ($term->slug == 'area01' || $term->slug == 'area02') {
+                                                    continue;
+                                                }
+                                    ?>
+                                                <label class="accordion_item">
+                                                    <input type="checkbox" value="<?php echo $term->name; ?>" onclick="selectItem(this)">
+                                                    <?php echo $term->name; ?>
+                                                </label>
+                                    <?php
+                                            endif;
+                                        endforeach;
+                                        wp_reset_postdata();
+                                    endif;
+                                    ?>
+                                    <!--end 徳島市と板野郡以外の域 -->
+                                </div>
+                                <div class="search_actions">
+                                    <button class="search_button">この条件で検索する</button>
+                                    <div class="additional-buttons">
+                                        <button onclick="toggleAgePopup()">年齢も選ぶ</button>
+                                        <button onclick="toggleGenrePopup()">ジャンルも選ぶ</button>
+                                    </div>
+                                    <button class="clear_button" onclick="clearSelections()">すべてクリア</button>
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
+                    <!-- end エリアを選ぶ -->
+
+                    <!-- 年齢を選ぶ -->
                     <button class="option__search" onclick="togglePopup('popup_age')">年齢を選ぶ</button>
                     <div class="overlay"></div>
                     <div class="search_container" id="popup_age" style="display: none;">
-                        <div class="close_button" onclick="closePopup()">×</div>
+                        <div class="close_button" onclick="closePopup()">&times;</div>
                         <div class="search_header">
                             <h1>年齢を選ぶ</h1>
                         </div>
@@ -190,10 +211,13 @@ wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js'
                             <button class="clear_button" onclick="clearSelections()">すべてクリア</button>
                         </div>
                     </div>
+                    <!-- end 年齢を選ぶ -->
+
+                    <!-- ジャンルを選ぶ -->
                     <button class="option__search" onclick="togglePopup('popup_genre')">ジャンルを選ぶ</button>
                     <div class="overlay"></div>
                     <div class="search_container" id="popup_genre" style="display: none;">
-                        <div class="close_button" onclick="closePopup()">×</div>
+                        <div class="close_button" onclick="closePopup()">&times;</div>
                         <div class="search_header">
                             <h1>ジャンルを選ぶ</h1>
                         </div>
@@ -208,7 +232,7 @@ wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js'
 
                             if (!empty($parent_terms) && !is_wp_error($parent_terms)):
                                 foreach ($parent_terms as $parent_term):
-                                    if ($parent_term->parent == 0): // 只获取父分类
+                                    if ($parent_term->parent == 0):
                             ?>
                                         <button class="search_option_suboption" onclick="toggleAccordion('<?php echo $parent_term->slug; ?>')">
                                             <?php echo $parent_term->name; ?>
@@ -260,15 +284,20 @@ wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js'
 
 
                     </div>
+                    <!-- end ジャンルを選ぶ -->
+
                     <button class="detail__search" onclick="window.location.href='<?php echo home_url(); ?>/?s='">詳細検索ページへ</button>
-                    <div class="box__search">
-                        <div class="inner__search-box">
-                            <input class="window__search" type="search" placeholder="キーワードを入力してください">
-                            <button class="btn__search">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </button>
+
+                    <!-- キーワード検索 -->
+                    <form action="<?php echo home_url('/'); ?>" method="get">
+                        <div class="box__search">
+                            <div class="inner__search-box">
+                                <input class="window__search" type="search" name="s" value="<?php the_search_query(); ?>" placeholder="キーワードを入力してください">
+                                <button class="btn__search" type="submit"> <i class="fa-solid fa-magnifying-glass"></i></button>
+                            </div>
                         </div>
-                    </div>
+                    </form>
+                    <!-- end キーワード検索 -->
                 </div>
                 <!-- <button class="button__more-search">
                         <a href="<?php echo home_url(); ?>/?s=">詳細検索は<br>こちら</a>
