@@ -39,8 +39,8 @@ main {
 .favorite_info h2 {
     font-size: 1.6rem;
     margin-bottom: 5px;
-
 }
+
 
 /* カードを並べる記述（堀） */
 /* 阿波農ライフを参考にしています（堀） */
@@ -126,6 +126,12 @@ main {
 
 /*** お気に入りボタンここまで ***/
 
+
+/* お気に入りが無いときの表示 */
+.no-favorite {
+    text-align: center;
+    font-size: 1.6rem;
+}
 
 
 
