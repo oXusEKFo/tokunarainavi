@@ -69,6 +69,7 @@
 .image__about>img{
     width: 100%;
     height: auto;
+
 }
 
 
@@ -79,7 +80,7 @@
     width: 285px;
     margin: 0 auto;
     position: relative;
-    z-index: 1;
+    z-index: ;
 }
 
 .title__ranking {
@@ -88,6 +89,7 @@
     width: 330px;
     margin: 0 auto;
     position: relative;
+    top: -10px;
 }
 
 .title__news {
@@ -96,6 +98,8 @@
     width: 220px;
     margin: 0 auto;
     position: relative;
+    top: 15px;
+    z-index: 1;
 }
 
 /* メイン */
@@ -106,7 +110,7 @@
     width: 100%;
     position: absolute;
     bottom: -30px;
-    z-index: 5;
+    z-index: 1;
 }
 
 
@@ -132,8 +136,8 @@
     height: 100px;
     position: absolute;
     bottom: -40px;
-    left: -20px;
-    z-index: -1;
+    left: -25px;
+    z-index: 0;
 }
 
 /* みどり円 */
@@ -144,7 +148,7 @@
     position: absolute;
     bottom: -42px;
     left: -23px;
-    /* z-index: -1; */
+    z-index: 0;
 }
 
 /*** タイトル関連 ここまで ***/
@@ -162,7 +166,7 @@
     width: 350px;
     height: 415px;
     padding: 35px 25px;
-    margin: 20px auto;
+    margin: 100px auto;
     border-radius: 20px;
 }
 
@@ -503,6 +507,67 @@ input[type="search"]::-webkit-search-cancel-button {
     margin: 0 auto;
 }
 
+
+
+
+/* キャラクター アニメーション */
+.boy__character {
+    position: relative;
+}
+
+.boy__programmer {
+    width: 180px;
+    height: auto;
+    position: absolute;
+    left: -20%;
+    margin: 90px 10px 0;
+}
+
+.boy__idea {
+    position: absolute;
+    width: 100px;
+    height: auto;
+    top: 10px;
+    left: 30px;
+    transform: translateX(-50%);
+    animation: fadeIn 3s, fadeOut 1s 3s forwards;
+}
+
+.boy__pochi {
+    position: absolute;
+    width: 50px;
+    height: auto;
+    opacity: 0;
+    top: 60%;
+    left: -30px;
+}
+
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
+
+.stars {
+    position: absolute;
+    width: 100px;
+    height: auto;
+    right: 5%;
+    margin: 0 18%;
+}
+
 .bear__image-column,
 .bear__image-news {
     display: none;
@@ -723,5 +788,6 @@ input[type="search"]::-webkit-search-cancel-button {
     text-decoration: underline;
     /* 下線を追加 */
 }
+
 
 }
