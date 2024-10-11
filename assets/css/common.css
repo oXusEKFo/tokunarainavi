@@ -130,7 +130,7 @@ main{
 }
 
 /* お気に入りリストに追加 タグ */
-.tag_favorite {
+.tag__favorite {
     /* width: 160px;
     height: auto;
     position: absolute;
@@ -150,12 +150,12 @@ main{
 
 /* 不要かもしれません（堀） */
 /* お気に入りリストに追加 タグ 位置調整（カード）*/
-/* .container_cardImg>.tag_favorite {
+/* .container_cardImg>.tag__favorite {
     bottom: -17px;
 } */
 
 /* お気に入りリストに追加 タグ 位置調整（結果詳細スライダ）*/
-.slider_area>.tag_favorite {
+.slider_area>.tag__favorite {
     bottom: -15px;
 }
 
@@ -179,14 +179,14 @@ main{
 }
 
 /* Mapアイコンの右側にスペース */
-.card_address img,
-.details_map img {
+.card__address img,
+.details__map img {
     height: 28px;
     margin-right: 10px;
 }
 
 /* keywordの容器 */
-.container_keywords {
+.container__keywords {
     display: flex;
     flex-wrap: wrap;
 }

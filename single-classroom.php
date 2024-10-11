@@ -4,8 +4,11 @@ $post_id = get_the_ID();
 $terms = wp_get_post_terms($post_id, 'classtype');
 
 if (!empty($terms) && !is_wp_error($terms)) {
-    $term_id = $terms[0]->term_id;
-    increment_term_view_count($term_id);
+    $term_ids = [];
+    foreach ($terms as $term) {
+        $term_ids[] = $term->term_id;
+        increment_term_view_count($term->term_id);
+    }
 }
 ?>
 
@@ -32,30 +35,6 @@ if (!isset($_COOKIE[$cookie_name])) {
 $post_id = get_the_ID();
 $taxonomies = array('classtype', 'area', 'date_type', 'access_type', 'age_type', 'skill_type', 'personality_type', 'cost_type', 'week', 'column_type');
 
-
-
-// 現在の投稿に関連付けられたタクソノミー 'class_genre' を取得
-$terms = wp_get_post_terms(get_the_ID(), 'classtype');
-
-// 親タクソノミーと子タクソノミーのスラッグを格納する変数
-$parent_slug = '';
-$child_slug = '';
-
-if (!empty($terms)) {
-    foreach ($terms as $term) {
-        // 親か子かを確認
-        if ($term->parent == 0) {
-            $parent_slug = $term->slug; // 親のスラッグを取得
-        } else {
-            $child_slug = $term->slug;  // 子のスラッグを取得
-        }
-    }
-}
-
-
-
-
-
 // おすすめ教室を取得するクエリ
 $args = array(
     'post_type' => 'classroom', // カスタム投稿タイプ
@@ -68,13 +47,33 @@ $recommended_classes = new WP_Query($args);
 
 
 
-$image1 = get_field('pic1'); // 'custom_image_field' はACFで設定したフィールド名
-$image2 = get_field('pic2'); // 'custom_image_field' はACFで設定したフィールド名
-$image3 = get_field('pic3'); // 'custom_image_field' はACFで設定したフィールド名
-$image4 = get_field('pic4'); // 'custom_image_field' はACFで設定したフィールド名
+// 現在の投稿に関連付けられたタクソノミー 'classtype' を取得
+$terms = wp_get_post_terms(get_the_ID(), 'classtype');
+// 親タクソノミーと子タクソノミーのスラッグを格納する変数
+$parent_slug = '';
+$child_slug = '';
+
+if (!empty($terms)) {
+    foreach ($terms as $term) {
+        // 親か子かを確認
+        if ($term->parent == 0) {
+            $parent_slug = $term->slug; // 親のスラッグを取得
+        } else {
+            $child_slug = $term->slug; //取得
+            $child_taxonomy = $term;
+        }
+    }
+}
+
+
+
+$image1 = get_field('pic1');
+$image2 = get_field('pic2');
+$image3 = get_field('pic3');
+$image4 = get_field('pic4');
 $cost = get_field('fee');
 $age = get_field('age');
-$weekday_time = get_field('weekday_time');
+$weekday_time = get_field('dayhours');
 $tel = get_field('tel');
 $memo = get_field('memo');
 $genre = get_field('genre');
@@ -85,13 +84,8 @@ $sub_pic = get_field('sub_pic');
 
 for ($i = 1; $i <= 5; $i++) {
     // カスタムフィールドの値を取得
-    $coursetitles[] = get_post_meta(get_the_ID(), 'coursetitle' . $i, true);
-    $coursetargets[] = get_post_meta(get_the_ID(), 'coursetarget' . $i, true);
-    $coursedays[] = get_post_meta(get_the_ID(), 'courseday' . $i, true);
-    $coursehours[] = get_post_meta(get_the_ID(), 'coursehours' . $i, true);
-    $coursedetails[] = get_post_meta(get_the_ID(), 'coursedetail' . $i, true);
+    $course[] = get_post_meta(get_the_ID(), 'course' . $i, true);
 }
-var_dump($coursetitles);
 ?>
 
 <?php get_header(); ?>
@@ -182,7 +176,7 @@ endif;
             <div class="details_containerL">
                 <div class="details_genre">
                     <h4>ジャンル</h4>
-                    <p><?php echo esc_html($genre); ?></p>
+                    <p><?php echo esc_html($child_taxonomy->name); ?></p>
                 </div>
                 <div class="details_genre">
                     <h4>対象年齢</h4>
@@ -195,9 +189,9 @@ endif;
                 <div class="details_genre">
                     <h4>おすすめのコース</h4>
                     <?php
-                    for ($i = 0; $i < count($coursetitles); $i++) {
-                        if (!empty($coursetitles[$i] && $coursehours[$i] && $coursedetails[$i])) { ?>
-                            <p><?php echo '・' . esc_html($coursetitles[$i]) . '<br>' . '&nbsp;&nbsp;' . '(' . esc_html($coursehours[$i]) . ')' . esc_html($coursedetails[$i]); ?></p>
+                    for ($i = 0; $i < count($course); $i++) {
+                        if (!empty($course[$i])) { ?>
+                            <p><?php echo esc_html($course[$i]); ?></p>
                     <?php }
                     } ?>
                 </div>
@@ -214,18 +208,18 @@ endif;
                 </div>
                 <div class="details_genre">
                     <h4>電話番号</h4>
-                    <a href=""><?php echo $tel ?></a>
+                    <a href="tel:<?php echo $phone_number; ?>"><?php echo $tel ?></a>
                 </div>
                 <div class="details_genre">
                     <h4>公式サイト・SNSはこちら</h4>
                     <a href="#">
-                        <img class="" src="<?php echo get_template_directory_uri(); ?>/assets/img/icon/site_icon.png" alt="公式サイトURL" />
+                        <img class="" src="<?php echo get_template_directory_uri(); ?>/assets/icon/site_icon.png" alt="公式サイトURL" />
                     </a>
                     <a href="#">
-                        <img class="" src="<?php echo get_template_directory_uri(); ?>/assets/img/icon/Instagram_icon.png" alt="インスタグラムURL" />
+                        <img class="" src="<?php echo get_template_directory_uri(); ?>/assets/icon/Instagram_icon.png" alt="インスタグラムURL" />
                     </a>
                     <a href="#">
-                        <img class="" src="<?php echo get_template_directory_uri(); ?>/assets/img/icon/fb_icon.png" alt="フェイスブックURL" />
+                        <img class="" src="<?php echo get_template_directory_uri(); ?>/assets/icon/fb_icon.png" alt="フェイスブックURL" />
                     </a>
                 </div>
             </div>
@@ -290,38 +284,17 @@ endif;
         <!-- 検索結果一覧カード -->
         <div class="wrap_card">
             <?php if ($recommended_classes->have_posts()) : ?>
-                <div class="inner_card">
-                    <?php while ($recommended_classes->have_posts()) : $recommended_classes->the_post(); ?>
+                <?php while ($recommended_classes->have_posts()) : $recommended_classes->the_post(); ?>
+                    <div class="inner_card">
                         <?php if (has_post_thumbnail()) : ?>
                             <div class="container_cardimg">
                                 <span class="card_img"><?php the_post_thumbnail('medium'); ?></span>
-                                <!-- <img class="card_img" src="../../assets/images/pcchild.jpg" alt="施設写真" /> -->
-                                <!-- <img class="tag_favorite" src="../../assets/images/add_favorite.png" alt="お気に入りリストに追加" /> -->
-
                             </div>
                         <?php endif; ?>
                         <div class="container_cardinfo">
                             <div class="card_title">
                                 <h2><?php the_title(); ?></h2>
                             </div>
-                            <?php // 現在の投稿に関連付けられたタクソノミー 'class_genre' を取得
-                            $terms = wp_get_post_terms(get_the_ID(), 'classtype');
-
-                            // 親タクソノミーと子タクソノミーのスラッグを格納する変数
-                            $parent_slug = '';
-                            $child_slug = '';
-
-                            if (!empty($terms)) {
-                                foreach ($terms as $term) {
-                                    // 親か子かを確認
-                                    if ($term->parent == 0) {
-                                        $parent_slug = $term->slug; // 親のスラッグを取得
-                                    } else {
-                                        $child_slug = $term->slug; // 子のスラッグを取得
-                                        $child_taxonomy = $term;
-                                    }
-                                }
-                            } ?>
                             <div class="card_details">
                                 <div class="card_detail">
                                     <span class="detail_label">住所</span>
@@ -335,25 +308,23 @@ endif;
                                     <span class="detail_label">対象年齢</span>
                                     <span class="detail_value"><?php echo get_post_meta(get_the_ID(), 'age', true); ?></span>
                                 </div>
-
                             </div>
-
-                            <img class="icon_category" src="<?php echo get_template_directory_uri() ?>/assets/img/icon/<?php echo $parent_slug . '/icon_' . $child_slug ?>.png" alt="カテゴリーアイコン" />
+                            <img class="icon_category" src="<?php echo get_template_directory_uri() ?>/assets/icon/icon_<?php echo $child_slug ?>.png" alt="カテゴリーアイコン" />
                         </div>
-                </div>
+                    </div>
+                <?php endwhile; ?>
+            <?php endif; ?>
         </div>
-    <?php endwhile; ?>
-    </div>
-<?php endif; ?>
-<?php wp_reset_postdata(); ?>
-<script>
-    // 結果一覧カード 繰り返し表示
-    // for (let i = 0; i < 2; i++) {
-    //     const card = document.querySelector('.wrap_card');
-    //     const clone = card.cloneNode(true);
-    //     document.querySelector('.results_card').appendChild(clone);
-    // }
-</script>
+
+        <?php wp_reset_postdata(); ?>
+        <script>
+            // 結果一覧カード 繰り返し表示
+            // for (let i = 0; i < 2; i++) {
+            //     const card = document.querySelector('.wrap_card');
+            //     const clone = card.cloneNode(true);
+            //     document.querySelector('.results_card').appendChild(clone);
+            // }
+        </script>
 
     </section>
     <!-- 検索結果一覧カードここまで -->
