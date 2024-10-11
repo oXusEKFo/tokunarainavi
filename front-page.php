@@ -370,7 +370,7 @@ wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js'
     <div class="survey-results">
         <div class="inner__survey">
             <div class="banner__survey">
-                <a href="">徳島の習いごと事情</a>
+                <a href="<?php echo home_url('/fushion'); ?>">徳島の習いごと事情</a>
             </div>
         </div>
     </div>
