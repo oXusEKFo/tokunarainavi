@@ -57,13 +57,13 @@
             <section class="search">
                 <div class="container__search">
                     <div class="title__search">
-                        <h1>SERACH</h1>
-                        <p>検索</p>
+                        <h1 class="box fadeIn">SERACH</h1>
+                        <p class="box fadeIn">検索</p>
                         <img src="../assets/images/matcha.png" alt="みどり円">
                     </div>
                     <div class="options__search">
-                            <button class="option__search" onclick="togglePopup('popup_area')">エリアを選ぶ</button>
-                            <div class="overlay" style="display: none;"></div>
+                        <button class="option__search" onclick="togglePopup('popup_area')">エリアを選ぶ</button>
+                        <div class="overlay" style="display: none;"></div>
                             <div class="search_container" id="popup_area" style="display: none;">
                                 <div class="close_button" onclick="closePopup()">×</div>
                                 <div class="search_header">
@@ -519,18 +519,22 @@
                                 </button>
                             </div>
                         </div>
-                    </div>
-                    <!-- <button class="button__more-search">
-                        <a href="">詳細検索は<br>こちら</a>
-                    </button> -->
+
+                        <div class="boy__character">
+                            <img class="boy__programmer" src="../assets/images/programming.png" alt="プログラマー">
+                                <img class="boy__idea" src="../assets/images/idea.png" alt="アイデア">
+                                <img class="boy__pochi" src="../assets/images/pochi.png" alt="ポチ">
+                            </div>
+                        </div>
+
                 </div>
             </section>
             <div class="clearance"></div>
             <section class="ranking">
                 <div class="inner__ranking">
                     <div class="title__ranking">
-                        <h1>RANKING</h1>
-                        <p>アクセスランキング</p>
+                        <h1 class="box fadeIn">RANKING</h1>
+                        <p class="box fadeIn">アクセスランキング</p>
                         <img src="../assets/images/creamcircle.png" alt="クリーム円">
                     </div>
                     <div class="order__ranking">
@@ -541,6 +545,7 @@
                             <li class="order">書道・硬筆</li>
                             <li class="order">サッカー</li>
                         </ul>
+                        <img class="stars" src="../assets/images/stars.png" alt="スター">
                     </div>
                 </div>
             </section>
@@ -555,8 +560,9 @@
 <section class="column">
     <div class="inner__column">
         <div class="title__column">
-            <h1>COLUMN</h1>
-            <p>コラム</p>
+            <h1 class="box fadeIn">COLUMN</h1>
+            <p class="box fadeIn">コラム</p>
+            <img src="../assets/images/matcha.png" alt="みどり円">
         </div>
         <!-- スライダー ここから -->
         <div class="slider">
@@ -703,8 +709,8 @@
     <div class="clearance"></div>
 <section class="news">
     <div class="title__news">
-        <h1>NEWS</h1>
-        <p>新着情報</p>
+        <h1 class="box fadeIn">NEWS</h1>
+        <p class="box fadeIn">新着情報</p>
         <img src="../assets/images/creamcircle.png" alt="クリーム円">
     </div>
     <div class="wrap__news">
@@ -762,7 +768,7 @@
     <!-- column_slider.js -->
     <script src="../assets/js/column_slider.js"></script>
     <!-- common.js -->
-    <script src="../assets/js/common.js"></script>
+    <script src="../assets/js/common.js" defer></script>
 
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
     <script src="../assets/js/searchpopup.js" defer></script>
