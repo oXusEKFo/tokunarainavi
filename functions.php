@@ -196,6 +196,12 @@ function add_style_script()
             'tokunavi_service',
             get_template_directory_uri() . '/assets/css/rule.css'
         );
+    } elseif (is_page('praivacy')) {
+        // プライバシーポリシー
+        wp_enqueue_style(
+            'tokunavi_praivacy',
+            get_template_directory_uri() . '/assets/css/privacy.css'
+        );
     }
 
     // ニュース一覧
@@ -280,10 +286,18 @@ function increment_term_view_count($term_id)
     if (false === get_transient($transient_key)) {
 
         $view_count = get_term_meta($term_id, 'view_count', true);
-        $view_count = $view_count ? intval($view_count) : 0;
+        $view_count = $view_count ? intval($view_count) : 5;
 
         update_term_meta($term_id, 'view_count', $view_count + 1);
 
         set_transient($transient_key, 'viewed', 3600); // transientを設定します。有効期限は1時間（3600秒）です。
     }
 }
+// // 制限なし
+// function increment_term_view_count($term_id)
+// {
+//     $view_count = get_term_meta($term_id, 'view_count', true);
+//     $view_count = $view_count ? intval($view_count) : 1;
+
+//     update_term_meta($term_id, 'view_count', $view_count + 1);
+// }

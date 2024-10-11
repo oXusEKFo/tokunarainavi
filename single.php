@@ -17,15 +17,15 @@
                 <div class="wrap__news">
                     <div class="container__news">
 
-                        <div class="news__more">
+                        <div class="news-more">
                             <!-- ニュース記事タイトル -->
-                            <h1 class="newsmore__title"><?php the_title(); ?></h1>
+                            <h1 class="news-more__title"><?php the_title(); ?></h1>
                             <!-- 日付 -->
                             <p><?php echo get_the_date(); ?></p>
                         </div>
 
                         <div class="note__news">
-                            <p class="newsmore__content"><?php the_content(); ?></p>
+                            <p class="news-more__content"><?php the_content(); ?></p>
                         </div>
 
 
