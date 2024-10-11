@@ -323,7 +323,8 @@ wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js'
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/creamcircle.png" alt="クリーム円">
             </div>
             <div class="order__ranking">
-                <ul>
+                <form method="GET" action="<?php echo home_url(); ?>">
+                    <input type="hidden" name="s" value="">
                     <?php
                     $args = [
                         'taxonomy'   => 'classtype',
@@ -333,55 +334,47 @@ wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js'
                         'hide_empty' => false,               // 関連付けられていない記事の分類を表示
                         'number'     => 5,                   // 上位5分類のみ表示
                     ];
-                    $argc = [
-                        'taxonomy'   => 'classtype',
-                        'orderby' => 'slug',
-                    ];
-
                     $terms = get_terms($args);
-                    if (!empty($terms) && !is_wp_error($terms)) :
-                        $number = 0;
-                        foreach ($terms as $term) {
-                            if (strpos($term->slug, 'class') !== false) {
-                                continue;
-                            }
-                            $number++;
-                            $view_count = get_term_meta($term->term_id, 'view_count', true);
-                            // $term_link = get_term_link($term); // 分類リンクの取得
-                            $search_link = get_search_link($term->name);
-
-                            if (!is_wp_error($search_link)) :
                     ?>
+                    <ul>
+                        <?php
+                        if (!empty($terms) && !is_wp_error($terms)) :
+                            foreach ($terms as $term) :
+                                if (strpos($term->slug, 'class') !== false) {
+                                    continue;
+                                }
+                                $view_count = get_term_meta($term->term_id, 'view_count', true);
+                        ?>
                                 <li class="order">
-                                    <a href="<?php echo esc_url($search_link); ?>"><?php echo  esc_html($term->name); ?>
-
-                                        <small><?php
-                                                echo 'click' . esc_html($view_count);
-                                                ?></small>
-                                    </a>
+                                    <button type="submit" name="classtype[]" value="<?php echo $term->slug; ?>">
+                                        <?php echo $term->name; ?>
+                                        <small>
+                                            <?php
+                                            echo 'click' . esc_html($view_count);
+                                            ?>
+                                        </small>
+                                    </button>
                                 </li>
-                            <?php endif; ?>
-                    <?php
-                        }
-
-                    endif;
-                    ?>
-                </ul>
+                        <?php
+                            endforeach;
+                        endif;
+                        ?>
+                    </ul>
+                </form>
             </div>
         </div>
     </section>
     <!-- 白背景の余白スペース -->
     <div class="clearance"></div>
     <!-- とくしまの習いごとアンケート -->
-    <section class="survey-results">
+    <div class="survey-results">
         <div class="inner__survey">
             <div class="banner__survey">
-                <a href="">とくしまの習いごとアンケート</a>
+                <a href="">徳島の習いごと事情</a>
             </div>
         </div>
-    </section>
+    </div>
     <!-- column -->
-
     <section class="column">
         <div class="inner__column">
             <div class="title__column">
@@ -398,22 +391,55 @@ wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js'
                         'orderby'        => 'date',
                         'order'          => 'DESC',
                     ];
-                    $column_query = new WP_query($args);
+                    $column_query = new WP_query($args); ?>
+                    <?php
                     if ($column_query->have_posts()):
                     ?>
                         <?php while ($column_query->have_posts()): $column_query->the_post(); ?>
-                            <?php get_template_part('template-parts/loop', 'column'); ?>
+                            <div class="inner__slider">
+                                <div class="wrap__card">
+                                    <div class="container__card">
+                                        <div class="container__img">
+                                            <img class="img__card" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="施設写真">
+                                        </div>
+                                        <div class="container__info">
+                                            <div class="title__info">
+                                                <h2><?php echo the_title(); ?></h2>
+                                            </div>
+                                            <div class="note__column">
+                                                <?php echo the_excerpt(); ?><!-- 抜粋 -->
+                                            </div>
+                                            <div class="container__date">
+                                                <div class="icon__edit">
+                                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/pencil.png" alt="編集アイコン">
+                                                </div>
+                                                <time class="date__edit" datetime="<?php the_time('y-m-d'); ?>">
+                                                    <?php the_time('Y年m月d日') ?>
+                                                </time>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         <?php endwhile; ?>
                         <?php wp_reset_postdata(); ?>
                     <?php endif ?>
                 </div>
             </div>
             <!-- スライダー ここまで -->
-            <button class="button__more-column">
-                <a href="<?php echo home_url('/column'); ?>">コラムを<br>もっと見る</a>
+            <button class=" button__more-column">
+                <a href="">MORE</a>
             </button>
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bear2.png" alt="Bear" class="bear__image-column">
         </div>
     </section>
+
+    <!-- スライダー ここまで -->
+    <button class="button__more-column">
+        <a href="<?php echo home_url('/column'); ?>">コラムを<br>もっと見る</a>
+    </button>
+    </div>
+    </section> -->
     <!-- 白背景の余白スペース -->
     <div class="clearance"></div>
 
