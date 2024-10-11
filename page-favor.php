@@ -67,22 +67,22 @@ $event_count = 0;
             endif; // function_exists('get_user_favorites')
             ?>
 
+            <?php
+            if ($event_count == 0) :
+            ?>
+                <!-- 登録物がないときは下記の文章を使用します -->
+                <p class="no-favorite">お気に入りはありません。</p>
+            <?php
+            endif;
+            ?>
+
         </div> <!-- results_card -->
 
         <!-- ページナビゲーション -->
         <?php
-        if (function_exists('wp_pagenavi')) {
+        if (!empty($favorites) && function_exists('wp_pagenavi') && isset($the_query)) {
             wp_pagenavi(['query' => $the_query]);
         }
-        ?>
-
-        <?php
-        if ($event_count == 0) :
-        ?>
-            <!-- 登録物がないときは下記の文章を使用します -->
-            <p class="no__favorite">お気に入りはありません。</p>
-        <?php
-        endif;
         ?>
 
         <section class="favorite_info">
