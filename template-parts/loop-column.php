@@ -1,17 +1,13 @@
-<div class="inner__slider" id="post-<?php the_ID(); ?>" <?php post_class('cardList_item'); ?>>
+<div class="inner__slider">
     <div class="wrap__card">
-        <div class="container__card">
-            <a href="<?php echo the_permalink(); ?>">
+        <a href="<?php echo the_permalink(); ?>">
+            <div class="container__card">
                 <div class="container__img">
-                    <?php if (has_post_thumbnail()): ?>
-                        <?php the_post_thumbnail('medium'); ?>
-                    <?php else: ?>
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/noimage.png" alt="">
-                    <?php endif; ?>
+                    <img class="img__card" src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="施設写真">
                 </div>
                 <div class="container__info">
                     <div class="title__info">
-                        <h2><?php the_title(); ?></h2>
+                        <h2><?php echo the_title(); ?></h2>
                     </div>
                     <div class="note__column">
                         <?php echo the_excerpt(); ?><!-- 抜粋 -->
@@ -25,7 +21,6 @@
                         </time>
                     </div>
                 </div>
-            </a>
-        </div>
+        </a>
     </div>
 </div>
