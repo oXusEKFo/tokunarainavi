@@ -40,8 +40,8 @@ $count2 = 0;
         <div>
           <h1 class="results_count">条件検索</h1>
           <?php
-          //選択項目の保持と選択項目の名前の取得（エリア）
-          //各タクソノミーでループ 名前の取得まで(area)
+          //選択項目の保持と選択項目の名前の取得
+          //各タクソノミーでループ 名前の取得まで
           foreach ($data as $terms) {
             $term_name[$taxonomy_name[$count]] = '指定なし';
             $select = filter_input(INPUT_GET, "$taxonomy_name[$count]", FILTER_DEFAULT, FILTER_REQUIRE_ARRAY) ?: [];
@@ -88,55 +88,68 @@ $count2 = 0;
                 <h1>エリアを選ぶ</h1>
               </div>
               <div class="search_options">
-                <label class="accordion_item full_width"><input type="checkbox" onclick="selectAll('tokushima', this);">徳島市全域</label>
-                <div id="tokushima" class="single_column">
-                  <?php
-                  $parent_term = get_term_by('slug', 'area01', 'area');
-                  $child_terms = get_terms(array(
-                    'taxonomy' => 'area',
-                    'parent' => $parent_term->term_id,
-                    'hide_empty' => false,
-                    'orderby' => 'slug',
-                    'order' => 'ASC',
-                  ));
-                  if (! empty($child_terms) && ! is_wp_error($child_terms)):
-                    foreach ($child_terms as $child_term) :
-                  ?>
-                      <label class="accordion_item <?= $checked['area']["$child_term->slug"] ?>">
-                        <input type="checkbox" name="area[]" value="<?php echo $child_term->slug; ?>" <?= $checked['area']["$child_term->slug"] ?> onclick="selectItem(this)">
-                        <?php echo $child_term->name; ?></label>
-                  <?php
-                    endforeach;
-                  // wp_reset_postdata();
-                  endif;
-                  ?>
+                <?php
+                $parent_term = get_term_by('slug', 'area01', 'area');
+                $child_terms = get_terms(array(
+                  'taxonomy' => 'area',
+                  'parent' => $parent_term->term_id,
+                  'hide_empty' => false,
+                  'orderby' => 'slug',
+                  'order' => 'ASC',
+                ));
+                ?>
+                <div id="<?= $parent_term->slug; ?>" class="accordion_content" style="display:flex">
+                  <label class="accordion_item full_width">
+                    <input type="checkbox" onclick="selectAll('<?php echo $parent_term->slug; ?>', this);"> <?php echo $parent_term->name; ?>
+                  </label>
+                  <!-- <div id="<?= $parent_term->slug; ?>" class="single_column"> -->
+                  <div class="single_column">
+                    <?php
+                    if (! empty($child_terms) && ! is_wp_error($child_terms)):
+                      foreach ($child_terms as $child_term) :
+                    ?>
+                        <label class="accordion_item <?= $checked['area']["$child_term->slug"] ?>">
+                          <input type="checkbox" name="area[]" value="<?php echo $child_term->slug; ?>" <?= $checked['area']["$child_term->slug"] ?> onclick="selectItem(this)">
+                          <?php echo $child_term->name; ?></label>
+                    <?php
+                      endforeach;
+                      wp_reset_postdata();
+                    endif;
+                    ?>
+                  </div>
                 </div>
-                <label class="accordion_item full_width">
-                  <input type="checkbox" onclick="selectAll('itano', this);">板野郡全域
-                </label>
-                <div id="itano" class="double_column">
-                  <?php
-                  $parent_term = get_term_by('slug', 'area02', 'area');
-                  $child_terms = get_terms(array(
-                    'taxonomy' => 'area',
-                    'parent' => $parent_term->term_id,
-                    'hide_empty' => false,
-                    'orderby' => 'slug',
-                    'order' => 'ASC',
-                  ));
-                  if (!empty($child_terms) && ! is_wp_error($child_terms)):
-                    foreach ($child_terms as $child_term) :
-                  ?>
-                      <label class="accordion_item <?= $checked['area']["$child_term->slug"] ?>">
-                        <input type="checkbox" name="area[]" value="<?php echo $child_term->slug; ?>" <?= $checked['area']["$child_term->slug"] ?> onclick="selectItem(this)">
-                        <?php echo $child_term->name; ?>
-                      </label>
-                  <?php
+                <?php
+                $parent_term = get_term_by('slug', 'area02', 'area');
+                $child_terms = get_terms(array(
+                  'taxonomy' => 'area',
+                  'parent' => $parent_term->term_id,
+                  'hide_empty' => false,
+                  'orderby' => 'slug',
+                  'order' => 'ASC',
+                ));
+                ?>
+                <div id="<?= $parent_term->slug; ?>" class="accordion_content" style="display:flex">
+                  <label class="accordion_item full_width">
+                    <input type="checkbox" onclick="selectAll('<?= $parent_term->slug; ?>', this);"><?= $parent_term->name; ?>
+                  </label>
+                  <!-- <div id="<?= $parent_term->slug; ?>" class="double_column"> -->
+                  <div class="double_column">
 
-                    endforeach;
-                  // wp_reset_postdata();
-                  endif;
-                  ?>
+                    <?php
+                    if (!empty($child_terms) && ! is_wp_error($child_terms)):
+                      foreach ($child_terms as $child_term) :
+                    ?>
+                        <label class="accordion_item <?= $checked['area']["$child_term->slug"] ?>">
+                          <input type="checkbox" name="area[]" value="<?php echo $child_term->slug; ?>" <?= $checked['area']["$child_term->slug"] ?> onclick="selectItem(this)">
+                          <?php echo $child_term->name; ?>
+                        </label>
+                    <?php
+
+                      endforeach;
+                      wp_reset_postdata();
+                    endif;
+                    ?>
+                  </div>
                 </div>
                 <div class="double_column">
                   <?php
