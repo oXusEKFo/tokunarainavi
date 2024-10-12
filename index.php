@@ -25,13 +25,56 @@
                 </div>
 
                 <div class="wrap__news">
+
+                    <ul class="category__news">
+                        <?php
+                        // カテゴリーを取得
+                        $categories = get_categories();
+
+                        // 自分の好きな順番を指定（スラッグ名の配列）
+                        $custom_order = ['news', 'update', 'events', 'others']; // スラッグ名を指定
+
+                        // スラッグ名をキーとする連想配列を作成
+                        $ordered_categories = [];
+                        foreach ($categories as $category) {
+                            $ordered_categories[$category->slug] = $category; // スラッグをキーにしてカテゴリーを格納
+                        }
+
+                        // 現在のカテゴリー情報を取得
+                        $current_category = get_queried_object();
+                        $current_slug = isset($current_category->slug) ? $current_category->slug : '';
+
+                        // 指定した順番にカテゴリーを出力
+                        foreach ($custom_order as $slug) {
+                            if (isset($ordered_categories[$slug])) {
+                                $category = $ordered_categories[$slug]; // スラッグに対応するカテゴリーを取得
+                                $cat_name = esc_html($category->name); // カテゴリー名
+                                $cat_id = esc_attr($category->term_id); // カテゴリーID
+                                $cat_link = esc_url(get_category_link($cat_id)); // カテゴリーリンク
+
+                                // アクティブなカテゴリーには 'active' クラスを追加
+                                $active_class = ($slug === $current_slug) ? 'active' : '';
+
+                                echo '<li class="' . esc_attr($active_class) . '">';
+                                echo '<a href="' . $cat_link . '">' . $cat_name . '</a>';
+                                echo '</li>';
+                            }
+                        }
+                        ?>
+                    </ul>
+
                     <div class="container__news">
                         <div class="items__news">
+
                             <ul>
 
                                 <?php
+                                $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; // ページ番号を取得
                                 $args = [
-                                    'post_type' => 'post',
+                                    'post_type'      => 'post',
+                                    'posts_per_page' => 5,
+                                    'paged'          => $paged,
+                                    'category_name'  => $current_slug, // 現在のカテゴリーのスラッグを指定
                                 ];
                                 $the_query = new WP_Query($args);
                                 if ($the_query->have_posts()):
@@ -56,7 +99,14 @@
 
                             </ul>
 
-                            <p class="page">&lt; 1 2 3 &gt;</p>
+                            <!-- ページネーション -->
+                            <div class="pagination">
+                                <?php
+                                if (function_exists('wp_pagenavi')) {
+                                    wp_pagenavi(array('query' => $the_query));
+                                }
+                                ?>
+                            </div>
 
                         </div> <!-- items__newsここまで -->
                     </div> <!-- container__newsここまで -->
