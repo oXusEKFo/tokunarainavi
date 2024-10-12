@@ -1,44 +1,215 @@
 @charset "UTF-8";
 
-/* ランディング部 */
-
-.inner__landing {
-    background-color: #ED6D1F;
-    max-width: 1440px;
-    width: 100%;
-    height: auto;
-    margin: 0 auto;
-}
-
-.wrap__kv{
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-}
-
-/* KV（とりあえず画像 あとで作り込み） */
-
-.container__kv-Mo {
-    display: block;
-}
-
-.container__kv-Pc {
+/* KVここから */
+.awa-odori,
+.swimming,
+.drawing,
+.symbol1,
+.symbol2,
+.piano {
     display: none;
 }
 
-.container__kv-Mo {
-    max-width: 390px;
+.wrap__kv {
+    background-color: #ED6D1F;
+    max-width: 1440px;
     width: 100%;
-    height: auto;
+    height: var(--kv-vertical);
     margin: 0 auto;
+
+    --kv-vertical: 810px;
 }
 
-/* モバイル用KV */
-.container__kv-Mo>img{
+
+.container__kv {
     width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+
+.kv__title {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.kv__title img {
+    /* width: 90%; */
+    width: calc((0.14583 * 100vw) + 303px);
+    height: auto;
+}
+
+.deco1 {
+    width: calc((0.14583 * 100vw) + 103.125px);
     height: auto;
     object-fit: cover;
+    position: absolute;
+    top: calc((0 * 100vw) + 500px);
+    left: calc((0.52083 * 100vw) - 3.125px);
 }
+
+.deco2 {
+    /* width: 170px; */
+    width: calc((0.13333 * 100vw) + 118px);
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    /* top: 200px; */
+    top: calc((-0.1282 * 100vw) + 250px);
+    /* left: 3% */
+    left: calc((0.29688 * 100vw) - 100.78px);
+}
+
+.en_learning {
+    width: 110px;
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    top: 8%;
+    left: 15%;
+}
+
+.soccer {
+    width: 90px;
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    top: 15%;
+    left: 65%;
+}
+
+.gym {
+    width: 120px;
+    height: 20%;
+    position: absolute;
+    top: 73%;
+    left: calc((0.2 * 100vw) - 60px);
+}
+
+
+.rg {
+    width: 80px;
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+
+.ribbon {
+    width: 60px;
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    top: -13%;
+    left: 60%;
+    transform-origin: 0 32%;
+}
+
+.cap {
+    width: 80px;
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    top: calc((0 * 100vw) + 660px);
+    left: calc((0.72917 * 100vw) - 34.375px);
+}
+
+.stars__kv {
+    width: 50px;
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    top: calc((-0.0313 * 100vw) + 592.188px);
+    left: calc((0.80208 * 100vw) - 12.813px);
+
+}
+
+@media screen and (min-width: 780px) {
+
+    .awa-odori,
+    .swimming,
+    .drawing,
+    .symbol1,
+    .symbol2,
+    .piano {
+        display: block;
+    }
+
+
+    .en_learning {
+        top: calc((0.03509 * 100vw) + 472.632px);
+        left: calc((0.3333 * 100vw) - 50px);
+    }
+
+    .gym {
+        top: calc((-0.0175 * 100vw) + 253.68px);
+        left: calc((0.78947 * 100vw) - 15.789px);
+    }
+
+    .symbol1 {
+        width: 20px;
+        height: auto;
+        object-fit: cover;
+        position: absolute;
+        top: calc((0 * 100vw) + 130px);
+        left: calc((0.87719 * 100vw) + 15.78px);
+    }
+
+    .symbol2 {
+        width: 30px;
+        height: auto;
+        object-fit: cover;
+        position: absolute;
+        top: calc((0 * 100vw) + 600px);
+        left: calc((0.21053 * 100vw) - 144.21px);
+    }
+
+
+    .awa-odori {
+        width: 60px;
+        height: auto;
+        object-fit: cover;
+        position: absolute;
+        top: 350px;
+        left: calc((0.29825 * 100vw) - 152.63px);
+    }
+
+
+    .piano {
+        width: 100px;
+        height: auto;
+        object-fit: cover;
+        position: absolute;
+        top: calc((0 * 100vw) + 630px);
+        left: calc((0.245614 * 100vw) - 141.58px);
+    }
+
+
+    .swimming {
+        width: 90px;
+        height: auto;
+        object-fit: cover;
+        position: absolute;
+        top: calc((-0.0877 * 100vw) + 148.421px);
+        left: calc((0.35088 * 100vw) - 73.684px);
+    }
+
+
+    .drawing {
+        width: 80px;
+        height: auto;
+        object-fit: cover;
+        position: absolute;
+        top: calc((0 * 100vw) + 620px);
+        left: calc((0.91228 * 100vw) - 61.579px);
+    }
+
+}
+/* KVここまで */
 
 /* とくしま習いごとナビ について */
 .about{
