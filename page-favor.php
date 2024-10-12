@@ -51,11 +51,7 @@ $event_count = 0;
                             $classname = esc_html(get_the_title());  // 教室名
             ?>
 
-                            <div class="wrap_card">
-                                <div class="inner_card">
-                                    <?php get_template_part('template-parts/loop', 'classroom') ?>
-                                </div>
-                            </div>
+                            <?php get_template_part('template-parts/loop', 'classroom') ?>
 
             <?php
                             $event_count++;
