@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 /* KVここから */
+/* PC画面のみ登場するキャラクターを消す */
 .awa-odori,
 .swimming,
 .drawing,
@@ -10,14 +11,13 @@
     display: none;
 }
 
+
 .wrap__kv {
     background-color: #ED6D1F;
     max-width: 1440px;
     width: 100%;
-    height: var(--kv-vertical);
+    height: 810px;
     margin: 0 auto;
-
-    --kv-vertical: 810px;
 }
 
 
@@ -25,9 +25,11 @@
     width: 100%;
     height: 100%;
     position: relative;
+    /* 画像の位置を決めるため */
 }
 
 
+/* KVタイトル */
 .kv__title {
     width: 100%;
     height: 100%;
@@ -37,11 +39,11 @@
 }
 
 .kv__title img {
-    /* width: 90%; */
     width: calc((0.14583 * 100%) + 303px);
     height: auto;
 }
 
+/* 飾り1 */
 .deco1 {
     width: calc((0.14583 * 100%) + 103.125px);
     height: auto;
@@ -51,8 +53,8 @@
     left: calc((0.52083 * 100%) - 3.125px);
 }
 
+/* 飾り2 */
 .deco2 {
-    /* width: 170px; */
     width: calc((0.13333 * 100%) + 118px);
     height: auto;
     object-fit: cover;
@@ -63,6 +65,7 @@
     left: calc((0.29688 * 100%) - 100.78px);
 }
 
+/* イラスト：英語の勉強 */
 .en_learning {
     width: 110px;
     height: auto;
@@ -72,7 +75,8 @@
     left: 15%;
 }
 
-.soccer {
+/* イラスト：サッカー選手 */
+.soccer-player {
     width: 90px;
     height: auto;
     object-fit: cover;
@@ -81,6 +85,18 @@
     left: 65%;
 }
 
+/* イラスト：サッカーボール */
+.soccer-ball {
+    width: 15px;
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    top: 17%;
+    left: 65%;
+    z-index: 2;
+}
+
+/* イラスト：新体操選手とリボンの箱 */
 .gym {
     width: 120px;
     height: 20%;
@@ -89,7 +105,7 @@
     left: calc((0.2 * 100%) - 60px);
 }
 
-
+/* イラスト：新体操選手 */
 .rg {
     width: 80px;
     height: auto;
@@ -99,6 +115,7 @@
     left: 0%;
 }
 
+/* イラスト：リボン */
 .ribbon {
     width: 60px;
     height: auto;
@@ -109,6 +126,7 @@
     transform-origin: 0 32%;
 }
 
+/* イラスト：Child and Parent */
 .cap {
     width: 80px;
     height: auto;
@@ -118,6 +136,7 @@
     left: calc((0.72917 * 100%) - 34.375px);
 }
 
+/* イラスト：星 */
 .stars__kv {
     width: 50px;
     height: auto;
@@ -128,8 +147,195 @@
 
 }
 
+/* アニメーション ここから */
+/* 歩く */
+.walk {
+    animation: walk forwards 30s 1 linear 0s normal;
+}
+
+@keyframes walk {
+    0% {
+        transform: translateX(200px);
+    }
+
+    100% {
+        transform: translateX(-200px);
+    }
+
+}
+
+/* 泳ぐ */
+.swim {
+    animation: swim forwards 6s infinite ease 0s normal;
+}
+
+@keyframes swim {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) translateX(40px);
+    }
+
+    20% {
+        opacity: 1;
+        transform: translateY(0px) translateX(20px);
+    }
+
+    40% {
+        opacity: 0;
+        transform: translateY(20px) translateX(0px);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translateY(0px) translateX(-20px);
+    }
+
+    80% {
+        opacity: 0;
+        transform: translateY(20px) translateX(-40px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px) translateX(-60px);
+    }
+}
+
+/* 蹴る */
+.kick {
+    animation: kick forwards 2s 1 linear 0s normal;
+}
+
+@keyframes kick {
+    0% {
+        opacity: 0;
+        transform: translateY(0px) translateX(300px);
+    }
+
+    50% {
+        opacity: 0;
+        transform: translateY(0px) translateX(300px);
+    }
+
+    75% {
+        opacity: 1;
+        transform: translateY(0px) translateX(0px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px) translateX(0px);
+    }
+}
+
+/* 蹴られたサッカーボール */
+.kicked-ball {
+    animation: ball forwards 0.3s 1 linear 1.5s normal;
+}
+
+@keyframes ball {
+    0% {
+        transform: translateY(0px) translateX(0px);
+    }
+
+    100% {
+        transform: translateY(-200px) translateX(-400px);
+    }
+}
+
+/* ダンス */
+.dance {
+    animation: dance forwards 4s infinite ease 0s normal;
+}
+
+@keyframes dance {
+    0% {
+        transform: rotate(15deg);
+    }
+
+    25% {
+        transform: rotate(-15deg);
+    }
+
+    50% {
+        transform: rotate(15deg);
+    }
+
+    75% {
+        transform: rotate(-15deg);
+    }
+
+    100% {
+        transform: rotate(15deg);
+    }
+}
+
+/* 揺れる1 */
+.swing1 {
+    animation: swing forwards 10s infinite ease 0s normal;
+}
+
+/* 揺れる2 */
+.swing2 {
+    animation: swing forwards 10s infinite ease 1.5s normal;
+}
+
+
+@keyframes swing {
+    0% {
+        transform: translate(0)
+    }
+
+    25% {
+        transform: translate(-1rem)
+    }
+
+    50% {
+        transform: translate(0)
+    }
+
+    75% {
+        transform: translate(1rem)
+    }
+
+    100% {
+        transform: translate(0)
+    }
+}
+
+/* 上下に回転 */
+.rot {
+
+    animation: rotating forwards 8s infinite ease 1.5s normal;
+}
+
+@keyframes rotating {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    25% {
+        transform: rotate(50deg)
+    }
+
+    50% {
+        transform: rotate(-90deg)
+    }
+
+    75% {
+        transform: rotate(70deg)
+    }
+
+    100% {
+        transform: rotate(0deg)
+    }
+}
+
+
+
 @media screen and (min-width: 780px) {
 
+    /* PC画面のみ登場するキャラクターを表示 */
     .awa-odori,
     .swimming,
     .drawing,
@@ -139,17 +345,19 @@
         display: block;
     }
 
-
+    /* イラスト：英語の勉強 */
     .en_learning {
         top: calc((0.03509 * 100%) + 472.632px);
         left: calc((0.3333 * 100%) - 50px);
     }
 
+    /* イラスト：新体操選手とリボンの箱 */
     .gym {
         top: calc((-0.0175 * 100%) + 253.68px);
         left: calc((0.78947 * 100%) - 15.789px);
     }
 
+    /* 飾り1 */
     .symbol1 {
         width: 20px;
         height: auto;
@@ -159,6 +367,7 @@
         left: calc((0.87719 * 100%) + 15.78px);
     }
 
+    /* 飾り2 */
     .symbol2 {
         width: 30px;
         height: auto;
@@ -168,7 +377,7 @@
         left: calc((0.21053 * 100%) - 144.21px);
     }
 
-
+    /* 阿波おどり */
     .awa-odori {
         width: 60px;
         height: auto;
@@ -178,7 +387,7 @@
         left: calc((0.29825 * 100%) - 152.63px);
     }
 
-
+    /* ピアノ演奏 */
     .piano {
         width: 100px;
         height: auto;
@@ -188,7 +397,7 @@
         left: calc((0.245614 * 100%) - 141.58px);
     }
 
-
+    /* 水泳 */
     .swimming {
         width: 90px;
         height: auto;
@@ -198,7 +407,7 @@
         left: calc((0.35088 * 100%) - 73.684px);
     }
 
-
+    /* 絵描き */
     .drawing {
         width: 80px;
         height: auto;
