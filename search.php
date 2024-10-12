@@ -497,12 +497,12 @@ $count2 = 0;
         <?php if (have_posts()) : ?>
           <div class="results_card">
             <?php while (have_posts()) : the_post(); ?>
-              <div class="wrap_card">
-                <div class="inner_card">
-                  <?php get_template_part('template-parts/loop', 'classroom');
-                  ?>
-                </div>
-              </div>
+              <!-- <div class="wrap_card"> -->
+              <!-- <div class="inner_card"> -->
+              <?php get_template_part('template-parts/loop', 'classroom');
+              ?>
+              <!-- </div> -->
+              <!-- </div> -->
             <?php endwhile; ?>
           </div>
         <?php else: ?>
@@ -548,13 +548,13 @@ $count2 = 0;
           <div class="results_card">
             <?php while ($the_query->have_posts()): $the_query->the_post(); ?>
 
-              <div class="wrap_card">
-                <div class="inner_card">
-                  <?php
-                  get_template_part('template-parts/loop', 'classroom');
-                  ?>
-                </div>
-              </div>
+              <!-- <div class="wrap_card"> -->
+              <!-- <div class="inner_card"> -->
+              <?php
+              get_template_part('template-parts/loop', 'classroom');
+              ?>
+              <!-- </div> -->
+              <!-- </div> -->
               <?php wp_reset_postdata(); ?>
             <?php endwhile; ?>
           </div>
