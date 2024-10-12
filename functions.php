@@ -1,6 +1,12 @@
 <?php
+
+// 福島　2024/10/12　追加　消さないでください。開始
+// 開発モードで公開するときは、trueにしてください。
+define('IS_DEV', true);
+// 福島　2024/10/12　追加　消さないでください。終了
+
 // 管理バーを非表示させる
-// add_filter('show_admin_bar', '__return_false');
+add_filter('show_admin_bar', '__return_false');
 
 /**
  * 「after_setup_theme」アクションフックを使用する関数をまとめる
