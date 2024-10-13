@@ -94,14 +94,31 @@
 /*** 検索結果詳細部分 ここから ***/
 
 .details__title{
-    width: 350px;
-    height: 55px;
+    position: relative; /* 追加 */
+    width: 300px;
+    height: 50px;
     background-color: #ED6D1F;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 700;
     padding-left: 20px;
     align-content: center;
     margin: 18px auto 18px 0;
+}
+
+.circle__green {
+    position: absolute;
+    right: -60px;
+    bottom: -20px;
+    width: 80px;
+    /* サイズ調整 */
+}
+
+.circle__yellow {
+    position: absolute;
+    right: -30px;
+    bottom: -30px;
+    width: 50px;
+    /* サイズ調整 */
 }
 
 .wrap__details-outline {
@@ -121,6 +138,7 @@
 }
 
 .details__container{
+    position: relative; /* 追加 */
     background-color: #F5F5F5;
     font-size: 1.4rem;
     width: 350px;
@@ -128,6 +146,39 @@
     border-radius: 20px;
     padding: 25px 24px 30px;
     margin: 35px auto 0;
+}
+
+.info__overlay h3 {
+    position: absolute;
+    width: 100px;
+    top: -10px;
+    left: 30px;
+    font-size: 1.4rem;
+    text-align: center;
+    background-color: #00B0AA;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.info__overlay p {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.4rem;
+    color: #463D3B;
+    z-index: 2;
+    margin: 5px 0;
+    text-align: center;
+    width: 150px;
+}
+
+.circle__matcha {
+    position: absolute;
+    right: 30px;
+    top: -20px;
+    width: 100px;
+    /* サイズ調整 */
 }
 
 .details__genre{
@@ -622,10 +673,10 @@ text-align: right;
     }
 
     .details__title {
-        font-size: 3rem;
-        line-height: 4.34rem;
+        font-size: 2.4rem;
+        line-height: 4rem;
         width: clamp(100px, 35vw, 590px);
-        height: 80px;
+        height: 70px;
     }
 
     .wrap__details-outline{
@@ -665,6 +716,38 @@ text-align: right;
         line-height: 3.5rem;
         width: 100%;
     }
+
+.info__overlay h3 {
+    position: absolute;
+    width: 200px;
+    top: -20px;
+    left: 30px;
+    font-size: 1.8rem;
+    text-align: center;
+    background-color: #00B0AA;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.info__overlay p {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    font-size: 1.8rem;
+    color: #463D3B;
+    z-index: 2;
+    text-align: center;
+    width: 200px;
+}
+
+.circle__matcha {
+    position: absolute;
+    right: 50px;
+    top: -30px;
+    width: 150px;
+    /* サイズ調整 */
+}
 
     .wrap__accordion {
         width: 100%;
