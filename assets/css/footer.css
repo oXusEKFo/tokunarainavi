@@ -1,99 +1,170 @@
-@charset "UTF-8";
-
 /* Topへ戻るボタン */
 .back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    font-size: 1.5rem;
-    line-height: 1;
-    z-index: 5;
-}
-
-.back-to-top a {
-    background: rgba(255, 255, 255, 0.5);
-    text-decoration: none;
-    color: #000;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: inline-block;
-    text-align: center;
-    opacity: 0.9;
-    transition: all 1.5s ease;
-}
-
-.back-to-top span {
+    max-width: 30%;
     position: absolute;
-    display: inline-block;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
-    line-height: 1;
+    /* 親要素に対して絶対位置を設定 */
+    bottom: 10px;
+    right: 20px;
+    z-index: 50;
 }
 
-.back-to-top a:hover {
-    text-decoration: none;
-    opacity: 0.5;
-}
-
-
-/* フッター */
-.inner__footer {
+footer {
     background-color: #ED6D1F;
-    max-width: 1440px;
+    color: #FFFFFF;
+    padding-top: 80px;
+    padding-bottom: 30px;
+    text-align: left;
+    font-size: 1.4rem;
+    /* フォントサイズを追加 */
+    position: relative;
+    /* 親要素に相対位置を設定 */
+}
+
+.footer__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 780px;
     margin: 0 auto;
 }
 
-.container__sitemap {
-    color: #FFF;
-    font-size: 1.4rem;
-    line-height: 20.3px;
-}
-
-.wrap__pages {
+.footer__links,
+.footer__info {
+    margin-left: 30px;
     text-align: left;
-    padding: 180px 0 50px 30px;
+    margin-bottom: 50px;
 }
 
-.wrap__items {
-    text-align: left;
-    padding: 0 0 160px 30px;
+.footer__links ul,
+.footer__info ul {
+    list-style: none;
+    padding: 0;
 }
 
-.wrap__items>li,
-.wrap__rules>li {
-    text-align: left;
-    margin: 20px 0;
+.footer__links ul li,
+.footer__info ul li {
+    margin-bottom: 40px;
 }
 
-.copy-rights {
-    color: #FFF;
-    font-size: 1.0rem;
-    line-height: 14.5px;
+.footer__links ul li a,
+.footer__info ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.footer__bottom {
     text-align: center;
+    margin-top: 20px;
 }
 
+.footer__illustration img {
+    max-width: 40%;
+    /* 画面幅に応じてサイズを調整 */
+    height: auto;
+    /* アスペクト比を維持 */
+    position: absolute;
+    top: 220px;
+    right: 20px;
+    animation: fadeInFromRight 0.5s ease-out;
+    /* アニメーションを適用 */
+    display: block;
+}
 
-@media screen and (min-width: 780px) {
-    /* 寸法は x1.5 を基本に算出 */
-    /* フッター */
-    .container__sitemap {
-        display: flex;
-        justify-content: flex-end;
+.fade__in {
+    opacity: 0;
+    /* 初期状態は透明 */
+    transform: translateX(100px);
+    /* 右から移動 */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    /* アニメーションの設定 */
+}
+
+.fade__in.visible {
+    opacity: 1;
+    /* 表示状態 */
+    transform: translateX(0);
+    /* 元の位置に戻る */
+}
+
+@media (min-width: 700px) {
+    .footer__container {
+        flex-direction: row;
+        justify-content: space-around;
+        margin-left: 100px;
     }
 
-    .wrap__pages {
-        width: 30%;
-        height: 500px;
-        padding: 80px 0 0;
+    .footer__links,
+    .footer__info {
+        margin: 0;
+        align-self: flex-start;
+        /* 上揃えにするためのスタイルを追加 */
     }
 
-    .wrap__rules {
-        width: 30%;
-        height: 500px;
-        padding: 80px 0 0;
+    .footer__info {
+        margin-left: 100px;
+        align-self: flex-start;
     }
 
+    footer {
+        font-size: 2rem;
+        /* フォントサイズを変更 */
     }
+
+    .footer__illustration img {
+        max-width: 15%;
+        /* 画面幅に応じてサイズを調整 */
+        height: auto;
+        /* アスペクト比を維持 */
+        position: absolute;
+        right: 200px;
+    }
+
+    .back-to-top {
+        max-width: 10%;
+        position: absolute;
+        /* 親要素に対して絶対位置を設定 */
+        bottom: 10px;
+        right: 20px;
+        /* 右下に配置 */
+        z-index: 50;
+    }
+
+    .back-to-top:hover {
+        animation: bounce 0.8s ease-out;
+    }
+
+    @keyframes bounce {
+        0% {
+            transform: translate(0, 0);
+        }
+
+        16.6% {
+            transform: translate(0, -20px);
+            animation-timing-function: ease-in;
+        }
+
+        33.3% {
+            transform: translate(0, 0);
+        }
+
+        49.8% {
+            transform: translate(0, -14px);
+            animation-timing-function: ease-in;
+        }
+
+        66.4% {
+            transform: translate(0, 0);
+        }
+
+        83% {
+            transform: translate(0, -4px);
+            animation-timing-function: ease-in;
+        }
+
+        100% {
+            transform: translate(0, 0);
+        }
+    }
+
+}

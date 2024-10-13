@@ -96,3 +96,20 @@ $(window).on("scroll load", function () {
         }
     });
 });
+
+// フッターのフェードイン
+document.addEventListener('DOMContentLoaded', function() {
+    const fadeInElements = document.querySelectorAll('.fade__in');
+
+    function checkVisibility() {
+        fadeInElements.forEach(element => {
+            const rect = element.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                element.classList.add('visible');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', checkVisibility);
+    checkVisibility(); // 初期チェック
+});
