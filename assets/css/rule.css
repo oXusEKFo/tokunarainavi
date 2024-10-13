@@ -51,6 +51,10 @@
     margin: 15px auto 0;
 }
 
+.wrap__description:last-child {
+    margin: 15px auto;
+}
+
 .description__rule {
     width: 85%;
     margin: 0 auto;
@@ -59,10 +63,11 @@
 
 .description__rule>h2 {
     font-size: 1.6rem;
-    line-height: 50px;
-    height: 50px;
-    margin: 0 auto;
-    text-align: center;
+    line-height: 3.0rem;
+    height: auto;
+    margin: 20px auto 0;
+    display: flex;
+    justify-content: center
 }
 
 .description__rule>h2 {
@@ -71,18 +76,17 @@
 
 .note__rule {
     background-color: #FFF;
-    font-size: 1.2rem;
-    line-height: 20px;
+    font-size: 1.6rem;
+    line-height: 3.0rem;
     height: auto;
     margin: 25px auto 0;
-
     text-indent: -1rem;
     padding-left: 1rem;
 }
 
 .no__indent{
-    text-indent: 0;
-    padding-left: 0;
+    text-indent: 1rem;
+    padding-left: -1rem;
 }
 
 .enactment__date{
@@ -90,7 +94,7 @@
     line-height: 22px;
     width: 85%;
     margin: 0 auto;
-    padding: 10px 0 0;
+    padding: 30px 0;
 }
 
 /*** メディアクエリここから ***/
