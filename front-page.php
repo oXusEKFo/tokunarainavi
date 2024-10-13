@@ -308,149 +308,147 @@ wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js'
             <!-- <button class="button__more-search">
                         <a href="<?php echo home_url(); ?>/?s=">詳細検索は<br>こちら</a>
                     </button> -->
-    </div>
-    </section>
 
-    <!-- 白背景の余白スペース -->
-    <div class="clearance"></div>
+        </section>
 
-    <!-- ランキング -->
-    <section class="ranking">
-        <div class="inner__ranking">
-            <div class="title__ranking">
-                <h1>RANKING</h1>
-                <p>アクセスランキング</p>
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/creamcircle.png" alt="クリーム円">
-            </div>
-            <div class="order__ranking">
-                <form method="GET" action="<?php echo home_url(); ?>">
-                    <input type="hidden" name="s" value="">
-                    <?php
-                    $args = [
-                        'taxonomy'   => 'classtype',
-                        'meta_key'   => 'view_count',        // view _ countメタデータを使用したソート
-                        'orderby'    => 'meta_value_num',    // 数値でソート
-                        'order'      => 'DESC',              // 降順に並べる
-                        'hide_empty' => false,               // 関連付けられていない記事の分類を表示
-                        'number'     => 5,                   // 上位5分類のみ表示
-                    ];
-                    $terms = get_terms($args);
-                    ?>
-                    <ul>
-                        <?php
-                        if (!empty($terms) && !is_wp_error($terms)) :
-                            foreach ($terms as $term) :
-                                if (strpos($term->slug, 'class') !== false) {
-                                    continue;
-                                }
-                                $view_count = get_term_meta($term->term_id, 'view_count', true);
-                        ?>
-                                <li class="order">
-                                    <button type="submit" name="classtype[]" value="<?php echo $term->slug; ?>">
-                                        <?php echo $term->name; ?>
-                                        <small>
-                                            <?php
-                                            echo 'click' . esc_html($view_count);
-                                            ?>
-                                        </small>
-                                    </button>
-                                </li>
-                        <?php
-                            endforeach;
-                        endif;
-                        ?>
-                    </ul>
-                </form>
-            </div>
-        </div>
-    </section>
-    <!-- 白背景の余白スペース -->
-    <div class="clearance"></div>
-    <!-- とくしまの習いごとアンケート -->
-    <div class="survey-results">
-        <div class="inner__survey">
-            <div class="banner__survey">
-                <a href="<?php echo home_url('/fushion'); ?>">徳島の習いごと事情</a>
-            </div>
-        </div>
-    </div>
-    <!-- column -->
-    <section class="column">
-        <div class="inner__column">
-            <div class="title__column">
-                <h1>COLUMN</h1>
-                <p>コラム</p>
-            </div>
-            <!-- スライダー ここから -->
-            <div class="slider">
-                <div class="auto-slider">
-                    <?php
-                    $args = [
-                        'post_type' => 'column',
-                        'posts_per_page'     => 5,
-                        'orderby'        => 'date',
-                        'order'          => 'DESC',
-                    ];
-                    $column_query = new WP_query($args); ?>
-                    <?php
-                    if ($column_query->have_posts()):
-                    ?>
-                        <?php while ($column_query->have_posts()): $column_query->the_post(); ?>
-                            <?php get_template_part('template-parts/loop', 'column'); ?>
+        <!-- 白背景の余白スペース -->
+        <div class="clearance"></div>
+
+        <!-- ランキング -->
+        <section class="ranking">
+            <div class="inner__ranking">
+                <div class="title__ranking">
+                    <h1>RANKING</h1>
+                    <p>アクセスランキング</p>
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/creamcircle.png" alt="クリーム円">
                 </div>
-            <?php endwhile; ?>
-            <?php wp_reset_postdata(); ?>
-        <?php endif ?>
-            </div>
-        </div>
-        <!-- スライダー ここまで -->
-        <button class=" button__more-column">
-            <a href="<?php echo home_url('/column'); ?>">MORE</a>
-        </button>
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bear2.png" alt="Bear" class="bear__image-column">
-        </div>
-    </section>
-
-    </div>
-    </section>
-    <!-- 白背景の余白スペース -->
-    <div class="clearance"></div>
-
-    <!-- NEWS -->
-    <section class="news">
-        <div class="title__news">
-            <h1>NEWS</h1>
-            <p>新着情報</p>
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/creamcircle.png" alt="クリーム円">
-        </div>
-        <!-- ここからニュース記事 -->
-        <?php if (have_posts()) : ?>
-            <div class="wrap__news">
-                <div class="container__news">
-                    <div class="items__news">
+                <div class="order__ranking">
+                    <form method="GET" action="<?php echo home_url(); ?>">
+                        <input type="hidden" name="s" value="">
+                        <?php
+                        $args = [
+                            'taxonomy'   => 'classtype',
+                            'meta_key'   => 'view_count',        // view _ countメタデータを使用したソート
+                            'orderby'    => 'meta_value_num',    // 数値でソート
+                            'order'      => 'DESC',              // 降順に並べる
+                            'hide_empty' => false,               // 関連付けられていない記事の分類を表示
+                            'number'     => 5,                   // 上位5分類のみ表示
+                        ];
+                        $terms = get_terms($args);
+                        ?>
                         <ul>
                             <?php
-                            $news = get_term_by('slug', 'news', 'category');
-                            $news_link = get_term_link($news, 'category');
+                            if (!empty($terms) && !is_wp_error($terms)) :
+                                foreach ($terms as $term) :
+                                    if (strpos($term->slug, 'class') !== false) {
+                                        continue;
+                                    }
+                                    $view_count = get_term_meta($term->term_id, 'view_count', true);
                             ?>
-                            <?php while (have_posts()) : the_post(); ?>
-                                <?php get_template_part('template-parts/loop', 'news'); ?>
-                            <?php endwhile; ?>
-                            <?php wp_reset_postdata(); ?>
+                                    <li class="order">
+                                        <button type="submit" name="classtype[]" value="<?php echo $term->slug; ?>">
+                                            <?php echo $term->name; ?>
+                                            <small>
+                                                <?php
+                                                echo 'click' . esc_html($view_count);
+                                                ?>
+                                            </small>
+                                        </button>
+                                    </li>
+                            <?php
+                                endforeach;
+                            endif;
+                            ?>
                         </ul>
-                    </div>
-                    <button class="button__more-news">
-                        <a href="<?php echo home_url('/category/news') ?>">MORE</a>
-                    </button>
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bear2.png" alt="Bear" class="bear__image-news">
+                    </form>
                 </div>
             </div>
-        <?php endif ?>
-    </section>
-    <!-- 白背景の余白スペース -->
-    <div class="clearance"></div>
-    <!-- end news -->
+        </section>
+        <!-- 白背景の余白スペース -->
+        <div class="clearance"></div>
+        <!-- とくしまの習いごとアンケート -->
+        <div class="survey-results">
+            <div class="inner__survey">
+                <div class="banner__survey">
+                    <a href="<?php echo home_url('/fushion'); ?>">徳島の習いごと事情</a>
+                </div>
+            </div>
+        </div>
+        <!-- column -->
+        <section class="column">
+            <div class="inner__column">
+                <div class="title__column">
+                    <h1 class="box fadeIn">COLUMN</h1>
+                    <p class="box fadeIn">コラム</p>
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/matcha.png" alt="みどり円">
+                </div>
+                <!-- スライダー ここから -->
+                <div class="slider">
+                    <div class="auto-slider">
+                        <?php
+                        $args = [
+                            'post_type' => 'column',
+                            'posts_per_page'     => 5,
+                            'orderby'        => 'date',
+                            'order'          => 'DESC',
+                        ];
+                        $column_query = new WP_query($args);
+                        ?>
+                        <?php
+                        if ($column_query->have_posts()):
+                        ?>
+                            <?php while ($column_query->have_posts()): $column_query->the_post(); ?>
+                                <?php get_template_part('template-parts/loop', 'column'); ?>
 
+                            <?php endwhile; ?>
+                            <?php wp_reset_postdata(); ?>
+                        <?php endif ?>
+                    </div>
+                </div>
+            </div>
+            <!-- スライダー ここまで -->
+            <button class=" button__more-column">
+                <a href="<?php echo home_url('/column'); ?>">MORE</a>
+            </button>
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bear2.png" alt="Bear" class="bear__image-column">
+        </section>
+        <!-- 白背景の余白スペース -->
+        <div class="clearance"></div>
+
+        <!-- NEWS -->
+        <section class="news">
+            <div class="title__news">
+                <h1>NEWS</h1>
+                <p>新着情報</p>
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/creamcircle.png" alt="クリーム円">
+            </div>
+            <!-- ここからニュース記事 -->
+            <?php if (have_posts()) : ?>
+                <div class="wrap__news">
+                    <div class="container__news">
+                        <div class="items__news">
+                            <ul>
+                                <?php
+                                $news = get_term_by('slug', 'news', 'category');
+                                $news_link = get_term_link($news, 'category');
+                                ?>
+                                <?php while (have_posts()) : the_post(); ?>
+                                    <?php get_template_part('template-parts/loop', 'news'); ?>
+                                <?php endwhile; ?>
+                                <?php wp_reset_postdata(); ?>
+                            </ul>
+                        </div>
+                        <button class="button__more-news">
+                            <a href="<?php echo home_url('/category/news') ?>">MORE</a>
+                        </button>
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bear2.png" alt="Bear" class="bear__image-news">
+                    </div>
+                </div>
+            <?php endif ?>
+        </section>
+        <!-- 白背景の余白スペース -->
+        <div class="clearance"></div>
+        <!-- end news -->
     </div>
 </main>
 <?php get_footer(); ?>

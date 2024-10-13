@@ -58,6 +58,10 @@ function add_style_script()
         'tokunavi_footer',
         get_template_directory_uri() . '/assets/css/footer.css'
     );
+    wp_enqueue_style(
+        'tokunavi_column_slider',
+        get_template_directory_uri() . '/assets/css/column_slider.css'
+    );
 
     // 共通のJSファイルを読み込む
     wp_enqueue_script('jquery');  //jQueryを読み込む
@@ -98,9 +102,7 @@ function add_style_script()
         );
         // <!-- ポップアップCSS -->
         wp_enqueue_style('tokunavi_searchpopup_css', get_template_directory_uri() . '/assets/css/searchpopup.css');
-        // column_slider
-        wp_enqueue_style('tokunavi_column_slider_css', get_template_directory_uri() . '/assets/css/column_slider
-.css');
+
         // column_slider . js
         wp_enqueue_script(
             'tokunavi_column_slider_js',
@@ -135,9 +137,6 @@ function add_style_script()
             true
         );
     } elseif (is_post_type_archive('column')) {
-        // column_slider
-        wp_enqueue_style('tokunavi_column_slider_css', get_template_directory_uri() . '/assets/css/column_slider
-.css');
     } elseif (is_singular('column')) {
         //コラム記事CSS
         wp_enqueue_style(
