@@ -24,9 +24,10 @@ function selectItem(checkbox) {
     }
 }
 
-function clearSelections() {
+function clearSelections(taxonomy) {
     // すべてのチェックボックスを取得
-    const allCheckboxes = document.querySelectorAll('input[type="checkbox"]');
+    // const allCheckboxes = document.querySelectorAll('input[type="checkbox"]');
+    const allCheckboxes = document.querySelectorAll(`input[name="${taxonomy}[]"]`);
 
     allCheckboxes.forEach(checkbox => {
         checkbox.checked = false; // チェックボックスを解除

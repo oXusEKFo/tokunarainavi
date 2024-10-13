@@ -99,10 +99,10 @@ $count2 = 0;
                 ));
                 ?>
                 <div id="<?= $parent_term->slug; ?>" class="accordion_content" style="display:flex">
-                  <label class="accordion_item full_width">
-                    <input type="checkbox" onclick="selectAll('<?php echo $parent_term->slug; ?>', this);"> <?php echo $parent_term->name; ?>
+                  <label class="accordion_item full_width <?= $checked['area']["$parent_term->slug"] ?>">
+                    <input type="checkbox" name="area[]" value="<?= $parent_term->slug ?>" <?= $checked['area']["$parent_term->slug"] ?> onclick="selectAll('<?= $parent_term->slug; ?>', this);"> <?php echo $parent_term->name; ?>
                   </label>
-                  <!-- <div id="<?= $parent_term->slug; ?>" class="single_column"> -->
+                  <!-- <div id="<?= $parent_term->slug; ?>" class="single_column">多分もう使いません -->
                   <div class="single_column">
                     <?php
                     if (! empty($child_terms) && ! is_wp_error($child_terms)):
@@ -129,10 +129,10 @@ $count2 = 0;
                 ));
                 ?>
                 <div id="<?= $parent_term->slug; ?>" class="accordion_content" style="display:flex">
-                  <label class="accordion_item full_width">
-                    <input type="checkbox" onclick="selectAll('<?= $parent_term->slug; ?>', this);"><?= $parent_term->name; ?>
+                  <label class="accordion_item full_width <?= $checked['area'][$parent_term->slug] ?>">
+                    <input type="checkbox" name="area[]" value="<?= $parent_term->slug ?>" <?= $checked['area'][$parent_term->slug] ?> onclick="selectAll('<?= $parent_term->slug; ?>', this);"><?= $parent_term->name; ?>
                   </label>
-                  <!-- <div id="<?= $parent_term->slug; ?>" class="double_column"> -->
+                  <!-- <div id="<?= $parent_term->slug; ?>" class="double_column">多分もう使いません -->
                   <div class="double_column">
 
                     <?php
@@ -184,7 +184,7 @@ $count2 = 0;
                   <button>年齢も選ぶ</button>
                   <button>ジャンルも選ぶ</button>
                 </div> -->
-                  <button type="button" class="clear_button" onclick="clearSelections()">すべてクリア</button>
+                  <button type="button" class="clear_button" onclick="clearSelections('area')">すべてクリア</button>
                 </div>
               </div>
             </div>
@@ -228,7 +228,7 @@ $count2 = 0;
                 <button>エリアも選ぶ</button>
                 <button>ジャンルも選ぶ</button>
               </div> -->
-                <button type="button" class="clear_button" onclick="clearSelections()">すべてクリア</button>
+                <button type="button" class="clear_button" onclick="clearSelections('age_type')">すべてクリア</button>
               </div>
             </div>
             <div class="filter_row">
@@ -295,7 +295,7 @@ $count2 = 0;
                   <button>エリアも選ぶ</button>
                   <button>年齢も選ぶ</button>
                 </div> -->
-                  <button type="button" class="clear_button" onclick="clearSelections()">すべてクリア</button>
+                  <button type="button" class="clear_button" onclick="clearSelections('classtype')">すべてクリア</button>
                 </div>
               </div>
             </div>
@@ -360,7 +360,7 @@ $count2 = 0;
               </div>
               <div class="search_actions">
                 <button class="search_button">この条件で検索する</button>
-                <button class="clear_button" onclick="clearSelections()">すべてクリア</button>
+                <button type="button" class="clear_button" onclick="clearSelections('weektimes')">すべてクリア</button>
               </div>
             </div>
             <div class="filter_row">
@@ -399,7 +399,7 @@ $count2 = 0;
               </div>
               <div class="search_actions">
                 <button class="search_button">この条件で検索する</button>
-                <button class="clear_button" onclick="clearSelections()">すべてクリア</button>
+                <button class="clear_button" onclick="clearSelections('cost_type')">すべてクリア</button>
               </div>
             </div>
             <div class="filter_row">
@@ -438,7 +438,7 @@ $count2 = 0;
               </div>
               <div class="search_actions">
                 <button class="search_button">この条件で検索する</button>
-                <button class="clear_button" onclick="clearSelections()">すべてクリア</button>
+                <button type="button" class="clear_button" onclick="clearSelections('personality_type')">すべてクリア</button>
               </div>
             </div>
             <div class="filter_row">
@@ -477,7 +477,7 @@ $count2 = 0;
               </div>
               <div class="search_actions">
                 <button class="search_button">この条件で検索する</button>
-                <button class="clear_button" onclick="clearSelections()">すべてクリア</button>
+                <button type="button" class="clear_button" onclick="clearSelections('skill_type')">すべてクリア</button>
               </div>
             </div>
           </form>
