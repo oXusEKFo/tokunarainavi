@@ -50,34 +50,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const pochi = document.querySelector('.boy__pochi'); // クラス名で要素を取得
     const programmer = document.querySelector('.boy__programmer'); // boy_programmerの要素を取得
 
+    if (!pochi || !programmer) {
+        console.error('要素が見つかりません。クラス名を確認してください。');
+        return;
+    }
+
+    // 親要素を相対位置に設定
+    const parent = programmer.parentElement;
+    parent.style.position = 'relative';
+
+    // pochiをprogrammerの右上に配置
+    pochi.style.position = 'absolute';
+    pochi.style.left = `${programmer.offsetLeft + programmer.offsetWidth}px`; // 右側に配置
+    pochi.style.top = `${programmer.offsetTop}px`; // 上部に配置
+
     setTimeout(() => {
-        pochi.style.opacity = 1; // 4秒後にポチを表示
         let count = 0;
         const interval = setInterval(() => {
-            const randomX = (Math.random() * 20 - 50) + 'px'; //
-            const randomY = (Math.random() * 40 - 50) + 'px'; //
-            const programmerRect = programmer.getBoundingClientRect(); // boy_programmerの位置を取得
+            if (count % 2 === 0) {
+                pochi.style.opacity = 1; // ポチを表示
+            } else {
+                pochi.style.opacity = 0; // ポチを非表示
+            }
 
-            // boy_programmerの近くにポジションを設定
-            pochi.style.left = `${programmerRect.right + parseFloat(randomX)}px`; // 右側に移動
-            pochi.style.top = `${programmerRect.top + parseFloat(randomY)}px`; //
-
-            // ポチのイラストを取得
-            const pochiIllustration = document.querySelector('.pochi-illustration');
-            // スタイルを変更して表示位置を上に
-            pochiIllustration.style.position = 'absolute';
-            pochiIllustration.style.top = '200px';
-
-            if (++count >= 6) {
-                clearInterval(interval); // 6回移動したら停止
-                setTimeout(() => {
-                    pochi.style.opacity = 0; // 最後にポチを消す
-                }, 500); // 0.5秒後に消す
+            if (++count >= 12) { // 6回表示と非表示を繰り返す
+                clearInterval(interval); // 6回表示と非表示を繰り返したら停止
             }
         }, 500); // 0.5秒ごとに位置を変更
     }, 4000); // 4秒後に開始
 });
-
 
 
 
@@ -97,7 +98,7 @@ $(window).on("scroll load", function () {
     });
 });
 
-// フッターのフェードイン
+// トップboy＆フッターのフェードイン
 document.addEventListener('DOMContentLoaded', function() {
     const fadeInElements = document.querySelectorAll('.fade__in');
 
