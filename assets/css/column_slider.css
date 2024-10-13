@@ -64,8 +64,10 @@
 /* 施設写真 */
 .img__card {
     width: 350px;
+    height: 300px;
     margin: 0 auto;
     border-radius: 20px;
+    object-fit: cover;
 }
 
 /* 説明エリア */
