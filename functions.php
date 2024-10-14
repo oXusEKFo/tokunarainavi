@@ -83,13 +83,13 @@ function add_style_script()
         true
     );
 
-    wp_enqueue_script(
-        'tokunavi_common_slider',
-        get_template_directory_uri() . '/assets/js/common_slider.js',
-        ['jquery'],
-        '',
-        true
-    );
+    // wp_enqueue_script(
+    //     'tokunavi_common_slider',
+    //     get_template_directory_uri() . '/assets/js/common_slider.js',
+    //     ['jquery'],
+    //     '',
+    //     true
+    // );
 
 
     /**
