@@ -27,7 +27,7 @@ function selectItem(checkbox) {
 function clearSelections(taxonomy) {
     // すべてのチェックボックスを取得
     // const allCheckboxes = document.querySelectorAll('input[type="checkbox"]');
-    const allCheckboxes = document.querySelectorAll(`input[name="${taxonomy}[]"]`);
+    const allCheckboxes = document.querySelectorAll(`input[name="${taxonomy}[]"]`);//各条件ごとにクリアできるように変更しました。
 
     allCheckboxes.forEach(checkbox => {
         checkbox.checked = false; // チェックボックスを解除

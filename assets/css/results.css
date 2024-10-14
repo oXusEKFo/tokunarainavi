@@ -126,10 +126,17 @@
 }
 
 .results_card {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 42px;
+    /* カードにmargin付けるより、gapの方がいいかも？pxはお好みで（堀） */
+}
+
+/* .results_card {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-}
+} */
 
 .wrap_card {
     margin: 30px;
@@ -164,16 +171,17 @@
     align-items: flex-end;
 
 }
-.genre_detail {
-        display: flex;
-        flex-direction: column;
-    }
 
-.genre_label{
+.genre_detail {
+    display: flex;
+    flex-direction: column;
+}
+
+.genre_label {
     color: #ffffff;
     padding: 3px 8px;
-        background-color: #b7b0ac;
-        border-radius: 8px;
+    background-color: #b7b0ac;
+    border-radius: 8px;
     font-size: 1.2rem;
     margin-right: 10px;
     min-width: 60px;
@@ -183,7 +191,7 @@
 
 }
 
-.genre_value{
+.genre_value {
     font-size: 2rem;
 }
 
@@ -193,14 +201,14 @@
 
 }
 
-.icon_category{
+.icon_category {
     margin-right: 10px;
     width: 50px;
     height: 50px;
     position: absolute;
     left: 30px;
     top: 28px;
-    }
+}
 
 .card_title {
     border-bottom: 6px dotted #a0d3b2;
@@ -214,6 +222,11 @@
     color: #463d3b;
     padding-top: 7.5px;
     text-align: center;
+}
+
+.wp-pagenavi span,
+.wp-pagenavi a {
+    border: 0;
 }
 
 /*** 検索結果一覧部分 ここまで ***/
