@@ -179,15 +179,19 @@
 
 /* 1番目のスタイル */
 .order[data-order="1"] {
-    height: 100px; /* 1番目の高さを100pxに設定 */
-    line-height: 100px; /* 縦中央揃えのための行の高さ */
+    height: 100px;
+    line-height: 100px;
+    font-size: 25px;
+    color: #ed6d1f;
 }
 
 /* 2番目と3番目のスタイル */
 .order[data-order="2"],
 .order[data-order="3"] {
-    height: 70px; /* 2番目と3番目の高さを70pxに設定 */
-    line-height: 70px; /* 縦中央揃えのための行の高さ */
+    height: 70px;
+    line-height: 70px;
+    font-size: 25px;
+    color: #ed6d1f;
 }
 
 /* 4～10番目のスタイル */
@@ -213,6 +217,27 @@
     background-image: url(../images/top10.png);
 }
 
+/* TOP3の下部に画像を挿入 */
+.order__question1 {
+    position: relative;
+}
+
+.order_image1,
+.order_image2 {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    max-width: 200px;
+    height: auto;
+}
+
+@media (max-width: 390px) {
+    .order_image1,
+    .order_image2 {
+        display: none !important; /* 390px以下の時に画像を非表示にする */
+    }
+}
+
 /* 円・棒グラフエリア */
 
 .title_decor {
@@ -221,7 +246,7 @@
     border-bottom: 3px solid #463d3b;
     color: #463d3b;
     width: 100%;
-    max-width: 390px;
+    max-width: 480px;
     text-align: center;
 }
 
@@ -329,19 +354,11 @@ h2 {
     .image__chart,
     .order__question1,
     .order__question2 {
-        width: 100%; /* レスポンシブ時に幅を100%に */
-        max-width: 390px; /* 最大幅を390pxに */
-        margin: 0 auto; /* 中央に配置 */
+        width: 100%;
+        max-width: 480px;
+        margin: 0 auto;
         text-align: center;
     }
-
-    /* タイトル */
-    /* .title_question {
-        color: #00b0aa;
-        text-align: center;
-        width: 370px;
-        position: relative;
-    } */
 
     /* メイン */
     .title_question > h2 {
