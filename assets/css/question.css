@@ -154,7 +154,7 @@
 }
 
 .order::before {
-    content: attr(data-order); /* data-order属性から内容を取得 */
+    content: attr(data_order); /* data_order属性から内容を取得 */
     display: inline-block;
     background-image: url(../images/top1.png);
     width: 50px;
@@ -167,50 +167,75 @@
 }
 
 /* 1～3番目のスタイル */
-.order[data-order="1"]::before {
+.order[data_order="1"]::before {
     background-image: url(../images/top1.png);
 }
-.order[data-order="2"]::before {
+.order[data_order="2"]::before {
     background-image: url(../images/top2.png);
 }
-.order[data-order="3"]::before {
+.order[data_order="3"]::before {
     background-image: url(../images/top3.png);
 }
 
 /* 1番目のスタイル */
-.order[data-order="1"] {
-    height: 100px; /* 1番目の高さを100pxに設定 */
-    line-height: 100px; /* 縦中央揃えのための行の高さ */
+.order[data_order="1"] {
+    height: 100px;
+    line-height: 100px;
+    font-size: 25px;
+    color: #ed6d1f;
 }
 
 /* 2番目と3番目のスタイル */
-.order[data-order="2"],
-.order[data-order="3"] {
-    height: 70px; /* 2番目と3番目の高さを70pxに設定 */
-    line-height: 70px; /* 縦中央揃えのための行の高さ */
+.order[data_order="2"],
+.order[data_order="3"] {
+    height: 70px;
+    line-height: 70px;
+    font-size: 25px;
+    color: #ed6d1f;
 }
 
 /* 4～10番目のスタイル */
-.order[data-order="4"]::before {
+.order[data_order="4"]::before {
     background-image: url(../images/top4.png);
 }
-.order[data-order="5"]::before {
+.order[data_order="5"]::before {
     background-image: url(../images/top5.png);
 }
-.order[data-order="6"]::before {
+.order[data_order="6"]::before {
     background-image: url(../images/top6.png);
 }
-.order[data-order="7"]::before {
+.order[data_order="7"]::before {
     background-image: url(../images/top7.png);
 }
-.order[data-order="8"]::before {
+.order[data_order="8"]::before {
     background-image: url(../images/top8.png);
 }
-.order[data-order="9"]::before {
+.order[data_order="9"]::before {
     background-image: url(../images/top9.png);
 }
-.order[data-order="10"]::before {
+.order[data_order="10"]::before {
     background-image: url(../images/top10.png);
+}
+
+/* TOP3の下部に画像を挿入 */
+.order__question1 {
+    position: relative;
+}
+
+.order_image1,
+.order_image2 {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    max-width: 200px;
+    height: auto;
+}
+
+@media (max-width: 390px) {
+    .order_image1,
+    .order_image2 {
+        display: none; /* 390px以下の時に画像を非表示にする */
+    }
 }
 
 /* 円・棒グラフエリア */
@@ -221,7 +246,7 @@
     border-bottom: 3px solid #463d3b;
     color: #463d3b;
     width: 100%;
-    max-width: 390px;
+    max-width: 480px;
     text-align: center;
 }
 
@@ -329,19 +354,11 @@ h2 {
     .image__chart,
     .order__question1,
     .order__question2 {
-        width: 100%; /* レスポンシブ時に幅を100%に */
-        max-width: 390px; /* 最大幅を390pxに */
-        margin: 0 auto; /* 中央に配置 */
+        width: 100%;
+        max-width: 480px;
+        margin: 0 auto;
         text-align: center;
     }
-
-    /* タイトル */
-    /* .title_question {
-        color: #00b0aa;
-        text-align: center;
-        width: 370px;
-        position: relative;
-    } */
 
     /* メイン */
     .title_question > h2 {
