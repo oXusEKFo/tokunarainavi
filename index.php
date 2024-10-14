@@ -11,7 +11,6 @@
                     <p><?php
                         get_template_part('template-parts/breadcrumb');
                         ?>
-                        <span class="underLine"></span>
                     </p>
                 </div>
             </div>
@@ -21,7 +20,7 @@
                 <div class="title__news">
                     <h1>NEWS</h1>
                     <p>新着情報</p>
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/creamcircle.png" alt="クリーム色の丸" width="150" height="150">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/creamcircle.png" alt="クリーム色の丸">
                 </div>
 
                 <div class="wrap__news">
@@ -31,13 +30,13 @@
                         // カテゴリーを取得
                         $categories = get_categories();
 
-                        // 自分の好きな順番を指定（スラッグ名の配列）
-                        $custom_order = ['news', 'update', 'events', 'others']; // スラッグ名を指定
+                        // カテゴリーを好きな順番で並べる
+                        $custom_order = ['news', 'update', 'events', 'others'];
 
                         // スラッグ名をキーとする連想配列を作成
                         $ordered_categories = [];
                         foreach ($categories as $category) {
-                            $ordered_categories[$category->slug] = $category; // スラッグをキーにしてカテゴリーを格納
+                            $ordered_categories[$category->slug] = $category;
                         }
 
                         // 現在のカテゴリー情報を取得
@@ -58,10 +57,23 @@
                                 echo '<li class="' . esc_attr($active_class) . '">';
                                 echo '<a href="' . $cat_link . '">' . $cat_name . '</a>';
                                 echo '</li>';
+                            } else {
+                                // 投稿が0件のカテゴリーがあった場合でもリストに表示する
+                                $category = get_category_by_slug($slug);
+                                if ($category) {
+                                    $cat_name = esc_html($category->name); // カテゴリー名
+                                    $category_link = esc_url(get_category_link($category->term_id)); // リンク生成
+                                    $active_class = ($slug === $current_slug) ? 'active' : '';
+
+                                    echo '<li class="' . esc_attr($active_class) . '">';
+                                    echo '<a href="' . esc_url($category_link) . '">' . $cat_name . '</a>';
+                                    echo '</li>';
+                                }
                             }
                         }
                         ?>
                     </ul>
+
 
                     <div class="container__news">
                         <div class="items__news">
@@ -81,32 +93,54 @@
                                     while ($the_query->have_posts()): $the_query->the_post();
                                 ?>
 
-                                        <li class="item__news">
-                                            <a href="<?php the_permalink(); ?>">
+                                        <a href="<?php the_permalink(); ?>">
+                                            <li class="item__news">
                                                 <div class="tag__news">
                                                     <h2><?php the_title(); ?></h2>
-                                                    <p><time datetime="<?php the_time('y-m-d'); ?>"><?php the_time('y.m.d') ?> </time></p>
+
+                                                    <div class="subtag__news">
+                                                        <div class="small__category">
+                                                            <?php
+                                                            // 現在の投稿に関連付けられているカテゴリーを取得
+                                                            $categories = get_the_category();
+
+                                                            if (! empty($categories)) {
+                                                                foreach ($categories as $category) {
+                                                                    echo '<p>' . esc_html($category->name) . '</p>';
+                                                                }
+                                                            }
+                                                            ?>
+                                                        </div>
+                                                        <p><time datetime="<?php the_time('y-m-d'); ?>"><?php the_time('y.m.d') ?> </time></p>
+                                                    </div>
+
                                                 </div>
                                                 <div class="note__news">
                                                     <p><?php echo the_excerpt(); ?></p>
                                                 </div>
-                                            </a>
-                                        </li>
+                                            </li>
+                                        </a>
 
                                     <?php endwhile; ?>
                                     <?php wp_reset_postdata(); ?>
+                                <?php else: ?>
+                                    <li class="no__news">
+                                        <p>まだ投稿がありません。</p>
+                                    </li>
                                 <?php endif ?>
 
                             </ul>
 
                             <!-- ページネーション -->
-                            <div class="pagination">
-                                <?php
-                                if (function_exists('wp_pagenavi')) {
-                                    wp_pagenavi(array('query' => $the_query));
-                                }
-                                ?>
-                            </div>
+                            <?php if ($the_query->have_posts()): ?>
+                                <div class="pagination">
+                                    <?php
+                                    if (function_exists('wp_pagenavi')) {
+                                        wp_pagenavi(array('query' => $the_query));
+                                    }
+                                    ?>
+                                </div>
+                            <?php endif; ?>
 
                         </div> <!-- items__newsここまで -->
                     </div> <!-- container__newsここまで -->
