@@ -36,36 +36,24 @@
                     </div>
                     <div class="inner_related-area">
                         <div class="wrap_column-card">
-                            <!-- <div class="inner_column-card"> -->
-                            <div class="container_card-img">
-                                <img class="related_img" src="../../assets/images/pcchild.jpg" alt="施設写真" />
-                            </div>
-                            <div class="container_cardInfo">
-                                <div class="card_title">
-                                    <h2>PROGRAMMING SCHOOL GEEK</h2>
-                                </div>
-                                <div class="card_note">
-                                    <p>みんな パソコン教室に行ったことある？この間 ぼくは初めてパソコン教室に行ったよ！まずは タイピング練習！先生がわかりやすく教えてくれるから すぐできるようになったんだ。それから、プログラミングで自分だけのゲームを作る体験もできたよ。自分のゲームが動いた瞬間は、思わず「やったー！」って声が出た！すごく楽しい一日だったよ。みんなも体験してみて！</p>
-                                </div>
-                                <div class="wrap_edit-date">
-                                    <div class="edit-icon">
-                                        <img src="../../assets/images/pencil.png" alt="編集アイコン">
-                                    </div>
-                                    <div class="edit_date">
-                                        2024年&#9679;月&#9679;日
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- </div> -->
+
+                            <?php
+                            $args = [
+                                'post_type' => 'column',
+                                'posts_per_page'     => 5,
+                                'orderby'        => 'date',
+                                'order'          => 'DESC',
+                            ];
+                            $column_query = new WP_query($args); ?>
+                            <?php
+                            if ($column_query->have_posts()):
+                            ?>
+                                <?php while ($column_query->have_posts()): $column_query->the_post(); ?>
+                                    <?php get_template_part('template-parts/loop', 'column'); ?>
+                                <?php endwhile; ?>
+                                <?php wp_reset_postdata(); ?>
+                            <?php endif ?>
                         </div>
-                        <script>
-                            // コラムカード 繰り返し表示
-                            for (let i = 0; i < 4; i++) {
-                                const card = document.querySelector('.wrap_column-card');
-                                const clone = card.cloneNode(true);
-                                document.querySelector('.inner_related-area').appendChild(clone);
-                            }
-                        </script>
                     </div>
                 </div>
             </aside>
