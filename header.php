@@ -14,7 +14,7 @@ if (!is_user_logged_in() && IS_DEV == true) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
-
+    <title>とくしま習いごとナビ TOPページ</title>
 
     <?php wp_head(); ?>
     <!-- 必ず書いてください-->
@@ -62,9 +62,7 @@ if (!is_user_logged_in() && IS_DEV == true) {
                                 <a href="https://x.com/tokunavi17" target="_blank">
                                     <i class=" fa-brands fa-x-twitter"></i>
                                 </a>
-
                             </div>
-
                         </li>
                     </ul>
                 </div>
@@ -72,15 +70,14 @@ if (!is_user_logged_in() && IS_DEV == true) {
 
             <div class="logo__header">
                 <a href="<?php echo home_url(); ?>">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/karilogo.png" alt="とくしま習いごとナビ">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/rogo.png" alt="とくしま習いごとナビ">
                 </a>
             </div>
 
             <div class="wrap__navi">
                 <a class="menu">
-                    <span class="menu__line menu__line--top"></span>
-                    <span class="menu__line menu__line--center"></span>
-                    <span class="menu__line menu__line--bottom"></span>
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/hg_menu.png" alt="hg_menu" class="btn__menu">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/hg_close.png" alt="close-btn" class="btn__close">
                 </a>
             </div>
     </header>
