@@ -1,18 +1,18 @@
 @charset "UTF-8";
 
 /*** ここから コラム一覧共通部分 ***/
-main{
+main {
     background-image: none;
     background-color: #FFF;
 }
 
-.inner__main{
+.inner__main {
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
 }
 
-.container__breadCrumb{
+.container__breadCrumb {
     width: 100%;
     padding-top: 15px;
 }
@@ -64,14 +64,18 @@ main{
 .inner__column-area {
     width: 390px;
     margin: 0 auto;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,
+            minmax(360px, 1fr));
+    gap: 42px;
+    /* display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-content: flex-start;
+    align-content: flex-start; */
 }
 
 /* カードの囲い */
-.wrap__column-card{
+.wrap__column-card {
     width: 350px;
     background-color: transparent;
     margin: 15px auto;
@@ -98,7 +102,7 @@ main{
 
 /* カードタイトル */
 .card_title>h2 {
-    width:100%;
+    width: 100%;
     font-size: 2.7rem;
     line-height: 39px;
 }
@@ -154,29 +158,29 @@ main{
 
 @media screen and (min-width: 780px) {
 
-.inner__column-area {
-    max-width: 1040px;
-    width: 100%;
-}
+    .inner__column-area {
+        max-width: 1040px;
+        width: 100%;
+    }
 
-/* カード落ち 補完 */
-.inner__column-area::after {
-    content: "";
-    display: block;
-    width: 50%;
-}
+    /* カード落ち 補完 */
+    .inner__column-area::after {
+        content: "";
+        display: block;
+        width: 50%;
+    }
 }
 
 @media screen and (min-width: 1170px) {
-.inner__column-area {
-    max-width: 1200px;
-    width: 100%;
-}
+    .inner__column-area {
+        max-width: 1200px;
+        width: 100%;
+    }
 
-/* カード落ち 補完 */
-.inner__column-area::after {
-    width: 33.3%;
-}
+    /* カード落ち 補完 */
+    .inner__column-area::after {
+        width: 33.3%;
+    }
 }
 
 /*** メディアクエリここまで ***/

@@ -34,27 +34,26 @@
                     <div class="container_related-title">
                         <h2>関連記事</h2>
                     </div>
-                    <div class="inner_related-area">
-                        <div class="wrap_column-card">
-
-                            <?php
-                            $args = [
-                                'post_type' => 'column',
-                                'posts_per_page'     => 5,
-                                'orderby'        => 'date',
-                                'order'          => 'DESC',
-                            ];
-                            $column_query = new WP_query($args); ?>
-                            <?php
-                            if ($column_query->have_posts()):
-                            ?>
-                                <?php while ($column_query->have_posts()): $column_query->the_post(); ?>
+                    <?php
+                    $args = [
+                        'post_type' => 'column',
+                        'posts_per_page'     => 5,
+                        'orderby'        => 'date',
+                        'order'          => 'DESC',
+                    ];
+                    $column_query = new WP_query($args); ?>
+                    <?php
+                    if ($column_query->have_posts()):
+                    ?>
+                        <div class="inner_related-area">
+                            <?php while ($column_query->have_posts()): $column_query->the_post(); ?>
+                                <div class="wrap_column-card">
                                     <?php get_template_part('template-parts/loop', 'column'); ?>
-                                <?php endwhile; ?>
+                                </div>
                                 <?php wp_reset_postdata(); ?>
-                            <?php endif ?>
+                            <?php endwhile; ?>
                         </div>
-                    </div>
+                    <?php endif ?>
                 </div>
             </aside>
         </section>

@@ -8,6 +8,20 @@
             </div>
         </div>
 
+
+        <?php
+        $colurmn_terms = get_terms(['taxonomy' => 'column_type']);
+        ?>
+        <?php
+        if (!empty($colurmn_terms)): ?>
+            <?php foreach ($colurmn_terms as $column): ?>
+                <div>
+                    <a href="<?php echo get_term_link($column);
+                                ?>"><?= $column->name ?></a>
+                </div>
+            <?php endforeach; ?>
+        <?php endif ?>
+
         <!-- コラム一覧カード -->
         <div class="inner__column">
             <div class="title__column">
