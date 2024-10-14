@@ -150,6 +150,16 @@ input[type="checkbox"] {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
+/* プライバシーポリシーへの案内文 */
+.des__policy{
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+.des__policy a:link {
+    text-decoration: underline;
+}
+
 .policy {
     width: 300px;
     margin-left: auto;
