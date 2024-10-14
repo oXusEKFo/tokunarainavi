@@ -1,60 +1,93 @@
 <?php get_header(); ?>
-<?php
-wp_enqueue_style('test', get_template_directory_uri() . '/assets/css/test.css');
-wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js');
-?>
-<link href="../../assets/css/searchpopup.css" rel="stylesheet" />
+
 <main>
     <div class="inner__main">
-        <section class="landing">
+        <div class="landing">
+            <!-- KV 静的-->
             <div class="inner__landing">
-                <!-- KV 静的-->
                 <div class="wrap__kv">
-                    <div class="container__kv-Mo">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/kv_mo.png" alt="kv_mobile">
-                    </div>
-                    <div class="container__kv-Pc">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/kv_p.png" alt="kv_pc">
+                    <div class="container__kv">
+                        <!-- キャッチコピー -->
+                        <h1 class="kv__title">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/kv_title.png" alt="title" class="title__img">
+                        </h1>
+                        <!-- 飾り -->
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/deco1.png" alt="decoration1" class="deco1">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/deco2.png" alt="decoration2" class="deco2">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/kv_img2.png" alt="decoration3" class="deco3">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/kv_img2.png" alt="decoration4" class="deco4">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/kv_img4.png" alt="decoration5" class="deco5">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/kv_img4.png" alt="decoration6" class="deco6">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/kv_img1.png" alt="decoration7" class="deco7">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/kv_img4.png" alt="decoration8" class="deco8">
+                        <!-- キャラクター -->
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/english_conversation.png" alt="英語学習" class="en_learning">
+
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/soccer_player.png" alt="サッカー" class="soccer-player kick">
+
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/soccer_ball.png" alt="サッカーボール" class="soccer-ball kicked-ball">
+                        <!-- 新体操モバイル用 -->
+                        <div class="gym">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gymnastics.png" alt="新体操" class="rg--stop">
+                        </div>
+                        <!-- 新体操PC用 -->
+                        <div class="gym swing2">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gym.png" alt="新体操" class="rg--move">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ribbon.png" alt="リボン" class="ribbon rot">
+                        </div>
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/parent_child.png" alt="親子" class="cap">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/treble_clef.png" alt="四分音符" class="symbol1">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/musical_note.png" alt="音符" class="symbol2">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/awa_odori.png" alt="阿波おどり" class="awa-odori dance">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/piano.png" alt="ピアノ" class="piano">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/swimming.png" alt="水泳" class="swimming swim">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/drawing.png" alt="絵描き" class="drawing">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/stars.png" alt="星" class="stars__kv">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/sun.png" alt="太陽" class="sun">
                     </div>
                 </div>
-                <!-- end KV -->
-
-                <!-- about 動的 -->
-                <div class="about">
-                    <?php
-                    $args = [
-                        'post_type' => 'page',
-                        'post__in' => ['174'],
-                    ];
-                    $the_query = new WP_Query($args);
-                    if ($the_query->have_posts()):
-                        while ($the_query->have_posts()): $the_query->the_post();
-                    ?>
-                            <div class="container__about">
-                                <div class="note__about">
-                                    <?php echo the_excerpt(); ?>
-                                </div>
-                                <div class="image__about">
-                                    <img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="about">
-                                </div>
-                            </div>
-                        <?php endwhile; ?>
-                        <?php wp_reset_postdata(); ?>
-                    <?php endif ?>
-                </div>
-                <!-- end about -->
-
             </div>
-        </section>
+            <!-- end KV -->
+
+            <!-- 白背景の余白スペース -->
+            <div class="clearance"></div>
+
+            <!-- about 動的 -->
+            <div class="about">
+                <?php
+                $args = [
+                    'post_type' => 'page',
+                    'post__in' => ['174'],
+                ];
+                $the_query = new WP_Query($args);
+                if ($the_query->have_posts()):
+                    while ($the_query->have_posts()): $the_query->the_post();
+                ?>
+                        <!-- <div class="container__about  box fadeIn"> -->
+                        <div class="container__about ">
+                            <div class="note__about">
+                                <?php echo the_excerpt(); ?>
+                            </div>
+                            <div class="image__about">
+                                <img src="<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>" alt="about">
+                            </div>
+                        </div>
+                    <?php endwhile; ?>
+                    <?php wp_reset_postdata(); ?>
+                <?php endif ?>
+            </div>
+            <!-- end about -->
+        </div>
 
         <!-- 白背景の余白スペース -->
         <div class="clearance"></div>
 
         <!-- 検索search -->
-        <section class="search">
+        <div class="search">
+            <!-- <div class="container__search box fadeIn"> -->
             <div class="container__search">
                 <div class="title__search">
-                    <h1>SERACH</h1>
+                    <h2>SERACH</h2>
                     <p>検索</p>
                     <img src="<?php echo get_template_directory_uri();  ?>/assets/images/matcha.png" alt="みどり円">
                 </div>
@@ -65,7 +98,7 @@ wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js'
                     <div class="search_container" id="popup_area" style="display: none;">
                         <div class="close_button" onclick="closePopup()">&times;</div> <!-- &times; --× -->
                         <div class="search_header">
-                            <h1>エリアを選ぶ</h1>
+                            <h3>エリアを選ぶ</h3>
                         </div>
                         <form method="GET" action="<?php echo home_url(); ?>">
                             <input type="hidden" name="s" value="">
@@ -178,7 +211,7 @@ wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js'
                     <div class="search_container" id="popup_age" style="display: none;">
                         <div class="close_button" onclick="closePopup()">&times;</div>
                         <div class="search_header">
-                            <h1>年齢を選ぶ</h1>
+                            <h3>年齢を選ぶ</h3>
                         </div>
                         <form method="GET" action="<?php echo home_url(); ?>">
                             <input type="hidden" name="s" value="">
@@ -223,7 +256,7 @@ wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js'
                     <div class="search_container" id="popup_genre" style="display: none;">
                         <div class="close_button" onclick="closePopup()">&times;</div>
                         <div class="search_header">
-                            <h1>ジャンルを選ぶ</h1>
+                            <h3>ジャンルを選ぶ</h3>
                         </div>
                         <form method="GET" action="<?php echo home_url(); ?>">
                             <input type="hidden" name="s" value="">
@@ -299,29 +332,34 @@ wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js'
                     <div class="box__search">
                         <div class="inner__search-box">
                             <input class="window__search" type="search" name="s" value="<?php the_search_query(); ?>" placeholder="キーワードを入力してください">
-                            <button class="btn__search" type="submit"> <i class="fa-solid fa-magnifying-glass"></i></button>
+                            <button class="btn__search" type="submit">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
                         </div>
                     </div>
                 </form>
                 <!-- end キーワード検索 -->
+                <div class="boy__character fade__in">
+                    <img class="boy__programmer" src="<?php echo get_template_directory_uri(); ?>/assets/images/programming.png" alt="プログラマー">
+                    <img class="boy__idea" src="<?php echo get_template_directory_uri(); ?>/assets/images/idea.png" alt="アイデア">
+                    <img class="boy__pochi" src="<?php echo get_template_directory_uri(); ?>/assets/images/pochi.png" alt="ポチ">
+                </div>
             </div>
-            <!-- <button class="button__more-search">
-                        <a href="<?php echo home_url(); ?>/?s=">詳細検索は<br>こちら</a>
-                    </button> -->
-
-        </section>
+        </div>
 
         <!-- 白背景の余白スペース -->
         <div class="clearance"></div>
 
         <!-- ランキング -->
-        <section class="ranking">
+        <div class="ranking">
+            <!-- <div class="inner__ranking box fadeIn"> -->
             <div class="inner__ranking">
                 <div class="title__ranking">
-                    <h1>RANKING</h1>
+                    <h2>RANKING</h2>
                     <p>アクセスランキング</p>
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/creamcircle.png" alt="クリーム円">
                 </div>
+                <!-- <div class="order__ranking  box fadeIn"> -->
                 <div class="order__ranking">
                     <form method="GET" action="<?php echo home_url(); ?>">
                         <input type="hidden" name="s" value="">
@@ -363,23 +401,30 @@ wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js'
                     </form>
                 </div>
             </div>
-        </section>
+        </div>
+
         <!-- 白背景の余白スペース -->
         <div class="clearance"></div>
         <!-- とくしまの習いごとアンケート -->
         <div class="survey-results">
-            <div class="inner__survey">
+            <!-- <div class="inner__survey box fadeIn"> -->
+            <div class="inner__survey ">
                 <div class="banner__survey">
                     <a href="<?php echo home_url('/fushion'); ?>">徳島の習いごと事情</a>
                 </div>
             </div>
         </div>
+
+        <!-- 白背景の余白スペース -->
+        <div class="clearance"></div>
         <!-- column -->
-        <section class="column">
-            <div class="inner__column">
+        <div class="column">
+            <!-- <div class="inner__column  box fadeIn"> -->
+            <div class="inner__column  ">
+                <img class="spike__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/spike.png" alt="spike">
                 <div class="title__column">
-                    <h1 class="box fadeIn">COLUMN</h1>
-                    <p class="box fadeIn">コラム</p>
+                    <h2>COLUMN</h2>
+                    <p>コラム</p>
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/matcha.png" alt="みどり円">
                 </div>
                 <!-- スライダー ここから -->
@@ -407,18 +452,25 @@ wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js'
                 </div>
             </div>
             <!-- スライダー ここまで -->
-            <button class=" button__more-column">
-                <a href="<?php echo home_url('/column'); ?>">MORE</a>
-            </button>
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bear2.png" alt="Bear" class="bear__image-column">
-        </section>
+            <!-- <div class="box fadeIn"> -->
+            <div>
+                <button class=" button__more-column" onclick="window.location.href='<?php echo home_url('/column'); ?>'">MORE</button>
+
+
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bear2.png" alt="Bear" class="bear__image-column">
+            </div>
+        </div>
+
         <!-- 白背景の余白スペース -->
         <div class="clearance"></div>
-
         <!-- NEWS -->
-        <section class="news">
+        <!-- <div class="news box fadeIn"> -->
+        <div class="news">
+            <img class="tennis__boy y__flip" src="<?php echo get_template_directory_uri(); ?>/assets/images/tennis.png" alt="テニスボーイ">
+            <img class="english__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/english_book.png" alt="englishbook">
+            <img class="helmet__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/helmet_bat.png" alt="helmetbat">
             <div class="title__news">
-                <h1>NEWS</h1>
+                <h2>NEWS</h2>
                 <p>新着情報</p>
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/creamcircle.png" alt="クリーム円">
             </div>
@@ -438,17 +490,16 @@ wp_enqueue_script('test_js', get_template_directory_uri() . '/assets/js/test.js'
                                 <?php wp_reset_postdata(); ?>
                             </ul>
                         </div>
-                        <button class="button__more-news">
-                            <a href="<?php echo home_url('/category/news') ?>">MORE</a>
-                        </button>
+                        <button class="button__more-news" onclick="window.location.href='<?php echo home_url('/category/news') ?>'">MORE</button>
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bear2.png" alt="Bear" class="bear__image-news">
                     </div>
                 </div>
             <?php endif ?>
-        </section>
+        </div>
+        <!-- end news -->
+
         <!-- 白背景の余白スペース -->
         <div class="clearance"></div>
-        <!-- end news -->
     </div>
 </main>
 <?php get_footer(); ?>
