@@ -3,10 +3,9 @@
 jQuery(function ($) {
     // ハンバーガーメニュー
     $('.menu').on('click', function () {
-        $('.menu__line').toggleClass('active');
+        $('.btn__menu, .btn__close').toggleClass('active');
         $('.gnav').fadeToggle();
     });
-
 
 
     // Enterキーで検索ボタンクリック
