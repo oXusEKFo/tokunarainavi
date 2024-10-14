@@ -128,6 +128,10 @@ function add_style_script()
         //条件検索CSS
         wp_enqueue_style('tokunavi_search', get_template_directory_uri() . '/assets/css/results.css');
         wp_enqueue_style('tokunavi_searchpopup_css', get_template_directory_uri() . '/assets/css/searchpopup.css');
+        wp_enqueue_style(
+            'page_navi_style',
+            get_template_directory_uri() . '/assets/css/page_navi.css'
+        );
 
         wp_enqueue_script(
             'tokunavi_searchpopup-js',
@@ -181,6 +185,10 @@ function add_style_script()
             'tokunavi_favorite',
             get_template_directory_uri() . '/assets/css/favorite.css'
         );
+        wp_enqueue_style(
+            'page_navi_style',
+            get_template_directory_uri() . '/assets/css/page_navi.css'
+        );
     } elseif (is_page('about')) {
         // page-about.php
         wp_enqueue_style('tokunavi_about', get_template_directory_uri() . '/assets/css/about.css');
@@ -190,11 +198,19 @@ function add_style_script()
             'tokunavi_news_list',
             get_template_directory_uri() . '/assets/css/news_list.css'
         );
+        wp_enqueue_style(
+            'page_navi_style',
+            get_template_directory_uri() . '/assets/css/page_navi.css'
+        );
     } elseif (is_single()) {
         // ニュース詳細（現在のcssは仮です）
-        wp_enqueue_style(
+        /* wp_enqueue_style(
             'tokunavi_news_more',
             get_template_directory_uri() . '/assets/css/news_list.css'
+        ); */
+        wp_enqueue_style(
+            'tokunavi_news',
+            get_template_directory_uri() . '/assets/css/news.css'
         );
     } elseif (is_page('service')) {
         // 利用規約
