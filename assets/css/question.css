@@ -22,29 +22,26 @@
 
 /* 下線 */
 .under-Line {
-    border-bottom: solid 1px #463D3B;
+    border-bottom: solid 1px #463d3b;
 }
 
 /*** 習いごと事情 共通部分 ここまで ***/
 
+/* kv部 */
 
-/* ランディング部 */
-
-.inner__landing {
-    background-color: #ED6D1F;
+.inner__kv {
+    background-color: #eadaa5;
     max-width: 1440px;
     width: 100%;
     height: auto;
     margin: 0 auto;
 }
 
-.wrap__question_kv{
+.wrap__question_kv {
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
 }
-
-/* question（とりあえず画像 あとで作り込み） */
 
 .container__question_kv_mo {
     display: block;
@@ -57,40 +54,35 @@
 .container__question_kv_mo {
     max-width: 390px;
     width: 100%;
-    height: auto;
+    height: 200px;
     margin: 0 auto;
 }
 
 /* モバイル用question */
-.container__question_kv_mo>img{
+.container__question_kv_mo > img {
     width: 100%;
     height: auto;
     object-fit: cover;
 }
 
-/* とくしま習いごとナビ について */
-
+/* とくしま習いごと事情 */
 
 /*** タイトル関連 ここから ***/
 .title__question {
-    color: #463D3B;
+    color: #463d3b;
     text-align: center;
-    width: 1000px;
-    margin: 0 auto;
+    width: 1200px;
+    margin: 40px auto;
     position: relative;
 }
 
-
-/* メイン */
-
-.question_text {
-    width: 100%;
-    background-color: #FFF;
-    padding: 20px 0;
+.title__question > h1 {
+    font-size: 24px;
+    margin: 40px;
+    padding-bottom: 20px;
 }
 
-
-.title__question>p {
+.title__question > p {
     font-size: 18px;
     line-height: 2.5rem;
     text-align: left;
@@ -98,10 +90,36 @@
     margin: 0 auto;
 }
 
+.top10 {
+    position: relative;
+    padding: 0.75em 0.75em;
+    text-align: center;
+    border-top: solid 3px #463d3b;
+    border-bottom: solid 3px #463d3b;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 60px;
+}
+.top10:before,
+.top10:after {
+    content: "";
+    position: absolute;
+    top: -0.5em;
+    width: 3px;
+    height: calc(100% + 1em);
+    background-color: #463d3b;
+}
+.top10:before {
+    left: 0.5em;
+}
+.top10:after {
+    right: 0.5em;
+}
+
 /*** タイトル関連 ここまで ***/
 
 /* TOP10罫線2カラムエリア */
-.inner__question{
+.inner__question {
     background-color: #fff;
     max-width: 1440px;
     width: 100%;
@@ -115,16 +133,16 @@
 
 .order__question1,
 .order__question2 {
-    background-color: #FFF;
+    background-color: #fff;
     width: 500px;
     height: auto;
-    padding: 30px 0 0;
+    /* padding: 30px 0 0; */
     margin: 0 auto;
     border-radius: 10px;
 }
 
-.order{
-    font-size: 2.0rem;
+.order {
+    font-size: 2rem;
     text-align: left;
     line-height: 60px;
     width: 300px;
@@ -132,84 +150,95 @@
     padding: 0 0 0 10px;
     margin: 0 auto;
     width: 100%;
-    border-bottom: solid 1px #463D3B;
+    border-bottom: dashed 2px #463d3b;
 }
 
 .order::before {
-    content: '';
+    content: attr(data-order); /* data-order属性から内容を取得 */
     display: inline-block;
-    background-image: url(../images/crown.png);
+    background-image: url(../images/top1.png);
     width: 50px;
-    height: 30px;
-    margin: 0 10px 0 0;
-    background-size: contain;
-    vertical-align: middle;
+    height: 60px;
+    margin: 0 30px 0 0;
+    background-size: contain; /* 画像のサイズをコンテナに合わせる */
+    background-repeat: no-repeat; /* 画像のリピートを無効にする */
+    vertical-align: middle; /* 画像の高さを枠の真ん中にする */
+    color: transparent; /* 文字を透明にする */
 }
 
-/* 円グラフエリア */
-
-.chart {
-    width: 100%;
-    /* background-color: #fff; */
-    padding: 20px 0;
+/* 1～3番目のスタイル */
+.order[data-order="1"]::before {
+    background-image: url(../images/top1.png);
+}
+.order[data-order="2"]::before {
+    background-image: url(../images/top2.png);
+}
+.order[data-order="3"]::before {
+    background-image: url(../images/top3.png);
 }
 
-.container__chart {
-    width: 480px;
-    margin: 0 auto;
+/* 1番目のスタイル */
+.order[data-order="1"] {
+    height: 100px; /* 1番目の高さを100pxに設定 */
+    line-height: 100px; /* 縦中央揃えのための行の高さ */
 }
 
-.image__chart {
-    width: 80%;
-    height: auto;
-    margin: 20px auto 0;
+/* 2番目と3番目のスタイル */
+.order[data-order="2"],
+.order[data-order="3"] {
+    height: 70px; /* 2番目と3番目の高さを70pxに設定 */
+    line-height: 70px; /* 縦中央揃えのための行の高さ */
 }
 
-.image__chart>img {
-    width: 480px;
-    height: auto;
+/* 4～10番目のスタイル */
+.order[data-order="4"]::before {
+    background-image: url(../images/top4.png);
+}
+.order[data-order="5"]::before {
+    background-image: url(../images/top5.png);
+}
+.order[data-order="6"]::before {
+    background-image: url(../images/top6.png);
+}
+.order[data-order="7"]::before {
+    background-image: url(../images/top7.png);
+}
+.order[data-order="8"]::before {
+    background-image: url(../images/top8.png);
+}
+.order[data-order="9"]::before {
+    background-image: url(../images/top9.png);
+}
+.order[data-order="10"]::before {
+    background-image: url(../images/top10.png);
 }
 
-.chart p {
-    font-size: 18px;
-    color: #463D3B;
-    margin: 40px 0;
-    padding-bottom: 5px;
-    line-height: 1.5;
-}
+/* 円・棒グラフエリア */
 
-.image__chart,
-.order__question1,
-.order__question2 {
-    width: 490px;
-    height: auto;
-    margin: 0 auto;
-    /* 中央揃え */
-}
-
-
-/* グラフエリアタイトル */
 .title_decor {
     position: relative;
-    padding: .5em .7em .4em;
-    border-bottom: 3px solid #463D3B;
-    color: #463D3B;
-    width: 480px;
+    padding: 0.5em 0.7em 0.4em;
+    border-bottom: 3px solid #463d3b;
+    color: #463d3b;
+    width: 100%;
+    max-width: 390px;
+    text-align: center;
 }
 
 .title_decor::before,
 .title_decor::after {
     position: absolute;
-    left: 30px;
+    left: 50%;
+    transform: translateX(-50%);
     bottom: -15px;
     width: 30px;
     height: 15px;
     clip-path: polygon(0 0, 100% 0, 50% 100%);
-    content: '';
+    content: "";
 }
 
 .title_decor::before {
-    background-color: #463D3B;
+    background-color: #463d3b;
 }
 
 .title_decor::after {
@@ -217,25 +246,58 @@
     background-color: #fff;
 }
 
-h4 {
-    font-size: 24px;
-    margin: 40px;
-    /* border-bottom: 1px dashed #463D3B; */
-    padding-bottom: 20px;
-}
-
-
-.clearance{
-    background-color: #FFF;
-    max-width: 1440px;
+.chart {
     width: 100%;
-    height: 70px;
-    margin: 0 auto;
+    /* background-color: #fff; */
+    padding: 20px 0;
+    text-align: center;
 }
 
+.container__chart {
+    width: 100%;
+    max-width: 390px;
+    margin: 0 auto;
+    text-align: center;
+}
 
-@media screen and (min-width: 780px){
+.image__chart {
+    width: 100%;
+    max-width: 390px;
+    height: auto;
+    margin: 20px auto 0;
+    text-align: center;
+}
 
+.image__chart > img {
+    width: 100%;
+    max-width: 390px;
+    height: auto;
+}
+
+/* .chart p {
+    font-size: 18px;
+    color: #463d3b;
+    margin: 40px 0;
+    padding-bottom: 5px;
+    line-height: 1.5;
+} */
+
+.image__chart,
+.order__question1,
+.order__question2 {
+    width: 100%;
+    max-width: 390px;
+    height: auto;
+    margin: 0 auto;
+    /* 中央揃え */
+}
+
+h2 {
+    font-size: 24px;
+    margin: 40px auto;
+}
+
+@media screen and (min-width: 780px) {
     .container__question_kv_mo {
         display: none;
     }
@@ -243,26 +305,16 @@ h4 {
     /* PC用question容器 */
     .container__question_kv_p {
         display: block;
-        max-width: 800px;
+        max-width: 1200px;
         width: 100%;
         margin: 0 auto;
     }
 
-        /* PC用question */
-    .container__question_kv_p>img {
+    /* PC用question */
+    .container__question_kv_p > img {
         width: 100%;
         height: auto;
         object-fit: cover;
-    }
-
-    .note__chart{
-        margin: 0 auto;
-    }
-
-    .note__chart>p {
-        font-size: 1.8rem;
-        line-height: 3.1rem;
-        text-align: left;
     }
 
     .container__chart {
@@ -278,29 +330,26 @@ h4 {
     .order__question1,
     .order__question2 {
         width: 100%; /* レスポンシブ時に幅を100%に */
-        max-width: 490px; /* 最大幅を490pxに */
+        max-width: 390px; /* 最大幅を390pxに */
         margin: 0 auto; /* 中央に配置 */
+        text-align: center;
     }
 
-
-
     /* タイトル */
-    .title_question {
-        color: #00B0AA;
+    /* .title_question {
+        color: #00b0aa;
         text-align: center;
         width: 370px;
         position: relative;
-    }
+    } */
 
     /* メイン */
-    .title_question>h4 {
+    .title_question > h2 {
         font-size: 9.1rem;
         width: 100%;
     }
-
-
-    .clearance {
-        height: 70px;
+    .h1 {
+        font-size: 9.1rem;
+        width: 100%;
     }
-
 }
