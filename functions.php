@@ -140,7 +140,12 @@ function add_style_script()
             '',
             true
         );
-    } elseif (is_post_type_archive('column')) {
+    } elseif (is_post_type_archive('column') || is_tax('column_type')) {
+        //コラムリスト
+        wp_enqueue_style(
+            'tokunavi_column_list_style',
+            get_template_directory_uri() . '/assets/css/column_list.css',
+        );
     } elseif (is_singular('column')) {
         //コラム記事CSS
         wp_enqueue_style(

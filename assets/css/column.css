@@ -175,7 +175,8 @@ main {
 .inner_related-area {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, 300px);
+    grid-template-columns: repeat(auto-fit,
+            minmax(360px, 1fr));
     gap: 42px;
 }
 

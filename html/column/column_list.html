@@ -17,71 +17,63 @@
 </head>
 
 <body>
-<main>
-    <!--  -->
-<div class="inner__main">
-    <div class="container__breadCrumb">
-            <div class="breadCrumb">
-                <p>TOP &gt;
+    <main>
+        <!--  -->
+        <div class="inner__main">
+            <div class="container__breadCrumb">
+                <div class="breadCrumb">
+                    <p>TOP &gt;
                     <span class="underLine">コラム一覧</span>
                 </p>
+                </div>
             </div>
-    </div>
 
-        <!-- コラム一覧カード -->
-    <div class="column__area">
-        <div class="column__title">
-            <h1>COLUMN</h1>
-            <p>コラム</p>
-        </div>
+            <!-- コラム一覧カード -->
+            <div class="column__area">
+                <div class="column__title">
+                    <h1>COLUMN</h1>
+                    <p>コラム</p>
+                </div>
 
-            <div class="inner__column-area">
-                <div class="wrap__column-card">
-                    <div class="inner__column-card">
-                        <div class="container__card-img">
-                            <img class="card_img" src="../../assets/images/pcchild.jpg" alt="施設写真"  width="300" height="200" />
-                        </div>
-                        <div class="container__card-info">
-                            <div class="card_title">
-                                <h2>PROGRAMMING SCHOOL GEEK</h2>
+                <div class="inner__column-area">
+                    <div class="wrap__column-card">
+                        <div class="inner__column-card">
+                            <div class="container__card-img">
+                                <img class="card_img" src="../../assets/images/pcchild.jpg" alt="施設写真" width="300" height="200" />
                             </div>
-                            <div class="card__note">
-                                <p>みんな パソコン教室に行ったことある？この間 ぼくは初めてパソコン教室に行ったよ！まずは タイピング練習！先生がわかりやすく教えてくれるから すぐできるようになったんだ。それから、プログラミングで自分だけのゲームを作る体験もできたよ。自分のゲームが動いた瞬間は、思わず「やったー！」って声が出た！すごく楽しい一日だったよ。みんなも体験してみて！</p>
-                            </div>
-                            <div class="wrap__card-date">
-                                <div class="card__edit-icon">
-                                    <img src="../../assets/images/pencil.png" alt="編集アイコン" width="30" height="30" >
+                            <div class="container__card-info">
+                                <div class="card_title">
+                                    <h2>PROGRAMMING SCHOOL GEEK</h2>
                                 </div>
-                                <div class="card__date">
-                                    2024年&#9679;月&#9679;日
+                                <div class="card__note">
+                                    <p>みんな パソコン教室に行ったことある？この間 ぼくは初めてパソコン教室に行ったよ！まずは タイピング練習！先生がわかりやすく教えてくれるから すぐできるようになったんだ。それから、プログラミングで自分だけのゲームを作る体験もできたよ。自分のゲームが動いた瞬間は、思わず「やったー！」って声が出た！すごく楽しい一日だったよ。みんなも体験してみて！</p>
+                                </div>
+                                <div class="wrap__card-date">
+                                    <div class="card__edit-icon">
+                                        <img src="../../assets/images/pencil.png" alt="編集アイコン" width="30" height="30">
+                                    </div>
+                                    <div class="card__date">
+                                        2024年&#9679;月&#9679;日
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                        <script>
-                // コラムカード 繰り返し表示
-                for (let i = 0; i < 3; i++) {
-                    const card = document.querySelector('.wrap__column-card');
-                    const clone = card.cloneNode(true);
-                    document.querySelector('.inner__column-area').appendChild(clone);
-                }
-                        </script>
             </div>
-        </div>
-        <!-- コラムカードここまで -->
+            <!-- コラムカードここまで -->
 
-    <div class="column__footer">
-            <div class="container__page-num">
-                <div class="column_page-num">
-                    <p>
+            <div class="column__footer">
+                <div class="container__page-num">
+                    <div class="column_page-num">
+                        <p>
                         &lt;　1　2　3　&gt;
                     </p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</main>
+    </main>
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous"></script>
 </body>
