@@ -386,11 +386,12 @@
                                     <li class="order">
                                         <button type="submit" name="classtype[]" value="<?php echo $term->slug; ?>">
                                             <?php echo $term->name; ?>
-                                            <small>
+                                            <!-- クリック回数 -->
+                                            <!-- <small>
                                                 <?php
                                                 echo 'click' . esc_html($view_count);
                                                 ?>
-                                            </small>
+                                            </small> -->
                                         </button>
                                     </li>
                             <?php
