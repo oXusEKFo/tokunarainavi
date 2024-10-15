@@ -66,8 +66,8 @@ main {
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit,
-            minmax(360px, 1fr));
-    gap: 42px;
+            minmax(390px, 1fr));
+    gap: 0px;
     /* display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -76,7 +76,7 @@ main {
 
 /* カードの囲い */
 .wrap__column-card {
-    width: 350px;
+    width: 390px;
     background-color: transparent;
     margin: 15px auto;
     /* border-bottom: solid 1px #00B0AA; */
