@@ -8,7 +8,7 @@
                 <div class="wrap__kv">
                     <div class="container__kv">
                         <!-- キャッチコピー -->
-                        <h1 class="kv__title">
+                        <h1 class="kv__title fadeIn">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/kv_title.png" alt="title" class="title__img">
                         </h1>
                         <!-- 飾り -->
@@ -93,9 +93,9 @@
 
                 <div class="options__search">
 
-                    <button class="option__search" onclick="togglePopup('popup_area')">エリアを選ぶ</button>
-                    <button class="option__search" onclick="togglePopup('popup_age')">年齢を選ぶ</button>
-                    <button class="option__search" onclick="togglePopup('popup_genre')">ジャンルを選ぶ</button>
+                    <button type="button" class="option__search" onclick="togglePopup('popup_area')">エリアを選ぶ</button>
+                    <button type="button" class="option__search" onclick="togglePopup('popup_age')">年齢を選ぶ</button>
+                    <button type="button" class="option__search" onclick="togglePopup('popup_genre')">ジャンルを選ぶ</button>
                     <form method="GET" action="<?php echo home_url(); ?>">
                         <input type="hidden" name="s" value="">
                         <!-- エリアを選ぶ -->
@@ -246,10 +246,10 @@
                             <div class="search_actions">
                                 <button class="search_button" type="submit">この条件で検索する</button>
                                 <div class="additional-buttons">
-                                    <button onclick="toggleAreaPopup()">エリアも選ぶ</button>
-                                    <button onclick="toggleGenrePopup()">ジャンルも選ぶ</button>
+                                    <button type="button" onclick="toggleAreaPopup()">エリアも選ぶ</button>
+                                    <button type="button" onclick="toggleGenrePopup()">ジャンルも選ぶ</button>
                                 </div>
-                                <button class="clear_button" onclick="clearSelections()">すべてクリア</button>
+                                <button type="button" class="clear_button" onclick="clearSelections()">すべてクリア</button>
                             </div>
                             <!-- </form> -->
                         </div>
@@ -280,7 +280,7 @@
                                 ?>
                                             <label class="search_option_suboption">
                                                 <input type="checkbox" onclick="toggleAccordion('<?php echo $parent_term->slug; ?>')"> <?php echo $parent_term->name; ?><span class="plus">&#x2B;</span>
-                                                </button>
+
                                             </label>
 
                                             <div id="<?php echo $parent_term->slug; ?>" class="accordion_content">
@@ -320,8 +320,8 @@
                                 <div class="search_actions">
                                     <button type="submit" class="search_button" onclick="">この条件で検索する</button>
                                     <div class="additional-buttons">
-                                        <button onclick="toggleAreaPopup()">エリアも選ぶ</button>
-                                        <button onclick="toggleAgePopup()">年齢も選ぶ</button>
+                                        <button type="button" onclick="toggleAreaPopup()">エリアも選ぶ</button>
+                                        <button type="button" onclick="toggleAgePopup()">年齢も選ぶ</button>
                                     </div>
                                     <button class="clear_button" onclick="clearSelections()">すべてクリア</button>
                                 </div>
