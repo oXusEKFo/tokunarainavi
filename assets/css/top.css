@@ -141,7 +141,7 @@
     position: absolute;
     top: 17%;
     left: 65%;
-    z-index: 12;
+    z-index: 11;
 }
 
 /* イラスト：新体操選手(動きなし) */
@@ -287,7 +287,7 @@
     }
 
     100% {
-        transform: translateY(-200px) translateX(-400px);
+        transform: translateY(-300px) translateX(-500px);
     }
 }
 
