@@ -165,9 +165,9 @@ main {
 
     /* カード落ち 補完 */
     .inner__column-area::after {
-        content: "";
+        /* content: "";
         display: block;
-        width: 50%;
+        width: 50%; */
     }
 }
 
@@ -179,7 +179,7 @@ main {
 
     /* カード落ち 補完 */
     .inner__column-area::after {
-        width: 33.3%;
+        /* width: 33.3%; */
     }
 }
 

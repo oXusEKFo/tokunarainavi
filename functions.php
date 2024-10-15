@@ -281,7 +281,7 @@ function my_pre_get_posts($query)
     //search画面
     if ($query->is_search()) {
         $query->set('post_type', 'classroom');
-        $query->set('posts_per_page', 12);
+        $query->set('posts_per_page', 9);
         return;
     }
 }

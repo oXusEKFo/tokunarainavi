@@ -12,7 +12,7 @@ $data = [
 ];
 
 // echo '<pre>';
-// print_r($area_terms);
+// print_r($_GET);
 // echo '</pre>';
 foreach ($data as $value) {
   $taxonomy_name[] = $value[0]->taxonomy;
@@ -31,7 +31,7 @@ $count2 = 0;
     <div class="inner_main">
       <!--パンくずリスト-->
       <div class="container_breadcrumb">
-        <div class="breadcrumb">
+        <div class="breadCrumb">
           <?php get_template_part('template-parts/breadcrumb'); ?>
         </div>
       </div>
@@ -43,7 +43,7 @@ $count2 = 0;
           //選択項目の保持と選択項目の名前の取得
           //各タクソノミーでループ 名前の取得まで
           foreach ($data as $terms) {
-            $term_name[$taxonomy_name[$count]] = '指定なし';
+            $term_limited[$taxonomy_name[$count]] = '指定なし';
             $select = filter_input(INPUT_GET, "$taxonomy_name[$count]", FILTER_DEFAULT, FILTER_REQUIRE_ARRAY) ?: [];
             foreach ($terms as $value) {
               $checked["$taxonomy_name[$count]"][$value->slug] = "";
@@ -60,16 +60,16 @@ $count2 = 0;
 
             if (!empty($term_name_array[$taxonomy_name[$count]])) {
               $term_name[$taxonomy_name[$count]] = implode(",", $term_name_array[$taxonomy_name[$count]]);
+
+              $limit = 25;
+              if (mb_strlen($term_name[$taxonomy_name[$count]]) > $limit) {
+                $term_limited[$taxonomy_name[$count]] = mb_substr($term_name[$taxonomy_name[$count]], 0, $limit) . "...";
+              } else {
+                $term_limited[$taxonomy_name[$count]] = $term_name[$taxonomy_name[$count]];
+              }
             }
             $count++;
           }
-          //確認
-          echo '<pre>';
-          // print_r($_GET);
-          // print_r($checked);
-          // print_r($term_name_array);
-          // print_r($term_name);
-          echo '</pre>';
           ?>
 
         </div>
@@ -78,7 +78,7 @@ $count2 = 0;
             <input type="hidden" name="s" value="">
             <div class="filter_row">
               <span class="filter_label">エリア</span>
-              <span class="filter_value"><?= $term_name['area'] ?></span>
+              <span class="filter_value"><?= $term_limited['area'] ?></span>
               <button type="button" class="change_btn" onclick="togglePopup('popup_area')">変更</button>
             </div>
             <div class="overlay" style="display: none;"></div>
@@ -190,7 +190,7 @@ $count2 = 0;
             </div>
             <div class="filter_row">
               <span class="filter_label">年齢</span>
-              <span class="filter_value"><?= $term_name['age_type'] ?></span>
+              <span class="filter_value"><?= $term_limited['age_type'] ?></span>
               <button type="button" class="change_btn" onclick="togglePopup('popup_age')">変更</button>
             </div>
             <div class="overlay"></div>
@@ -233,7 +233,7 @@ $count2 = 0;
             </div>
             <div class="filter_row">
               <span class="filter_label">ジャンル</span>
-              <span class="filter_value"><?= $term_name['classtype'] ?></span>
+              <span class="filter_value"><?= $term_limited['classtype'] ?></span>
               <button type="button" class="change_btn" onclick="togglePopup('popup_genre')">変更</button>
             </div>
             <div class="overlay"></div>
@@ -301,7 +301,7 @@ $count2 = 0;
             </div>
             <div class="filter_row">
               <span class="filter_label">曜日・時間帯</span>
-              <span class="filter_value"><?= $term_name['weektimes'] ?></span>
+              <span class="filter_value"><?= $term_limited['weektimes'] ?></span>
               <button type="button" class="change_btn" onclick="togglePopup('popup_day_time')">変更</button>
             </div>
             <div class="overlay"></div>
@@ -365,7 +365,7 @@ $count2 = 0;
             </div>
             <div class="filter_row">
               <span class="filter_label">こだわり条件</span>
-              <span class="filter_value"><?= $term_name['cost_type'] ?></span>
+              <span class="filter_value"><?= $term_limited['cost_type'] ?></span>
               <button type="button" class="change_btn" onclick="togglePopup('popup_conditions')">変更</button>
             </div>
             <div class="overlay"></div>
@@ -404,7 +404,7 @@ $count2 = 0;
             </div>
             <div class="filter_row">
               <span class="filter_label">子供の性格</span>
-              <span class="filter_value"><?= $term_name['personality_type'] ?></span>
+              <span class="filter_value"><?= $term_limited['personality_type'] ?></span>
               <button type="button" class="change_btn" onclick="togglePopup('popup_personality')">変更</button>
             </div>
             <div class="overlay"></div>
@@ -443,7 +443,7 @@ $count2 = 0;
             </div>
             <div class="filter_row">
               <span class="filter_label">UPさせたいスキル</span>
-              <span class="filter_value"><?= $term_name['skill_type'] ?></span>
+              <span class="filter_value"><?= $term_limited['skill_type'] ?></span>
               <button type="button" class="change_btn" onclick="togglePopup('popup_skills')">変更</button>
             </div>
             <div class="overlay"></div>
@@ -481,34 +481,42 @@ $count2 = 0;
               </div>
             </div>
           </form>
+          <div class="filter_row">
+            <form action="<?php echo home_url('/'); ?>" method="get">
+              <span class="filter_label">フリーワード検索</span>
+              <span class="filter_value">
+                <input type="text" name="s" value="<?php the_search_query(); ?>" placeholder="キーワードを入力してください">
+              </span>
+              <button type="submit">🔍</button>
+            </form>
+          </div>
         </div>
 
-        <h1 class="results_count">フリーワード検索</h1>
-        <form action="<?php echo home_url('/'); ?>" method="get">
-          <input type="text" name="s" value="<?php the_search_query(); ?>" placeholder="キーワードを入力してください">
-          <button type="submit">🔍</button>
-        </form>
       </section>
 
       <!-- 検索結果一覧カード -->
       <!-- フリーワード検索の結果 -->
-      <?php if (!empty(get_search_query())): ?>
-        <h1 class="results_count">検索結果：<?php echo count($posts); ?>件（1-5件表示）</h1>
-        <?php if (have_posts()) : ?>
+      <?php if (!empty(get_search_query())):
+      ?>
+        <h1 class="results_count">検索結果：<?php echo count($posts);
+                                        ?>件（1-5件表示）</h1>
+        <?php if (have_posts()) :
+        ?>
           <div class="results_card">
-            <?php while (have_posts()) : the_post(); ?>
-              <!-- <div class="wrap_card"> -->
-              <!-- <div class="inner_card"> -->
+            <?php while (have_posts()) : the_post();
+            ?>
               <?php get_template_part('template-parts/loop', 'classroom');
               ?>
-              <!-- </div> -->
-              <!-- </div> -->
-            <?php endwhile; ?>
+            <?php endwhile;
+            ?>
           </div>
-        <?php else: ?>
+        <?php else:
+        ?>
           <h4>条件に合う習い事はありませんでした。</h4>
-        <?php endif; ?>
-      <?php else: ?>
+        <?php endif;
+        ?>
+      <?php else:
+      ?>
         <!--条件検索のサブクエリ-->
         <?php
         $result = [
@@ -520,6 +528,10 @@ $count2 = 0;
           $personality_type_slug = get_query_var('personality_type'),
           $skill_type_slug = get_query_var('skill_type'),
         ];
+
+        // echo '<pre>';
+        // print_r($result);
+        // echo '</pre>';
 
         $args = [
           'post_type' => 'classroom',
@@ -538,12 +550,18 @@ $count2 = 0;
           }
           $count2++;
         }
-
+        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+        $args['posts_per_page'] = 9; //表示件数の指定
+        $args['paged'] = $paged;
         $args['tax_query'] = $taxquerysp;
+
+        // echo '<pre>';
+        // print_r($args);
+        // echo '</pre>';
         $the_query = new WP_Query($args);
         ?>
         <!-- 条件検索の結果 -->
-        <h1 class="results_count">検索結果：<?php echo $the_query->found_posts; ?>件（1-5件表示）</h1>
+        <h1 class="results_count">検索結果：<?php echo $the_query->found_posts; ?>件（1-9件表示）</h1>
         <?php if ($the_query->have_posts()): ?>
           <div class="results_card">
             <?php while ($the_query->have_posts()): $the_query->the_post(); ?>
@@ -561,7 +579,8 @@ $count2 = 0;
         <?php else: ?>
           <h4>条件に合う習いごとは見つかりませんでした。</h4>
         <?php endif; ?>
-      <?php endif; ?>
+      <?php endif;
+      ?>
 
       </section>
       <!-- 検索結果一覧カードここまで -->
@@ -571,11 +590,11 @@ $count2 = 0;
       <section class="footer_results">
         <div class="containerpagenum">
           <div class="results_pagenum">
-            <h3>
-              <?php if (function_exists('wp_pagenavi')): ?>
-                <?php wp_pagenavi(); ?>
-              <?php endif; ?>
-            </h3>
+
+            <?php if (function_exists('wp_pagenavi')): ?>
+              <?php wp_pagenavi(); ?>
+            <?php endif; ?>
+
           </div>
         </div>
       </section>

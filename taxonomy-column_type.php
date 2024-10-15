@@ -35,6 +35,16 @@ $column = get_term_by('slug', $column_slug, 'column_type');
                 </div>
             </div>
         </div>
+        <div class="column__footer">
+            <div class="container__page-num">
+
+                <?php if (function_exists('wp_pagenavi')):  ?>
+                    <div class="column_page-num">
+                        <?php wp_pagenavi(); ?>
+                    </div>
+                <?php endif;  ?>
+            </div>
+        </div>
     </div>
 </main>
 
