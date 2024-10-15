@@ -340,3 +340,33 @@ function increment_term_view_count($term_id)
 
 //     update_term_meta($term_id, 'view_count', $view_count + 1);
 // }
+
+
+
+/**
+ * 検索結果を公開して施設のみ対象にする
+ */
+function exclude_pages_from_search($query)
+{
+    if ($query->is_search && !is_admin()) {
+        $query->set('post_type', 'classroom');
+        $query->set('post_status', 'publish');
+    }
+    return $query;
+}
+add_filter('pre_get_posts', 'exclude_pages_from_search');
+
+
+/**
+ * 「」空の検索は結果を返さない
+ */
+function exclude_empty_search_query($query)
+{
+    if ($query->is_search() && $query->is_main_query() && !is_admin()) {
+        // 検索クエリが空の場合
+        if (!isset($_GET['s']) || trim($_GET['s']) === '') {
+            $query->set('post__in', array(0)); // 空の配列を指定して、結果を除外
+        }
+    }
+}
+add_action('pre_get_posts', 'exclude_empty_search_query');
