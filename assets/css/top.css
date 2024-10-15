@@ -3,14 +3,14 @@
 /* KVここから */
 
 /* モバイル画面のみ登場するキャラクターを表示 */
-.rg--stop {
+.rg {
     display: block;
 }
 
 /* PC画面のみ登場するキャラクターを消す */
 .deco7,
 .deco8,
-.rg--move,
+.rg,
 .ribbon,
 .awa-odori,
 .swimming,
@@ -68,7 +68,7 @@
     object-fit: cover;
     position: absolute;
     /* top: 200px; */
-    top: calc((-0.1282 * 100%) + 250px);
+    top: calc((-0.1282 * 70%) + 250px);
     /* left: 3% */
     left: calc((0.29688 * 100%) - 100.78px);
 }
@@ -89,7 +89,7 @@
     height: auto;
     object-fit: cover;
     position: absolute;
-    top: calc((-0.5 * 100%) + 745px);
+    top: calc((-0.5 * 10%) + 745px);
     left: calc((0.39063 * 100%) - 147.34px);
 }
 
@@ -543,7 +543,7 @@
 
 
 /* とくしま習いごとナビ について */
-.about{
+.about {
     width: 100%;
     background-color: #FFF;
     padding: 20px 0;
@@ -551,7 +551,7 @@
     margin: 0 auto;
 }
 
-.container__about{
+.container__about {
     width: 390px;
     margin: 0 auto;
 }
@@ -570,7 +570,7 @@
     margin: 20px auto 0;
 }
 
-.image__about>img{
+.image__about>img {
     width: 100%;
     height: auto;
 
@@ -621,14 +621,16 @@
 .title__search>h2:hover {
     color: #463D3B;
 }
-.title__ranking>h2:hover{
+
+.title__ranking>h2:hover {
     color: #ED6D1F;
 }
+
 .title__column>h2:hover {
     color: #463D3B;
 }
 
-.title__news>h2:hover{
+.title__news>h2:hover {
     color: #ED6D1F;
 }
 
@@ -674,7 +676,7 @@
     z-index: 0;
 }
 
-.title__column>img{
+.title__column>img {
     left: -23px;
 }
 
@@ -689,7 +691,7 @@
 }
 
 /* 選択ボタンエリア */
-.options__search{
+.options__search {
     background-color: #FFF;
     width: 350px;
     height: 415px;
@@ -737,7 +739,7 @@
 
 
 /* 検索窓 */
-.box__search{
+.box__search {
     background-color: #FFF;
     font-size: 1.4rem;
     flex: 1;
@@ -746,7 +748,7 @@
     margin-top: 10px;
 }
 
-.inner__search-box{
+.inner__search-box {
     width: 100%;
     display: flex;
 }
@@ -757,7 +759,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding:0 0 0 20px;
+    padding: 0 0 0 20px;
 }
 
 /*  検索窓 キャンセルボタンのカスタマイズ  */
@@ -787,7 +789,7 @@ input[type="search"]::-webkit-search-cancel-button {
 
 /* ランキング */
 /* 背景 */
-.inner__ranking{
+.inner__ranking {
     background-color: #00B0AA;
     max-width: 1440px;
     width: 100%;
@@ -805,7 +807,7 @@ input[type="search"]::-webkit-search-cancel-button {
     border-radius: 10px;
 }
 
-.order{
+.order {
     font-size: 2.0rem;
     text-align: left;
     line-height: 60px;
@@ -926,33 +928,36 @@ input[type="search"]::-webkit-search-cancel-button {
 
 /* とくしまの習いごとアンケート結果 */
 
-.survey-results{
+.survey-results {
     background-color: #FFF;
     max-width: 1440px;
     width: 100%;
     margin: 0 auto;
 }
 
-.inner__survey {
-    background-image: url(../images/dummy_banner.png);
+
+.banner__survey {
+    background-image: url(../images/question_kv_mo.png);
     background-size: cover;
-    font-size: 3.0rem;
-    color:#ED6D1F;
-    text-align: center;
-    line-height: 200px;
-    max-width: 800px;
-    width: 80%;
-    height: auto;
+    background-position: center;
+    max-width: 400px;
+    width: 100%;
+    height: 200px;
     margin: 0 auto;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
+.banner__survey:hover {
+    opacity: 0.6;
+}
 
 
 
 /* コラムエリア */
 
 .inner__column {
-    position: relative; /* コラム詳細ページへのボタンの位置調整用 */
+    position: relative;
+    /* コラム詳細ページへのボタンの位置調整用 */
 }
 
 
@@ -997,10 +1002,11 @@ input[type="search"]::-webkit-search-cancel-button {
     /* padding: 25px 0 80px 0; */
     margin: 0 auto;
     border-radius: 20px;
-    position: relative;    /* NEWS詳細ボタンの位置調整用 */
+    position: relative;
+    /* NEWS詳細ボタンの位置調整用 */
 }
 
-.item__news{
+.item__news {
     width: 310px;
     height: 160px;
     padding: 40px 0 0;
@@ -1008,7 +1014,7 @@ input[type="search"]::-webkit-search-cancel-button {
     border-bottom: solid 1px #463D3B;
 }
 
-.tag__news{
+.tag__news {
     font-size: 2.0rem;
     display: flex;
     justify-content: flex-start;
@@ -1045,10 +1051,11 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .button__more-news:hover {
-    background-color: #009B8A; /* ホバー時の背景色 */
+    background-color: #009B8A;
+    /* ホバー時の背景色 */
 }
 
-.clearance{
+.clearance {
     background-color: #FFF;
     max-width: 1440px;
     width: 100%;
@@ -1136,19 +1143,20 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .spike__img {
     position: absolute;
-    width: 100px;
+    width: 80px;
     height: auto;
-    left: 15%;
-    top: -80px;
+    left: 10%;
+    top: -120px;
 
 }
 
-.tennis__boy{
+.tennis__boy {
     width: 100px;
     height: auto;
     position: absolute;
     left: 10%;
-    margin: 90px 10px 0;
+
+
 }
 
 .y__flip {
@@ -1177,38 +1185,19 @@ input[type="search"]::-webkit-search-cancel-button {
     }
 }
 
-.english__img{
-    width: 100px;
-    height: auto;
-    position: absolute;
-    left: 8%;
 
-    margin: 450px 120px;
-}
-
-
-.helmet__img{
-    width: 100px;
-    height: auto;
-    position: absolute;
-    left: 70%;
-    margin: 150px 80px;
-}
-
-
+.english__img,
+.helmet__img,
 .bear__image-column,
 .bear__image-news {
     display: none;
     /* 通常時は非表示 */
 
-
-
-
 }
 
-@media screen and (min-width: 780px){
+@media screen and (min-width: 780px) {
 
-    .note__about{
+    .note__about {
         margin: 0 auto;
     }
 
@@ -1261,7 +1250,8 @@ input[type="search"]::-webkit-search-cancel-button {
     .title__search>p,
     .title_ranking>p {
         font-size: 1.8rem;
-        position: absolute; /* みどり円の位置調整用 */
+        position: absolute;
+        /* みどり円の位置調整用 */
         right: 55px;
         bottom: -40px;
     }
@@ -1270,9 +1260,10 @@ input[type="search"]::-webkit-search-cancel-button {
 
 
 
-/* 検索 */
+    /* 検索 */
     .container__search {
-        position: relative; /* 詳細検索ボタンの位置調整用 */
+        position: relative;
+        /* 詳細検索ボタンの位置調整用 */
     }
 
 
@@ -1291,6 +1282,13 @@ input[type="search"]::-webkit-search-cancel-button {
         position: absolute;
         right: -180px;
         bottom: -100px;
+    }
+
+    /* とくしまの習いごとアンケート結果 */
+    .banner__survey {
+        background-image: url(../images/question_banner.png);
+        max-width: 800px;
+
     }
 
     /* コラムエリア */
@@ -1350,6 +1348,33 @@ input[type="search"]::-webkit-search-cancel-button {
     .stars {
         right: 20%;
     }
+
+    .spike__img {
+        width: 100px;
+        left: 15%;
+        top: -100px;
+    }
+
+    .english__img {
+        display: block; /* 追加: 表示を有効にする */
+        width: 100px;
+        height: auto;
+        position: absolute;
+        left: 10%;
+        margin-top: 450px;
+    }
+
+    .helmet__img {
+        display: block; /* 追加: 表示を有効にする */
+        width: 100px;
+        height: auto;
+        position: absolute;
+        left: 80%;
+        margin: 150px 0px;
+    }
+
+
+}
 
 /* bear__image */
 .bear__image-column {
@@ -1411,7 +1436,4 @@ input[type="search"]::-webkit-search-cancel-button {
 .button__more-news:hover {
     text-decoration: underline;
     /* 下線を追加 */
-}
-
-
 }
