@@ -34,9 +34,6 @@ function add_style_script()
     wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css'); //外部のスタイルシート:FontAwesome CDN
 
     wp_enqueue_style('google-web-fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap'); //外部のスタイルシート:GoogleFonts
-    wp_enqueue_style('slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css'); //slick
-    wp_enqueue_style('slick-theme', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css'); //slick-theme
-
 
     //リセットCSS
     wp_enqueue_style(
@@ -58,13 +55,9 @@ function add_style_script()
         'tokunavi_footer',
         get_template_directory_uri() . '/assets/css/footer.css'
     );
-    wp_enqueue_style(
-        'tokunavi_column_slider',
-        get_template_directory_uri() . '/assets/css/column_slider.css'
-    );
+
 
     // 共通のJSファイルを読み込む
-    // wp_enqueue_script('jquery');  //jQueryを読み込む
     wp_enqueue_script(
         'tokunavi_jquery',
         get_template_directory_uri() . '/assets/js/jQuery.js',
@@ -72,13 +65,6 @@ function add_style_script()
         '',
         false
     );
-    wp_enqueue_script(
-        'slick-js',
-        'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js',
-        '',
-        '',
-        true
-    ); //slick.js スライダー用
 
     //  common.js
     wp_enqueue_script(
@@ -88,15 +74,6 @@ function add_style_script()
         '',
         true
     );
-
-    // wp_enqueue_script(
-    //     'tokunavi_common_slider',
-    //     get_template_directory_uri() . '/assets/js/common_slider.js',
-    //     ['jquery'],
-    //     '',
-    //     true
-    // );
-
 
     /**
      * 個々のページ
@@ -109,6 +86,13 @@ function add_style_script()
         // <!-- ポップアップCSS -->
         wp_enqueue_style('tokunavi_searchpopup_css', get_template_directory_uri() . '/assets/css/searchpopup.css');
 
+        wp_enqueue_style('slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css'); //slick
+        wp_enqueue_style('slick-theme', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css'); //slick-theme
+
+        wp_enqueue_style(
+            'tokunavi_column_slider',
+            get_template_directory_uri() . '/assets/css/column_slider.css'
+        );
         // column_slider . js
         wp_enqueue_script(
             'tokunavi_column_slider_js',
@@ -117,6 +101,13 @@ function add_style_script()
             '',
             true
         );
+        wp_enqueue_script(
+            'slick-js',
+            'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js',
+            '',
+            '',
+            true
+        ); //slick.js スライダー用
         //search
         wp_enqueue_script(
             'tokunavi_searchpopup_js',
@@ -152,11 +143,20 @@ function add_style_script()
             'tokunavi_column_list_style',
             get_template_directory_uri() . '/assets/css/column_list.css',
         );
+        wp_enqueue_style(
+            'tokunavi_column_slider',
+            get_template_directory_uri() . '/assets/css/column_slider.css'
+        );
+        wp_enqueue_style('tokunabi_pagenavi', get_template_directory_uri() . '/assets/css/page_navi.css');
     } elseif (is_singular('column')) {
         //コラム記事CSS
         wp_enqueue_style(
             'tokunavi_column_style',
             get_template_directory_uri() . '/assets/css/column.css',
+        );
+        wp_enqueue_style(
+            'tokunavi_column_slider',
+            get_template_directory_uri() . '/assets/css/column_slider.css'
         );
     } elseif (is_singular('classroom')) {
         wp_enqueue_style(
