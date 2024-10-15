@@ -411,13 +411,16 @@
             <!-- 白背景の余白スペース -->
             <div class="clearance"></div>
             <!-- とくしまの習いごとアンケート -->
-            <div class="survey-results">
-                <div class="inner__survey box fadeIn">
-                    <div class="banner__survey">
-                        <a href="<?php echo home_url('/fushion'); ?>">徳島の習いごと事情</a>
+            <a href="<?php echo home_url('/fushion'); ?>">
+                <div class="survey-results">
+                    <div class="inner__survey box fadeIn">
+                        <div class="banner__survey">
+
+
+                        </div>
                     </div>
                 </div>
-            </div>
+            </a>
 
             <!-- 白背景の余白スペース -->
             <div class="clearance"></div>
