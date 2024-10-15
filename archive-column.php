@@ -8,33 +8,19 @@
             </div>
         </div>
 
-
-        <?php
-        $colurmn_terms = get_terms(['taxonomy' => 'column_type']);
-        ?>
-        <?php
-        if (!empty($colurmn_terms)): ?>
-            <?php foreach ($colurmn_terms as $column): ?>
-                <div>
-                    <a href="<?php echo get_term_link($column);
-                                ?>"><?= $column->name ?></a>
-                </div>
-            <?php endforeach; ?>
-        <?php endif ?>
-
         <!-- コラム一覧カード -->
-        <div class="inner__column">
-            <div class="title__column">
+        <div class="column__area">
+            <div class="column__title">
                 <h1>COLUMN</h1>
                 <p>コラム</p>
             </div>
             <!-- スライダー ここから -->
-            <div class="slider">
-                <div class="auto-slider">
+            <div class="inner__column-area">
+                <div class="wrap__column-card">
                     <?php
                     $args = [
                         'post_type' => 'column',
-                        'posts_per_page'     => 5,
+                        // 'posts_per_page'     => 5,
                         'orderby'        => 'date',
                         'order'          => 'DESC',
                     ];
@@ -46,21 +32,22 @@
                             <?php get_template_part('template-parts/loop', 'column'); ?>
                 </div>
             <?php endwhile; ?>
-            <?php wp_reset_postdata(); ?>
+            <!-- <?php wp_reset_postdata(); ?> -->
         <?php endif ?>
             </div>
         </div>
         <!-- コラムカードここまで -->
 
-        <!-- <div class="column__footer">
+        <div class="column__footer">
             <div class="container__page-num">
-                <div class="column_page-num">
-                    <p>
-                        &lt;　1　2　3　&gt;
-                    </p>
-                </div>
+
+                <?php if (function_exists('wp_pagenavi')):  ?>
+                    <div class="column_page-num">
+                        <?php wp_pagenavi(); ?>
+                    </div>
+                <?php endif;  ?>
             </div>
-        </div> -->
+        </div>
     </div>
 </main>
 
