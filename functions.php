@@ -64,8 +64,14 @@ function add_style_script()
     );
 
     // 共通のJSファイルを読み込む
-    wp_enqueue_script('jquery');  //jQueryを読み込む
-
+    // wp_enqueue_script('jquery');  //jQueryを読み込む
+    wp_enqueue_script(
+        'tokunavi_jquery',
+        get_template_directory_uri() . '/assets/js/jQuery.js',
+        ['jquery'],
+        '',
+        false
+    );
     wp_enqueue_script(
         'slick-js',
         'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js',
