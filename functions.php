@@ -229,6 +229,12 @@ function add_style_script()
             'tokunavi_praivacy',
             get_template_directory_uri() . '/assets/css/privacy.css'
         );
+    } elseif (is_page('fushion')) {
+        // 習いごと事情
+        wp_enqueue_style(
+            'tokunavi_fushion',
+            get_template_directory_uri() . '/assets/css/question.css'
+        );
     }
 
     // ニュース一覧
