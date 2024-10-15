@@ -84,22 +84,29 @@
         <!-- 検索search -->
         <div class="search">
             <div class="container__search box fadeIn">
+
                 <div class="title__search">
                     <h2>SERACH</h2>
                     <p>検索</p>
                     <img src="<?php echo get_template_directory_uri();  ?>/assets/images/matcha.png" alt="みどり円">
                 </div>
+
                 <div class="options__search">
-                    <!-- エリアを選ぶ -->
+
                     <button class="option__search" onclick="togglePopup('popup_area')">エリアを選ぶ</button>
-                    <div class="overlay" style="display: none;"></div>
-                    <div class="search_container" id="popup_area" style="display: none;">
-                        <div class="close_button" onclick="closePopup()">&times;</div> <!-- &times; --× -->
-                        <div class="search_header">
-                            <h3>エリアを選ぶ</h3>
-                        </div>
-                        <form method="GET" action="<?php echo home_url(); ?>">
-                            <input type="hidden" name="s" value="">
+                    <button class="option__search" onclick="togglePopup('popup_age')">年齢を選ぶ</button>
+                    <button class="option__search" onclick="togglePopup('popup_genre')">ジャンルを選ぶ</button>
+                    <form method="GET" action="<?php echo home_url(); ?>">
+                        <input type="hidden" name="s" value="">
+                        <!-- エリアを選ぶ -->
+                        <div class="overlay" style="display: none;"></div>
+                        <div class="search_container" id="popup_area" style="display: none;">
+                            <div class="close_button" onclick="closePopup()">&times;</div> <!-- &times; --× -->
+                            <div class="search_header">
+                                <h3>エリアを選ぶ</h3>
+                            </div>
+                            <!-- <form method="GET" action="<?php echo home_url(); ?>">
+                            <input type="hidden" name="s" value=""> -->
 
                             <!-- 徳島市全域area01 -->
                             <div class="search_options">
@@ -198,21 +205,21 @@
                                     <button type="button" class="clear_button" onclick="clearSelections()">すべてクリア</button>
                                 </div>
                             </div>
-                        </form>
+                            <!-- </form> -->
 
-                    </div>
-                    <!-- end エリアを選ぶ -->
-
-                    <!-- 年齢を選ぶ -->
-                    <button class="option__search" onclick="togglePopup('popup_age')">年齢を選ぶ</button>
-                    <div class="overlay"></div>
-                    <div class="search_container" id="popup_age" style="display: none;">
-                        <div class="close_button" onclick="closePopup()">&times;</div>
-                        <div class="search_header">
-                            <h3>年齢を選ぶ</h3>
                         </div>
-                        <form method="GET" action="<?php echo home_url(); ?>">
-                            <input type="hidden" name="s" value="">
+                        <!-- end エリアを選ぶ -->
+
+                        <!-- 年齢を選ぶ -->
+
+                        <!-- <div class="overlay"></div> -->
+                        <div class="search_container" id="popup_age" style="display: none;">
+                            <div class="close_button" onclick="closePopup()">&times;</div>
+                            <div class="search_header">
+                                <h3>年齢を選ぶ</h3>
+                            </div>
+                            <!-- <form method="GET" action="<?php echo home_url(); ?>">
+                            <input type="hidden" name="s" value=""> -->
                             <div class="search_options">
                                 <div class="double_column">
                                     <?php
@@ -244,20 +251,20 @@
                                 </div>
                                 <button class="clear_button" onclick="clearSelections()">すべてクリア</button>
                             </div>
-                        </form>
-                    </div>
-                    <!-- end 年齢を選ぶ -->
-
-                    <!-- ジャンルを選ぶ -->
-                    <button class="option__search" onclick="togglePopup('popup_genre')">ジャンルを選ぶ</button>
-                    <div class="overlay"></div>
-                    <div class="search_container" id="popup_genre" style="display: none;">
-                        <div class="close_button" onclick="closePopup()">&times;</div>
-                        <div class="search_header">
-                            <h3>ジャンルを選ぶ</h3>
+                            <!-- </form> -->
                         </div>
-                        <form method="GET" action="<?php echo home_url(); ?>">
-                            <input type="hidden" name="s" value="">
+                        <!-- end 年齢を選ぶ -->
+
+                        <!-- ジャンルを選ぶ -->
+
+                        <div class="overlay"></div>
+                        <div class="search_container" id="popup_genre" style="display: none;">
+                            <div class="close_button" onclick="closePopup()">&times;</div>
+                            <div class="search_header">
+                                <h3>ジャンルを選ぶ</h3>
+                            </div>
+                            <!-- <form method="GET" action="<?php echo home_url(); ?>">
+                            <input type="hidden" name="s" value=""> -->
                             <div class="search_options">
                                 <?php
                                 $parent_terms = get_terms(array(
@@ -318,180 +325,181 @@
                                     </div>
                                     <button class="clear_button" onclick="clearSelections()">すべてクリア</button>
                                 </div>
-                        </form>
-                    </div>
-                </div>
-                <!-- end ジャンルを選ぶ -->
-
-                <button class="detail__search" onclick="window.location.href='<?php echo home_url(); ?>/?s='">詳細検索ページへ</button>
-
-                <!-- キーワード検索 -->
-                <form action="<?php echo home_url('/'); ?>" method="get">
-                    <div class="box__search">
-                        <div class="inner__search-box">
-                            <input class="window__search" type="search" name="s" value="<?php the_search_query(); ?>" placeholder="キーワードを入力してください">
-                            <button class="btn__search" type="submit">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </button>
+                                <!-- </form> -->
+                            </div>
                         </div>
+                        <!-- end ジャンルを選ぶ -->
+                    </form>
+
+                    <button class="detail__search" onclick="window.location.href='<?php echo home_url(); ?>/?s='">詳細検索ページへ</button>
+
+                    <!-- キーワード検索 -->
+                    <form action="<?php echo home_url('/'); ?>" method="get">
+                        <div class="box__search">
+                            <div class="inner__search-box">
+                                <input class="window__search" type="search" name="s" value="<?php the_search_query(); ?>" placeholder="キーワードを入力してください">
+                                <button class="btn__search" type="submit">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- end キーワード検索 -->
+                    <div class="boy__character fade__in">
+                        <img class="boy__programmer" src="<?php echo get_template_directory_uri(); ?>/assets/images/programming.png" alt="プログラマー">
+                        <img class="boy__idea" src="<?php echo get_template_directory_uri(); ?>/assets/images/idea.png" alt="アイデア">
+                        <img class="boy__pochi" src="<?php echo get_template_directory_uri(); ?>/assets/images/pochi.png" alt="ポチ">
                     </div>
-                </form>
-                <!-- end キーワード検索 -->
-                <div class="boy__character fade__in">
-                    <img class="boy__programmer" src="<?php echo get_template_directory_uri(); ?>/assets/images/programming.png" alt="プログラマー">
-                    <img class="boy__idea" src="<?php echo get_template_directory_uri(); ?>/assets/images/idea.png" alt="アイデア">
-                    <img class="boy__pochi" src="<?php echo get_template_directory_uri(); ?>/assets/images/pochi.png" alt="ポチ">
                 </div>
             </div>
-        </div>
 
-        <!-- 白背景の余白スペース -->
-        <div class="clearance"></div>
+            <!-- 白背景の余白スペース -->
+            <div class="clearance"></div>
 
-        <!-- ランキング -->
-        <div class="ranking">
-            <div class="inner__ranking box fadeIn">
-                <div class="title__ranking">
-                    <h2>RANKING</h2>
-                    <p>アクセスランキング</p>
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/creamcircle.png" alt="クリーム円">
-                </div>
-                <div class="order__ranking  box fadeIn">
-                    <form method="GET" action="<?php echo home_url(); ?>">
-                        <input type="hidden" name="s" value="">
-                        <?php
-                        $args = [
-                            'taxonomy'   => 'classtype',
-                            'meta_key'   => 'view_count',        // view _ countメタデータを使用したソート
-                            'orderby'    => 'meta_value_num',    // 数値でソート
-                            'order'      => 'DESC',              // 降順に並べる
-                            'hide_empty' => false,               // 関連付けられていない記事の分類を表示
-                            'number'     => 5,                   // 上位5分類のみ表示
-                        ];
-                        $terms = get_terms($args);
-                        ?>
-                        <ul>
+            <!-- ランキング -->
+            <div class="ranking">
+                <div class="inner__ranking box fadeIn">
+                    <div class="title__ranking">
+                        <h2>RANKING</h2>
+                        <p>アクセスランキング</p>
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/creamcircle.png" alt="クリーム円">
+                    </div>
+                    <div class="order__ranking  box fadeIn">
+                        <form method="GET" action="<?php echo home_url(); ?>">
+                            <input type="hidden" name="s" value="">
                             <?php
-                            if (!empty($terms) && !is_wp_error($terms)) :
-                                foreach ($terms as $term) :
-                                    if (strpos($term->slug, 'class') !== false) {
-                                        continue;
-                                    }
-                                    $view_count = get_term_meta($term->term_id, 'view_count', true);
+                            $args = [
+                                'taxonomy'   => 'classtype',
+                                'meta_key'   => 'view_count',        // view _ countメタデータを使用したソート
+                                'orderby'    => 'meta_value_num',    // 数値でソート
+                                'order'      => 'DESC',              // 降順に並べる
+                                'hide_empty' => false,               // 関連付けられていない記事の分類を表示
+                                'number'     => 5,                   // 上位5分類のみ表示
+                            ];
+                            $terms = get_terms($args);
                             ?>
-                                    <li class="order">
-                                        <button type="submit" name="classtype[]" value="<?php echo $term->slug; ?>">
-                                            <?php echo $term->name; ?>
-                                            <!-- クリック回数 -->
-                                            <!-- <small>
+                            <ul>
+                                <?php
+                                if (!empty($terms) && !is_wp_error($terms)) :
+                                    foreach ($terms as $term) :
+                                        if (strpos($term->slug, 'class') !== false) {
+                                            continue;
+                                        }
+                                        $view_count = get_term_meta($term->term_id, 'view_count', true);
+                                ?>
+                                        <li class="order">
+                                            <button type="submit" name="classtype[]" value="<?php echo $term->slug; ?>">
+                                                <?php echo $term->name; ?>
+                                                <!-- クリック回数 -->
+                                                <!-- <small>
                                                 <?php
                                                 echo 'click' . esc_html($view_count);
                                                 ?>
                                             </small> -->
-                                        </button>
-                                    </li>
-                            <?php
-                                endforeach;
-                            endif;
-                            ?>
-                        </ul>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <!-- 白背景の余白スペース -->
-        <div class="clearance"></div>
-        <!-- とくしまの習いごとアンケート -->
-        <div class="survey-results">
-            <div class="inner__survey box fadeIn">
-                <div class="banner__survey">
-                    <a href="<?php echo home_url('/fushion'); ?>">徳島の習いごと事情</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- 白背景の余白スペース -->
-        <div class="clearance"></div>
-        <!-- column -->
-        <div class="column">
-            <div class="inner__column  box fadeIn">
-                <img class="spike__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/spike.png" alt="spike">
-                <div class="title__column">
-                    <h2>COLUMN</h2>
-                    <p>コラム</p>
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/matcha.png" alt="みどり円">
-                </div>
-                <!-- スライダー ここから -->
-                <div class="slider">
-                    <div class="auto-slider">
-                        <?php
-                        $args = [
-                            'post_type' => 'column',
-                            'posts_per_page'     => 5,
-                            'orderby'        => 'date',
-                            'order'          => 'DESC',
-                        ];
-                        $column_query = new WP_query($args);
-                        ?>
-                        <?php
-                        if ($column_query->have_posts()):
-                        ?>
-                            <?php while ($column_query->have_posts()): $column_query->the_post(); ?>
-                                <?php get_template_part('template-parts/loop', 'column'); ?>
-
-                            <?php endwhile; ?>
-                            <?php wp_reset_postdata(); ?>
-                        <?php endif ?>
+                                            </button>
+                                        </li>
+                                <?php
+                                    endforeach;
+                                endif;
+                                ?>
+                            </ul>
+                        </form>
                     </div>
                 </div>
-                <!-- スライダー ここまで -->
-                <div class="box fadeIn">
-                    <!-- <div> -->
-                    <button class=" button__more-column" onclick="window.location.href='<?php echo home_url('/column'); ?>'">MORE</button>
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bear2.png" alt="Bear" class="bear__image-column">
+            </div>
+
+            <!-- 白背景の余白スペース -->
+            <div class="clearance"></div>
+            <!-- とくしまの習いごとアンケート -->
+            <div class="survey-results">
+                <div class="inner__survey box fadeIn">
+                    <div class="banner__survey">
+                        <a href="<?php echo home_url('/fushion'); ?>">徳島の習いごと事情</a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- 白背景の余白スペース -->
-        <div class="clearance"></div>
-        <!-- NEWS -->
-        <div class="news box fadeIn">
-            <img class="tennis__boy y__flip" src="<?php echo get_template_directory_uri(); ?>/assets/images/tennis.png" alt="テニスボーイ">
-            <img class="english__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/english_book.png" alt="englishbook">
-            <img class="helmet__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/helmet_bat.png" alt="helmetbat">
-            <div class="title__news">
-                <h2>NEWS</h2>
-                <p>新着情報</p>
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/creamcircle.png" alt="クリーム円">
-            </div>
-            <!-- ここからニュース記事 -->
-            <?php if (have_posts()) : ?>
-                <div class="wrap__news">
-                    <div class="container__news">
-                        <div class="items__news">
-                            <ul>
-                                <?php
-                                $news = get_term_by('slug', 'news', 'category');
-                                $news_link = get_term_link($news, 'category');
-                                ?>
-                                <?php while (have_posts()) : the_post(); ?>
-                                    <?php get_template_part('template-parts/loop', 'news'); ?>
+            <!-- 白背景の余白スペース -->
+            <div class="clearance"></div>
+            <!-- column -->
+            <div class="column">
+                <div class="inner__column  box fadeIn">
+                    <img class="spike__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/spike.png" alt="spike">
+                    <div class="title__column">
+                        <h2>COLUMN</h2>
+                        <p>コラム</p>
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/matcha.png" alt="みどり円">
+                    </div>
+                    <!-- スライダー ここから -->
+                    <div class="slider">
+                        <div class="auto-slider">
+                            <?php
+                            $args = [
+                                'post_type' => 'column',
+                                'posts_per_page'     => 5,
+                                'orderby'        => 'date',
+                                'order'          => 'DESC',
+                            ];
+                            $column_query = new WP_query($args);
+                            ?>
+                            <?php
+                            if ($column_query->have_posts()):
+                            ?>
+                                <?php while ($column_query->have_posts()): $column_query->the_post(); ?>
+                                    <?php get_template_part('template-parts/loop', 'column'); ?>
+
                                 <?php endwhile; ?>
                                 <?php wp_reset_postdata(); ?>
-                            </ul>
+                            <?php endif ?>
                         </div>
-                        <button class="button__more-news" onclick="window.location.href='<?php echo home_url('/category/news') ?>'">MORE</button>
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bear2.png" alt="Bear" class="bear__image-news">
+                    </div>
+                    <!-- スライダー ここまで -->
+                    <div class="box fadeIn">
+                        <!-- <div> -->
+                        <button class=" button__more-column" onclick="window.location.href='<?php echo home_url('/column'); ?>'">MORE</button>
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bear2.png" alt="Bear" class="bear__image-column">
                     </div>
                 </div>
-            <?php endif ?>
-        </div>
-        <!-- end news -->
+            </div>
 
-        <!-- 白背景の余白スペース -->
-        <div class="clearance"></div>
-    </div>
+            <!-- 白背景の余白スペース -->
+            <div class="clearance"></div>
+            <!-- NEWS -->
+            <div class="news box fadeIn">
+                <img class="tennis__boy y__flip" src="<?php echo get_template_directory_uri(); ?>/assets/images/tennis.png" alt="テニスボーイ">
+                <img class="english__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/english_book.png" alt="englishbook">
+                <img class="helmet__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/helmet_bat.png" alt="helmetbat">
+                <div class="title__news">
+                    <h2>NEWS</h2>
+                    <p>新着情報</p>
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/creamcircle.png" alt="クリーム円">
+                </div>
+                <!-- ここからニュース記事 -->
+                <?php if (have_posts()) : ?>
+                    <div class="wrap__news">
+                        <div class="container__news">
+                            <div class="items__news">
+                                <ul>
+                                    <?php
+                                    $news = get_term_by('slug', 'news', 'category');
+                                    $news_link = get_term_link($news, 'category');
+                                    ?>
+                                    <?php while (have_posts()) : the_post(); ?>
+                                        <?php get_template_part('template-parts/loop', 'news'); ?>
+                                    <?php endwhile; ?>
+                                    <?php wp_reset_postdata(); ?>
+                                </ul>
+                            </div>
+                            <button class="button__more-news" onclick="window.location.href='<?php echo home_url('/category/news') ?>'">MORE</button>
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bear2.png" alt="Bear" class="bear__image-news">
+                        </div>
+                    </div>
+                <?php endif ?>
+            </div>
+            <!-- end news -->
+
+            <!-- 白背景の余白スペース -->
+            <div class="clearance"></div>
+        </div>
 </main>
 <?php get_footer(); ?>
