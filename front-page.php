@@ -63,8 +63,7 @@
                 if ($the_query->have_posts()):
                     while ($the_query->have_posts()): $the_query->the_post();
                 ?>
-                        <!-- <div class="container__about  box fadeIn"> -->
-                        <div class="container__about ">
+                        <div class="container__about  box fadeIn">
                             <div class="note__about">
                                 <?php echo the_excerpt(); ?>
                             </div>
@@ -84,8 +83,7 @@
 
         <!-- 検索search -->
         <div class="search">
-            <!-- <div class="container__search box fadeIn"> -->
-            <div class="container__search">
+            <div class="container__search box fadeIn">
                 <div class="title__search">
                     <h2>SERACH</h2>
                     <p>検索</p>
@@ -352,15 +350,13 @@
 
         <!-- ランキング -->
         <div class="ranking">
-            <!-- <div class="inner__ranking box fadeIn"> -->
-            <div class="inner__ranking">
+            <div class="inner__ranking box fadeIn">
                 <div class="title__ranking">
                     <h2>RANKING</h2>
                     <p>アクセスランキング</p>
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/creamcircle.png" alt="クリーム円">
                 </div>
-                <!-- <div class="order__ranking  box fadeIn"> -->
-                <div class="order__ranking">
+                <div class="order__ranking  box fadeIn">
                     <form method="GET" action="<?php echo home_url(); ?>">
                         <input type="hidden" name="s" value="">
                         <?php
@@ -408,8 +404,7 @@
         <div class="clearance"></div>
         <!-- とくしまの習いごとアンケート -->
         <div class="survey-results">
-            <!-- <div class="inner__survey box fadeIn"> -->
-            <div class="inner__survey ">
+            <div class="inner__survey box fadeIn">
                 <div class="banner__survey">
                     <a href="<?php echo home_url('/fushion'); ?>">徳島の習いごと事情</a>
                 </div>
@@ -420,8 +415,7 @@
         <div class="clearance"></div>
         <!-- column -->
         <div class="column">
-            <!-- <div class="inner__column  box fadeIn"> -->
-            <div class="inner__column  ">
+            <div class="inner__column  box fadeIn">
                 <img class="spike__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/spike.png" alt="spike">
                 <div class="title__column">
                     <h2>COLUMN</h2>
@@ -451,22 +445,19 @@
                         <?php endif ?>
                     </div>
                 </div>
-            </div>
-            <!-- スライダー ここまで -->
-            <!-- <div class="box fadeIn"> -->
-            <div>
-                <button class=" button__more-column" onclick="window.location.href='<?php echo home_url('/column'); ?>'">MORE</button>
-
-
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bear2.png" alt="Bear" class="bear__image-column">
+                <!-- スライダー ここまで -->
+                <div class="box fadeIn">
+                    <!-- <div> -->
+                    <button class=" button__more-column" onclick="window.location.href='<?php echo home_url('/column'); ?>'">MORE</button>
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bear2.png" alt="Bear" class="bear__image-column">
+                </div>
             </div>
         </div>
 
         <!-- 白背景の余白スペース -->
         <div class="clearance"></div>
         <!-- NEWS -->
-        <!-- <div class="news box fadeIn"> -->
-        <div class="news">
+        <div class="news box fadeIn">
             <img class="tennis__boy y__flip" src="<?php echo get_template_directory_uri(); ?>/assets/images/tennis.png" alt="テニスボーイ">
             <img class="english__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/english_book.png" alt="englishbook">
             <img class="helmet__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/helmet_bat.png" alt="helmetbat">
