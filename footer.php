@@ -11,7 +11,7 @@
                     <a href="<?php echo home_url(); ?>/?s=" class="search__sitemap">条件検索</a>
                 </li>
                 <li>
-                    <a href="<?php echo home_url('/fushion'); ?>">徳島の習いごと調査</a>
+                    <a href="<?php echo home_url('/fushion'); ?>">徳島の習いごと事情</a>
                 </li>
                 <li>
                     <a href="<?php echo home_url('/column'); ?>" class="column__sitemap">コラム</a>
