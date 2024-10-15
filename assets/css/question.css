@@ -78,7 +78,7 @@
 
 .title__question > h1 {
     font-size: 24px;
-    margin: 40px;
+    margin: 0px 40px 30px;
     padding-bottom: 20px;
 }
 
@@ -98,7 +98,7 @@
     border-bottom: solid 3px #463d3b;
     width: 100%;
     max-width: 600px;
-    margin-top: 60px;
+    margin-top: 70px;
 }
 .top__10:before,
 .top__10:after {
@@ -179,10 +179,11 @@
 
 /* 1番目のスタイル */
 .order[data-order="1"] {
-    height: 100px;
-    line-height: 100px;
+    height: 90px;
+    line-height: 90px;
     font-size: 25px;
     color: #ed6d1f;
+    border-top: dashed 2px #463d3b;
 }
 
 /* 2番目と3番目のスタイル */
@@ -192,6 +193,10 @@
     line-height: 70px;
     font-size: 25px;
     color: #ed6d1f;
+}
+
+.order[data-order="4"] {
+    border-top: dashed 2px #463d3b; /* 4番目の要素にダッシュボーダーを追加 */
 }
 
 /* 4～10番目のスタイル */
@@ -253,8 +258,8 @@
 .title__decor::before,
 .title__decor::after {
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 30px;
+    /* transform: translateX(-50%); */
     bottom: -15px;
     width: 30px;
     height: 15px;
@@ -262,11 +267,11 @@
     content: "";
 }
 
-.title_decor::before {
+.title__decor::before {
     background-color: #463d3b;
 }
 
-.title_decor::after {
+.title__decor::after {
     bottom: -11px;
     background-color: #fff;
 }
