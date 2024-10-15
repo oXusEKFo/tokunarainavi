@@ -79,7 +79,7 @@ main {
     width: 350px;
     background-color: transparent;
     margin: 15px auto;
-    border-bottom: solid 1px #00B0AA;
+    /* border-bottom: solid 1px #00B0AA; */
 }
 
 /* カード幅 */
