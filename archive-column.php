@@ -2,7 +2,7 @@
 <main>
 
     <div class="inner__main">
-        <div class="container__breadCrumb">
+        <div class="breadCrumb__wrap">
             <div class="breadCrumb">
                 <?php get_template_part('template-parts/breadcrumb'); ?>
             </div>

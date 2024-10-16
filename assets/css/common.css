@@ -27,10 +27,22 @@ body {
 }
 
 /*** パンくずリスト ***/
-.breadCrumb {
+/* .breadCrumb {
     font-size: 1.6rem;
     font-weight: 700;
     margin-bottom: 15px;
+} */
+/**パンくずリスト**/
+.breadCrumb__wrap {
+    width: 100%;
+    padding: 15px 25px;
+    /* padding-bottom: 15px; */
+}
+
+.breadCrumb {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 0;
 }
 
 a:hover {

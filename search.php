@@ -11,9 +11,6 @@ $data = [
   $skill_type_terms = get_terms(['taxonomy' => 'skill_type', 'orderby' => 'slug', 'hide_empty' => false]),
 ];
 
-// echo '<pre>';
-// print_r($_GET);
-// echo '</pre>';
 foreach ($data as $value) {
   $taxonomy_name[] = $value[0]->taxonomy;
 }
@@ -22,11 +19,6 @@ $count2 = 0;
 ?>
 
 <main>
-  <?php
-  // echo '<pre>';
-  // print_r($taxonomy_name);
-  // echo '<pre>';
-  ?>
   <div class="results">
     <div class="inner_main">
       <!--パンくずリスト-->
@@ -34,6 +26,12 @@ $count2 = 0;
         <div class="breadCrumb">
           <?php get_template_part('template-parts/breadcrumb'); ?>
         </div>
+
+        <?php
+        // echo 'getの中身<pre>';
+        // print_r($_GET);
+        // echo '<pre>';
+        ?>
       </div>
       <section class="search_results">
         <!--検索フォーム-->
@@ -57,6 +55,9 @@ $count2 = 0;
                 }
               }
             }
+            // echo 'getの中身<pre>';
+            // print_r($select);
+            // echo '<pre>';
 
             if (!empty($term_name_array[$taxonomy_name[$count]])) {
               $term_name[$taxonomy_name[$count]] = implode(",", $term_name_array[$taxonomy_name[$count]]);
@@ -180,10 +181,6 @@ $count2 = 0;
                 </div>
                 <div class="search_actions">
                   <input type="submit" value="この条件で検索する" class="search_button"></input>
-                  <!-- <div class="additional-buttons">
-                  <button>年齢も選ぶ</button>
-                  <button>ジャンルも選ぶ</button>
-                </div> -->
                   <button type="button" class="clear_button" onclick="clearSelections('area')">すべてクリア</button>
                 </div>
               </div>
@@ -224,10 +221,6 @@ $count2 = 0;
               </div>
               <div class="search_actions">
                 <input type="submit" value="この条件で検索する" class="search_button"></input>
-                <!-- <div class="additional-buttons">
-                <button>エリアも選ぶ</button>
-                <button>ジャンルも選ぶ</button>
-              </div> -->
                 <button type="button" class="clear_button" onclick="clearSelections('age_type')">すべてクリア</button>
               </div>
             </div>
@@ -291,10 +284,6 @@ $count2 = 0;
                 ?>
                 <div class="search_actions">
                   <input type="submit" value="この条件で検索する" class="search_button"></input>
-                  <!-- <div class="additional-buttons">
-                  <button>エリアも選ぶ</button>
-                  <button>年齢も選ぶ</button>
-                </div> -->
                   <button type="button" class="clear_button" onclick="clearSelections('classtype')">すべてクリア</button>
                 </div>
               </div>
@@ -321,7 +310,7 @@ $count2 = 0;
 
                 if (!empty($parent_terms) && !is_wp_error($parent_terms)):
                   foreach ($parent_terms as $parent_term):
-                    if ($parent_term->parent == 0): // 只获取父分类
+                    if ($parent_term->parent == 0):
                 ?>
                       <button type="button" class="search_option_suboption" onclick="toggleAccordion('<?= $parent_term->slug ?>')"><?= $parent_term->name ?><span class="plus">+</span></button>
                       <div id="<?= $parent_term->slug ?>" class="accordion_content">
@@ -553,10 +542,6 @@ $count2 = 0;
         $args['posts_per_page'] = 9; //表示件数の指定
         $args['paged'] = $paged;
         $args['tax_query'] = $taxquerysp;
-
-        // echo '<pre>';
-        // print_r($args);
-        // echo '</pre>';
         $the_query = new WP_Query($args);
         ?>
         <!-- 条件検索の結果 -->
@@ -564,14 +549,9 @@ $count2 = 0;
         <?php if ($the_query->have_posts()): ?>
           <div class="results_card">
             <?php while ($the_query->have_posts()): $the_query->the_post(); ?>
-
-              <!-- <div class="wrap_card"> -->
-              <!-- <div class="inner_card"> -->
               <?php
               get_template_part('template-parts/loop', 'classroom');
               ?>
-              <!-- </div> -->
-              <!-- </div> -->
               <?php wp_reset_postdata(); ?>
             <?php endwhile; ?>
           </div>
@@ -581,24 +561,12 @@ $count2 = 0;
       <?php endif;
       ?>
 
-      </section>
-      <!-- 検索結果一覧カードここまで -->
-      </section>
-      <!-- 検索結果一覧カードここまで -->
-
       <section class="footer_results">
-        <div class="containerpagenum">
-          <div class="results_pagenum">
-
-            <?php if (function_exists('wp_pagenavi')): ?>
-              <?php wp_pagenavi(); ?>
-            <?php endif; ?>
-
-          </div>
-        </div>
+        <?php if (function_exists('wp_pagenavi')): ?>
+          <?php wp_pagenavi(); ?>
+        <?php endif; ?>
       </section>
     </div>
   </div>
 </main>
-
 <?php get_footer(); ?>
