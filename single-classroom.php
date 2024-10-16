@@ -263,7 +263,7 @@ endif;
                     </div>
                 </div>
                 <div class="accordion__content">
-                    <?php echo $map; ?>
+                    <iframe src="http://local.google.co.jp/maps?q= <?php echo esc_html($address); ?> &output=embed&t=m&z=16&hl=ja" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
             <?php comments_template() ?>
@@ -277,6 +277,8 @@ endif;
             <!-- 検索結果一覧カード -->
             <?php if ($recommended_classes->have_posts()) : ?>
                 <?php while ($recommended_classes->have_posts()) : $recommended_classes->the_post();
+
+
                     // 現在の投稿に関連付けられたタクソノミー 'classtype' を取得
                     $terms = wp_get_post_terms(get_the_ID(), 'classtype');
                     // 親タクソノミーと子タクソノミーのスラッグを格納する変数
