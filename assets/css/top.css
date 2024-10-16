@@ -726,7 +726,6 @@
 /* 検索窓 */
 .box__search {
     background-color: #FFF;
-    font-size: 1.4rem;
     flex: 1;
     border: solid 1px #463D3B;
     border-radius: 10px;
@@ -745,6 +744,7 @@
     justify-content: center;
     align-items: center;
     padding: 0 0 0 20px;
+    font-size: 1.8rem;
 }
 
 /*  検索窓 キャンセルボタンのカスタマイズ  */
@@ -802,6 +802,9 @@ input[type="search"]::-webkit-search-cancel-button {
     margin: 0 auto;
     width: 100%;
     border-bottom: solid 1px #463D3B;
+}
+.order button{
+    margin-bottom: 10px;
 }
 
 .order__ranking {
@@ -971,9 +974,7 @@ font-size: 1.8rem;
 
 /* NEWS */
 /* 背景 */
-/* .new{
-    position: relative;
-} */
+
 .wrap__news {
     background-color: #00B0AA;
     max-width: 1440px;
@@ -985,39 +986,39 @@ font-size: 1.8rem;
 
 .container__news {
     background-color: #FFF;
-    width: 350px;
+    max-width: 350px;
     height: auto;
-    /* padding: 25px 0 80px 0; */
     margin: 0 auto;
     border-radius: 20px;
-    position: relative;
-    /* NEWS詳細ボタンの位置調整用 */
+}
+.items__news ul{
+padding-top: 40px;
 }
 
-.item__news {
+.items__news li {
     width: 310px;
-    height: 160px;
-    padding: 40px 0 0;
     margin: 0 auto;
-    border-bottom: solid 1px #463D3B;
 }
-
+.items__news ul li+li {
+    border-top:solid 1px #463D3B; ;
+    padding-top: 10px;
+}
 .tag__news {
     font-size: 2.0rem;
-    display: flex;
-    justify-content: flex-start;
+    /* display: flex; */
+    /* justify-content: flex-start; */
 }
 
-.tag__news>h3,
-.tag__news>p {
-    margin: 0 20px;
+.tag__news time{
+    font-size: 1.2rem;
+    text-align: right;
 }
 
 .note__news {
     font-size: 1.4rem;
     line-height: 20.3px;
     padding: 10px 0;
-    margin: 0 20px;
+    /* margin: 0 20px; */
 }
 
 /* NEWS詳細ボタン*/
