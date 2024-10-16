@@ -5,11 +5,12 @@ html {
     /* 全体の基本フォント */
     font-size: 62.5%;
     font-family: "Open Sans", "Zen Maru Gothic", serif;
-    font-weight: 700;
     font-style: normal;
     color: #463D3B;
 }
-
+h1,h2,h3,h4,button{
+    font-weight: 700;
+}
 body {
     /*** メッシュ背景 ***/
     background-image:
