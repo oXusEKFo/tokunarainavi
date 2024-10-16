@@ -233,7 +233,7 @@
                                         foreach ($terms as $term) :
                                     ?>
                                             <label class="accordion_item">
-                                                <input type="checkbox" name="age_type" value="<?php echo $term->slug; ?>" onclick="selectItem(this)">
+                                                <input type="checkbox" name="age_type[]" value="<?php echo $term->slug; ?>" onclick="selectItem(this)">
                                                 <?php echo $term->name; ?>
                                             </label>
                                     <?php
@@ -303,7 +303,7 @@
                                                         foreach ($child_terms as $child_term):
                                                     ?>
                                                             <label class="accordion_item">
-                                                                <input type="checkbox" name="classtype" value="<?php echo $child_term->slug; ?>" onclick="selectItem(this)">
+                                                                <input type="checkbox" name="classtype[]" value="<?php echo $child_term->slug; ?>" onclick="selectItem(this)">
                                                                 <?php echo esc_html($child_term->name); ?>
                                                             </label>
                                                     <?php
