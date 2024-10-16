@@ -4,14 +4,11 @@
     <?php while (have_posts()) : the_post(); ?>
 
         <main>
-
-            <section class="container_bread-crumb">
-                <div class="bread-crumb">
-                    <p><a href="<?php echo home_url(); ?>">TOP</a> &gt;
-                        <span class="under-line"><?php the_title(); ?></span>
-                    </p>
+            <div class="breadCrumb__wrap">
+                <div class="breadCrumb">
+                    <?php get_template_part('template-parts/breadcrumb'); ?>
                 </div>
-            </section>
+            </div>
             <!-- 本文記述 -->
             <section class="wrap_about">
                 <h1 class="title__about">

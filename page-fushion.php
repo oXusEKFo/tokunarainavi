@@ -1,16 +1,12 @@
 <?php get_header(); ?>
 
 <main>
-    <div class="inner__main">
-        <div class="container__bread-crumb">
-            <div class="bread__crumb">
-                <p>
-                    <a href="<?php echo home_url(); ?>">TOP</a> &gt;
-                    <span class="under__line"><?php the_title(); ?></span>
-                </p>
-            </div>
+    <div class="breadCrumb__wrap">
+        <div class="breadCrumb">
+            <?php get_template_part('template-parts/breadcrumb'); ?>
         </div>
-
+    </div>
+    <div class="inner__main">
         <div class="landing">
             <div class="inner__kv">
                 <div class="wrap__question-kv">

@@ -1,12 +1,11 @@
 <?php get_header(); ?>
 <main>
-    <!--  -->
-    <div class="inner_main">
-        <div class="container__breadCrumb">
-            <div class="breadCrumb">
-                <?php get_template_part('template-parts/breadcrumb'); ?>
-            </div>
+    <div class="breadCrumb__wrap">
+        <div class="breadCrumb">
+            <?php get_template_part('template-parts/breadcrumb'); ?>
         </div>
+    </div>
+    <div class="inner_main">
 
         <!-- コラム一覧カード -->
         <section class="column_area">

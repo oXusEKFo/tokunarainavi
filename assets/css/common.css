@@ -26,12 +26,6 @@ body {
     scroll-behavior: smooth;
 }
 
-/*** パンくずリスト ***/
-/* .breadCrumb {
-    font-size: 1.6rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-} */
 /**パンくずリスト**/
 .breadCrumb__wrap {
     width: 100%;
