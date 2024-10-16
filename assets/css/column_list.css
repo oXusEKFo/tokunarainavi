@@ -81,7 +81,6 @@ main {
 
 /* カードエリアの囲い */
 .inner__column-area {
-    width: 390px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit,
@@ -180,6 +179,7 @@ main {
     .inner__column-area {
         max-width: 1040px;
         width: 100%;
+        padding: 15px;
     }
 
     /* カード落ち 補完 */

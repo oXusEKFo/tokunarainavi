@@ -33,7 +33,6 @@ main {
 
 /* カードエリアの囲い */
 .inner_column-area {
-    width: 390px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -79,11 +78,7 @@ main {
 .card_title>h2 {
     width: 100%;
     font-size: 2.7rem;
-    line-height: 39px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    text-align: center;
+    margin: 10px 0;
 }
 
 .column_content h2 {
