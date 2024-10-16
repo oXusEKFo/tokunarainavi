@@ -26,11 +26,18 @@ body {
     scroll-behavior: smooth;
 }
 
-/*** パンくずリスト ***/
+/**パンくずリスト**/
+.breadCrumb__wrap {
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 50px;
+}
+
 .breadCrumb {
     font-size: 1.6rem;
     font-weight: 700;
-    margin-bottom: 15px;
+    margin-bottom: 0;
 }
 
 a:hover {

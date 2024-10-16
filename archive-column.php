@@ -1,13 +1,11 @@
 <?php get_header(); ?>
 <main>
-
-    <div class="inner__main">
-        <div class="container__breadCrumb">
-            <div class="breadCrumb">
-                <?php get_template_part('template-parts/breadcrumb'); ?>
-            </div>
+    <div class="breadCrumb__wrap">
+        <div class="breadCrumb">
+            <?php get_template_part('template-parts/breadcrumb'); ?>
         </div>
-
+    </div>
+    <div class="inner__main">
         <!-- メニュー -->
         <div class="archive">
             <div class="archive_category">
