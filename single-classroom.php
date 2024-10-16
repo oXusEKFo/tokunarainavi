@@ -1,49 +1,105 @@
 <!-- ランキング用 -->
-<!-- <?php
-        $post_id = get_the_ID();
-        $terms = wp_get_post_terms($post_id, 'classtype');
+<?php
+$post_id = get_the_ID();
+$terms = wp_get_post_terms($post_id, 'classtype');
 
-        if (!empty($terms) && !is_wp_error($terms)) {
-            $term_ids = [];
-            foreach ($terms as $term) {
-                $term_ids[] = $term->term_id;
-                increment_term_view_count($term->term_id);
-            }
-        }
-        ?> -->
+if (!empty($terms) && !is_wp_error($terms)) {
+    $term_ids = [];
+    foreach ($terms as $term) {
+        $term_ids[] = $term->term_id;
+        increment_term_view_count($term->term_id);
+    }
+}
+?>
 
 <!-- 投稿のランキング用 -->
-<!-- <?php
-        $cookie_name = 'post_views_' . $post->ID;
+<?php
+$cookie_name = 'post_views_' . $post->ID;
 
-        if (!isset($_COOKIE[$cookie_name])) {
-            global $post;
+if (!isset($_COOKIE[$cookie_name])) {
+    global $post;
 
-            $current_views = get_post_meta($post->ID, 'post_views', true);
-            if ($current_views === '') {
-                $current_views = 0;
-            }
-            $current_views = intval($current_views);
+    $current_views = get_post_meta($post->ID, 'post_views', true);
+    if ($current_views === '') {
+        $current_views = 0;
+    }
+    $current_views = intval($current_views);
 
-            $new_views = $current_views + 1;
-            update_post_meta($post->ID, 'post_views', $new_views);
-            setcookie($cookie_name, '1', time() + 3600, COOKIEPATH, COOKIE_DOMAIN);
-        }
-        ?> -->
+    $new_views = $current_views + 1;
+    update_post_meta($post->ID, 'post_views', $new_views);
+    setcookie($cookie_name, '1', time() + 3600, COOKIEPATH, COOKIE_DOMAIN);
+}
+?>
 
 <?php
 $post_id = get_the_ID();
 $taxonomies = array('classtype', 'area', 'date_type', 'access_type', 'age_type', 'skill_type', 'personality_type', 'cost_type', 'week', 'column_type');
 
 // おすすめ教室を取得するクエリ
-$args = array(
-    'post_type' => 'classroom', // カスタム投稿タイプ
-    'posts_per_page' => 3,  // 表示する教室の数
-    'post__not_in' => array(get_the_ID()), // 現在の教室を除外
-    'orderby' => 'rand' // ランダム表示
-);
+// $args = array(
+//     'post_type' => 'classroom', // カスタム投稿タイプ
+//     'posts_per_page' => 3,  // 表示する教室の数
+//     'post__not_in' => array(get_the_ID()), // 現在の教室を除外
+//     'orderby' => 'rand' // ランダム表示
+// );
 
-$recommended_classes = new WP_Query($args);
+$terms = wp_get_post_terms(get_the_ID(), 'classtype'); // タクソノミー 'classtype' で現在の教室の用語を取得
+
+// 親タクソノミーと子タクソノミーのスラッグを格納する変数
+$parent_slug = '';
+$child_slug = '';
+$parent_taxonomy = null;
+$child_taxonomy = null;
+
+if (!empty($terms)) {
+    foreach ($terms as $term) {
+        // 親か子かを確認
+        if ($term->parent == 0) {
+            $parent_slug = $term->slug; // 親のスラッグを取得
+            $parent_taxonomy = $term;    // 親タクソノミーを格納
+        } else {
+            $child_slug = $term->slug; // 子のスラッグを取得
+            $child_taxonomy = $term;   // 子タクソノミーを格納
+        }
+    }
+}
+
+// var_dump()でデバッグ (必要なら)
+var_dump($parent_taxonomy);
+var_dump($child_taxonomy);
+
+if ($parent_taxonomy && !is_wp_error($parent_taxonomy)) {
+    // 親タクソノミーに属する教室を取得するためのterm_idリスト
+    $term_ids = wp_list_pluck($terms, 'term_id');
+
+    // おすすめ教室を取得するクエリ
+    $args = array(
+        'post_type' => 'classroom', // カスタム投稿タイプ
+        'posts_per_page' => 3,  // 表示する教室の数
+        'post__not_in' => array(get_the_ID()), // 現在の教室を除外
+        'orderby' => 'rand', // ランダム表示
+        'tax_query' => array(
+            'relation' => 'AND', // 親と子の両方で絞り込み
+            array(
+                'taxonomy' => 'classtype', // 教室のジャンル
+                'field' => 'term_id',
+                'terms' => $parent_taxonomy->term_id, // 親タクソノミーに属する教室を取得
+                'include_children' => false, // 子タクソノミーは別途扱う
+            ),
+            array(
+                'taxonomy' => 'classtype', // 子タクソノミー (ジャンル)
+                'field' => 'term_id',
+                'terms' => $child_taxonomy ? $child_taxonomy->term_id : $term_ids, // 子が存在すればその子を使用
+            ),
+        ),
+    );
+
+    // WP_Query を使用して投稿を取得
+    $recommended_classes = new WP_Query($args);
+}
+
+
+
 
 // 現在の投稿に関連付けられたタクソノミー 'classtype' を取得
 $terms = wp_get_post_terms(get_the_ID(), 'classtype');
@@ -130,7 +186,7 @@ endif;
                                 </div>
                             <?php endif; ?>
                         </div>
-                        <a href="" class="tag__favorite">
+                        <a href="" class="tag__favorite1">
                             <?php if (function_exists('the_favorites_button')) {
                                 the_favorites_button($post->ID);
                             } ?>
@@ -277,75 +333,10 @@ endif;
             <!-- 検索結果一覧カード -->
             <?php if ($recommended_classes->have_posts()) : ?>
                 <?php while ($recommended_classes->have_posts()) : $recommended_classes->the_post();
-
-
-                    // 現在の投稿に関連付けられたタクソノミー 'classtype' を取得
-                    $terms = wp_get_post_terms(get_the_ID(), 'classtype');
-                    // 親タクソノミーと子タクソノミーのスラッグを格納する変数
-                    $parent_slug = '';
-                    $child_slug = '';
-
-                    if (!empty($terms)) {
-                        foreach ($terms as $term) {
-                            // 親か子かを確認
-                            if ($term->parent == 0) {
-                                $parent_slug = $term->slug; // 親のスラッグを取得
-                            } else {
-                                $child_slug = $term->slug; //取得
-                                $child_taxonomy = $term;
-                            }
-                        }
-                    }
-                ?>
-                    <div class="wrap__card">
-
-
-                        <div class="inner__card">
-                            <?php if (has_post_thumbnail()) : ?>
-                                <div class="container__cardimg">
-                                    <img class="card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/pcchild.jpg" alt="施設写真">
-                                </div>
-                            <?php endif; ?>
-                            <div class="container__cardinfo">
-                                <div class="card__title">
-                                    <h2><?php the_title(); ?></h2>
-                                </div>
-                                <div class="card__details">
-                                    <div class="card__detail">
-                                        <span class="detail__label">住所</span>
-                                        <span class="detail__value"><?php echo get_post_meta(get_the_ID(), 'address', true); ?></span>
-                                    </div>
-                                    <div class="card__detail">
-                                        <span class="detail__label">対象年齢</span>
-                                        <span class="detail__value"><?php echo get_post_meta(get_the_ID(), 'age', true); ?></span>
-                                    </div>
-                                    <div class="card__area">
-                                        <img class="icon__design" src="<?php echo get_template_directory_uri(); ?>/assets/images/LINE2.png" alt="デザイン画像" width="50" height="50" />
-                                        <img class="icon__category" src="<?php echo get_template_directory_uri() ?>/assets/icon/icon_<?php echo $child_slug ?>.png" alt="カテゴリーアイコン" />
-                                        <div class="card__detail">
-                                            <span class="detail__label">ジャンル</span>
-                                            <span class="detail__value"><?php echo esc_html($child_taxonomy->name); ?></span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-
-                    </div>
+                    get_template_part('template-parts/loop', 'classroom') ?>
                 <?php endwhile; ?>
             <?php endif; ?>
             <?php wp_reset_postdata(); ?>
-            <script>
-                // 結果一覧カード 繰り返し表示
-                // for (let i = 0; i < 2; i++) {
-                //     const card = document.querySelector('.wrap_card');
-                //     const clone = card.cloneNode(true);
-                //     document.querySelector('.results_card').appendChild(clone);
-                // }
-            </script>
-
         </section>
         <!-- 検索結果一覧カードここまで -->
     </div>

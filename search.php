@@ -305,7 +305,7 @@ $count2 = 0;
                     <div id="<?= $parent_term->slug ?>" class="accordion_content">
                       <label class="accordion_item full_width">
                         <input name="weektimes[]" type="checkbox" onclick="selectAll('<?php echo $parent_term->slug; ?>', this);">
-                        <?php echo $parent_term->name; ?> をすべて選択
+                        時間帯をすべて選択
                       </label>
                       <div id="<?php echo $parent_term->slug; ?>_list" class="double_column">
                         <?php
