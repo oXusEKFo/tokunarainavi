@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 /*** ここから 検索結果 共通部分 ***/
-.inner__main{
+.inner__main {
     max-width: 1440px;
     width: 100%;
     margin: 0 auto;
@@ -16,7 +16,8 @@
 
 /* パンくずリスト */
 .breadCrumb {
-    font-size: 1.6rem; /* フォントサイズ大きく */
+    font-size: 1.6rem;
+    /* フォントサイズ大きく */
 }
 
 /* 下線 */
@@ -25,7 +26,6 @@
 }
 
 /*** 検索結果 共通部分 ここまで ***/
-
 /*** ここから施設写真(スライダー) ****/
 .outline__results {
     min-width: 350px;
@@ -42,6 +42,7 @@
 
 .container__slide {
     width: 350px;
+    height: auto;
     margin: 0 auto;
 }
 
@@ -50,12 +51,18 @@
     width: 100%;
     margin: 20px 0;
     position: relative;
-
 }
+
+
 
 /* 施設写真 */
 .wrap__mainImg img {
     width: 100%;
+    /* 横幅をコンテナに合わせる */
+    aspect-ratio: 16 / 9;
+    /* 横長の比率に合わせて高さを調整 */
+    object-fit: cover;
+    /* 画像がはみ出た場合にトリミングして調整 */
     border-radius: 20px;
 }
 
@@ -80,21 +87,23 @@
 /* サムネイル */
 .wrap__thumbnailImg {
     width: 87.5px;
+
 }
 
 /* サムネイル写真 */
 .thumbnail img {
     width: 100%;
+    /* 横幅をコンテナに合わせる */
+    aspect-ratio: 16 / 9;
+    /* 横長の比率に合わせて高さを調整 */
+    object-fit: cover;
+    /* 画像がはみ出た場合にトリミングして調整 */
 }
 
-
 /*** 施設写真(スライダー)ここまで ***/
-
-
 /*** 検索結果詳細部分 ここから ***/
-
-.details__title{
-    position: relative; /* 追加 */
+.details__title {
+    position: relative;
     width: 300px;
     height: 50px;
     background-color: #ED6D1F;
@@ -126,19 +135,19 @@
     margin: 0 auto;
 }
 
-.details__address{
+.details__address {
     font-size: 1.6rem;
     margin-bottom: 4px;
 }
 
-.details__description{
+.details__description {
     font-size: 1.4rem;
     line-height: 2.5rem;
     margin-top: 14px;
 }
 
-.details__container{
-    position: relative; /* 追加 */
+.details__container {
+    position: relative;
     background-color: #F5F5F5;
     font-size: 1.4rem;
     width: 350px;
@@ -201,6 +210,13 @@
     margin-bottom: 8px;
 }
 
+.details__genre>p,
+.details__genre>a {
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 2.5rem;
+}
+
 .details__map{
     font-size: 2.0rem;
     display: flex;
@@ -209,7 +225,6 @@
     width: 60%;
     margin: 20px 0 10px;
     background-color: rgb(246, 239, 231);
-
 }
 
 .icon__sns{
@@ -220,7 +235,6 @@
 }
 
 /* アコーディオンメニュー ここから */
-
 /* アコーディオン囲い */
 .wrap__accordion {
     width: 350px;
@@ -264,31 +278,25 @@
     transform: rotate(0deg);
 }
 
-.accordion__content {
+.accordion__content iframe {
     width: 100%;
 }
 
 /* アコーディオンメニュー ここまで */
-
-
 /* レビューエリア ここから */
-.details__review{
+.details__review {
     width: 350px;
     margin: 0 auto;
 }
 
-.wrap__details-review{
-    width: 100%;
-    border-bottom: solid 1px #463D3B;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 22px;
-    padding-bottom: 9px;
-    margin: 15px 0;
+.wrap__details-review {
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+
 }
 
-.review__title{
+.review__title {
     font-size: 1.8rem;
     font-weight: 700;
     line-height: 2.6rem;
@@ -296,14 +304,23 @@
     margin: 0 0 16px 0;
 }
 
-/* .review__item{
-    font-size: 1.2rem;
-    line-height: 1.74rem;
-} */
+.review__item{
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    }
+
+
 .review__name {
     font-size: 1.4rem;
     line-height: 2.03rem;
-    margin:2.5px 0;
+    margin: 2.5px 0;
 }
 
 .review__date {
@@ -312,13 +329,19 @@
     margin: 2.5px 0;
 }
 
+.review__Form {
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .review__comment {
     font-size: 1.6rem;
     line-height: 2.3rem;
     margin: 2.5px 0;
 }
 
-.reply__btn{
+.reply__btn {
     font-size: 1.2rem;
     font-weight: 700;
     color: #fff;
@@ -326,23 +349,26 @@
     width: 47px;
     height: 30px;
     text-align: center;
+    margin-top: 0.5rem;
+    /* 上に少し余白を追加 */
+    align-self: flex-end;
+    /* 右端に配置 */
 }
 
-.reviewForm{
+.reviewForm {
     font-size: 1.4rem;
     line-height: 2.03rem;
 }
 
-
-#input__name{
+#input__name {
     width: 100%;
     height: 25px;
     background-color: #fff;
-    border:solid 1px #463D3B;
+    border: solid 1px #463D3B;
     border-radius: 5px;
 }
 
-#input__email{
+#input__email {
     width: 100%;
     height: 25px;
     background-color: #fff;
@@ -358,8 +384,8 @@
     border-radius: 5px;
 }
 
-.btn__container{
-text-align: right;
+.btn__container {
+    text-align: right;
 }
 
 .reviewSend__btn {
@@ -374,16 +400,17 @@ text-align: right;
     margin: 17px 0;
 }
 
-.relatedReview__title{
+.relatedReview__title {
     display: flex;
     align-items: center;
     justify-content: center;
     min-width: 350px;
-    width:60%;
+    width: 60%;
     height: 70px;
     margin: 0 auto;
     margin-top: 50px;
-    background-color: rgb(246, 239, 231);}
+    background-color: rgb(246, 239, 231);
+}
 
 .relatedReview__title>h2 {
     font-size: 2rem;
@@ -392,38 +419,16 @@ text-align: right;
 .relatedReview__title p {
     font-size: 2.0rem;
     font-weight: 700;
-
 }
 
-.relatedReview__title img{
+.relatedReview__title img {
     width: 60px;
-    animation: fuwafuwa 3s ease-in-out infinite alternate;
-    transition: 1.5s ease-in-out;
-}
-
-@keyframes fuwafuwa {
-    0% {
-        transform: translate(0, 0) rotate(-7deg);
-    }
-
-    50% {
-        transform: translate(0, -7px) rotate(0deg);
-    }
-
-    100% {
-        transform: translate(0, 0) rotate(7deg);
-    }
 }
 
 /* レビューエリア ここまで */
-
-
 /*** 検索結果詳細部分 ここまで ***/
-
-
 /*** ここから カード部分 ***/
-
-.results__card{
+.results__card {
     width: 390px;
     padding: 7.5px 0 7.5px 0;
     margin: 10px auto;
@@ -433,9 +438,8 @@ text-align: right;
     align-content: flex-start;
 }
 
-
 /* カード白背景部分 */
-.wrap__card{
+.wrap__card {
     padding: 20px 0 0 0;
     margin: 7.5px auto;
     background-color: #F5F5F5;
@@ -443,14 +447,13 @@ text-align: right;
 }
 
 /* カード内側の枠 */
-.inner__card{
-
+.inner__card {
     height: auto;
     margin: 0 auto;
 }
 
 /* カード写真部分の容器 */
-.container__cardImg{
+.container__cardImg {
     margin-bottom: 20px;
     position: relative;
 }
@@ -458,25 +461,29 @@ text-align: right;
 /* 施設写真 */
 .card__img {
     width: 100%;
-    height: auto;   /*アスペクト比を維持*/
+    height: auto;
+    /*アスペクト比を維持*/
     margin: 0 auto;
     border-radius: 20px;
-    display: block; /* 画像の下に余白ができるのを防ぐ */
+    display: block;
+    /* 画像の下に余白ができるのを防ぐ */
 }
 
 /* お気に入りリストに追加 タグ */
-.tag__favorite{
-    width:170px;
-
+.tag__favorite {
+    position: absolute;
+    width: 170px;
 }
 
 /* お気に入りリストに追加 タグ 位置調整（カード）*/
 .container__cardImg>.tag__favorite {
     bottom: -17px;
 }
+
 /* お気に入りリストに追加 タグ 位置調整（結果詳細スライダ）*/
-.slider__area>.tag__favorite{
+.slider__area>.tag__favorite {
     bottom: -15px;
+    margin-right: -50px;
 }
 
 /* 施設名 */
@@ -487,17 +494,13 @@ text-align: right;
     border-bottom: 1px solid #ddd;
 }
 
-
-
-
 .detail__label {
-    color: #f39c1f;
+    color: #F39C1F;
     padding: 5px 2px;
     border-radius: 5px;
     font-size: 1.4rem;
     margin-right: 10px;
     min-width: 65px;
-
 }
 
 .detail__value {
@@ -510,13 +513,10 @@ text-align: right;
     border-bottom: 1px solid #ddd;
 }
 
-
-
 .card__title h2 {
     font-size: 1.8rem;
-    color: #463d3b;
+    color: #463D3B;
     margin: 20px 0;
-
     overflow: hidden;
 }
 
@@ -528,8 +528,6 @@ text-align: right;
     position: relative;
 }
 
-
-
 .card__details {
     display: flex;
     flex-direction: column;
@@ -537,11 +535,9 @@ text-align: right;
 }
 
 .card__detail {
+    display: ;
     align-items: center;
-    }
-
-
-
+}
 
 .icon__category {
     width: 50px;
@@ -555,14 +551,11 @@ text-align: right;
     gap: 10px;
 }
 
-
-
 /*** カード部分ここまで ***/
 
+
 /*** メディアクエリここから ***/
-
 @media screen and (min-width: 768px) {
-
     .outline__results {
         min-width: 350px;
         width: 95%;
@@ -587,14 +580,14 @@ text-align: right;
         margin: 0 auto 0 3vw;
     }
 
-    .inner__details-info{
+    .inner__details-info {
         width: 100%;
     }
 
     .wrap__details-outline {
         width: 100%;
         margin: 0 0;
-}
+    }
 
     .details__container {
         width: 95%;
@@ -620,7 +613,6 @@ text-align: right;
     .relatedReview__title {
         max-width: 1120px;
         width: 95%;
-
     }
 
     .relatedReview__title>h2 {
@@ -628,8 +620,8 @@ text-align: right;
     }
 
     .results__card {
-    max-width: 1200px;
-    width: 95%;
+        max-width: 1200px;
+        width: 95%;
     }
 
     .results__card::after {
@@ -643,21 +635,27 @@ text-align: right;
         display: block;
         width: 50%;
     }
+
     .card__img {
         width: 85%;
-}
+    }
 
-.tag__favorite {
-    width: 50%;
+    .tag__favorite {
+        width: 50%;
+        bottom: -15px;
+    }
 
-    bottom: -15px;
-}
+    .review__item{
+        width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 @media screen and (min-width: 1050px) {
     .inner__main {
-            max-width: 1200px;
-            width: 90%;
+        max-width: 1200px;
+        width: 90%;
     }
 
     .outline__results {
@@ -673,6 +671,7 @@ text-align: right;
 
     .container__slide {
         width: 100%;
+        height: auto;
         margin: 0 auto;
     }
 
@@ -695,12 +694,12 @@ text-align: right;
         height: 70px;
     }
 
-    .wrap__details-outline{
-        max-width:590px;
+    .wrap__details-outline {
+        max-width: 590px;
         width: 100%;
     }
 
-    .details__description{
+    .details__description {
         font-size: 1.8rem;
         line-height: 3.5rem;
         margin-top: 26px;
@@ -727,7 +726,7 @@ text-align: right;
     }
 
     .details__containerL p,
-    .details__containerR p{
+    .details__containerR p {
         font-size: 1.8rem;
         line-height: 3.5rem;
         width: 100%;
@@ -772,10 +771,8 @@ text-align: right;
     }
 
     .details__review {
-        max-width: 950px;
-        width: 85%;
-        margin-top: 50px;
-
+        width: 950px;
+        margin: 0 , auto;
     }
 
     /* .wrap__details-review{
@@ -783,13 +780,18 @@ text-align: right;
         display: flex;
         justify-content: space-between;
     } */
-
-
     .review__title {
         font-size: 3.0rem;
         line-height: 4.0rem;
         font-weight: 700;
         margin: 50px 0 0 0;
+    }
+
+    .review__item{
+        width: 850px;
+        margin-left: auto;
+        margin-right: auto;
+        /* アイテムを縦並び */
     }
 
     .results__card::after {
@@ -800,22 +802,37 @@ text-align: right;
 
     .details__map {
         font-size: 3.0rem;
-
     }
+
     .details__map p {
         display: flex;
         justify-content: center;
     }
+
     .card__img {
-        width: 100%;
-}
-
-
-
-    .wrap__details-review {
         width: 100%;
     }
 
+    .wrap__details-review {
+                width: 950px;
+                margin-left: auto;
+                margin-right: auto;
+        /* width: 100%;
+        border-bottom: solid 1px #463D3B;
+        display: flex;
+        flex-direction: column; */
+        /* 縦並び */
+        /* align-items: center; */
+        /* 子要素を中央揃え */
+        /* justify-content: center;
+        padding: 1rem 0; */
+        /* display: flex; */
+        /* align-items: flex-end; */
+        /* justify-content: space-between; */
+        /* gap: 22px;
+        padding-bottom: 9px;
+        margin: 15px 0; */
+    }
 
     .review__name {
         font-size: 1.8rem;
@@ -838,9 +855,9 @@ text-align: right;
         width: 100%;
     }
 
-        #input__comment {
-            height: 110px;
-        }
+    #input__comment {
+        height: 110px;
+    }
 
     .reviewSend__btn {
         font-size: 1.4rem;
@@ -861,7 +878,6 @@ text-align: right;
 
     .relatedReview__title img {
         width: 70px;
-
     }
 
     .results__card::after {
@@ -873,14 +889,38 @@ text-align: right;
 
 @media screen and (min-width: 1184px) {
     .inner__main {
-            max-width: 1200px;
-            width: 90%;
-        }
+        max-width: 1200px;
+        width: 90%;
+    }
 
     .wrap__details-outline {
         /* width: 100%; */
         margin: 0 auto;
-}
+    }
+    .review__Form{
+      width: 850px;
+    }
+
+    .tag__favorite {
+        width: 250px;
+        /* .card_imgのwidth:260pxの半分のサイズにしてみました（堀） */
+        position: relative;
+        position: absolute;
+        /* .card_imgを基準に位置調整しています（堀） */
+        left: calc(55% + 10px);
+        /* +10pxはリボンが.card_imgからはみ出ている風にするための調整（堀） */
+        bottom: calc(-10px / 2);
+        /* リボンが半分だけ画像と重なっているようにするため（堀） */
+        transition: .3s cubic-bezier(0.45, 0, 0.55, 1);
+        /* ホバーアクション用（堀） */
+        }
+
+    .favo-text {
+        position: absolute;
+        font-size: 1.2rem;
+        left: 130px;
+        bottom: calc(35px / 2.8);
+    }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1050px) {
@@ -899,15 +939,158 @@ text-align: right;
 }
 
 /*** メディアクエリここまで ***/
-
-
 /* バックハンド班による修正ここから */
-.details__description > .simplefavorite-button{
-    display: none;  /*プラグインによるお気に入りの配置を無効 */
-}
-
+/* .details__description>.simplefavorite-button {
+    display: none; */
+    /*プラグインによるお気に入りの配置を無効 */
+/* } */
 
 /* お気に入りリストのボタン配置の優先 */
 .slick-slide {
     height: auto !important;
+}
+
+#reply-title{
+    display: none;
+}
+
+/* キャンセルボタンのスタイル */
+.cancel-reply-btn {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    background-color: #463D3B;
+    width: 130px;
+    height: 30px;
+    border-radius: 20px;
+    text-align: center;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* ボタンを非表示にするためのクラス */
+.hidden {
+    display: none;
+}
+
+.reply__container{
+    text-align: right;
+}
+
+/* .review__item{
+    width: 950px;
+    margin-left: auto;
+    margin-right: auto;
+} */
+
+.review__item p{
+    max-width: 500px;
+    font-size: 1.6rem;
+    line-height: 2.3rem;
+    /* margin: 2.5px 0; */
+    word-wrap: break-word;
+    /* または word-break: break-all; */
+    white-space: normal;
+    /* 折り返し設定 */
+}
+
+/* .wrap__reviewForm{
+    width: 950px;
+    margin-left: auto;
+    margin-right: auto;
+} */
+
+
+/*** お気に入りボタンここから（堀） ***/
+/* プラグイン内で設定したテキスト用のclass */
+.simplefavorite-button{
+    text-align: right;
+    position: relative;
+}
+
+
+
+.favo-text {
+    position:absolute;
+    font-size: 1.2rem;
+    left: 100px;
+    bottom: calc(35px / 2.8); */
+}
+
+/* プラグインで用意された★アイコンの調整 */
+.sf-icon-star-empty,
+.sf-icon-star-full {
+    margin-right: 3px;
+}
+
+.tag__favorite{
+    width: 200px;
+    /* .card_imgのwidth:260pxの半分のサイズにしてみました（堀） */
+    position: relative;
+    position: absolute;
+    /* .card_imgを基準に位置調整しています（堀） */
+    left: calc(43% + 10px);
+    /* +10pxはリボンが.card_imgからはみ出ている風にするための調整（堀） */
+    bottom: calc(-10px / 2);
+    /* リボンが半分だけ画像と重なっているようにするため（堀） */
+    transition: .3s cubic-bezier(0.45, 0, 0.55, 1);
+    /* ホバーアクション用（堀） */
+}
+
+
+/* ボタンサイズ（.tag_favoriteを基準にしている） */
+.layer_2 {
+    width: 50%;
+}
+
+
+/* お気に入りが非アクティブ状態のとき（お気に入り未追加） */
+/* ボタンの塗り */
+.simplefavorite-button .cls-1 {
+    fill: #ffffff;
+    transition: .3s ease-in-out;
+}
+
+/* ボタンの枠線 */
+.simplefavorite-button .cls-2 {
+    fill: #00b0aa;
+}
+
+/* ボタンの塗り（ホバー時） */
+.simplefavorite-button:hover .cls-1 {
+    fill: #e6f4f3;
+}
+
+
+/* お気に入りがアクティブ状態のとき（お気に入り追加済み） */
+.simplefavorite-button.active {
+    opacity: 1 !important;
+    /* !important必要 */
+}
+
+/* ボタンの塗り */
+.simplefavorite-button.active .cls-1 {
+    fill: #00b0aa;
+    transition: .3s ease-in-out;
+}
+
+/* ボタンの枠線 */
+.simplefavorite-button.active .cls-2 {
+    fill: #00b0aa;
+    transition: .3s ease-in-out;
+}
+
+/* ボタンの塗り（ホバー時） */
+.simplefavorite-button.active:hover .cls-1 {
+    fill: #a3cccb;
+}
+
+/* ボタンの枠線（ホバー時） */
+.simplefavorite-button.active:hover .cls-2 {
+    fill: #a3cccb;
+}
+
+/* 少し浮く（ホバー時） */
+.tag__favorite:hover {
+    transform: translateY(-3px);
 }

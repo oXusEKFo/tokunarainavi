@@ -9,17 +9,17 @@ jQuery(function ($) {
 
 
     // Enterキーで検索ボタンクリック
-    const window__search = document.getElementById("window__search");
+    // const window__search = document.getElementById("window__search");
 
-    window__search.addEventListener("keydown", (e) => {
-        if (e.key === "Enter") {
-            const btn__search = document.getElementById("btn__search");
-            btn__search.dispatchEvent(new PointerEvent("click"));
+    // window__search.addEventListener("keydown", (e) => {
+    //     if (e.key === "Enter") {
+    //         const btn__search = document.getElementById("btn__search");
+    //         btn__search.dispatchEvent(new PointerEvent("click"));
 
-        e.preventDefault();  // Enterキー入力の伝搬防止
-    }
-    return false;
-    });
+    //     e.preventDefault();  // Enterキー入力の伝搬防止
+    // }
+    // return false;
+    // });
 
 
 
@@ -45,15 +45,15 @@ jQuery(function ($) {
 //main box fadeIn ふわっと表示させる
 //class="box fadeIn"を追加するだけでOK
 
-$(window).on("scroll load", function () {
+jQuery(window).on("scroll load", function () {
     // ページロード時、またはスクロールされた時
-    var scroll = $(this).scrollTop(); // 現在のスクロール量を測定
-    var windowHeight = $(window).height(); // ウィンドウの高さを測定
-    $(".fadeIn").each(function () {
-        var cntPos = $(this).offset().top; // 対象の要素の上からの距離を測定
+    var scroll = jQuery(this).scrollTop(); // 現在のスクロール量を測定
+    var windowHeight = jQuery(window).height(); // ウィンドウの高さを測定
+    jQuery(".fadeIn").each(function () {
+        var cntPos = jQuery(this).offset().top; // 対象の要素の上からの距離を測定
         if (scroll > cntPos - windowHeight + windowHeight / 3) {
             // 要素がある位置までスクロールされていたら
-            $(this).addClass("active"); // 「active」のクラスを付与
+            jQuery(this).addClass("active"); // 「active」のクラスを付与
         }
     });
 });
