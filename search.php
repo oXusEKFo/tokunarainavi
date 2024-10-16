@@ -38,7 +38,7 @@ $count2 = 0;
       <section class="search_results">
         <!--検索フォーム-->
         <div>
-          <h1 class="results_count">条件検索</h1>
+          <!-- <h1 class="results_count">条件検索</h1> -->
           <?php
           //選択項目の保持と選択項目の名前の取得
           //各タクソノミーでループ 名前の取得まで
@@ -481,25 +481,24 @@ $count2 = 0;
               </div>
             </div>
           </form>
-          <div class="filter_row">
-            <form action="<?php echo home_url('/'); ?>" method="get">
-              <span class="filter_label">フリーワード検索</span>
-              <span class="filter_value">
-                <input type="text" name="s" value="<?php the_search_query(); ?>" placeholder="キーワードを入力してください">
-              </span>
-              <button type="submit">🔍</button>
-            </form>
-          </div>
         </div>
-
+        <form action="<?php echo home_url('/'); ?>" method="get">
+          <div class="box__search">
+            <div class="inner__search-box">
+              <input class="window__search" type="search" name="s" value="<?php the_search_query(); ?>" placeholder="キーワードを入力してください">
+              <button class="btn__search" type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </div>
+          </div>
+        </form>
       </section>
 
       <!-- 検索結果一覧カード -->
       <!-- フリーワード検索の結果 -->
       <?php if (!empty(get_search_query())):
       ?>
-        <h1 class="results_count">検索結果：<?php echo count($posts);
-                                        ?>件（1-5件表示）</h1>
+        <h1 class="results_count">検索結果：<?php echo count($posts); ?>件（1-9件表示）</h1>
         <?php if (have_posts()) :
         ?>
           <div class="results_card">
@@ -512,7 +511,7 @@ $count2 = 0;
           </div>
         <?php else:
         ?>
-          <h4>条件に合う習い事はありませんでした。</h4>
+          <h2 class="not__found">条件に合う習いごとは見つかりませんでした。</h2>
         <?php endif;
         ?>
       <?php else:
@@ -535,7 +534,7 @@ $count2 = 0;
 
         $args = [
           'post_type' => 'classroom',
-          'posts_per_page' => -1,
+          // 'posts_per_page' => -1,
         ];
         $taxquerysp = ['relation' => 'AND'];
 
@@ -577,7 +576,7 @@ $count2 = 0;
             <?php endwhile; ?>
           </div>
         <?php else: ?>
-          <h4>条件に合う習いごとは見つかりませんでした。</h4>
+          <h2 class="not__found">条件に合う習いごとは見つかりませんでした。</h2>
         <?php endif; ?>
       <?php endif;
       ?>

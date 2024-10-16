@@ -62,6 +62,12 @@
     font-size: 2.4rem;
 }
 
+.not__found {
+    margin-top: 30px;
+    margin-left: 20px;
+    font-size: 1.8rem;
+}
+
 /* 下線 */
 .underline {
     border-bottom: solid 1px #463d3b;
@@ -137,6 +143,45 @@
     flex-wrap: wrap;
     justify-content: center;
 } */
+
+.box__search {
+    background-color: #FFF;
+    font-size: 1.4rem;
+    flex: 1;
+    border: solid 1px #463D3B;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.inner__search-box {
+    width: 100%;
+    display: flex;
+}
+
+.window__search {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0 0 20px;
+}
+
+.btn__search {
+    /* background-color: #00B0AA; */
+    /* ボタンの背景色 */
+    border: none;
+    /* ボーダーを削除 */
+    border-radius: 5px 0px 0px 5px;
+    /* 右側の角を丸くする */
+    padding: 20px;
+    /* パディングを追加 */
+    display: flex;
+    /* フレックスボックスを使用 */
+    align-items: center;
+    /* アイコンを中央に揃える */
+    justify-content: center;
+    /* アイコンを中央に揃える */
+}
 
 .wrap_card {
     margin: 30px auto;
