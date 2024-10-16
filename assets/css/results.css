@@ -39,12 +39,16 @@
 
 .filter_label {
     width: 160px;
+    min-width: 140px;
     font-weight: bold;
     color: #ff6600;
 }
 
 .filter_value {
     flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .change_btn {
@@ -54,6 +58,8 @@
     border-radius: 5px;
     text-decoration: none;
     font-size: 1.4rem;
+    min-width: 55px;
+    text-align: center;
 }
 
 .results_count {
@@ -296,7 +302,7 @@
     }
 
     .filter_label {
-        width: 200px;
+        min-width: 200px;
     }
 }
 
