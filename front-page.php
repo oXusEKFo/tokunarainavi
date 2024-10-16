@@ -119,25 +119,27 @@
                                     'orderby' => 'slug',
                                     'order' => 'ASC',
                                 ));
-                                ?>
-                                <label class="accordion_item full_width">
-                                    <input type="checkbox" onclick="selectAll('<?php echo $parent_term->slug; ?>', this);"> <?php echo $parent_term->name; ?>
-                                </label>
-                                <div id="<?php echo $parent_term->slug; ?>" class="single_column">
-                                    <!-- 徳島市全域の子要素 -->
-                                    <?php
-                                    if (!empty($child_terms) && !is_wp_error($child_terms)) :
-                                        foreach ($child_terms as $child_term) :
-                                    ?>
-                                            <label class="accordion_item">
-                                                <input type="checkbox" name="area[]" value="<?php echo $child_term->slug; ?>" onclick="selectItem(this)">
-                                                <?php echo $child_term->name; ?>
-                                            </label>
-                                    <?php
-                                        endforeach;
-                                        wp_reset_postdata();
-                                    endif;
-                                    ?>
+                                ?><div id="<?= $parent_term->slug; ?>" class="accordion_content" style="display:flex">
+                                    <label class="accordion_item full_width">
+                                        <input type="checkbox" name="area[]" onclick="selectAll('<?php echo $parent_term->slug; ?>', this);"> <?php echo $parent_term->name; ?>
+                                    </label>
+                                    <!-- <div id="<?php echo $parent_term->slug; ?>" class="single_column"> -->
+                                    <div class="single_column">
+                                        <!-- 徳島市全域の子要素 -->
+                                        <?php
+                                        if (!empty($child_terms) && !is_wp_error($child_terms)) :
+                                            foreach ($child_terms as $child_term) :
+                                        ?>
+                                                <label class="accordion_item">
+                                                    <input type="checkbox" name="area[]" value="<?php echo $child_term->slug; ?>" onclick="selectItem(this)">
+                                                    <?php echo $child_term->name; ?>
+                                                </label>
+                                        <?php
+                                            endforeach;
+                                            wp_reset_postdata();
+                                        endif;
+                                        ?>
+                                    </div>
                                 </div>
 
                                 <!-- 板野郡全域area02 -->
@@ -151,24 +153,27 @@
                                     'order' => 'ASC',
                                 ));
                                 ?>
-                                <label class="accordion_item full_width">
-                                    <input type="checkbox" onclick="selectAll('<?php echo $parent_term->slug; ?>', this);"> <?php echo $parent_term->name; ?>
-                                </label>
-                                <div id="<?php echo $parent_term->slug; ?>" class="double_column">
+                                <div id="<?= $parent_term->slug; ?>" class="accordion_content" style="display:flex">
+                                    <label class="accordion_item full_width">
+                                        <input type="checkbox" name="area[]" onclick="selectAll('<?php echo $parent_term->slug; ?>', this);"> <?php echo $parent_term->name; ?>
+                                    </label>
+                                    <!-- <div id="<?php echo $parent_term->slug; ?>" class="double_column"> -->
                                     <!-- 板野郡全域の子要素 -->
-                                    <?php
-                                    if (!empty($child_terms) && !is_wp_error($child_terms)) :
-                                        foreach ($child_terms as $child_term) :
-                                    ?>
-                                            <label class="accordion_item">
-                                                <input type="checkbox" name="area[]" value="<?php echo $child_term->slug; ?>" onclick="selectItem(this)">
-                                                <?php echo $child_term->name; ?>
-                                            </label>
-                                    <?php
-                                        endforeach;
-                                        wp_reset_postdata();
-                                    endif;
-                                    ?>
+                                    <div class="double_column">
+                                        <?php
+                                        if (!empty($child_terms) && !is_wp_error($child_terms)) :
+                                            foreach ($child_terms as $child_term) :
+                                        ?>
+                                                <label class="accordion_item">
+                                                    <input type="checkbox" name="area[]" value="<?php echo $child_term->slug; ?>" onclick="selectItem(this)">
+                                                    <?php echo $child_term->name; ?>
+                                                </label>
+                                        <?php
+                                            endforeach;
+                                            wp_reset_postdata();
+                                        endif;
+                                        ?>
+                                    </div>
                                 </div>
 
                                 <!-- 徳島市と板野郡以外の域 -->
@@ -202,7 +207,7 @@
                                         <button type="button" onclick="toggleAgePopup()">年齢も選ぶ</button>
                                         <button type="button" onclick="toggleGenrePopup()">ジャンルも選ぶ</button>
                                     </div>
-                                    <button type="button" class="clear_button" onclick="clearSelections()">すべてクリア</button>
+                                    <button type="button" class="clear_button" onclick="clearSelections('area')">すべてクリア</button>
                                 </div>
                             </div>
                             <!-- </form> -->
@@ -249,7 +254,7 @@
                                     <button type="button" onclick="toggleAreaPopup()">エリアも選ぶ</button>
                                     <button type="button" onclick="toggleGenrePopup()">ジャンルも選ぶ</button>
                                 </div>
-                                <button type="button" class="clear_button" onclick="clearSelections()">すべてクリア</button>
+                                <button type="button" class="clear_button" onclick="clearSelections('age_type')">すべてクリア</button>
                             </div>
                             <!-- </form> -->
                         </div>
@@ -286,7 +291,7 @@
                                             <div id="<?php echo $parent_term->slug; ?>" class="accordion_content">
 
                                                 <label class="accordion_item full_width">
-                                                    <input type="checkbox" onclick="selectAll('<?php echo $parent_term->slug; ?>', this);">
+                                                    <input type="checkbox" name="classtype[]" onclick="selectAll('<?php echo $parent_term->slug; ?>', this);">
                                                     <?php echo $parent_term->name; ?> をすべて選択
                                                 </label>
                                                 <div id="<?php echo $parent_term->slug; ?>_list" class="double_column">
@@ -323,7 +328,7 @@
                                         <button type="button" onclick="toggleAreaPopup()">エリアも選ぶ</button>
                                         <button type="button" onclick="toggleAgePopup()">年齢も選ぶ</button>
                                     </div>
-                                    <button class="clear_button" onclick="clearSelections()">すべてクリア</button>
+                                    <button type="button" class="clear_button" onclick="clearSelections('classtype')">すべてクリア</button>
                                 </div>
                                 <!-- </form> -->
                             </div>
