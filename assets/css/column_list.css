@@ -12,11 +12,6 @@ main {
     margin: 0 auto;
 }
 
-.container__breadCrumb {
-    width: 100%;
-    padding-top: 15px;
-}
-
 /* 下線 */
 .underLine {
     border-bottom: solid 1px #463D3B;
