@@ -3,7 +3,14 @@
 <?php if (have_posts()) : ?>
   <?php while (have_posts()) : the_post(); ?>
     <main>
-      <?php get_template_part('template-parts/breadcrumb'); ?>
+
+      <!-- パンくず -->
+      <div class="breadCrumb__wrap">
+        <div class="breadCrumb">
+          <?php get_template_part('template-parts/breadcrumb'); ?>
+        </div>
+      </div>
+
       <section class="section">
         <div class="section_inner">
           <div class="contact_form">
