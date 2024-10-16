@@ -42,45 +42,6 @@ jQuery(function ($) {
 });
 
 
-
-// キャラクターアニメーション（TOPの男の子）
-
-document.addEventListener('DOMContentLoaded', () => {
-    const pochi = document.querySelector('.boy__pochi'); // クラス名で要素を取得
-    const programmer = document.querySelector('.boy__programmer'); // boy_programmerの要素を取得
-
-    if (!pochi || !programmer) {
-        console.error('要素が見つかりません。クラス名を確認してください。');
-        return;
-    }
-
-    // 親要素を相対位置に設定
-    const parent = programmer.parentElement;
-    parent.style.position = 'relative';
-
-    // pochiをprogrammerの右上に配置
-    pochi.style.position = 'absolute';
-    pochi.style.left = `${programmer.offsetLeft + programmer.offsetWidth}px`; // 右側に配置
-    pochi.style.top = `${programmer.offsetTop}px`; // 上部に配置
-
-    setTimeout(() => {
-        let count = 0;
-        const interval = setInterval(() => {
-            if (count % 2 === 0) {
-                pochi.style.opacity = 1; // ポチを表示
-            } else {
-                pochi.style.opacity = 0; // ポチを非表示
-            }
-
-            if (++count >= 12) { // 6回表示と非表示を繰り返す
-                clearInterval(interval); // 6回表示と非表示を繰り返したら停止
-            }
-        }, 500); // 0.5秒ごとに位置を変更
-    }, 4000); // 4秒後に開始
-});
-
-
-
 //main box fadeIn ふわっと表示させる
 //class="box fadeIn"を追加するだけでOK
 
@@ -112,4 +73,47 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('scroll', checkVisibility);
     checkVisibility(); // 初期チェック
+});
+
+
+// キャラクターアニメーション（TOPの男の子）
+document.addEventListener('DOMContentLoaded', () => {
+    const pochi = document.querySelector('.boy__pochi'); // クラス名で要素を取得
+    const programmer = document.querySelector('.boy__programmer'); // boy_programmerの要素を取得
+    const idea = document.querySelector('.boy__idea'); // boy_ideaの要素を取得
+
+    if (!pochi || !programmer || !idea) {
+        console.error('要素が見つかりません。クラス名を確認してください。');
+        return;
+    }
+
+    // 親要素を相対位置に設定
+    const parent = programmer.parentElement;
+    parent.style.position = 'relative';
+
+    // pochiをprogrammerの右上に配置
+    pochi.style.position = 'absolute';
+    pochi.style.left = `${programmer.offsetLeft + programmer.offsetWidth}px`; // 右側に配置
+    pochi.style.top = `${programmer.offsetTop}px`; // 上部に配置
+
+    setTimeout(() => {
+        let count = 0;
+        const interval = setInterval(() => {
+            if (count % 2 === 0) {
+                pochi.style.opacity = 1; // ポチを表示
+            } else {
+                pochi.style.opacity = 0; // ポチを非表示
+            }
+
+            if (++count >= 12) { // 6回表示と非表示を繰り返す
+                clearInterval(interval); // 6回表示と非表示を繰り返したら停止
+                idea.style.opacity = 1; // boy__ideaを表示
+
+                // 2秒後にboy__ideaを非表示にする
+                setTimeout(() => {
+                    idea.style.opacity = 0; // boy__ideaを非表示
+                }, 4000); // 4秒待機
+            }
+        }, 500); // 0.5秒ごとに位置を変更
+    }, 5000); // 5秒後に開始
 });

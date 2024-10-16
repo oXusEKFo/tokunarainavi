@@ -66,8 +66,8 @@ main {
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit,
-            minmax(360px, 1fr));
-    gap: 42px;
+            minmax(390px, 1fr));
+    gap: 0px;
     /* display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -76,10 +76,10 @@ main {
 
 /* カードの囲い */
 .wrap__column-card {
-    width: 350px;
+    width: 390px;
     background-color: transparent;
     margin: 15px auto;
-    border-bottom: solid 1px #00B0AA;
+    /* border-bottom: solid 1px #00B0AA; */
 }
 
 /* カード幅 */
@@ -165,9 +165,9 @@ main {
 
     /* カード落ち 補完 */
     .inner__column-area::after {
-        content: "";
+        /* content: "";
         display: block;
-        width: 50%;
+        width: 50%; */
     }
 }
 
@@ -179,7 +179,7 @@ main {
 
     /* カード落ち 補完 */
     .inner__column-area::after {
-        width: 33.3%;
+        /* width: 33.3%; */
     }
 }
 

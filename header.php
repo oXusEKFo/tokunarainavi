@@ -14,7 +14,7 @@ if (!is_user_logged_in() && IS_DEV == true) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
-    <title>とくしま習いごとナビ TOPページ</title>
+
 
     <?php wp_head(); ?>
     <!-- 必ず書いてください-->

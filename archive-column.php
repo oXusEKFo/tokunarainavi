@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <main>
-    <!--  -->
+
     <div class="inner__main">
         <div class="container__breadCrumb">
             <div class="breadCrumb">
@@ -8,33 +8,41 @@
             </div>
         </div>
 
+        <!-- メニュー -->
+        <div class="archive">
+            <div class="archive_category">
+                <ul class="archive_list">
+                    <?php
+                    $all_link = home_url('/column');
+                    echo '<li><a href="' . $all_link . '">All</a></li>';
 
-        <?php
-        $colurmn_terms = get_terms(['taxonomy' => 'column_type']);
-        ?>
-        <?php
-        if (!empty($colurmn_terms)): ?>
-            <?php foreach ($colurmn_terms as $column): ?>
-                <div>
-                    <a href="<?php echo get_term_link($column);
-                                ?>"><?= $column->name ?></a>
-                </div>
-            <?php endforeach; ?>
-        <?php endif ?>
+                    $terms = get_terms(array(
+                        'taxonomy' => 'column_type',
+                        'hide_empty' => false,
+                    ));
 
-        <!-- コラム一覧カード -->
-        <div class="inner__column">
-            <div class="title__column">
-                <h1>COLUMN</h1>
-                <p>コラム</p>
+                    if (!empty($terms) && !is_wp_error($terms)) {
+
+                        foreach ($terms as $term) {
+                            echo '<li><a href="' . esc_url(get_term_link($term)) . '">' . esc_html($term->name) . '</a></li>';
+                        }
+                    }
+                    ?>
+                </ul>
             </div>
-            <!-- スライダー ここから -->
-            <div class="slider">
-                <div class="auto-slider">
+
+            <!-- コラム一覧カード -->
+            <div class="column__area">
+                <div class="column__title">
+                    <h1>COLUMN</h1>
+                    <p>コラム</p>
+                </div>
+                <!-- スライダー ここから -->
+                <div class="inner__column-area">
                     <?php
                     $args = [
                         'post_type' => 'column',
-                        'posts_per_page'     => 5,
+                        // 'posts_per_page'     => 5,
                         'orderby'        => 'date',
                         'order'          => 'DESC',
                     ];
@@ -43,25 +51,26 @@
                     if ($column_query->have_posts()):
                     ?>
                         <?php while ($column_query->have_posts()): $column_query->the_post(); ?>
-                            <?php get_template_part('template-parts/loop', 'column'); ?>
+                            <div class="wrap__column-card">
+                                <?php get_template_part('template-parts/loop', 'column'); ?>
+                            </div>
+                        <?php endwhile; ?>
+                        <!-- <?php wp_reset_postdata(); ?> -->
+                    <?php endif ?>
                 </div>
-            <?php endwhile; ?>
-            <?php wp_reset_postdata(); ?>
-        <?php endif ?>
+            </div>
+            <!-- コラムカードここまで -->
+
+            <div class="column__footer">
+                <div class="container__page-num">
+                    <?php if (function_exists('wp_pagenavi')):  ?>
+                        <div class="column_page-num">
+                            <?php wp_pagenavi(); ?>
+                        </div>
+                    <?php endif;  ?>
+                </div>
             </div>
         </div>
-        <!-- コラムカードここまで -->
-
-        <!-- <div class="column__footer">
-            <div class="container__page-num">
-                <div class="column_page-num">
-                    <p>
-                        &lt;　1　2　3　&gt;
-                    </p>
-                </div>
-            </div>
-        </div> -->
-    </div>
 </main>
 
 <?php get_footer(); ?>

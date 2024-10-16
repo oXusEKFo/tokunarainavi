@@ -2,11 +2,9 @@
 <main>
     <!--  -->
     <div class="inner_main">
-        <div class="container_breadCrumb">
+        <div class="container__breadCrumb">
             <div class="breadCrumb">
-                <p>TOP &gt;コラム一覧 &gt;
-                    <span class="underLine">コラム詳細</span>
-                </p>
+                <?php get_template_part('template-parts/breadcrumb'); ?>
             </div>
         </div>
 
