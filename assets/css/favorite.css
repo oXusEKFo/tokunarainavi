@@ -8,7 +8,7 @@ main {
     /* max-width: 600px; */
     max-width: 1200px;
     /* 阿波農ライフが1200pxにしていたので（堀） */
-    padding-top: 70px;
+    padding-top: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
     padding-left: 20px;
@@ -57,7 +57,7 @@ main {
 
 @media screen and (min-width: 780px) {
     .inner_main {
-        padding-top: 110px;
+        /* padding-top: 110px; */
         padding-right: 40px;
         padding-left: 40px;
     }
