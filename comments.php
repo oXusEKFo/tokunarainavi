@@ -4,7 +4,7 @@ if (have_comments()) : ?>
     <div class="wrap__details-review">
         <div class="review__list">
             <div class="review__title">
-                <h3>|&nbsp;レビュー&nbsp;一覧&nbsp;(<?php echo get_comments_number(); ?>件)</h3>
+                <h3>|&nbsp;クチコミ&nbsp;一覧&nbsp;(<?php echo get_comments_number(); ?>件)</h3>
             </div>
             <?php
             // カスタムコメント表示のコールバック関数

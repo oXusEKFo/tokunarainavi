@@ -470,18 +470,104 @@
 }
 
 /* お気に入りリストに追加 タグ */
-.tag__favorite {
+.tag__favorite1 {
+    width: 200px;
+    position: relative;
     position: absolute;
-    width: 170px;
+    left: calc(43% + 10px);
+    bottom: calc(-10px / 2);
 }
 
+.tag__favorite1 .favo-text {
+    position: absolute;
+    font-size: 1rem;
+    left: 103px;
+    bottom: calc(26px / 2.8);
+}
+
+.tag__favorite1 .simplefavorite-button {
+    text-align: right;
+    position: relative;
+}
+
+
+
+
+
+/* プラグインで用意された★アイコンの調整 */
+.sf-icon-star-empty,
+.sf-icon-star-full {
+    margin-right: 3px;
+}
+
+
+
+
+/* ボタンサイズ（.tag_favoriteを基準にしている） */
+.tag__favorite1 .layer_2 {
+    width: 50%;
+}
+
+
+/* お気に入りが非アクティブ状態のとき（お気に入り未追加） */
+/* ボタンの塗り */
+.simplefavorite-button .cls-1 {
+    fill: #ffffff;
+    transition: .3s ease-in-out;
+}
+
+/* ボタンの枠線 */
+.simplefavorite-button .cls-2 {
+    fill: #00b0aa;
+}
+
+/* ボタンの塗り（ホバー時） */
+.simplefavorite-button:hover .cls-1 {
+    fill: #e6f4f3;
+}
+
+
+/* お気に入りがアクティブ状態のとき（お気に入り追加済み） */
+.simplefavorite-button.active {
+    opacity: 1 !important;
+    /* !important必要 */
+}
+
+/* ボタンの塗り */
+.simplefavorite-button.active .cls-1 {
+    fill: #00b0aa;
+    transition: .3s ease-in-out;
+}
+
+/* ボタンの枠線 */
+.simplefavorite-button.active .cls-2 {
+    fill: #00b0aa;
+    transition: .3s ease-in-out;
+}
+
+/* ボタンの塗り（ホバー時） */
+.simplefavorite-button.active:hover .cls-1 {
+    fill: #a3cccb;
+}
+
+/* ボタンの枠線（ホバー時） */
+.simplefavorite-button.active:hover .cls-2 {
+    fill: #a3cccb;
+}
+
+/* 少し浮く（ホバー時） */
+.tag__favorite1:hover {
+    transform: translateY(-3px);
+}
+
+
 /* お気に入りリストに追加 タグ 位置調整（カード）*/
-.container__cardImg>.tag__favorite {
+.container__cardImg>.tag__favorite1 {
     bottom: -17px;
 }
 
 /* お気に入りリストに追加 タグ 位置調整（結果詳細スライダ）*/
-.slider__area>.tag__favorite {
+.slider__area>.tag__favorite1 {
     bottom: -15px;
     margin-right: -50px;
 }
@@ -640,7 +726,7 @@
         width: 85%;
     }
 
-    .tag__favorite {
+    .tag__favorite1 {
         width: 50%;
         bottom: -15px;
     }
@@ -649,6 +735,50 @@
         width: 500px;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .tag__favorite1 {
+        width: 200px;
+        /* .card_imgのwidth:260pxの半分のサイズにしてみました（堀） */
+        position: relative;
+        position: absolute;
+        /* .card_imgを基100位置調整しています（堀） */
+        left: calc(50%);
+        /* +10pxはリボンが.card_imgからはみ出ている風にするための調整（堀） */
+        bottom: calc(-10px / 2);
+        /* リボンが半分だけ画像と重なっているようにするため（堀） */
+        transition: .3s cubic-bezier(0.45, 0, 0.55, 1);
+        /* ホバーアクション用（堀） */
+    }
+
+    .tag__favorite1 .favo-text {
+        position: absolute;
+        font-size: 1.0rem;
+        left: 103px;
+        bottom: calc(24px / 2.8);
+    }
+}
+
+@media screen and (min-width: 883px) {
+    .tag__favorite1 {
+        width: 200px;
+        /* .card_imgのwidth:260pxの半分のサイズにしてみました（堀） */
+        position: relative;
+        position: absolute;
+        /* .card_imgを基100位置調整しています（堀） */
+        left: calc(57%);
+        /* +10pxはリボンが.card_imgからはみ出ている風にするための調整（堀） */
+        bottom: calc(-10px / 2);
+        /* リボンが半分だけ画像と重なっているようにするため（堀） */
+        transition: .3s cubic-bezier(0.45, 0, 0.55, 1);
+        /* ホバーアクション用（堀） */
+    }
+
+    .tag__favorite1 .favo-text {
+        position: absolute;
+        font-size: 1rem;
+        left: 103px;
+        bottom: calc(26px / 2.8);
     }
 }
 
@@ -814,9 +944,9 @@
     }
 
     .wrap__details-review {
-                width: 950px;
-                margin-left: auto;
-                margin-right: auto;
+        width: 950px;
+        margin-left: auto;
+        margin-right: auto;
         /* width: 100%;
         border-bottom: solid 1px #463D3B;
         display: flex;
@@ -885,6 +1015,27 @@
         display: block;
         width: 33.33%;
     }
+
+    .tag__favorite1 {
+        width: 280px;
+        /* .card_imgのwidth:260pxの半分のサイズにしてみました（堀） */
+        position: relative;
+        position: absolute;
+        /* .card_imgを基準に位置調整しています（堀） */
+        left: calc(48% + 10px);
+        /* +10pxはリボンが.card_imgからはみ出ている風にするための調整（堀） */
+        bottom: calc(-10px / 2);
+        /* リボンが半分だけ画像と重なっているようにするため（堀） */
+        transition: .3s cubic-bezier(0.45, 0, 0.55, 1);
+        /* ホバーアクション用（堀） */
+    }
+
+    .tag__favorite1 .favo-text {
+        position: absolute;
+        font-size: 1.2rem;
+        left: 155px;
+        bottom: calc(35px / 2.8);
+    }
 }
 
 @media screen and (min-width: 1184px) {
@@ -901,13 +1052,13 @@
       width: 850px;
     }
 
-    .tag__favorite {
-        width: 250px;
+    .tag__favorite1 {
+        width: 280px;
         /* .card_imgのwidth:260pxの半分のサイズにしてみました（堀） */
         position: relative;
         position: absolute;
         /* .card_imgを基準に位置調整しています（堀） */
-        left: calc(55% + 10px);
+        left: calc(48% + 10px);
         /* +10pxはリボンが.card_imgからはみ出ている風にするための調整（堀） */
         bottom: calc(-10px / 2);
         /* リボンが半分だけ画像と重なっているようにするため（堀） */
@@ -915,10 +1066,10 @@
         /* ホバーアクション用（堀） */
         }
 
-    .favo-text {
+    .tag__favorite1 .favo-text {
         position: absolute;
         font-size: 1.2rem;
-        left: 130px;
+        left: 155px;
         bottom: calc(35px / 2.8);
     }
 }
@@ -1003,94 +1154,3 @@
 
 /*** お気に入りボタンここから（堀） ***/
 /* プラグイン内で設定したテキスト用のclass */
-.simplefavorite-button{
-    text-align: right;
-    position: relative;
-}
-
-
-
-.favo-text {
-    position:absolute;
-    font-size: 1.2rem;
-    left: 100px;
-    bottom: calc(35px / 2.8); */
-}
-
-/* プラグインで用意された★アイコンの調整 */
-.sf-icon-star-empty,
-.sf-icon-star-full {
-    margin-right: 3px;
-}
-
-.tag__favorite{
-    width: 200px;
-    /* .card_imgのwidth:260pxの半分のサイズにしてみました（堀） */
-    position: relative;
-    position: absolute;
-    /* .card_imgを基準に位置調整しています（堀） */
-    left: calc(43% + 10px);
-    /* +10pxはリボンが.card_imgからはみ出ている風にするための調整（堀） */
-    bottom: calc(-10px / 2);
-    /* リボンが半分だけ画像と重なっているようにするため（堀） */
-    transition: .3s cubic-bezier(0.45, 0, 0.55, 1);
-    /* ホバーアクション用（堀） */
-}
-
-
-/* ボタンサイズ（.tag_favoriteを基準にしている） */
-.layer_2 {
-    width: 50%;
-}
-
-
-/* お気に入りが非アクティブ状態のとき（お気に入り未追加） */
-/* ボタンの塗り */
-.simplefavorite-button .cls-1 {
-    fill: #ffffff;
-    transition: .3s ease-in-out;
-}
-
-/* ボタンの枠線 */
-.simplefavorite-button .cls-2 {
-    fill: #00b0aa;
-}
-
-/* ボタンの塗り（ホバー時） */
-.simplefavorite-button:hover .cls-1 {
-    fill: #e6f4f3;
-}
-
-
-/* お気に入りがアクティブ状態のとき（お気に入り追加済み） */
-.simplefavorite-button.active {
-    opacity: 1 !important;
-    /* !important必要 */
-}
-
-/* ボタンの塗り */
-.simplefavorite-button.active .cls-1 {
-    fill: #00b0aa;
-    transition: .3s ease-in-out;
-}
-
-/* ボタンの枠線 */
-.simplefavorite-button.active .cls-2 {
-    fill: #00b0aa;
-    transition: .3s ease-in-out;
-}
-
-/* ボタンの塗り（ホバー時） */
-.simplefavorite-button.active:hover .cls-1 {
-    fill: #a3cccb;
-}
-
-/* ボタンの枠線（ホバー時） */
-.simplefavorite-button.active:hover .cls-2 {
-    fill: #a3cccb;
-}
-
-/* 少し浮く（ホバー時） */
-.tag__favorite:hover {
-    transform: translateY(-3px);
-}
