@@ -2,18 +2,15 @@
 
 <main>
 
+    <!-- パンくず -->
+    <div class="breadCrumb__wrap">
+        <div class="breadCrumb">
+            <?php get_template_part('template-parts/breadcrumb'); ?>
+        </div>
+    </div>
+
     <div class="news">
         <div class="inner__main">
-
-            <!-- パンくず -->
-            <div class="container__breadCrumb">
-                <div class="breadCrumb">
-                    <p><?php
-                        get_template_part('template-parts/breadcrumb');
-                        ?>
-                    </p>
-                </div>
-            </div>
 
             <!-- wrap__newsここから -->
             <div class="wrap__news">
