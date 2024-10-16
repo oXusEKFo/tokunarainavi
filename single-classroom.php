@@ -263,7 +263,7 @@ endif;
                     </div>
                 </div>
                 <div class="accordion__content">
-                    <?php echo $map; ?>
+                    <iframe src="http://www.google.co.jp/maps?q= <?php echo esc_html($address); ?> &output=embed&t=m&z=16&hl=ja" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
             <?php comments_template() ?>
