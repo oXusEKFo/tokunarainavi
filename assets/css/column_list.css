@@ -22,6 +22,21 @@ main {
     border-bottom: solid 1px #463D3B;
 }
 
+.archive__list {
+    display: flex;
+    gap: 10px;
+}
+
+
+.archive__list li a {
+    display: block;
+    padding: 10px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    background-color: #ff6600;
+    color: white;
+}
+
 /*** コラム一覧共通部分 ここまで ***/
 
 /*** ここから コラム一覧部分 ***/

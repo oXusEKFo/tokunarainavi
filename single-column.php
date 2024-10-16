@@ -57,7 +57,7 @@
         </section>
         <!-- コラムカードここまで -->
 
-        <section class="footer_column">
+        <!-- <section class="footer_column">
             <div class="container_pageNum">
                 <div class="column_pageNum">
                     <p>
@@ -65,7 +65,7 @@
                     </p>
                 </div>
             </div>
-        </section>
+        </section> -->
     </div>
 </main>
 <?php get_footer(); ?>

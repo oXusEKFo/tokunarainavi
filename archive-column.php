@@ -11,7 +11,7 @@
         <!-- メニュー -->
         <div class="archive">
             <div class="archive_category">
-                <ul class="archive_list">
+                <ul class="archive__list">
                     <?php
                     $all_link = home_url('/column');
                     echo '<li><a href="' . $all_link . '">All</a></li>';
