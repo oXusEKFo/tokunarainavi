@@ -65,7 +65,6 @@ function add_style_script()
     //     get_template_directory_uri() . '/assets/css/column_slider.css'
     // );
 
-
     // 共通のJSファイルを読み込む
     wp_enqueue_script(
         'tokunavi_jquery',
@@ -169,12 +168,21 @@ function add_style_script()
             'tokunavi_classroom_style',
             get_template_directory_uri() . '/assets/css/details.css',
         );
-        // jQuery を CDN から読み込む
+        wp_enqueue_style('class_slick_css', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css'); //slick
+        wp_enqueue_style('class_slick-theme_css', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css'); //slick-theme
         wp_enqueue_script(
-            'jquery',
-            get_template_directory_uri() . '/assets/vendor/jquery-3.7.1.min.js',
-            array(), // 依存関係なし
-            '3.7.1',
+            'class_slick_js',
+            'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js',
+            ['jquery'],
+            '',
+            true
+        ); //slick.js スライダー用
+        wp_enqueue_script(
+            'class_slick-carousel-js',
+            'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js',
+            array('jquery'),
+            '1.9.0',
+            true //footerに出力
         );
         wp_enqueue_script(
             'tokunavi_slider_js',

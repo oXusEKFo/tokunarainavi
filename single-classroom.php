@@ -64,10 +64,6 @@ if (!empty($terms)) {
     }
 }
 
-// var_dump()でデバッグ (必要なら)
-var_dump($parent_taxonomy);
-var_dump($child_taxonomy);
-
 if ($parent_taxonomy && !is_wp_error($parent_taxonomy)) {
     // 親タクソノミーに属する教室を取得するためのterm_idリスト
     $term_ids = wp_list_pluck($terms, 'term_id');
@@ -101,26 +97,7 @@ if ($parent_taxonomy && !is_wp_error($parent_taxonomy)) {
 
 
 
-// 現在の投稿に関連付けられたタクソノミー 'classtype' を取得
-$terms = wp_get_post_terms(get_the_ID(), 'classtype');
 
-
-// 親タクソノミーと子タクソノミーのスラッグを格納する変数
-$parent_slug = '';
-$child_slug = '';
-$child_taxonomy = null; // 未定義の変数を初期化
-
-if (!empty($terms)) {
-    foreach ($terms as $term) {
-        // 親か子かを確認
-        if ($term->parent == 0) {
-            $parent_slug = $term->slug; // 親のスラッグを取得
-        } else {
-            $child_slug = $term->slug; // 子のスラッグを取得
-            $child_taxonomy = $term; // 子タクソノミーを格納
-        }
-    }
-}
 
 
 $main_image1 = get_field('pic1');
