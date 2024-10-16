@@ -1,35 +1,35 @@
 <!-- ランキング用 -->
-<?php
-$post_id = get_the_ID();
-$terms = wp_get_post_terms($post_id, 'classtype');
+<!-- <?php
+        $post_id = get_the_ID();
+        $terms = wp_get_post_terms($post_id, 'classtype');
 
-if (!empty($terms) && !is_wp_error($terms)) {
-    $term_ids = [];
-    foreach ($terms as $term) {
-        $term_ids[] = $term->term_id;
-        increment_term_view_count($term->term_id);
-    }
-}
-?>
+        if (!empty($terms) && !is_wp_error($terms)) {
+            $term_ids = [];
+            foreach ($terms as $term) {
+                $term_ids[] = $term->term_id;
+                increment_term_view_count($term->term_id);
+            }
+        }
+        ?> -->
 
 <!-- 投稿のランキング用 -->
-<?php
-$cookie_name = 'post_views_' . $post->ID;
+<!-- <?php
+        $cookie_name = 'post_views_' . $post->ID;
 
-if (!isset($_COOKIE[$cookie_name])) {
-    global $post;
+        if (!isset($_COOKIE[$cookie_name])) {
+            global $post;
 
-    $current_views = get_post_meta($post->ID, 'post_views', true);
-    if ($current_views === '') {
-        $current_views = 0;
-    }
-    $current_views = intval($current_views);
+            $current_views = get_post_meta($post->ID, 'post_views', true);
+            if ($current_views === '') {
+                $current_views = 0;
+            }
+            $current_views = intval($current_views);
 
-    $new_views = $current_views + 1;
-    update_post_meta($post->ID, 'post_views', $new_views);
-    setcookie($cookie_name, '1', time() + 3600, COOKIEPATH, COOKIE_DOMAIN);
-}
-?>
+            $new_views = $current_views + 1;
+            update_post_meta($post->ID, 'post_views', $new_views);
+            setcookie($cookie_name, '1', time() + 3600, COOKIEPATH, COOKIE_DOMAIN);
+        }
+        ?> -->
 
 <?php
 $post_id = get_the_ID();
@@ -45,13 +45,14 @@ $args = array(
 
 $recommended_classes = new WP_Query($args);
 
-
-
 // 現在の投稿に関連付けられたタクソノミー 'classtype' を取得
 $terms = wp_get_post_terms(get_the_ID(), 'classtype');
+
+
 // 親タクソノミーと子タクソノミーのスラッグを格納する変数
 $parent_slug = '';
 $child_slug = '';
+$child_taxonomy = null; // 未定義の変数を初期化
 
 if (!empty($terms)) {
     foreach ($terms as $term) {
@@ -59,18 +60,17 @@ if (!empty($terms)) {
         if ($term->parent == 0) {
             $parent_slug = $term->slug; // 親のスラッグを取得
         } else {
-            $child_slug = $term->slug; //取得
-            $child_taxonomy = $term;
+            $child_slug = $term->slug; // 子のスラッグを取得
+            $child_taxonomy = $term; // 子タクソノミーを格納
         }
     }
 }
 
 
-
-$image1 = get_field('pic1');
-$image2 = get_field('pic2');
-$image3 = get_field('pic3');
-$image4 = get_field('pic4');
+$main_image1 = get_field('pic1');
+$main_image2 = get_field('pic2');
+$thumbnail1 = get_field('pic3');
+$thumbnail2 = get_field('pic4');
 $cost = get_field('fee');
 $age = get_field('age');
 $weekday_time = get_field('dayhours');
@@ -79,6 +79,7 @@ $memo = get_field('memo');
 $genre = get_field('genre');
 $address = get_field('address');
 $sub_pic = get_field('sub_pic');
+$map = get_field('iframe');
 
 
 
@@ -102,8 +103,8 @@ endif;
 <p><?php echo esc_html($genre); ?></p>
 <main>
     <!--  -->
-    <div class="inner_main">
-        <div class="container_bread-crumb">
+    <div class="inner__main">
+        <div class="container__bread-crumb">
             <div class="breadCrumb">
                 <p>TOP&nbsp;&gt;&nbsp;検索結果&nbsp;&gt;<span class="under-Line">
                         <?php the_title(); ?></span>
@@ -112,29 +113,42 @@ endif;
         </div>
 
         <!-- 施設写真スライド -->
-        <section class="outline_results">
-            <div class="details_slide">
-                <div class="container_slide">
-                    <div class="slider_area">
+        <section class="outline__results">
+            <div class="details__slide">
+                <div class="container__slide">
+                    <div class="slider__area">
                         <div class="slider">
-                            <div class="wrap_mainImg">
-                                <img src="<?php echo esc_url($image1['url']); ?>" alt="施設写真1">
+                            <div class="wrap__mainImg">
+                                <?php if ($main_image1): ?>
+                                    <img src="<?php echo esc_url($main_image1['url']); ?>" alt="<?php echo esc_attr($main_image1['alt']); ?>" />
+                                <?php endif; ?>
+
                             </div>
-                            <div class="wrap_mainImg">
-                                <img src="<?php echo esc_url($image2['url']); ?>" alt="施設写真2">
-                            </div>
+                            <?php if ($main_image2): ?>
+                                <div class="wrap__mainImg">
+                                    <img src="<?php echo esc_url($main_image2['url']); ?>" alt="<?php echo esc_attr($main_image2['alt']); ?>" />
+                                </div>
+                            <?php endif; ?>
                         </div>
-                        <a href="" class="tag_favorite">
-                            <?php the_favorites_button(get_the_ID()); ?>
+                        <a href="" class="tag__favorite">
+                            <?php if (function_exists('the_favorites_button')) {
+                                the_favorites_button($post->ID);
+                            } ?>
                         </a>
                     </div>
                     <div class="thumbnail">
-                        <div class="wrap_thumbnailImg">
-                            <img src="<?php echo esc_url($image3['url']); ?>" alt="サムネイル1" />
-                        </div>
-                        <div class="wrap_thumbnail">
-                            <img src="<?php echo esc_url($image4['url']); ?>" alt="サムネイル2" />
-                        </div>
+                        <?php // サムネイルがある場合のみ表示
+                        if ($thumbnail1): ?>
+                            <div class="wrap__thumbnailImg">
+                                <img src="<?php echo esc_url($thumbnail1['url']); ?>" alt="<?php echo esc_attr($thumbnail1['alt']); ?>" />
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if ($thumbnail2): ?>
+                            <div class="wrap__thumbnailImg">
+                                <img src="<?php echo esc_url($thumbnail2['url']); ?>" alt="<?php echo esc_attr($thumbnail2['alt']); ?>" />
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <!-- <div class="ball">
@@ -142,18 +156,20 @@ endif;
                 </div> -->
             </div>
 
-            <div class="details_info">
-                <div class="inner_details-info">
-                    <div class="wrap_details-outline">
-                        <div class="details_title">
+            <div class="details__info">
+                <div class="inner__details-info">
+                    <div class="wrap__details-outline">
+                        <div class="details__title">
                             <h2><?php the_title(); ?></h2>
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/greencircle.png" alt="グリーンサークル" class="circle__green">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/yellowcircle.png" alt="イエローサークル" class="circle__yellow">
                         </div>
-                        <div class="details_address">
-                            <div class="details_address">
+                        <div class="details__address">
+                            <div class="details__address">
                                 <p><?php echo esc_html($address); ?></p>
                             </div>
                         </div>
-                        <ul class="container_keywords">
+                        <ul class="container__keywords">
                             <?php
                             foreach ($taxonomies as $taxonomy) {
                                 $terms = get_the_terms($post_id, $taxonomy);
@@ -165,28 +181,40 @@ endif;
                             }
                             ?>
                         </ul>
-                        <div class="details_description">
-                            <p><?php echo  the_content(); ?></p>
+                        <div class="details__description">
+                            <p><?php echo the_content(); ?></p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="details_container">
-            <div class="details_containerL">
-                <div class="details_genre">
-                    <h4>ジャンル</h4>
-                    <p><?php echo esc_html($child_taxonomy->name); ?></p>
+        <section class="details__container">
+            <div class="details__containerL">
+                <div class="info__overlay">
+                    <h3>詳細情報</h3>
+                    <p><a href="#">この教室についての<br>コラムはこちら→</a></p>
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/matcha.png" alt="緑丸" class="circle__matcha">
                 </div>
-                <div class="details_genre">
+                <div class="details__genre">
+
+                    <h4>ジャンル</h4>
+                    <?php
+                    // $child_taxonomy が null でないかをチェック
+                    if ($child_taxonomy) {
+                        echo '<p>' . esc_html($child_taxonomy->name) . '</p>';
+                    } else {
+                        echo '<p>子タクソノミーは存在しません。</p>';
+                    } ?>
+                </div>
+                <div class="details__genre">
                     <h4>対象年齢</h4>
                     <p><?php echo esc_html($age); ?></p>
                 </div>
-                <div class="details_genre">
+                <div class="details__genre">
                     <h4>料金について</h4>
-                    <p><?php echo esc_html($cost); ?></p>
+                    <p><?php echo $cost; ?></p>
                 </div>
-                <div class="details_genre">
+                <div class="details__genre">
                     <h4>おすすめのコース</h4>
                     <?php
                     for ($i = 0; $i < count($course); $i++) {
@@ -197,20 +225,20 @@ endif;
                 </div>
 
             </div>
-            <div class="details_containerR">
-                <div class="details_genre">
+            <div class="details__containerR">
+                <div class="details__genre">
                     <h4>曜日・時間</h4>
                     <p><?php echo $weekday_time ?></p>
                 </div>
-                <div class="details_genre">
+                <div class="details__genre">
                     <h4>備考</h4>
                     <p><?php echo $memo ?></p>
                 </div>
-                <div class="details_genre">
+                <div class="details__genre">
                     <h4>電話番号</h4>
                     <a href="tel:<?php echo $phone_number; ?>"><?php echo $tel ?></a>
                 </div>
-                <div class="details_genre">
+                <div class="details__genre">
                     <h4>公式サイト・SNSはこちら</h4>
                     <a href="#">
                         <img class="" src="<?php echo get_template_directory_uri(); ?>/assets/icon/site_icon.png" alt="公式サイトURL" />
@@ -223,111 +251,101 @@ endif;
                     </a>
                 </div>
             </div>
-    </div>
-    </section>
+        </section>
 
-    <section class="details_review">
-        <div class="wrap_accordion">
-            <div class="accordion-header">
-                <div class="details_map">
-                    <img src="../../assets/images/map.png" alt="Mapマーク">
-                    <p>地図を開く</p>
+
+        <div class="details__review">
+            <div class="wrap__accordion">
+                <div class="accordion__header">
+                    <div class="details__map">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/map.png" alt="Mapマーク">
+                        <p>地図を見る</p>
+                    </div>
+                </div>
+                <div class="accordion__content">
+                    <?php echo $map; ?>
                 </div>
             </div>
-            <div class="accordion-content">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d826.2106883809922!2d134.5518020695891!3d34.07354500918475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35536d61a9b3083f%3A0x55449d0bb908b4b2!2z44Kv44Oq44OD44OX77yI77yx77ys77yp77yw77yJ44OX44Ot44Kw44Op44Of44Oz44Kw44K544Kv44O844Or!5e0!3m2!1sja!2sjp!4v1727533581130!5m2!1sja!2sjp" width="100%" height="300px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
+            <?php comments_template() ?>
         </div>
 
-
-
-
-        <div class="wrap_details-review">
-            <div class="review_list">
-                <div class="review_title">
-                    <h3>|&nbsp;レビュー&nbsp;一覧&lpar;1件&rpar;
-                    </h3>
-                </div>
-                <div class="review_item">
-                    <p class="review_name">●●さん</p>
-                    <p class="review_date">●年●月●日&nbsp;00:00</p>
-                    <p class="review_comment">とても丁寧に教えていただきました！</p>
-                </div>
-            </div>
-            <button class="reply_btn">
-                返信
-            </button>
-        </div>
-        <div class="wrap_reviewForm">
-            <div class="reviewForm">
-                <h5>お名前*</h5>
-                <input type="text" name="name" id="input_name" />
-                <h5>メールアドレス*</h5>
-                <input type="email" name="email" id="input_email" />
-                <h5>レビュー内容*</h5>
-                <textarea name="review" id="input_comment" cols="30" rows="10"></textarea>
-                <div class="btn_container">
-                    <button class="reviewSend_btn">
-                        レビューを送信
-                    </button>
-                </div>
-            </div>
-    </section>
-
-
-    <div class="relatedReview_title">
-        <p>おすすめの習い事</p>
-        <img src="../../assets/images/checkmark.png">
-    </div>
-    <section class="results_card">
-        <!-- 検索結果一覧カード -->
-        <div class="wrap_card">
+        <section class="relatedReview__title">
+            <p>おすすめの習い事</p>
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/60.png">
+        </section>
+        <section class="results__card">
+            <!-- 検索結果一覧カード -->
             <?php if ($recommended_classes->have_posts()) : ?>
-                <?php while ($recommended_classes->have_posts()) : $recommended_classes->the_post(); ?>
-                    <div class="inner_card">
-                        <?php if (has_post_thumbnail()) : ?>
-                            <div class="container_cardimg">
-                                <span class="card_img"><?php the_post_thumbnail('medium'); ?></span>
-                            </div>
-                        <?php endif; ?>
-                        <div class="container_cardinfo">
-                            <div class="card_title">
-                                <h2><?php the_title(); ?></h2>
-                            </div>
-                            <div class="card_details">
-                                <div class="card_detail">
-                                    <span class="detail_label">住所</span>
-                                    <span class="detail_value"><?php echo get_post_meta(get_the_ID(), 'address', true); ?></span>
+                <?php while ($recommended_classes->have_posts()) : $recommended_classes->the_post();
+                    // 現在の投稿に関連付けられたタクソノミー 'classtype' を取得
+                    $terms = wp_get_post_terms(get_the_ID(), 'classtype');
+                    // 親タクソノミーと子タクソノミーのスラッグを格納する変数
+                    $parent_slug = '';
+                    $child_slug = '';
+
+                    if (!empty($terms)) {
+                        foreach ($terms as $term) {
+                            // 親か子かを確認
+                            if ($term->parent == 0) {
+                                $parent_slug = $term->slug; // 親のスラッグを取得
+                            } else {
+                                $child_slug = $term->slug; //取得
+                                $child_taxonomy = $term;
+                            }
+                        }
+                    }
+                ?>
+                    <div class="wrap__card">
+
+
+                        <div class="inner__card">
+                            <?php if (has_post_thumbnail()) : ?>
+                                <div class="container__cardimg">
+                                    <img class="card__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/pcchild.jpg" alt="施設写真">
                                 </div>
-                                <div class="card_detail">
-                                    <span class="detail_label">ジャンル</span>
-                                    <span class="detail_value"><?php echo esc_html($child_taxonomy->name); ?></span>
+                            <?php endif; ?>
+                            <div class="container__cardinfo">
+                                <div class="card__title">
+                                    <h2><?php the_title(); ?></h2>
                                 </div>
-                                <div class="card_detail">
-                                    <span class="detail_label">対象年齢</span>
-                                    <span class="detail_value"><?php echo get_post_meta(get_the_ID(), 'age', true); ?></span>
+                                <div class="card__details">
+                                    <div class="card__detail">
+                                        <span class="detail__label">住所</span>
+                                        <span class="detail__value"><?php echo get_post_meta(get_the_ID(), 'address', true); ?></span>
+                                    </div>
+                                    <div class="card__detail">
+                                        <span class="detail__label">対象年齢</span>
+                                        <span class="detail__value"><?php echo get_post_meta(get_the_ID(), 'age', true); ?></span>
+                                    </div>
+                                    <div class="card__area">
+                                        <img class="icon__design" src="<?php echo get_template_directory_uri(); ?>/assets/images/LINE2.png" alt="デザイン画像" width="50" height="50" />
+                                        <img class="icon__category" src="<?php echo get_template_directory_uri() ?>/assets/icon/icon_<?php echo $child_slug ?>.png" alt="カテゴリーアイコン" />
+                                        <div class="card__detail">
+                                            <span class="detail__label">ジャンル</span>
+                                            <span class="detail__value"><?php echo esc_html($child_taxonomy->name); ?></span>
+                                        </div>
+                                    </div>
                                 </div>
+
                             </div>
-                            <img class="icon_category" src="<?php echo get_template_directory_uri() ?>/assets/icon/icon_<?php echo $child_slug ?>.png" alt="カテゴリーアイコン" />
                         </div>
+
+
                     </div>
                 <?php endwhile; ?>
             <?php endif; ?>
-        </div>
+            <?php wp_reset_postdata(); ?>
+            <script>
+                // 結果一覧カード 繰り返し表示
+                // for (let i = 0; i < 2; i++) {
+                //     const card = document.querySelector('.wrap_card');
+                //     const clone = card.cloneNode(true);
+                //     document.querySelector('.results_card').appendChild(clone);
+                // }
+            </script>
 
-        <?php wp_reset_postdata(); ?>
-        <script>
-            // 結果一覧カード 繰り返し表示
-            // for (let i = 0; i < 2; i++) {
-            //     const card = document.querySelector('.wrap_card');
-            //     const clone = card.cloneNode(true);
-            //     document.querySelector('.results_card').appendChild(clone);
-            // }
-        </script>
-
-    </section>
-    <!-- 検索結果一覧カードここまで -->
+        </section>
+        <!-- 検索結果一覧カードここまで -->
     </div>
 </main>
 
