@@ -338,4 +338,5 @@
     /* オーバーレイより上に表示 */
     display: none;
     /* 初期状態は非表示 */
+    overflow-x: hidden;
 }

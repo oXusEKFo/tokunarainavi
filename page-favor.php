@@ -9,15 +9,14 @@ $event_count = 0;
 <!-- main -->
 <main>
 
-    <div class="inner_main">
-        <!-- パンくず -->
-        <div class="container_breadCrumb">
-            <div class="breadCrumb">
-                <?php
-                get_template_part('template-parts/breadcrumb');
-                ?>
-            </div>
+    <!-- パンくず -->
+    <div class="breadCrumb__wrap">
+        <div class="breadCrumb">
+            <?php get_template_part('template-parts/breadcrumb'); ?>
         </div>
+    </div>
+
+    <div class="inner_main">
 
         <h1>お気に入りリスト</h1>
 

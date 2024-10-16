@@ -1,4 +1,4 @@
-<li class="item__news">
+<li>
     <a href="<?php the_permalink(); ?>">
         <div class="tag__news">
             <h3><?php the_title(); ?></h3>

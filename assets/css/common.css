@@ -43,6 +43,12 @@ body {
     margin-bottom: 0;
 }
 
+/* リンク先があるパンくずには、ホバー時に下線を表示する */
+.breadcrumb_inner>span>a:hover {
+    text-decoration: underline #49464648;
+    text-underline-offset: 0.5rem; /* 文字と下線との距離 */
+}
+
 a:hover {
     cursor: pointer;
 }
