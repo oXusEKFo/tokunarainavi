@@ -41,7 +41,7 @@ $count2 = 0;
         //選択項目の保持と選択項目の名前の取得
         //各タクソノミーでループ 名前の取得まで
         foreach ($data as $terms) {
-          $term_limited[$taxonomy_name[$count]] = '指定なし';
+          $term_name[$taxonomy_name[$count]] = '指定なし';
           $select = filter_input(INPUT_GET, "$taxonomy_name[$count]", FILTER_DEFAULT, FILTER_REQUIRE_ARRAY) ?: [];
           foreach ($terms as $value) {
             $checked["$taxonomy_name[$count]"][$value->slug] = "";
@@ -55,19 +55,8 @@ $count2 = 0;
               }
             }
           }
-          // echo 'getの中身<pre>';
-          // print_r($select);
-          // echo '<pre>';
-
           if (!empty($term_name_array[$taxonomy_name[$count]])) {
             $term_name[$taxonomy_name[$count]] = implode(",", $term_name_array[$taxonomy_name[$count]]);
-
-            $limit = 25;
-            if (mb_strlen($term_name[$taxonomy_name[$count]]) > $limit) {
-              $term_limited[$taxonomy_name[$count]] = mb_substr($term_name[$taxonomy_name[$count]], 0, $limit) . "...";
-            } else {
-              $term_limited[$taxonomy_name[$count]] = $term_name[$taxonomy_name[$count]];
-            }
           }
           $count++;
         }
@@ -79,7 +68,7 @@ $count2 = 0;
           <input type="hidden" name="s" value="">
           <div class="filter_row">
             <span class="filter_label">エリア</span>
-            <span class="filter_value"><?= $term_limited['area'] ?></span>
+            <span class="filter_value"><?= $term_name['area'] ?></span>
             <button type="button" class="change_btn" onclick="togglePopup('popup_area')">変更</button>
           </div>
           <div class="overlay" style="display: none;"></div>
@@ -187,7 +176,7 @@ $count2 = 0;
           </div>
           <div class="filter_row">
             <span class="filter_label">年齢</span>
-            <span class="filter_value"><?= $term_limited['age_type'] ?></span>
+            <span class="filter_value"><?= $term_name['age_type'] ?></span>
             <button type="button" class="change_btn" onclick="togglePopup('popup_age')">変更</button>
           </div>
           <div class="overlay"></div>
@@ -226,7 +215,7 @@ $count2 = 0;
           </div>
           <div class="filter_row">
             <span class="filter_label">ジャンル</span>
-            <span class="filter_value"><?= $term_limited['classtype'] ?></span>
+            <span class="filter_value"><?= $term_name['classtype'] ?></span>
             <button type="button" class="change_btn" onclick="togglePopup('popup_genre')">変更</button>
           </div>
           <div class="overlay"></div>
@@ -251,7 +240,7 @@ $count2 = 0;
                     <button type="button" class="search_option_suboption" onclick="toggleAccordion('<?php echo $parent_term->slug; ?>')"><?php echo $parent_term->name; ?> <span class="plus">+</span></button>
                     <div id="<?php echo $parent_term->slug; ?>" class="accordion_content">
                       <label class="accordion_item  full_width">
-                        <input type="checkbox" onclick="selectAll('<?php echo $parent_term->slug; ?>', this);">
+                        <input name="classtype[]" type="checkbox" onclick="selectAll('<?php echo $parent_term->slug; ?>', this);">
                         <?php echo $parent_term->name; ?> をすべて選択
                       </label>
                       <div id="<?php echo $parent_term->slug; ?>_list" class="double_column">
@@ -290,7 +279,7 @@ $count2 = 0;
           </div>
           <div class="filter_row">
             <span class="filter_label">曜日・時間帯</span>
-            <span class="filter_value"><?= $term_limited['weektimes'] ?></span>
+            <span class="filter_value"><?= $term_name['weektimes'] ?></span>
             <button type="button" class="change_btn" onclick="togglePopup('popup_day_time')">変更</button>
           </div>
           <div class="overlay"></div>
@@ -315,7 +304,7 @@ $count2 = 0;
                     <button type="button" class="search_option_suboption" onclick="toggleAccordion('<?= $parent_term->slug ?>')"><?= $parent_term->name ?><span class="plus">+</span></button>
                     <div id="<?= $parent_term->slug ?>" class="accordion_content">
                       <label class="accordion_item full_width">
-                        <input type="checkbox" onclick="selectAll('<?php echo $parent_term->slug; ?>', this);">
+                        <input name="weektimes[]" type="checkbox" onclick="selectAll('<?php echo $parent_term->slug; ?>', this);">
                         <?php echo $parent_term->name; ?> をすべて選択
                       </label>
                       <div id="<?php echo $parent_term->slug; ?>_list" class="double_column">
@@ -354,7 +343,7 @@ $count2 = 0;
           </div>
           <div class="filter_row">
             <span class="filter_label">こだわり条件</span>
-            <span class="filter_value"><?= $term_limited['cost_type'] ?></span>
+            <span class="filter_value"><?= $term_name['cost_type'] ?></span>
             <button type="button" class="change_btn" onclick="togglePopup('popup_conditions')">変更</button>
           </div>
           <div class="overlay"></div>
@@ -393,7 +382,7 @@ $count2 = 0;
           </div>
           <div class="filter_row">
             <span class="filter_label">子供の性格</span>
-            <span class="filter_value"><?= $term_limited['personality_type'] ?></span>
+            <span class="filter_value"><?= $term_name['personality_type'] ?></span>
             <button type="button" class="change_btn" onclick="togglePopup('popup_personality')">変更</button>
           </div>
           <div class="overlay"></div>
@@ -432,7 +421,7 @@ $count2 = 0;
           </div>
           <div class="filter_row">
             <span class="filter_label">UPさせたいスキル</span>
-            <span class="filter_value"><?= $term_limited['skill_type'] ?></span>
+            <span class="filter_value"><?= $term_name['skill_type'] ?></span>
             <button type="button" class="change_btn" onclick="togglePopup('popup_skills')">変更</button>
           </div>
           <div class="overlay"></div>
