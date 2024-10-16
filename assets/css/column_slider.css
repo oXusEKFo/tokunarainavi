@@ -55,7 +55,7 @@
 .wrap__card{
     background-color: transparent;
     width: 350px;
-    height: 520px;
+    height: 450px;
     padding: 25px;
     margin: 30px 15px;
 }
@@ -67,7 +67,7 @@
 /* 施設写真 */
 .img__card {
     width: 300px;
-    height: 300px;
+    height: 200px;
     margin: 5px auto;
     border-radius: 20px;
     object-fit: cover;
@@ -86,6 +86,7 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     text-align: left;
+    margin-top: 5px;
 }
 
 /* 説明文 */
