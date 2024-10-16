@@ -619,6 +619,7 @@
 }
 
 
+
 /* 添字 */
 .title__search>p,
 .title__ranking>p,
@@ -935,32 +936,32 @@ input[type="search"]::-webkit-search-cancel-button {
     opacity: 0.6;
 }
 
-
-
 /* コラムエリア */
 
-.inner__column {
+ /* コラム詳細ページへのボタンの位置調整用 */
+/* .inner__column {
     position: relative;
-    /* コラム詳細ページへのボタンの位置調整用 */
+} */
+.more{
+    position: relative;
 }
-
-
 /* コラム詳細ボタン*/
-.button__more-column {
-    display: block;
-    background-color: #00B0AA;
-    color: #FFF;
-    font-size: 1.8rem;
+.button__more{
+display: block;
+font-size: 1.8rem;
     line-height: 26px;
     text-align: center;
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    position: relative;
-    /* ボタンの位置を相対に設定 */
-    right: -70%;
-    bottom: 100px;
+    position: absolute;
+    right: 5%;
+    bottom: -15px;
     z-index: 2;
+}
+.button__more-column {
+    background-color: #00B0AA;
+    color: #FFF;
 }
 
 .button__more-column:hover {
@@ -970,6 +971,9 @@ input[type="search"]::-webkit-search-cancel-button {
 
 /* NEWS */
 /* 背景 */
+/* .new{
+    position: relative;
+} */
 .wrap__news {
     background-color: #00B0AA;
     max-width: 1440px;
@@ -1018,20 +1022,8 @@ input[type="search"]::-webkit-search-cancel-button {
 
 /* NEWS詳細ボタン*/
 .button__more-news {
-    display: block;
     background-color: #463D3B;
     color: #FFF;
-    font-size: 1.8rem;
-    line-height: 26px;
-    text-align: center;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    position: relative;
-    /* ボタンの位置を相対に設定 */
-    right: -250px;
-    bottom: -50px;
-    z-index: 2;
 }
 
 .button__more-news:hover {
@@ -1047,9 +1039,7 @@ input[type="search"]::-webkit-search-cancel-button {
     margin: 0 auto;
 }
 
-.news {
-    position: relative;
-}
+
 
 
 /* キャラクター アニメーション */
@@ -1141,7 +1131,7 @@ input[type="search"]::-webkit-search-cancel-button {
     height: auto;
     position: absolute;
     top: -22%;
-    left: 6%;
+        left: 6%;
 }
 
 .y__flip {
@@ -1173,8 +1163,7 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .english__img,
 .helmet__img,
-.bear__image-column,
-.bear__image-news {
+.bear__image {
     display: none;
     /* 通常時は非表示 */
 
@@ -1253,22 +1242,6 @@ input[type="search"]::-webkit-search-cancel-button {
 
 
 
-    /* 詳細検索ボタン */
-    .button__more-search {
-        display: block;
-        background-color: #00B0AA;
-        color: #FFF;
-        font-size: 1.8rem;
-        line-height: 26px;
-        text-align: center;
-        width: 160px;
-        height: 160px;
-        border-radius: 50%;
-        position: absolute;
-        right: -180px;
-        bottom: -100px;
-    }
-
     /* とくしまの習いごとアンケート結果 */
     .banner__survey {
         background-image: url(../images/question_banner_border0.png);
@@ -1279,16 +1252,41 @@ input[type="search"]::-webkit-search-cancel-button {
     /* コラムエリア */
 
     /* コラム詳細ボタン*/
-    .button__more-column {
-        display: block;
-        width: 130px;
-        height: 130px;
-        position: absolute;
-        right: 10%;
-        bottom: -20px;
-        font-size: 2.7rem;
-    }
+        .button__more{
+display: block;
+    width: 130px;
+    height: 130px;
+    position: absolute;
+    font-size: 2.7rem;
+    bottom: -50px;
+        }
+/* bear__image */
+.bear__image {
+    position: absolute;
+    display: block;
+    bottom: -1px;
+    opacity: 0;
+    width: 110px;
+    height: auto;
+    transition: opacity 0.5s ease, bottom 0.5s ease;
+    /* アニメーションのトランジションを設定 */
+    z-index: 1;
+    right: 7%;
 
+}
+
+/* ボタンにホバーしたときにbear__imageを表示 */
+.button__more:hover+.bear__image {
+    bottom: 60px;
+    /* 最終位置 */
+    opacity: 1;
+    /* 不透明 */
+}
+
+.button__more:hover {
+    text-decoration: underline;
+    /* 下線を追加 */
+}
     /* NEWS概要 */
     .container__news {
         width: 450px;
@@ -1302,17 +1300,6 @@ input[type="search"]::-webkit-search-cancel-button {
 
 
     /* NEWS詳細ボタン*/
-    .button__more-news {
-        display: block;
-        width: 130px;
-        height: 130px;
-        position: absolute;
-        right: -80px;
-        bottom: -30px;
-        font-size: 2.7rem;
-    }
-
-
 
     .clearance {
         height: 70px;
@@ -1323,7 +1310,6 @@ input[type="search"]::-webkit-search-cancel-button {
     .boy__programmer {
         left: -90%;
         top: -80px;
-        width: 200px;
     }
 
     .boy__idea {
@@ -1334,14 +1320,12 @@ input[type="search"]::-webkit-search-cancel-button {
     .stars {
         right: 20%;
     }
-
-    .tennis__boy {
-        width: 100px;
-        top: -14%;
-        left: 18%;
-        z-index: 1;
-    }
-
+  .tennis__boy {
+      width: 100px;
+      top: -14%;
+      left: 18%;
+      z-index: 1;
+  }
     .spike__img {
         width: 100px;
         left: 15%;
@@ -1364,75 +1348,5 @@ input[type="search"]::-webkit-search-cancel-button {
         position: absolute;
         left: 80%;
         margin: 150px 0px;
-    }
-
-
-}
-
-/* bear__image */
-.bear__image-column {
-    position: absolute;
-    display: block;
-    bottom: 10px;
-    right: 1%;
-    opacity: 0;
-    width: 110px;
-    height: auto;
-    transition: opacity 0.5s ease, bottom 0.5s ease;
-    /* アニメーションのトランジションを設定 */
-    z-index: 1;
-}
-
-.bear__image-news {
-    position: absolute;
-    /* 絶対位置を設定 */
-    display: block;
-    bottom: -1px;
-    /* 初期位置をボタンの下に設定 */
-    right: 10%;
-    /* 初期位置をボタンの右に設定 */
-    opacity: 0;
-    /* 初期状態は透明 */
-    width: 110px;
-    /* サイズを調整（ボタンより少し小さく） */
-    height: auto;
-    /* アスペクト比を維持 */
-    transition: opacity 0.5s ease, bottom 0.5s ease;
-    /* アニメーションのトランジションを設定 */
-    z-index: 1;
-    /* bear-imageをボタンの後ろに配置 */
-}
-
-/* ボタンにホバーしたときにbear__imageを表示 */
-.button__more-column:hover+.bear__image-column {
-    bottom: 60px;
-    /* 最終位置 */
-    opacity: 1;
-    /* 不透明 */
-}
-
-.button__more-news:hover+.bear__image-news {
-    bottom: 60px;
-    /* 最終位置 */
-    opacity: 1;
-    /* 不透明 */
-}
-
-.button__more-column:hover,
-.button__more-news:hover {
-    text-decoration: underline;
-    /* 下線を追加 */
-}
-
-@media screen and (min-width: 950px) {
-    .tennis__boy {
-        left: 22%;
-    }
-}
-
-@media screen and (min-width: 1200px) {
-    .tennis__boy {
-        width: 120px;
-        left: 25%;
     }
 }

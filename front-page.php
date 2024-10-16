@@ -425,8 +425,8 @@
             <!-- 白背景の余白スペース -->
             <div class="clearance"></div>
             <!-- column -->
-            <div class="column">
-                <div class="inner__column  box fadeIn">
+            <div class="column box fadeIn">
+                <div class="inner__column  ">
                     <img class="spike__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/spike.png" alt="spike">
                     <div class="title__column">
                         <h2>COLUMN</h2>
@@ -456,12 +456,10 @@
                             <?php endif ?>
                         </div>
                     </div>
-                    <!-- スライダー ここまで -->
-                    <div class="box fadeIn">
-                        <!-- <div> -->
-                        <button class=" button__more-column" onclick="window.location.href='<?php echo home_url('/column'); ?>'">MORE</button>
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bear2.png" alt="Bear" class="bear__image-column">
-                    </div>
+                </div>
+                <div class="more">
+                    <button class="button__more button__more-column" onclick="window.location.href='<?php echo home_url('/column'); ?>'">MORE</button>
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bear2.png" alt="Bear" class="bear__image bear__image-column">
                 </div>
             </div>
 
@@ -493,11 +491,14 @@
                                     <?php wp_reset_postdata(); ?>
                                 </ul>
                             </div>
-                            <button class="button__more-news" onclick="window.location.href='<?php echo home_url('/category/news') ?>'">MORE</button>
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bear2.png" alt="Bear" class="bear__image-news">
+
                         </div>
                     </div>
                 <?php endif ?>
+                <div class="more">
+                    <button class="button__more button__more-news" onclick="window.location.href='<?php echo home_url('/category/news') ?>'">MORE</button>
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bear2.png" alt="Bear" class="bear__image bear__image-news">
+                </div>
             </div>
             <!-- end news -->
 
