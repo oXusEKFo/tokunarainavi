@@ -109,7 +109,7 @@
     height: auto;
     object-fit: cover;
     position: absolute;
-    top: calc((-0.1146 * 100%) + 704.688px);
+    top: calc((-0.1146 * 150%) + 704.688px);
     left: calc((0.03125 * 100%) + 137.813px);
 }
 
