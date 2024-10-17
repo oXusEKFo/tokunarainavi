@@ -27,9 +27,8 @@ header {
 
 /* ヘッダーロゴ */
 .logo__header>a>img {
-    width: 190px;
     height: 55px;
-    margin: 0 0 0 10px;
+    margin: 2px 10px;
 }
 
 
@@ -158,9 +157,8 @@ header {
 
     /* ヘッダーロゴ */
     .logo__header>a>img {
-        width: 290px;
-        height: 82.5px;
-        margin: 0 0 0 10px;
+        height: 80px;
+        margin: 4px;
     }
 
     /* ハンバーガーメニュー */
