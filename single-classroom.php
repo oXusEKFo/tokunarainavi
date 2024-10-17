@@ -309,7 +309,7 @@ endif;
                 </div>
                 <div class="details__genre">
                     <h4>電話番号</h4>
-                    <a href="tel:<?php echo $phone_number; ?>"><?php echo $tel ?></a>
+                    <a href="tel:<?php echo $tel ?>"><?php echo $tel ?></a>
                 </div>
                 <div class="details__genre">
                     <h4>公式サイト・SNSはこちら</h4>

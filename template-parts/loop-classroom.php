@@ -73,26 +73,26 @@
                         <span class="genre_label">ジャンル</span>
                         <span class="genre_value">
                             <?php
-                            $parent_terms = [];
+                            $child_terms = [];
                             foreach ($terms as $term) {
-                                // 親カテゴリーが選択されていればそのまま表示
-                                if ($term->parent == 0) {
-                                    $parent_terms[] = $term;
-                                } else {
-                                    // 子カテゴリーしか選択されていない場合、その親カテゴリーを取得
-                                    $parent_term = get_term($term->parent, 'classtype');
-                                    if (!is_wp_error($parent_term) && $parent_term) {
-                                        $parent_terms[] = $parent_term;
-                                    }
+                                // 子カテゴリーが選択されている場合、それを表示
+                                if ($term->parent != 0) {
+                                    $child_terms[] = $term;
                                 }
                             }
 
-                            // 親カテゴリーを一度だけ表示するように、重複を排除
-                            $parent_terms = array_unique($parent_terms, SORT_REGULAR);
-
-                            // 親カテゴリーを表示
-                            foreach ($parent_terms as $parent_term) {
-                                echo esc_html($parent_term->name) . ' ';
+                            // 子カテゴリーを表示
+                            if (!empty($child_terms)) {
+                                foreach ($child_terms as $child_term) {
+                                    echo esc_html($child_term->name) . ' ';
+                                }
+                            } else {
+                                // 万が一、子カテゴリーがない場合は親カテゴリーを表示
+                                foreach ($terms as $term) {
+                                    if ($term->parent == 0) {
+                                        echo esc_html($term->name) . ' ';
+                                    }
+                                }
                             }
                             ?>
                         </span>
