@@ -228,3 +228,8 @@ input[type="checkbox"] {
         transform: rotate(360deg);
     }
 }
+
+/* 戻るボタンの自動非表示に対応 */
+.wpcf7-previous {
+    display: inline-block !important;
+}

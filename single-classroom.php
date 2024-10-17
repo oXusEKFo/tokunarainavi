@@ -68,6 +68,9 @@ if (!empty($terms)) {
         }
     }
 }
+print_r($parent_taxonomy);
+print_r($child_taxonomy);
+
 
 // if ($parent_taxonomy && !is_wp_error($parent_taxonomy)) {
 //     // 親タクソノミーに属する教室を取得するためのterm_idリスト
@@ -309,11 +312,13 @@ endif;
                     <h4>備考</h4>
                     <p><?php echo $memo ?></p>
                 </div>
-                <div class="details__genre">
-                    <h4>電話番号</h4>
-                    <p><a class="class__tel" href="tel:<?php echo $tel ?>"><?php echo $tel ?></a></p>
-                    <p class="pc_tel"><?php echo $tel ?></p>
-                </div>
+                <?php if ($tel): ?>
+                    <div class="details__genre">
+                        <h4>電話番号</h4>
+                        <p><a class="class__tel" href="tel:<?php echo $tel ?>"><?php echo $tel ?></a></p>
+                        <p class="pc_tel"><?php echo $tel ?></p>
+                    </div>
+                <?php endif; ?>
                 <?php if ($site_url || $x_url || $instagram_url || $facebook_url || $blog_link || $line_link): ?>
                     <div class="details__genre">
                         <h4>公式サイト・SNSはこちら</h4>
@@ -321,31 +326,31 @@ endif;
                             <a href="<?php echo esc_url($site_url); ?>" target="_blank" rel="noopener noreferrer">
                                 <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/website.png" alt="公式サイトURL" />
                             </a>
-                        <?php endif ?>
+                        <?php endif; ?>
                         <?php if ($x_url): ?>
                             <a href="<?php echo esc_url($x_url); ?>" target="_blank" rel="noopener noreferrer">
                                 <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/twitter_x.svg" alt="X_URL" /></a>
-                        <?php endif ?>
+                        <?php endif; ?>
                         <?php if ($instagram_url): ?>
                             <a href="<?php echo esc_url($instagram_url); ?>" target="_blank" rel="noopener noreferrer">
                                 <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/instagram.svg" alt="インスタグラムURL" />
                             </a>
-                        <?php endif ?>
+                        <?php endif; ?>
                         <?php if ($facebook_url): ?>
                             <a href="<?php echo esc_url($facebook_url); ?>" target="_blank" rel="noopener noreferrer">>
                                 <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/facebook.svg" alt="フェイスブックURL" />
                             </a>
-                        <?php endif ?>
+                        <?php endif; ?>
                         <?php if ($blog_link): ?>
                             <a href="<?php echo esc_url($blog_link); ?>" target="_blank" rel="noopener noreferrer">
                                 <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/blog.png" alt="ブログ" />
                             </a>
-                        <?php endif ?>
+                        <?php endif; ?>
                         <?php if ($line_link): ?>
                             <a href="<?php echo esc_url($line_link); ?>" target="_blank" rel="noopener noreferrer">
                                 <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/line.svg" alt="ライン" />
                             </a>
-                        <?php endif ?>
+                        <?php endif; ?>
                     </div>
                 <?php endif ?>
             </div>
@@ -374,9 +379,73 @@ endif;
         <section class="results__card">
             <!-- 検索結果一覧カード -->
             <?php
+            $terms = wp_get_post_terms(get_the_ID(), 'classtype'); // 現在の教室のジャンル取得
+            $parent_taxonomy = null;
+            $child_taxonomy = null;
 
-            get_template_part('template-parts/loop', 'classroom');
+            if (!empty($terms)) {
+                foreach ($terms as $term) {
+                    if ($term->parent == 0) {
+                        $parent_taxonomy = $term;
+                    } else {
+                        $child_taxonomy = $term;
+                    }
+                }
+            }
+
+            if ($parent_taxonomy && !is_wp_error($parent_taxonomy)) {
+                // 親タクソノミーに属する教室のterm_idリスト
+                $term_ids = wp_list_pluck($terms, 'term_id');
+
+                // 同じジャンルの教室を取得
+                $args_same_genre = array(
+                    'post_type' => 'classroom',
+                    'posts_per_page' => 3, // 最大3件
+                    'post__not_in' => array(get_the_ID()), // 現在の教室を除外
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'classtype',
+                            'field' => 'term_id',
+                            'terms' => $child_taxonomy ? $child_taxonomy->term_id : $parent_taxonomy->term_id, // 子タクソノミーがあればそれを使用
+                        ),
+                    ),
+                );
+
+                $same_genre_classes = new WP_Query($args_same_genre);
+
+                $count_same_genre = $same_genre_classes->found_posts; // 同じジャンルの教室の数
+
+                if ($count_same_genre < 3) {
+                    // 同じジャンルの教室が3件未満の場合、他のジャンルの教室を補う
+                    $args_other_classes = array(
+                        'post_type' => 'classroom',
+                        'posts_per_page' => 3 - $count_same_genre, // 足りない数だけ取得
+                        'post__not_in' => array_merge(array(get_the_ID()), wp_list_pluck($same_genre_classes->posts, 'ID')), // 現在の教室と同じジャンルの教室を除外
+                        'orderby' => 'rand',
+                    );
+
+                    $other_classes = new WP_Query($args_other_classes);
+                }
+
+                // 出力処理
+                if ($same_genre_classes->have_posts()) {
+                    while ($same_genre_classes->have_posts()) {
+                        $same_genre_classes->the_post();
+                        get_template_part('template-parts/loop', 'classroom');
+                    }
+                    wp_reset_postdata(); // グローバル $post をリセット
+                }
+
+                if (isset($other_classes) && $other_classes->have_posts()) {
+                    while ($other_classes->have_posts()) {
+                        $other_classes->the_post();
+                        get_template_part('template-parts/loop', 'classroom');
+                    }
+                    wp_reset_postdata();
+                }
+            }
             ?>
+
         </section>
         <!-- 検索結果一覧カードここまで -->
     </div>
