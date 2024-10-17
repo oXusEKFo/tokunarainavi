@@ -68,7 +68,7 @@ $count2 = 0;
           <div class="search_container" id="popup_area" style="display: none;">
             <div class="close_button" onclick="closePopup()">×</div>
             <div class="search_header">
-              <h1>エリアを選ぶ</h1>
+              <h2>エリアを選ぶ</h2>
             </div>
             <div class="search_options">
               <?php
@@ -159,7 +159,7 @@ $count2 = 0;
           <div class="search_container" id="popup_age" style="display: none;">
             <div class="close_button" onclick="closePopup()">×</div>
             <div class="search_header">
-              <h1>年齢を選ぶ</h1>
+              <h2>年齢を選ぶ</h2>
             </div>
             <div class="search_options">
               <div class="double_column">
@@ -195,7 +195,7 @@ $count2 = 0;
           <div class="search_container" id="popup_genre" style="display: none;">
             <div class="close_button" onclick="closePopup()">×</div>
             <div class="search_header">
-              <h1>ジャンルを選ぶ</h1>
+              <h2>ジャンルを選ぶ</h2>
             </div>
             <div class="search_options">
               <?php
@@ -253,7 +253,7 @@ $count2 = 0;
           <div class="search_container" id="popup_day_time" style="display: none;">
             <div class="close_button" onclick="closePopup()">×</div>
             <div class="search_header">
-              <h1>曜日・時間帯を選ぶ</h1>
+              <h2>曜日・時間帯を選ぶ</h2>
             </div>
             <div class="search_options">
               <?php
@@ -311,7 +311,7 @@ $count2 = 0;
           <div class="search_container" id="popup_conditions" style="display: none;">
             <div class="close_button" onclick="closePopup()">×</div>
             <div class=" search_header">
-              <h1>こだわり条件を選ぶ</h1>
+              <h2>こだわり条件を選ぶ</h2>
             </div>
             <div class="search_options">
               <div class="double_column">
@@ -347,7 +347,7 @@ $count2 = 0;
           <div class="search_container" id="popup_personality" style="display: none;">
             <div class="close_button" onclick="closePopup()">×</div>
             <div class="search_header">
-              <h1>子供の性格を選ぶ</h1>
+              <h2>子供の性格を選ぶ</h2>
             </div>
             <div class="search_options">
               <div class="double_column">
@@ -383,7 +383,7 @@ $count2 = 0;
           <div class="search_container" id="popup_skills" style="display: none;">
             <div class="close_button" onclick="closePopup()">×</div>
             <div class="search_header">
-              <h1>UPさせたいスキルを選ぶ</h1>
+              <h2>UPさせたいスキルを選ぶ</h2>
             </div>
             <div class="search_options">
               <div class="double_column">

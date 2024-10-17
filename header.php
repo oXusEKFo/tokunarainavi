@@ -80,4 +80,5 @@ if (!is_user_logged_in() && IS_DEV == true) {
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/hg_close.png" alt="close-btn" class="btn__close">
                 </a>
             </div>
+        </div>
     </header>
