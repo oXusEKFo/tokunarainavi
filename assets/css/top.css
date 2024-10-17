@@ -251,18 +251,18 @@
 
 /* 蹴る */
 .kick {
-    animation: kick forwards 3s 1 linear 0s normal;
+    animation: kick forwards 2s 1 linear 0s normal;
 }
 
 @keyframes kick {
     0% {
         opacity: 0;
-        transform: translateY(0px) translateX(50px);
+        transform: translateY(0px) translateX(20px);
     }
 
     85% {
         opacity: 0;
-        transform: translateY(0px) translateX(50px);
+        transform: translateY(0px) translateX(20px);
     }
 
     100% {
@@ -273,7 +273,7 @@
 
 /* 蹴られたサッカーボール */
 .kicked-ball {
-    animation: ball forwards 2s 1 linear 3.0s normal;
+    animation: ball forwards 2s 1 linear 1.9s normal;
 }
 
 @keyframes ball {
