@@ -336,7 +336,7 @@
                         <!-- end ジャンルを選ぶ -->
                     </form>
 
-                    <button class="detail__search" onclick="window.location.href='<?php echo home_url(); ?>/?s='">詳細検索ページへ</button>
+                    <button class="detail__search" onclick="window.location.href='<?php echo home_url(); ?>/?s='">条件検索ページへ</button>
 
                     <!-- キーワード検索 -->
                     <form action="<?php echo home_url('/'); ?>" method="get">
@@ -419,6 +419,7 @@
             <a href="<?php echo home_url('/fushion'); ?>">
                 <div class="survey-results">
                     <div class="inner__survey box fadeIn">
+                        <p>👇 詳しくはこちらをクリック♪</p>
                         <div class="banner__survey">
 
 
