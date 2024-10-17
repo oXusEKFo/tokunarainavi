@@ -83,8 +83,7 @@ main {
 .inner__column-area {
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit,
-            minmax(390px, 1fr));
+    grid-template-columns: repeat(auto-fit,minmax(390px, 1fr));
     gap: 0px;
     /* display: flex;
     flex-wrap: wrap;
@@ -97,7 +96,7 @@ main {
     width: 390px;
     background-color: transparent;
     margin: 15px auto;
-    /* border-bottom: solid 1px #00B0AA; */
+    border-bottom: solid 1px #00B0AA;
 }
 
 /* カード幅 */
