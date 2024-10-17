@@ -25,6 +25,13 @@ main {
     text-align: center;
 }
 
+.section_inner{
+    padding: 20px;
+}
+
+.content {
+    align-items: center;
+}
 
 .form_group {
     margin-bottom: 20px;
@@ -33,7 +40,7 @@ main {
 
 .form_group label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 
 }
 
