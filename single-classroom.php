@@ -314,38 +314,40 @@ endif;
                     <p><a class="class__tel" href="tel:<?php echo $tel ?>"><?php echo $tel ?></a></p>
                     <p class="pc_tel"><?php echo $tel ?></p>
                 </div>
-                <div class="details__genre">
-                    <h4>公式サイト・SNSはこちら</h4>
-                    <?php if ($site_url): ?>
-                        <a href="<?php echo esc_url($site_url); ?>" target="_blank" rel="noopener noreferrer">
-                            <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/website.png" alt="公式サイトURL" />
-                        </a>
-                    <?php endif ?>
-                    <?php if ($x_url): ?>
-                        <a href="<?php echo esc_url($x_url); ?>" target="_blank" rel="noopener noreferrer">
-                            <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/twitter_x.svg" alt="X_URL" /></a>
-                    <?php endif ?>
-                    <?php if ($instagram_url): ?>
-                        <a href="<?php echo esc_url($instagram_url); ?>" target="_blank" rel="noopener noreferrer">
-                            <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/instagram.svg" alt="インスタグラムURL" />
-                        </a>
-                    <?php endif ?>
-                    <?php if ($facebook_url): ?>
-                        <a href="<?php echo esc_url($facebook_url); ?>" target="_blank" rel="noopener noreferrer">>
-                            <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/facebook.svg" alt="フェイスブックURL" />
-                        </a>
-                    <?php endif ?>
-                    <?php if ($blog_link): ?>
-                        <a href="<?php echo esc_url($blog_link); ?>" target="_blank" rel="noopener noreferrer">
-                            <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/blog.png" alt="ブログ" />
-                        </a>
-                    <?php endif ?>
-                    <?php if ($line_link): ?>
-                        <a href="<?php echo esc_url($line_link); ?>" target="_blank" rel="noopener noreferrer">
-                            <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/line.svg" alt="ライン" />
-                        </a>
-                    <?php endif ?>
-                </div>
+                <?php if ($site_url || $x_url || $instagram_url || $facebook_url || $blog_link || $line_link): ?>
+                    <div class="details__genre">
+                        <h4>公式サイト・SNSはこちら</h4>
+                        <?php if ($site_url): ?>
+                            <a href="<?php echo esc_url($site_url); ?>" target="_blank" rel="noopener noreferrer">
+                                <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/website.png" alt="公式サイトURL" />
+                            </a>
+                        <?php endif ?>
+                        <?php if ($x_url): ?>
+                            <a href="<?php echo esc_url($x_url); ?>" target="_blank" rel="noopener noreferrer">
+                                <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/twitter_x.svg" alt="X_URL" /></a>
+                        <?php endif ?>
+                        <?php if ($instagram_url): ?>
+                            <a href="<?php echo esc_url($instagram_url); ?>" target="_blank" rel="noopener noreferrer">
+                                <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/instagram.svg" alt="インスタグラムURL" />
+                            </a>
+                        <?php endif ?>
+                        <?php if ($facebook_url): ?>
+                            <a href="<?php echo esc_url($facebook_url); ?>" target="_blank" rel="noopener noreferrer">>
+                                <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/facebook.svg" alt="フェイスブックURL" />
+                            </a>
+                        <?php endif ?>
+                        <?php if ($blog_link): ?>
+                            <a href="<?php echo esc_url($blog_link); ?>" target="_blank" rel="noopener noreferrer">
+                                <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/blog.png" alt="ブログ" />
+                            </a>
+                        <?php endif ?>
+                        <?php if ($line_link): ?>
+                            <a href="<?php echo esc_url($line_link); ?>" target="_blank" rel="noopener noreferrer">
+                                <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/line.svg" alt="ライン" />
+                            </a>
+                        <?php endif ?>
+                    </div>
+                <?php endif ?>
             </div>
         </section>
 
