@@ -3,6 +3,7 @@
 /* ヘッダー */
 header {
     background-color: #FFF;
+    max-width: 1440px;
     width: 100%;
     height: auto;
     position: fixed;
@@ -16,7 +17,7 @@ header {
 }
 
 .inner__header {
-    width: 1440px;
+    width: 100px;
     height: 60px;
     margin: 0 auto;
     display: flex;
