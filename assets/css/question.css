@@ -225,10 +225,10 @@ main{
     height: auto;
 }
 
-@media (max-width: 390px) {
+@media (max-width: 530px) {
     .order__image-1,
     .order__image-2 {
-        display: none !important; /* 390px以下の時に画像を非表示にする */
+        display: none !important; /*
     }
 }
 
