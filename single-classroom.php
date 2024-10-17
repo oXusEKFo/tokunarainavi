@@ -337,12 +337,12 @@ endif;
                     <?php endif ?>
                     <?php if ($blog_link): ?>
                         <a href="<?php echo esc_url($blog_link); ?>" target="_blank" rel="noopener noreferrer">
-                            <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/assets/icon/blog.png" alt="ブログ" />
+                            <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/blog.png" alt="ブログ" />
                         </a>
                     <?php endif ?>
                     <?php if ($line_link): ?>
                         <a href="<?php echo esc_url($line_link); ?>" target="_blank" rel="noopener noreferrer">
-                            <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/assets/icon/assets/icon/line.svg" alt="ライン" />
+                            <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/line.svg" alt="ライン" />
                         </a>
                     <?php endif ?>
                 </div>
