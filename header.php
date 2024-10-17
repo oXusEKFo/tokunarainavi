@@ -43,7 +43,7 @@ if (!is_user_logged_in() && IS_DEV == true) {
                             </a>
                         </li>
                         <li class="gnav__menu__item">
-                            <a href="<?php echo home_url('/category/news');  ?>">&nbsp;&nbsp;新着情報
+                            <a href="<?php echo home_url('/infos');  ?>">&nbsp;&nbsp;新着情報
                             </a>
                         </li>
                         <li class="gnav__menu__item">
