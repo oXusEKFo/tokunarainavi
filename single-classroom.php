@@ -263,10 +263,7 @@ endif;
                             <p><a href="<?php the_permalink(); ?>">この教室についての<br>コラムはこちら→</a></p>
                     <?php
                         }
-                    } else {
-                        echo '<p>関連するコラムはありません。</p>';
                     }
-
                     // 投稿データをリセット
                     wp_reset_postdata();
                     ?>
