@@ -202,6 +202,18 @@ main {
     border-top: solid 1px #463d3b86;
 }
 
+.navi>a {
+    display: block;
+    /* クリック可能範囲の調整 */
+    padding: 5px;
+}
+
+/* ホバー時の下線 */
+.navi>a:hover {
+    border-bottom: solid 1.5px #49464648;
+}
+
+
 /*↓ページ数自体無くなったのでコメントアウトしました*/
 /* ページ数 容器 */
 /* .container_pageNum {
