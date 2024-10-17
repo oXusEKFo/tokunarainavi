@@ -25,22 +25,30 @@ jQuery(function ($) {
 
     // Topへ戻るボタン
     $(function () {
-        let top = $(".back-to-top");
-        top.hide();
-        $(window).scroll(function () {
-            if ($(this).scrollTop() > 100) {
-                top.fadeIn();
-            } else {
-                top.fadeOut();
-            }
-        });
-        top.click(function () {
-            $("body, html").animate({ scrollTop: 0 }, 200, "swing");
-            return false;
-        });
+    let top = $(".back-to-top");
+    let lastScrollTop = 0;
+    top.hide();
+    $(window).scroll(function () {
+        let scrollTop = $(this).scrollTop();
+        if (scrollTop > 0) {
+            top.addClass("fixed");
+        } else {
+            top.removeClass("fixed");
+        }
+        if (scrollTop > lastScrollTop) {
+            top.fadeOut();
+        } else {
+            top.fadeIn();
+        }
+        lastScrollTop = scrollTop;
+    });
+    top.click(function () {
+        $("body, html").animate({ scrollTop: 0 }, 200, "swing");
+        return false;
     });
 });
 
+});
 
 //main box fadeIn ふわっと表示させる
 //class="box fadeIn"を追加するだけでOK

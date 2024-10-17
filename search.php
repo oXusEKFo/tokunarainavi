@@ -528,7 +528,7 @@ $count2 = 0;
         $count2++;
       }
       $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-      $args['posts_per_page'] = 9; //表示件数の指定
+      $args['posts_per_page'] = -1; //表示件数の指定
       $args['paged'] = $paged;
       $args['tax_query'] = $taxquerysp;
       $the_query = new WP_Query($args);

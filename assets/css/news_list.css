@@ -1,11 +1,5 @@
 @charset "UTF-8";
 
-/* .news { */
-/* background-color: #00B0AA; */
-/* border-bottom: 50px solid #FFF; */
-/* footerとの間に白背景が必要であればここで調整する */
-/* } */
-
 .inner__main {
     max-width: 1440px;
     width: 100%;
@@ -13,12 +7,6 @@
     padding-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
-}
-
-/* パンくず */
-.breadCrumb {
-    /* color: #FFF; */
-    margin-bottom: 20px;
 }
 
 .news__area {
@@ -247,11 +235,6 @@ li.active>a {
 
 @media screen and (min-width: 780px) {
 
-    /* パンくず */
-    .breadCrumb {
-        margin-bottom: 30px;
-    }
-
     /* カテゴリー選択メニュー */
     .category__news {
         flex-wrap: nowrap;
@@ -261,11 +244,6 @@ li.active>a {
 }
 
 @media screen and (min-width: 900px) {
-
-    /* パンくず */
-    .breadCrumb {
-        margin-bottom: 40px;
-    }
 
     /* カテゴリー選択メニュー（ボタン） */
     .category__news>li {
@@ -329,11 +307,6 @@ li.active>a {
 }
 
 @media screen and (min-width: 1165px) {
-
-    /* パンくず */
-    .breadCrumb {
-        margin-bottom: 60px;
-    }
 
     .wrap__news {
         max-width: 900px;

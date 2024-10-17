@@ -1,9 +1,8 @@
 @charset "UTF-8";
 
-.news {
+main {
+    background-image: none;
     background-color: #FFF;
-    /* border-bottom: 50px solid #FFF; */
-    /* footerとの間に白背景が必要であればここで調整する */
 }
 
 .inner__main {
@@ -14,12 +13,6 @@
     padding-bottom: 20px;
     padding-left: 20px;
     padding-right: 20px;
-}
-
-/* パンくず */
-.breadCrumb {
-    /* color: #FFF; */
-    margin-bottom: 20px;
 }
 
 .wrap__news {
@@ -38,8 +31,6 @@
     padding-bottom: 25px;
     padding-left: 20px;
     padding-right: 20px;
-    margin-top: 25px;
-    /* margin-bottom: 25px; */
     border-radius: 20px;
 }
 
@@ -97,8 +88,6 @@
     font-size: 1.7rem;
     font-weight: 500;
     line-height: 24.6px;
-    /* padding-left: 10px;
-    padding-right: 10px; */
 }
 
 /* 投稿記事内の文字（Wordpress依存） */
@@ -182,25 +171,10 @@
 
 }
 
-@media screen and (min-width: 780px) {
-
-    /* パンくず */
-    .breadCrumb {
-        margin-bottom: 40px;
-    }
-
-}
-
 @media screen and (min-width: 900px) {
-
-    /* パンくず */
-    .breadCrumb {
-        margin-bottom: 60px;
-    }
 
     /* ニュース全体の白枠 */
     .container__news {
-        padding-top: 40px;
         padding-left: 55px;
         padding-right: 55px;
     }
@@ -235,11 +209,6 @@
 }
 
 @media screen and (min-width: 1165px) {
-
-    /* パンくず */
-    .breadCrumb {
-        margin-bottom: 80px;
-    }
 
     .wrap__news {
         max-width: 900px;
