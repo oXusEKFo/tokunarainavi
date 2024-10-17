@@ -1,0 +1,1348 @@
+@charset "UTF-8";
+
+/* KVここから */
+
+/* モバイル画面のみ登場するキャラクターを表示 */
+.rg {
+    display: block;
+}
+
+/* PC画面のみ登場するキャラクターを消す */
+.deco7,
+.deco8,
+.rg--move,
+.ribbon,
+.awa-odori,
+.swimming,
+.drawing,
+.symbol1,
+.symbol2,
+.piano,
+.sun {
+    display: none;
+}
+
+.wrap__kv {
+    background-color: #ED6D1F;
+    max-width: 1440px;
+    width: 100%;
+    height: 810px;
+    margin: 0 auto;
+}
+
+.container__kv {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    /* 画像の位置を決めるため */
+}
+
+/* KVタイトル */
+.kv__title {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.kv__title img {
+    width: calc((0.14583 * 100%) + 303px);
+    height: auto;
+}
+
+/* 飾り1 */
+.deco1 {
+    width: calc((0.14583 * 100%) + 103.125px);
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    top: calc((0 * 100%) + 500px);
+    left: calc((0.52083 * 100%) - 3.125px);
+}
+
+/* 飾り2 */
+.deco2 {
+    width: calc((0.13333 * 100%) + 118px);
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    /* top: 200px; */
+    top: calc((-0.1282 * 70%) + 250px);
+    /* left: 3% */
+    left: calc((0.29688 * 100%) - 100.78px);
+}
+
+/* 飾り3 */
+.deco3 {
+    width: calc((0 * 100%) + 40px);
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    top: calc((0 * 100%) + 70px);
+    left: calc((0.64583 * 100%) - 21.875px);
+}
+
+/* 飾り4 */
+.deco4 {
+    width: calc((0 * 100%) + 40px);
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    top: calc((-0.5 * 10%) + 745px);
+    left: calc((0.39063 * 100%) - 147.34px);
+}
+
+/* 飾り5 */
+.deco5 {
+    width: calc((0 * 100%) + 30px);
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    top: calc((0.02083 * 100%) + 81.875px);
+    left: calc((0.72917 * 100%) + 15.625px);
+}
+
+/* 飾り6 */
+.deco6 {
+    width: calc((0 * 100%) + 25px);
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    top: calc((-0.1146 * 150%) + 704.688px);
+    left: calc((0.03125 * 100%) + 137.813px);
+}
+
+/* イラスト：英語の勉強 */
+.en_learning {
+    width: 110px;
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    top: 8%;
+    left: 15%;
+}
+
+/* イラスト：サッカー選手 */
+.soccer-player {
+    width: 90px;
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    top: 15%;
+    left: 65%;
+}
+
+/* イラスト：サッカーボール */
+.soccer-ball {
+    width: 15px;
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    top: 17%;
+    left: 65%;
+    z-index: 11;
+}
+
+/* イラスト：新体操選手(動きなし) */
+.gym {
+    width: 120px;
+    height: 20%;
+    position: absolute;
+    top: 73%;
+    left: calc((0.2 * 100%) - 60px);
+}
+
+.rg--stop {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+
+/* イラスト：Child and Parent */
+.cap {
+    width: 80px;
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    top: calc((0 * 100%) + 660px);
+    left: calc((0.72917 * 100%) - 34.375px);
+}
+
+/* イラスト：星 */
+.stars__kv {
+    width: 50px;
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    top: calc((-0.0313 * 100%) + 592.188px);
+    left: calc((0.80208 * 100%) - 12.813px);
+
+}
+
+/* アニメーション ここから */
+/* 歩く */
+.walk {
+    animation: walk forwards 30s 1 linear 0s normal;
+}
+
+@keyframes walk {
+    0% {
+        transform: translateX(200px);
+    }
+
+    100% {
+        transform: translateX(-200px);
+    }
+
+}
+
+/* 泳ぐ */
+.swim {
+    animation: swim forwards 10s 1 ease 0s normal;
+}
+
+@keyframes swim {
+    0% {
+        transform: translateY(20px) translateX(80px);
+    }
+
+    10% {
+        transform: translateY(0px) translateX(60px);
+    }
+
+    20% {
+        transform: translateY(20px) translateX(40px);
+    }
+
+    30% {
+        transform: translateY(0px) translateX(20px);
+    }
+
+    40% {
+        transform: translateY(20px) translateX(0px);
+    }
+
+    50% {
+        transform: translateY(0px) translateX(-20px);
+    }
+
+    60% {
+        transform: translateY(20px) translateX(-40px);
+    }
+
+    70% {
+        transform: translateY(0px) translateX(-60px);
+    }
+
+    80% {
+        transform: translateY(20px) translateX(-80px);
+    }
+
+    90% {
+        transform: translateY(0px) translateX(-100px);
+    }
+
+    100% {
+        transform: translateY(20px) translateX(-110px);
+    }
+}
+
+/* 蹴る */
+.kick {
+    animation: kick forwards 3s 1 linear 0s normal;
+}
+
+@keyframes kick {
+    0% {
+        opacity: 0;
+        transform: translateY(0px) translateX(80px);
+    }
+    85% {
+        opacity: 0;
+        transform: translateY(0px) translateX(80px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px) translateX(0px);
+    }
+}
+
+/* 蹴られたサッカーボール */
+.kicked-ball {
+    animation: ball forwards 2s 1 linear 3.0s normal;
+}
+
+@keyframes ball {
+    0% {
+        transform: translateY(0px) translateX(0px);
+    }
+
+    100% {
+        transform: translateY(-300px) translateX(-500px);
+    }
+}
+
+/* ダンス */
+.dance {
+    animation: dance forwards 4s 2 ease 0s normal;
+}
+
+@keyframes dance {
+    0% {
+        transform: rotate(15deg);
+    }
+
+    25% {
+        transform: rotate(-15deg);
+    }
+
+    50% {
+        transform: rotate(15deg);
+    }
+
+    75% {
+        transform: rotate(-15deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* 揺れる1 */
+.swing1 {
+    animation: swing forwards 10s 1 ease 0s normal;
+}
+
+/* 揺れる2 */
+.swing2 {
+    animation: swing forwards 10s 1 ease 1.5s normal;
+}
+
+
+@keyframes swing {
+    0% {
+        transform: translate(0)
+    }
+
+    25% {
+        transform: translate(-1rem)
+    }
+
+    50% {
+        transform: translate(0)
+    }
+
+    75% {
+        transform: translate(1rem)
+    }
+
+    100% {
+        transform: translate(0)
+    }
+}
+
+/* 上下に回転 */
+.rot {
+
+    animation: rotating forwards 8s 1.5 ease 1.5s normal;
+}
+
+@keyframes rotating {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    25% {
+        transform: rotate(50deg)
+    }
+
+    50% {
+        transform: rotate(-90deg)
+    }
+
+    75% {
+        transform: rotate(70deg)
+    }
+
+    100% {
+        transform: rotate(0deg)
+    }
+}
+
+
+
+@media screen and (min-width: 780px) {
+
+    /* モバイル画面のみ登場するキャラクターを消す */
+    .rg--stop {
+        display: none;
+    }
+
+    /* PC画面のみ登場するキャラクターを表示 */
+    .deco7,
+    .deco8,
+    .rg--move,
+    .ribbon,
+    .awa-odori,
+    .swimming,
+    .drawing,
+    .symbol1,
+    .symbol2,
+    .piano,
+    .sun {
+        display: block;
+    }
+
+    /* イラスト：英語の勉強 */
+    .en_learning {
+        top: calc((0.03509 * 100%) + 472.632px);
+        left: calc((0.3333 * 100%) - 50px);
+    }
+
+    /* イラスト：新体操選手とリボンの箱 */
+    .gym {
+        top: calc((-0.0175 * 100%) + 253.68px);
+        left: calc((0.78947 * 100%) - 15.789px);
+    }
+
+    /* 飾り1 */
+    .symbol1 {
+        width: 20px;
+        height: auto;
+        object-fit: cover;
+        position: absolute;
+        top: calc((0 * 100%) + 130px);
+        left: calc((0.87719 * 100%) + 15.78px);
+    }
+
+    /* 飾り2 */
+    .symbol2 {
+        width: 30px;
+        height: auto;
+        object-fit: cover;
+        position: absolute;
+        top: calc((0 * 100%) + 600px);
+        left: calc((0.21053 * 100%) - 144.21px);
+    }
+
+    /* 飾り5 */
+    .symbol5 {
+        width: calc((0.05263 * 100%) + 78.9474px);
+        height: auto;
+        object-fit: cover;
+        position: absolute;
+        top: calc((0 * 100%) + 100px);
+        left: calc((0.13158 * 100%) - 97.632px);
+    }
+
+    /* 飾り7 */
+    .deco7 {
+        width: calc((0 * 100%) + 50px);
+        height: auto;
+        object-fit: cover;
+        position: absolute;
+        top: calc((0 * 100%) + 190px);
+        left: calc((0.08772 * 100%) - 68.421px);
+    }
+
+    /* 飾り8 */
+    .deco8 {
+        width: calc((0 * 100%) + 30px);
+        height: auto;
+        object-fit: cover;
+        position: absolute;
+        top: calc((0.01754 * 100%) + 116.316px);
+        left: calc((0.73684 * 100%) + 25.263px);
+    }
+
+    /* イラスト：新体操選手 */
+    .rg--move {
+        width: 80px;
+        height: auto;
+        object-fit: cover;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+    }
+
+    /* イラスト：リボン */
+    .ribbon {
+        width: 60px;
+        height: auto;
+        object-fit: cover;
+        position: absolute;
+        top: -13%;
+        left: 60%;
+        transform-origin: 0 32%;
+    }
+
+    /* 阿波おどり */
+    .awa-odori {
+        width: 60px;
+        height: auto;
+        object-fit: cover;
+        position: absolute;
+        top: 350px;
+        left: calc((0.29825 * 100%) - 152.63px);
+    }
+
+    /* ピアノ演奏 */
+    .piano {
+        width: 100px;
+        height: auto;
+        object-fit: cover;
+        position: absolute;
+        top: calc((0 * 100%) + 630px);
+        left: calc((0.245614 * 100%) - 141.58px);
+    }
+
+    /* 水泳 */
+    .swimming {
+        width: 90px;
+        height: auto;
+        object-fit: cover;
+        position: absolute;
+        top: calc((-0.0877 * 100%) + 148.421px);
+        left: calc((0.35088 * 100%) - 73.684px);
+    }
+
+    /* 絵描き */
+    .drawing {
+        width: 80px;
+        height: auto;
+        object-fit: cover;
+        position: absolute;
+        top: calc((0 * 100%) + 620px);
+        left: calc((0.91228 * 100%) - 61.579px);
+    }
+
+    /* イラスト：太陽 */
+    .sun {
+        width: calc((0.05263 * 100%) + 78.9474px);
+        height: auto;
+        object-fit: cover;
+        position: absolute;
+        top: calc((0 * 100%) + 100px);
+        left: calc((0.13158 * 100%) - 97.632px);
+    }
+
+
+}
+
+/* KVここまで */
+
+
+/* とくしま習いごとナビ について */
+.about {
+    width: 100%;
+    background-color: #FFF;
+    padding: 20px 0;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.container__about {
+    width: 390px;
+    margin: 0 auto;
+}
+
+.note__about>p {
+    font-size: 1.4rem;
+    line-height: 2.5rem;
+    text-align: left;
+    width: 285px;
+    margin: 0 auto;
+}
+
+.image__about {
+    width: 80%;
+    height: auto;
+    margin: 20px auto 0;
+}
+
+.image__about>img {
+    width: 100%;
+    height: auto;
+
+}
+
+
+/*** タイトル関連 ここから ***/
+.title__search {
+    color: #00B0AA;
+    text-align: center;
+    width: 285px;
+    margin: 0 auto;
+    position: relative;
+    z-index: ;
+}
+
+.title__ranking {
+    color: #463D3B;
+    text-align: center;
+    width: 330px;
+    margin: 0 auto;
+    position: relative;
+    top: -10px;
+}
+
+.title__news {
+    color: #463D3B;
+    text-align: center;
+    width: 220px;
+    margin: 0 auto;
+    position: relative;
+    top: 15px;
+    z-index: 1;
+}
+
+/* メイン */
+.title__search>h2,
+.title__ranking>h2,
+.title__colum>h2,
+.title__news>h2 {
+    font-size: 7.0rem;
+    width: 100%;
+    position: absolute;
+    bottom: -30px;
+    z-index: 1;
+}
+
+
+
+/* 添字 */
+.title__search>p,
+.title__ranking>p,
+.title__news>p {
+    font-size: 1.5rem;
+    position: absolute;
+    right: 13px;
+    bottom: -35px;
+    z-index: 1;
+}
+
+.title__ranking>p {
+    right: 5px;
+}
+
+/* クリーム円 */
+.title__ranking>img,
+.title__news>img {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    bottom: -40px;
+    left: -35px;
+    z-index: 0;
+}
+
+.title__news>img {
+    left: -25px;
+}
+
+/* みどり円 */
+.title__search>img,
+.title__column>img {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    bottom: -40px;
+    left: 12px;
+    z-index: 0;
+}
+
+.title__column>img {
+    left: -23px;
+}
+
+
+/*** タイトル関連 ここまで ***/
+
+
+/* 検索 */
+.container__search {
+    width: 350px;
+    margin: 0 auto;
+}
+
+/* 選択ボタンエリア */
+.options__search {
+    background-color: #FFF;
+    width: 350px;
+    height: 415px;
+    padding: 35px 25px;
+    margin: 100px auto;
+    border-radius: 20px;
+}
+
+/* 選択ボタン */
+.option__search,
+.detail__search {
+    text-align: center;
+    width: 300px;
+    height: 50px;
+    margin: 8px auto;
+    width: 100%;
+    background-color: #D6D5D5;
+    border: 2px solid #463D3B;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.option__search:hover {
+    background-color: #00B0AA;
+}
+
+.sub-menu {
+    display: none;
+}
+
+/* 詳細検索ページへ */
+.detail__search {
+    border: none;
+    background-color: #463D3B;
+    color: #FFF;
+}
+
+.detail__search:hover {
+    background-color: #ED6D1F;
+    color: #FFF;
+}
+
+
+/* 検索窓 */
+.box__search {
+    background-color: #FFF;
+    flex: 1;
+    border: solid 1px #463D3B;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.inner__search-box {
+    width: 100%;
+    display: flex;
+}
+
+
+.window__search {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0 0 20px;
+    font-size: 1.8rem;
+}
+
+/*  検索窓 キャンセルボタンのカスタマイズ  */
+input[type="search"]::-webkit-search-cancel-button {
+    padding: 0 8% 0 0;
+}
+
+.btn__search {
+    /* background-color: #00B0AA; */
+    /* ボタンの背景色 */
+    border: none;
+    /* ボーダーを削除 */
+    border-radius: 5px 0px 0px 5px;
+    /* 右側の角を丸くする */
+    padding: 20px;
+    /* パディングを追加 */
+    display: flex;
+    /* フレックスボックスを使用 */
+    align-items: center;
+    /* アイコンを中央に揃える */
+    justify-content: center;
+    /* アイコンを中央に揃える */
+}
+
+
+
+
+/* ランキング */
+/* 背景 */
+.inner__ranking {
+    background-color: #00B0AA;
+    max-width: 1440px;
+    width: 100%;
+    height: auto;
+    padding: 25px 0;
+    margin: 0 auto;
+}
+
+.order__ranking {
+    background-color: #FFF;
+    width: 350px;
+    height: auto;
+    padding: 30px 0 0;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.order {
+    font-size: 2.0rem;
+    text-align: left;
+    line-height: 60px;
+    width: 300px;
+    height: 60px;
+    padding: 0 0 0 10px;
+    margin: 0 auto;
+    width: 100%;
+    border-bottom: solid 1px #463D3B;
+}
+.order button{
+    margin-bottom: 10px;
+}
+
+.order__ranking {
+    counter-reset: rank;
+}
+
+.order__ranking li {
+    position: relative;
+}
+
+/* ランキングの王冠 */
+.order__ranking li:nth-child(-n+5)::before {
+    /* 1位から5位まで */
+    font: var(--fa-font-solid);
+    content: "\f521";
+    /* FontAwesome 王冠アイコン */
+    margin: 0 10px 0 0;
+    background-size: contain;
+}
+
+.order__ranking li:nth-child(1)::before {
+    /* 1位（王冠）のスタイル */
+    background-image: linear-gradient(45deg, #c0b283 0%, #c0b283 45%, #FEE9A0 70%, #c0b283 85%, #c0b283 90% 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 800% 400%;
+    animation: gradient 5s infinite cubic-bezier(.62, .28, .23, .99) both;
+    font-size: 4.5rem;
+}
+
+.order__ranking li:nth-child(2)::before {
+    /* 2位（王冠）のスタイル */
+    background: linear-gradient(45deg, #757575 0%, #9E9E9E 45%, #E8E8E8 70%, #9E9E9E 85%, #757575 90% 100%);
+    background-size: 800% 400%;
+    animation: gradient 5s infinite cubic-bezier(.62, .28, .23, .99) both;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 4.0rem;
+    padding-left: 3px;
+}
+
+.order__ranking li:nth-child(3)::before {
+    /* 3位（王冠）のスタイル */
+    background: linear-gradient(45deg, #a57e65 0%, #a57e65 45%, #f3cfb8 70%, #a57e65 85%, #a57e65 90% 100%);
+    background-size: 800% 400%;
+    animation: gradient 5s infinite cubic-bezier(.62, .28, .23, .99) both;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3.5rem;
+    padding-left: 5px;
+}
+
+.order__ranking li:nth-child(4)::before,
+.order__ranking li:nth-child(5)::before {
+    /* 4,5位（王冠）のスタイル */
+    color: #463D3B;
+    font-size: 3.5rem;
+    padding-left: 5px;
+}
+
+.order__ranking li:nth-child(1)::after {
+    /* 1位（文字）のスタイル */
+    counter-increment: rank;
+    content: counter(rank);
+    position: absolute;
+    top: -3px;
+    left: 30px;
+    font-size: 2.5rem;
+    color: #FFF;
+}
+
+.order__ranking li:nth-child(2)::after {
+    /* 2位（文字）のスタイル */
+    counter-increment: rank;
+    content: counter(rank);
+    position: absolute;
+    top: -1px;
+    left: 31px;
+    font-size: 2.0rem;
+    color: #FFF;
+}
+
+.order__ranking li:nth-child(3)::after,
+.order__ranking li:nth-child(4)::after,
+.order__ranking li:nth-child(5)::after {
+    /* 3,4,5位（文字）のスタイル */
+    counter-increment: rank;
+    content: counter(rank);
+    position: absolute;
+    top: 0px;
+    left: 31px;
+    font-size: 1.8rem;
+    color: #FFF;
+}
+.order__ranking li:nth-child(4)::after{
+    left: 30px;
+}
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* とくしまの習いごとアンケート結果 */
+
+.survey-results {
+    background-color: #FFF;
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+.banner__survey {
+    background-image: url(../images/question_banner_mo.png);
+    background-size: cover;
+    background-position: center;
+    max-width: 400px;
+    width: 100%;
+    height: 200px;
+    margin: 0 auto;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.banner__survey:hover {
+    opacity: 0.6;
+}
+
+/* コラムエリア */
+
+ /* コラム詳細ページへのボタンの位置調整用 */
+/* .inner__column {
+    position: relative;
+} */
+.more{
+    position: relative;
+}
+/* コラム詳細ボタン*/
+.button__more{
+display: block;
+font-size: 1.8rem;
+    line-height: 26px;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    right: 5%;
+    bottom: -15px;
+    z-index: 2;
+}
+.button__more-column {
+    background-color: #00B0AA;
+    color: #FFF;
+}
+
+.button__more-column:hover {
+    background-color: #463D3B;
+    /* ホバー時の背景色 */
+}
+
+/* NEWS */
+/* 背景 */
+
+.wrap__news {
+    background-color: #00B0AA;
+    max-width: 1440px;
+    width: 100%;
+    height: auto;
+    padding: 25px 0 80px 0;
+    margin: 0 auto;
+}
+
+.container__news {
+    background-color: #FFF;
+    max-width: 350px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 20px;
+}
+.items__news ul{
+padding-top: 40px;
+}
+
+.items__news li {
+    width: 310px;
+    margin: 0 auto;
+}
+.items__news ul li+li {
+    border-top:solid 1px #463D3B; ;
+    padding-top: 10px;
+}
+.tag__news {
+    font-size: 2.0rem;
+    /* display: flex; */
+    /* justify-content: flex-start; */
+}
+
+.tag__news time{
+    font-size: 1.2rem;
+    text-align: right;
+}
+
+.note__news {
+    font-size: 1.4rem;
+    line-height: 20.3px;
+    padding: 10px 0;
+    /* margin: 0 20px; */
+}
+
+/* NEWS詳細ボタン*/
+.button__more-news {
+    background-color: #463D3B;
+    color: #FFF;
+}
+
+.button__more-news:hover {
+    background-color: #009B8A;
+    /* ホバー時の背景色 */
+}
+
+.clearance {
+    background-color: #FFF;
+    max-width: 1440px;
+    width: 100%;
+    height: 70px;
+    margin: 0 auto;
+}
+
+
+
+
+/* キャラクター アニメーション */
+.boy__character {
+    position: relative;
+}
+
+.boy__programmer {
+    width: 160px;
+    height: auto;
+    position: absolute;
+    left: -10%;
+    margin: 90px 10px 0;
+}
+
+.boy__idea {
+    position: absolute;
+    width: 100px;
+    height: auto;
+    top: 10px;
+    left: 30px;
+    transform: translateX(60px);
+    animation: fadeIn 3s, fadeOut 1s 3s forwards;
+}
+
+.boy__pochi {
+    position: absolute;
+    width: 50px;
+    height: auto;
+    opacity: 0;
+    top: 0;
+    left: 100%;
+    transform: translate(-50px, -50px);
+}
+
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
+
+.fade__in {
+    opacity: 0;
+    /* 初期状態は透明 */
+    transform: translateX(100px);
+    /* 右から移動 */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    /* アニメーションの設定 */
+}
+
+.fade__in.visible {
+    opacity: 1;
+    /* 表示状態 */
+    transform: translateX(0);
+    /* 元の位置に戻る */
+}
+
+.stars {
+    position: absolute;
+    width: 100px;
+    height: auto;
+    right: 10%;
+
+}
+
+.spike__img {
+    position: absolute;
+    width: 80px;
+    height: auto;
+    left: 10%;
+    top: -120px;
+
+}
+
+.tennis__boy {
+    width: 80px;
+    height: auto;
+    position: absolute;
+    top: -22%;
+        left: 6%;
+}
+
+.y__flip {
+    animation: y__flip forwards 15s infinite linear 2s normal;
+}
+
+@keyframes y__flip {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    48% {
+        transform: rotateY(0deg);
+    }
+
+    50% {
+        transform: rotateY(-180deg);
+    }
+
+    98% {
+        transform: rotateY(-180deg);
+    }
+
+    100% {
+        transform: rotateY(0deg);
+    }
+}
+
+
+.english__img,
+.helmet__img,
+.bear__image {
+    display: none;
+    /* 通常時は非表示 */
+
+}
+
+@media screen and (min-width: 780px) {
+
+    .note__about {
+        margin: 0 auto;
+    }
+
+    .note__about>p {
+        font-size: 1.8rem;
+        line-height: 3.1rem;
+        text-align: left;
+    }
+
+    .container__about {
+        max-width: 1440px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        /* 中央寄せに変更 */
+        align-items: center;
+        /* 縦方向も中央寄せ */
+    }
+
+    .image__about {
+        width: 390px;
+        height: auto;
+        margin: 0 20px;
+        display: block;
+        align-content: center;
+    }
+
+    .note__about {
+        margin: 0 20px;
+        /* 左右のマージンを追加 */
+    }
+
+    /* タイトル */
+    .title__search,
+    .title_ranking {
+        color: #00B0AA;
+        text-align: center;
+        width: 370px;
+        position: relative;
+    }
+
+    /* メイン */
+    .title__search>h2,
+    .title_ranking>h2 {
+        font-size: 7rem;
+        width: 100%;
+    }
+
+    /* 添字 */
+    .title__search>p,
+    .title_ranking>p {
+        font-size: 1.8rem;
+        position: absolute;
+        /* みどり円の位置調整用 */
+        right: 55px;
+        bottom: -40px;
+    }
+
+
+
+
+
+    /* 検索 */
+    .container__search {
+        position: relative;
+        /* 詳細検索ボタンの位置調整用 */
+    }
+
+
+
+    /* とくしまの習いごとアンケート結果 */
+    .banner__survey {
+        background-image: url(../images/question_banner_border0.png);
+        max-width: 800px;
+
+    }
+
+    /* コラムエリア */
+
+    /* コラム詳細ボタン*/
+        .button__more{
+display: block;
+    width: 130px;
+    height: 130px;
+    position: absolute;
+    font-size: 2.7rem;
+    bottom: -50px;
+        }
+/* bear__image */
+.bear__image {
+    position: absolute;
+    display: block;
+    bottom: -1px;
+    opacity: 0;
+    width: 110px;
+    height: auto;
+    transition: opacity 0.5s ease, bottom 0.5s ease;
+    /* アニメーションのトランジションを設定 */
+    z-index: 1;
+    right: 7%;
+
+}
+
+/* ボタンにホバーしたときにbear__imageを表示 */
+.button__more:hover+.bear__image {
+    bottom: 60px;
+    /* 最終位置 */
+    opacity: 1;
+    /* 不透明 */
+}
+
+.button__more:hover {
+    text-decoration: underline;
+    /* 下線を追加 */
+}
+    /* NEWS概要 */
+    .container__news {
+        width: 450px;
+        height: auto;
+    }
+
+    .item__news {
+        width: 400px;
+        height: 170px;
+    }
+
+
+    /* NEWS詳細ボタン*/
+
+    .clearance {
+        height: 70px;
+    }
+
+
+    /* キャラクターアニメーション */
+    .boy__programmer {
+        left: -90%;
+        top: -80px;
+    }
+
+    .boy__idea {
+        top: -80px;
+        left: -180px;
+    }
+
+    .stars {
+        right: 20%;
+    }
+.tennis__boy {
+width: 100px;
+top: -14%;
+left: 18%;
+z-index: 1;
+}
+    .spike__img {
+        width: 100px;
+        left: 15%;
+        top: -100px;
+    }
+
+    .english__img {
+        display: block; /* 追加: 表示を有効にする */
+        width: 100px;
+        height: auto;
+        position: absolute;
+        left: 10%;
+        margin-top: 450px;
+    }
+
+    .helmet__img {
+        display: block; /* 追加: 表示を有効にする */
+        width: 100px;
+        height: auto;
+        position: absolute;
+        left: 80%;
+        margin: 150px 0px;
+    }
+}
