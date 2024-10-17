@@ -1,6 +1,10 @@
 @charset "UTF-8";
 
 /*** ここから コラム共通部分 ***/
+html {
+    box-sizing: border-box;
+}
+
 main {
     background-image: none;
     background-color: #FFF;
