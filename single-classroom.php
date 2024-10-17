@@ -143,11 +143,12 @@ $genre = get_field('genre');
 $address = get_field('address');
 $sub_pic = get_field('sub_pic');
 $map = get_field('iframe');
+$site_url = get_field('link');
 $instagram_url = get_field('instagram'); // インスタグラムのURLをカスタムフィールドから取得
 $facebook_url = get_field('facebook'); // フェイスブックのURLをカスタムフィールドから取得
 $x_url = get_field('xlink');
-
-
+$blog_link = get_field('blog_link');
+$line_link = get_field('line');
 
 for ($i = 1; $i <= 5; $i++) {
     // カスタムフィールドの値を取得
@@ -310,14 +311,16 @@ endif;
                 </div>
                 <div class="details__genre">
                     <h4>電話番号</h4>
-                    <p><a href="tel:<?php echo $tel ?>"><?php echo $tel ?></a></p>
-                    <p><?php echo $tel ?></p>
+                    <p><a class="class__tel" href="tel:<?php echo $tel ?>"><?php echo $tel ?></a></p>
+                    <p class="pc_tel"><?php echo $tel ?></p>
                 </div>
                 <div class="details__genre">
                     <h4>公式サイト・SNSはこちら</h4>
-                    <a href="<?php echo get_field('link'); ?>" target="_blank" rel="noopener noreferrer">
-                        <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/website.png" alt="公式サイトURL" />
-                    </a>
+                    <?php if ($site_url): ?>
+                        <a href="<?php echo esc_url($site_url); ?>" target="_blank" rel="noopener noreferrer">
+                            <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/website.png" alt="公式サイトURL" />
+                        </a>
+                    <?php endif ?>
                     <?php if ($x_url): ?>
                         <a href="<?php echo esc_url($x_url); ?>" target="_blank" rel="noopener noreferrer">
                             <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/twitter_x.svg" alt="X_URL" /></a>
@@ -330,6 +333,16 @@ endif;
                     <?php if ($facebook_url): ?>
                         <a href="<?php echo esc_url($facebook_url); ?>" target="_blank" rel="noopener noreferrer">>
                             <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/facebook.svg" alt="フェイスブックURL" />
+                        </a>
+                    <?php endif ?>
+                    <?php if ($blog_link): ?>
+                        <a href="<?php echo esc_url($blog_link); ?>" target="_blank" rel="noopener noreferrer">
+                            <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/assets/icon/blog.png" alt="ブログ" />
+                        </a>
+                    <?php endif ?>
+                    <?php if ($line_link): ?>
+                        <a href="<?php echo esc_url($line_link); ?>" target="_blank" rel="noopener noreferrer">
+                            <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/assets/icon/assets/icon/line.svg" alt="ライン" />
                         </a>
                     <?php endif ?>
                 </div>
