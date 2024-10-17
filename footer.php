@@ -1,8 +1,5 @@
 <footer>
-    <!-- Topへ戻るボタン -->
-    <a href="#">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/TOPbtn.png" class="back-to-top" alt="Back to top" />
-    </a>
+
     <!-- フッター -->
     <div class="footer__container">
         <div class="footer__links">
@@ -47,6 +44,12 @@
         <small>&copy;QLIP とくしま習いごとナビ</small>
     </div>
 </footer>
+<!-- Topへ戻るボタン -->
+
+<a href="">
+    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/TOPbtn.png" class="back-to-top" alt="Back to top" /></a>
+<!-- <img src="<?php echo get_template_directory_uri(); ?>/assets/images/TOPbtn.png" alt="Back to top" /> -->
+
 
 <?php wp_footer(); ?>
 </body>

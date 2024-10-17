@@ -39,12 +39,16 @@
 
 .filter_label {
     width: 160px;
+    min-width: 140px;
     font-weight: bold;
     color: #ff6600;
 }
 
 .filter_value {
     flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .change_btn {
@@ -54,12 +58,20 @@
     border-radius: 5px;
     text-decoration: none;
     font-size: 1.4rem;
+    min-width: 55px;
+    text-align: center;
 }
 
 .results_count {
     margin-top: 30px;
     margin-left: 20px;
     font-size: 2.4rem;
+}
+
+.not__found {
+    margin-top: 30px;
+    margin-left: 20px;
+    font-size: 1.8rem;
 }
 
 /* 下線 */
@@ -71,19 +83,19 @@
 
 /*** ここから 検索結果一覧部分 ***/
 
-.card_details {
+/* .card_details {
     display: flex;
     flex-direction: column;
     gap: 10px;
-}
+} */
 
-.card_detail {
+/* .card_detail {
     display: flex;
     align-items: center;
     margin-top: 8px;
-}
+} */
 
-.detail_label {
+/* .detail_label {
     color: #ffffff;
     padding: 3px 8px;
     background-color: #b7b0ac;
@@ -92,32 +104,32 @@
     margin-right: 10px;
     min-width: 65px;
     text-align: center;
-}
+} */
 
-.detail_value {
+/* .detail_value {
     font-size: 1.4rem;
     color: #333;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: calc(100% - 80px);
-}
+} */
 
-.card_title h2 {
+/* .card_title h2 {
     font-size: 1.8rem;
     margin-bottom: 10px;
     color: #333;
-}
+} */
 
-.container_cardinfo {
+/* .container_cardinfo {
     padding: 30px 0;
     border-radius: 10px;
     position: relative;
-}
+} */
 
-.container_cardimg {
+/* .container_cardimg {
     position: relative;
-}
+} */
 
 .tag_favorite {
     position: absolute;
@@ -138,30 +150,69 @@
     justify-content: center;
 } */
 
-.wrap_card {
+.box__search {
+    background-color: #FFF;
+    font-size: 1.4rem;
+    flex: 1;
+    border: solid 1px #463D3B;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.inner__search-box {
+    width: 100%;
+    display: flex;
+}
+
+.window__search {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0 0 20px;
+}
+
+.btn__search {
+    /* background-color: #00B0AA; */
+    /* ボタンの背景色 */
+    border: none;
+    /* ボーダーを削除 */
+    border-radius: 5px 0px 0px 5px;
+    /* 右側の角を丸くする */
+    padding: 20px;
+    /* パディングを追加 */
+    display: flex;
+    /* フレックスボックスを使用 */
+    align-items: center;
+    /* アイコンを中央に揃える */
+    justify-content: center;
+    /* アイコンを中央に揃える */
+}
+
+/* .wrap_card {
     margin: 30px auto;
     width: 340px;
-}
+} */
 
-.inner_card {
+/* .inner_card {
     border-radius: 8px;
-}
+} */
 
-.card_area {
+/* .card_area {
     display: flex;
     gap: 10px;
     margin-top: 20px;
     position: relative;
-}
+} */
 
-.design_area {
+/* .design_area {
     display: flex;
     gap: 10px;
     flex-direction: column;
-}
+} */
 
 
-.genre_area {
+/* .genre_area {
     position: absolute;
     bottom: -30px;
     right: 70px;
@@ -169,15 +220,14 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+} */
 
-}
-
-.genre_detail {
+/* .genre_detail {
     display: flex;
     flex-direction: column;
-}
+} */
 
-.genre_label {
+/* .genre_label {
     color: #ffffff;
     padding: 3px 8px;
     background-color: #b7b0ac;
@@ -188,32 +238,28 @@
     text-align: center;
     width: 80px;
     margin-bottom: 10px;
+} */
 
-}
-
-.genre_value {
+/* .genre_value {
     font-size: 2rem;
-}
+} */
 
-.icon_design {
+/* .icon_design {
     width: 50px;
+} */
 
-
-}
-
-.icon_category {
+/* .icon_category {
     margin-right: 10px;
     width: 50px;
     height: 50px;
     position: absolute;
     left: 30px;
     top: 28px;
-}
+} */
 
-.card_title {
+/* .card_title {
     border-bottom: 6px dotted #a0d3b2;
-
-}
+} */
 
 /* ページ数 */
 .results_pagenum {
@@ -256,7 +302,7 @@
     }
 
     .filter_label {
-        width: 200px;
+        min-width: 200px;
     }
 }
 

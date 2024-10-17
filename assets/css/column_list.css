@@ -12,14 +12,33 @@ main {
     margin: 0 auto;
 }
 
-.container__breadCrumb {
-    width: 100%;
-    padding-top: 15px;
-}
-
 /* 下線 */
 .underLine {
     border-bottom: solid 1px #463D3B;
+}
+
+.archive__list {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+}
+
+
+.archive__list li a {
+    display: block;
+    padding: 10px 6px;
+    font-size: 1.5rem;
+    border-radius: 15px;
+    background-color: #00B0AA;
+    text-align: center;
+    min-width: 100px;
+    color: white;
+    transition: background-color 0.3s;
+        /* スムーズな変化を追加 */
+}
+
+.archive__list li a:hover {
+    opacity: 0.8;
 }
 
 /*** コラム一覧共通部分 ここまで ***/
@@ -62,7 +81,6 @@ main {
 
 /* カードエリアの囲い */
 .inner__column-area {
-    width: 390px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit,
@@ -161,6 +179,7 @@ main {
     .inner__column-area {
         max-width: 1040px;
         width: 100%;
+        padding: 15px;
     }
 
     /* カード落ち 補完 */

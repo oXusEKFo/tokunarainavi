@@ -2,9 +2,9 @@
 
 jQuery(function ($) {
   // アコーディオン
-$('.accordion-header').click(function() {
-  $(this).next().slideToggle();
-  $(this).toggleClass('active');
+jQuery('.accordion__header').click(function() {
+  jQuery(this).next().slideToggle();
+  jQuery(this).toggleClass('active');
 });
 
 });

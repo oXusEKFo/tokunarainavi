@@ -1,12 +1,11 @@
 <?php get_header(); ?>
 <main>
-    <!--  -->
-    <div class="inner_main">
-        <div class="container__breadCrumb">
-            <div class="breadCrumb">
-                <?php get_template_part('template-parts/breadcrumb'); ?>
-            </div>
+    <div class="breadCrumb__wrap">
+        <div class="breadCrumb">
+            <?php get_template_part('template-parts/breadcrumb'); ?>
         </div>
+    </div>
+    <div class="inner_main">
 
         <!-- コラム一覧カード -->
         <section class="column_area">
@@ -57,7 +56,7 @@
         </section>
         <!-- コラムカードここまで -->
 
-        <section class="footer_column">
+        <!-- <section class="footer_column">
             <div class="container_pageNum">
                 <div class="column_pageNum">
                     <p>
@@ -65,7 +64,7 @@
                     </p>
                 </div>
             </div>
-        </section>
+        </section> -->
     </div>
 </main>
 <?php get_footer(); ?>

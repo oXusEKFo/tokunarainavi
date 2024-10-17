@@ -5,11 +5,14 @@ html {
     /* 全体の基本フォント */
     font-size: 62.5%;
     font-family: "Open Sans", "Zen Maru Gothic", serif;
-    font-weight: 700;
     font-style: normal;
     color: #463D3B;
-}
+    font-weight: 500;
 
+}
+h1,h2,h3,h4,button{
+    font-weight: 700;
+}
 body {
     /*** メッシュ背景 ***/
     background-image:
@@ -26,23 +29,36 @@ body {
     scroll-behavior: smooth;
 }
 
-/*** パンくずリスト ***/
+/**パンくずリスト**/
+.breadCrumb__wrap {
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 50px;
+}
+
 .breadCrumb {
     font-size: 1.6rem;
     font-weight: 700;
-    margin-bottom: 15px;
+    margin-bottom: 0;
+}
+
+/* リンク先があるパンくずには、ホバー時に下線を表示する */
+.breadcrumb_inner>span>a:hover {
+    text-decoration: underline #49464648;
+    text-underline-offset: 0.5rem; /* 文字と下線との距離 */
 }
 
 a:hover {
     cursor: pointer;
 }
 
-main{
+main {
     padding-top: 60px;
 }
 
 @media screen and (min-width: 780px) {
-    main{
+    main {
         padding-top: 90px;
     }
 
@@ -204,7 +220,282 @@ main{
     padding: 1px 13px;
 }
 
+/*** お気に入りボタンここから（堀） ***/
+/* プラグイン内で設定したテキスト用のclass */
+.favo-text {
+    font-size: 1.2rem;
+    position: absolute;
+    left: 10px;
+    bottom: calc(35px / 2.8);
+}
+
+/* プラグインで用意された★アイコンの調整 */
+.sf-icon-star-empty,
+.sf-icon-star-full {
+    margin-right: 3px;
+}
+
+/* ボタンサイズ（.tag_favoriteを基準にしている） */
+.layer_2 {
+    width: 100%;
+}
+
+
+/* お気に入りが非アクティブ状態のとき（お気に入り未追加） */
+/* ボタンの塗り */
+.simplefavorite-button .cls-1 {
+    fill: #ffffff;
+    transition: .3s ease-in-out;
+}
+
+/* ボタンの枠線 */
+.simplefavorite-button .cls-2 {
+    fill: #00b0aa;
+}
+
+/* ボタンの塗り（ホバー時） */
+.simplefavorite-button:hover .cls-1 {
+    fill: #e6f4f3;
+}
+
+
+/* お気に入りがアクティブ状態のとき（お気に入り追加済み） */
+.simplefavorite-button.active {
+    opacity: 1 !important;
+    /* !important必要 */
+}
+
+/* ボタンの塗り */
+.simplefavorite-button.active .cls-1 {
+    fill: #00b0aa;
+    transition: .3s ease-in-out;
+}
+
+/* ボタンの枠線 */
+.simplefavorite-button.active .cls-2 {
+    fill: #00b0aa;
+    transition: .3s ease-in-out;
+}
+
+/* ボタンの塗り（ホバー時） */
+.simplefavorite-button.active:hover .cls-1 {
+    fill: #a3cccb;
+}
+
+/* ボタンの枠線（ホバー時） */
+.simplefavorite-button.active:hover .cls-2 {
+    fill: #a3cccb;
+}
+
+/* 少し浮く（ホバー時） */
+.tag__favorite:hover {
+    transform: translateY(-3px);
+}
+
+/*** お気に入りボタンここまで ***/
+
+
+/* お気に入りが無いときの表示 */
+.no-favorite {
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+
+
+/* 以下、result.cssから関係してそうなものをコピペ（堀） */
+/*** ここから 検索結果一覧部分 ***/
+
+.card_details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+
+}
+
+.card_detail {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.detail_label {
+    color: #ffffff;
+    padding: 3px 8px;
+    background-color: #b7b0ac;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    margin-right: 10px;
+    min-width: 65px;
+    text-align: center;
+}
+
+.detail_value {
+    font-size: 1.4rem;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100% - 80px);
+}
+
+
+.card_title h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.container_cardinfo {
+    padding: 30px 0;
+    border-radius: 10px;
+    position: relative;
+}
+
+.container_cardimg {
+    position: relative;
+}
+
+
+
+.inner_card {
+    border-radius: 8px;
+}
+
+.card_area {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    position: relative;
+}
+
+.design_area {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.genre_area {
+    position: absolute;
+    bottom: -35px;
+    right: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.genre_detail {
+    display: flex;
+    flex-direction: column;
+}
+
+.genre_label {
+    color: #ffffff;
+    padding: 3px 8px;
+    background-color: #b7b0ac;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    margin-right: 10px;
+    min-width: 60px;
+    text-align: center;
+    width: 80px;
+    margin-bottom: 10px;
+}
+
+.genre_value {
+    font-size: 2rem;
+}
+
+.icon_design {
+    width: 50px;
+}
+
+.icon_category {
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 30px;
+    top: 28px;
+}
+
+.card_title {
+    border-bottom: 6px dotted #a0d3b2;
+}
+
+
 /*** カード部分ここまで ***/
+
+
+/*** ページネーションここから ***/
+
+/* ページネーションのレイアウト */
+.wp-pagenavi {
+    margin: 40px auto;
+    font-size: 1.4rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ページの数字（フォント）に関するデザイン */
+.wp-pagenavi a {
+    color: #918a86;
+}
+
+/* ボタンのデザイン */
+.wp-pagenavi span.current,
+.wp-pagenavi a.page,
+.wp-pagenavi .first,
+.wp-pagenavi .last {
+    margin-left: 5px;
+    margin-right: 5px;
+    border: solid 1.2px #918a86;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    line-height: 40px;
+    text-align: center;
+    box-sizing: border-box;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    transition: .3s;
+}
+
+/* 現在滞在しているページボタンのデザイン */
+.wp-pagenavi span.current {
+    border: solid 1.2px #b7b0ac;
+    background: #b7b0ac;
+    color: #fff;
+}
+
+/* 滞在しているページ以外のボタンのデザイン */
+.wp-pagenavi a.page {
+    background: none;
+}
+
+/* ホバー時 */
+.wp-pagenavi a.page:hover,
+.wp-pagenavi .first:hover,
+.wp-pagenavi .last:hover {
+    background: #DDDAD8;
+    color: #fff;
+    border-color: #DDDAD8;
+}
+
+/* ...のデザイン */
+.wp-pagenavi .extend {
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #918a86;
+}
+
+
+/*** ページネーションここまで ***/
 
 
 /*** 共通部分ここまで ***/

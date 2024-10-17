@@ -109,7 +109,7 @@
     height: auto;
     object-fit: cover;
     position: absolute;
-    top: calc((-0.1146 * 100%) + 704.688px);
+    top: calc((-0.1146 * 150%) + 704.688px);
     left: calc((0.03125 * 100%) + 137.813px);
 }
 
@@ -618,21 +618,6 @@
     z-index: 1;
 }
 
-.title__search>h2:hover {
-    color: #463D3B;
-}
-
-.title__ranking>h2:hover {
-    color: #ED6D1F;
-}
-
-.title__column>h2:hover {
-    color: #463D3B;
-}
-
-.title__news>h2:hover {
-    color: #ED6D1F;
-}
 
 
 /* 添字 */
@@ -741,7 +726,6 @@
 /* 検索窓 */
 .box__search {
     background-color: #FFF;
-    font-size: 1.4rem;
     flex: 1;
     border: solid 1px #463D3B;
     border-radius: 10px;
@@ -760,6 +744,7 @@
     justify-content: center;
     align-items: center;
     padding: 0 0 0 20px;
+    font-size: 1.8rem;
 }
 
 /*  検索窓 キャンセルボタンのカスタマイズ  */
@@ -817,6 +802,9 @@ input[type="search"]::-webkit-search-cancel-button {
     margin: 0 auto;
     width: 100%;
     border-bottom: solid 1px #463D3B;
+}
+.order button{
+    margin-bottom: 10px;
 }
 
 .order__ranking {
@@ -882,8 +870,8 @@ input[type="search"]::-webkit-search-cancel-button {
     counter-increment: rank;
     content: counter(rank);
     position: absolute;
-    top: -1px;
-    left: 27px;
+    top: -3px;
+    left: 30px;
     font-size: 2.5rem;
     color: #FFF;
 }
@@ -894,7 +882,7 @@ input[type="search"]::-webkit-search-cancel-button {
     content: counter(rank);
     position: absolute;
     top: -1px;
-    left: 30px;
+    left: 31px;
     font-size: 2.0rem;
     color: #FFF;
 }
@@ -906,12 +894,14 @@ input[type="search"]::-webkit-search-cancel-button {
     counter-increment: rank;
     content: counter(rank);
     position: absolute;
-    top: -1px;
-    left: 29px;
+    top: 0px;
+    left: 31px;
     font-size: 1.8rem;
     color: #FFF;
 }
-
+.order__ranking li:nth-child(4)::after{
+    left: 30px;
+}
 @keyframes gradient {
     0% {
         background-position: 0% 50%;
@@ -937,7 +927,7 @@ input[type="search"]::-webkit-search-cancel-button {
 
 
 .banner__survey {
-    background-image: url(../images/question_kv_mo.png);
+    background-image: url(../images/question_banner_mo.png);
     background-size: cover;
     background-position: center;
     max-width: 400px;
@@ -951,32 +941,32 @@ input[type="search"]::-webkit-search-cancel-button {
     opacity: 0.6;
 }
 
-
-
 /* コラムエリア */
 
-.inner__column {
+ /* コラム詳細ページへのボタンの位置調整用 */
+/* .inner__column {
     position: relative;
-    /* コラム詳細ページへのボタンの位置調整用 */
+} */
+.more{
+    position: relative;
 }
-
-
 /* コラム詳細ボタン*/
-.button__more-column {
-    display: block;
-    background-color: #00B0AA;
-    color: #FFF;
-    font-size: 1.8rem;
+.button__more{
+display: block;
+font-size: 1.8rem;
     line-height: 26px;
     text-align: center;
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    position: relative;
-    /* ボタンの位置を相対に設定 */
-    right: -70%;
-    bottom: 100px;
+    position: absolute;
+    right: 5%;
+    bottom: -15px;
     z-index: 2;
+}
+.button__more-column {
+    background-color: #00B0AA;
+    color: #FFF;
 }
 
 .button__more-column:hover {
@@ -986,6 +976,7 @@ input[type="search"]::-webkit-search-cancel-button {
 
 /* NEWS */
 /* 背景 */
+
 .wrap__news {
     background-color: #00B0AA;
     max-width: 1440px;
@@ -997,57 +988,45 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .container__news {
     background-color: #FFF;
-    width: 350px;
+    max-width: 350px;
     height: auto;
-    /* padding: 25px 0 80px 0; */
     margin: 0 auto;
     border-radius: 20px;
-    position: relative;
-    /* NEWS詳細ボタンの位置調整用 */
+}
+.items__news ul{
+padding-top: 40px;
 }
 
-.item__news {
+.items__news li {
     width: 310px;
-    height: 160px;
-    padding: 40px 0 0;
     margin: 0 auto;
-    border-bottom: solid 1px #463D3B;
 }
-
+.items__news ul li+li {
+    border-top:solid 1px #463D3B; ;
+    padding-top: 10px;
+}
 .tag__news {
     font-size: 2.0rem;
-    display: flex;
-    justify-content: flex-start;
+    /* display: flex; */
+    /* justify-content: flex-start; */
 }
 
-.tag__news>h3,
-.tag__news>p {
-    margin: 0 20px;
+.tag__news time{
+    font-size: 1.2rem;
+    text-align: right;
 }
 
 .note__news {
     font-size: 1.4rem;
     line-height: 20.3px;
     padding: 10px 0;
-    margin: 0 20px;
+    /* margin: 0 20px; */
 }
 
 /* NEWS詳細ボタン*/
 .button__more-news {
-    display: block;
     background-color: #463D3B;
     color: #FFF;
-    font-size: 1.8rem;
-    line-height: 26px;
-    text-align: center;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    position: relative;
-    /* ボタンの位置を相対に設定 */
-    right: -250px;
-    bottom: -50px;
-    z-index: 2;
 }
 
 .button__more-news:hover {
@@ -1072,7 +1051,7 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .boy__programmer {
-    width: 180px;
+    width: 160px;
     height: auto;
     position: absolute;
     left: -10%;
@@ -1151,12 +1130,11 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .tennis__boy {
-    width: 100px;
+    width: 80px;
     height: auto;
     position: absolute;
-    left: 10%;
-
-
+    top: -22%;
+        left: 6%;
 }
 
 .y__flip {
@@ -1188,8 +1166,7 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .english__img,
 .helmet__img,
-.bear__image-column,
-.bear__image-news {
+.bear__image {
     display: none;
     /* 通常時は非表示 */
 
@@ -1268,25 +1245,9 @@ input[type="search"]::-webkit-search-cancel-button {
 
 
 
-    /* 詳細検索ボタン */
-    .button__more-search {
-        display: block;
-        background-color: #00B0AA;
-        color: #FFF;
-        font-size: 1.8rem;
-        line-height: 26px;
-        text-align: center;
-        width: 160px;
-        height: 160px;
-        border-radius: 50%;
-        position: absolute;
-        right: -180px;
-        bottom: -100px;
-    }
-
     /* とくしまの習いごとアンケート結果 */
     .banner__survey {
-        background-image: url(../images/question_banner.png);
+        background-image: url(../images/question_banner_border0.png);
         max-width: 800px;
 
     }
@@ -1294,16 +1255,41 @@ input[type="search"]::-webkit-search-cancel-button {
     /* コラムエリア */
 
     /* コラム詳細ボタン*/
-    .button__more-column {
-        display: block;
-        width: 130px;
-        height: 130px;
-        position: absolute;
-        right: 15%;
-        bottom: -20px;
-        font-size: 2.7rem;
-    }
+        .button__more{
+display: block;
+    width: 130px;
+    height: 130px;
+    position: absolute;
+    font-size: 2.7rem;
+    bottom: -50px;
+        }
+/* bear__image */
+.bear__image {
+    position: absolute;
+    display: block;
+    bottom: -1px;
+    opacity: 0;
+    width: 110px;
+    height: auto;
+    transition: opacity 0.5s ease, bottom 0.5s ease;
+    /* アニメーションのトランジションを設定 */
+    z-index: 1;
+    right: 7%;
 
+}
+
+/* ボタンにホバーしたときにbear__imageを表示 */
+.button__more:hover+.bear__image {
+    bottom: 60px;
+    /* 最終位置 */
+    opacity: 1;
+    /* 不透明 */
+}
+
+.button__more:hover {
+    text-decoration: underline;
+    /* 下線を追加 */
+}
     /* NEWS概要 */
     .container__news {
         width: 450px;
@@ -1317,17 +1303,6 @@ input[type="search"]::-webkit-search-cancel-button {
 
 
     /* NEWS詳細ボタン*/
-    .button__more-news {
-        display: block;
-        width: 130px;
-        height: 130px;
-        position: absolute;
-        right: -80px;
-        bottom: -30px;
-        font-size: 2.7rem;
-    }
-
-
 
     .clearance {
         height: 70px;
@@ -1336,7 +1311,7 @@ input[type="search"]::-webkit-search-cancel-button {
 
     /* キャラクターアニメーション */
     .boy__programmer {
-        left: -70%;
+        left: -90%;
         top: -80px;
     }
 
@@ -1348,7 +1323,12 @@ input[type="search"]::-webkit-search-cancel-button {
     .stars {
         right: 20%;
     }
-
+.tennis__boy {
+width: 100px;
+top: -14%;
+left: 18%;
+z-index: 1;
+}
     .spike__img {
         width: 100px;
         left: 15%;
@@ -1372,68 +1352,4 @@ input[type="search"]::-webkit-search-cancel-button {
         left: 80%;
         margin: 150px 0px;
     }
-
-
-}
-
-/* bear__image */
-.bear__image-column {
-    position: absolute;
-    /* 絶対位置を設定 */
-    display: block;
-    bottom: -1px;
-    /* 初期位置をボタンの下に設定 */
-    right: 16%;
-    /* 初期位置をボタンの右に設定 */
-    opacity: 0;
-    /* 初期状態は透明 */
-    width: 110px;
-    /* サイズを調整（ボタンより少し小さく） */
-    height: auto;
-    /* アスペクト比を維持 */
-    transition: opacity 0.5s ease, bottom 0.5s ease;
-    /* アニメーションのトランジションを設定 */
-    z-index: 1;
-    /* bear-imageをボタンの後ろに配置 */
-}
-
-.bear__image-news {
-    position: absolute;
-    /* 絶対位置を設定 */
-    display: block;
-    bottom: -1px;
-    /* 初期位置をボタンの下に設定 */
-    right: -70px;
-    /* 初期位置をボタンの右に設定 */
-    opacity: 0;
-    /* 初期状態は透明 */
-    width: 110px;
-    /* サイズを調整（ボタンより少し小さく） */
-    height: auto;
-    /* アスペクト比を維持 */
-    transition: opacity 0.5s ease, bottom 0.5s ease;
-    /* アニメーションのトランジションを設定 */
-    z-index: 1;
-    /* bear-imageをボタンの後ろに配置 */
-}
-
-/* ボタンにホバーしたときにbear__imageを表示 */
-.button__more-column:hover+.bear__image-column {
-    bottom: 60px;
-    /* 最終位置 */
-    opacity: 1;
-    /* 不透明 */
-}
-
-.button__more-news:hover+.bear__image-news {
-    bottom: 60px;
-    /* 最終位置 */
-    opacity: 1;
-    /* 不透明 */
-}
-
-.button__more-column:hover,
-.button__more-news:hover {
-    text-decoration: underline;
-    /* 下線を追加 */
 }

@@ -2,7 +2,8 @@
 
 .news {
     background-color: #FFF;
-    /* border-bottom: 50px solid #FFF; */ /* footerとの間に白背景が必要であればここで調整する */
+    /* border-bottom: 50px solid #FFF; */
+    /* footerとの間に白背景が必要であればここで調整する */
 }
 
 .inner__main {
@@ -21,167 +22,60 @@
     margin-bottom: 20px;
 }
 
-/* リンク先があるパンくずには、ホバー時に下線を表示する */
-.breadcrumb_inner > span > a:hover {
-    text-decoration: underline #ffffff9b;
-    text-underline-offset:0.5rem; /* 文字と下線との距離 */
-}
-
-/* .news__area {
-    background-color: #f45c5c68; */ /* 範囲確認用（通常はコメントアウトしておく） */
-/*     display: flex;
-    flex-direction: column;
-    align-items: center;
-} */
-
 .wrap__news {
     width: 100%;
-    background-color: #ffede2;
+    /* background-color: #ffede2; */
+    margin-left: auto;
+    margin-right: auto;
 }
-
-/* タイトル */
-/* .title__news {
-    color: #463D3B;
-    text-align: center;
-    width: 220px;
-    margin: 0 auto;
-    position: relative;
-} */
-
-/* 「NEWS」 */
-/* .title__news > h1 {
-    font-size: 7.0rem;
-    width: 100%;
-    position: absolute;
-    bottom: -100px;
-    z-index: 1;
-} */
-
-/* 「新着情報」 */
-/* .title__news > p {
-    font-size: 1.6rem;
-    position: absolute;
-    right: 13px;
-    bottom: -115px;
-} */
-
-/* 黄色い丸 */
-/* .title__news > img {
-    width: 110px;
-    height: auto;
-    position: absolute;
-    bottom: -120px;
-    left: -22px;
-    z-index: 0;
-} */
-
-/* カテゴリー選択メニュー */
-/* .category__news {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 15px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-top: 160px;
-} */
-
-/* カテゴリー選択メニュー（ボタン） */
-/* .category__news > li {
-    font-size: 1.6rem;
-    width: 47%;
-    text-align: center;
-    background-color: #e6eded36;
-    border: 2px solid #e6eded7e;
-    border-radius: 5px;
-    transition: 0.3s;
-} */
-
-/* カテゴリー選択メニュー（文字） */
-/* .category__news > li > a {
-    color: #ffffffbe;
-    display: block; */ /* クリック可能範囲確保のため */
-/*     padding-top: 10px;
-    padding-bottom: 10px;
-} */
-
-/* カテゴリー選択メニュー（アクティブになっているもの（文字）） */
-/* li.active > a {
-    background-color: #fff;
-    color: #00B0AA;
-} */
-
-/* カテゴリー選択メニュー（アクティブになっているもの（ボタン）） */
-/* .category__news > li.active{
-    border: 2px solid #fff;
-} */
-
-/* カテゴリー選択メニュー（ホバー時） */
-/* .category__news > li:hover {
-    background-color: #e6eded5c;
-} */
 
 /* ニュース全体の白枠 */
 .container__news {
-    background-color: #e5edff;
+    /* background-color: #e5edff; */
     width: 100%;
     height: auto;
     padding-top: 25px;
     padding-bottom: 25px;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
     margin-top: 25px;
-    margin-bottom: 50px;
+    /* margin-bottom: 25px; */
     border-radius: 20px;
 }
 
-/* 各ニュース */
-/* .item__news {
-    width: 100%;
-    height: auto;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    padding-left: 5px;
-    padding-right: 5px;
-    border-bottom: solid 1px #463d3b86;
-    transition: 0.3s;
-} */
-
-/* 各ニュース（ホバー時） */
-/* .item__news:hover {
-    background-color: #e6eded77;
-} */
-
-/* 各ニュース（タイトル） */
-.tag__news > h1 {
-    font-size: 1.6rem;
-    padding-top: 0.4em;
-    padding-bottom: 0.4em;
-    padding-left: 0.5em;
-    background-color: #e6eded;
-    border-left: solid 10px #00B0AA;
-    margin-bottom: 8px;
+/* タイトル、カテゴリー、日付のセット */
+.tag__news {
+    margin-bottom: 30px;
 }
 
-/* 各ニュース（カテゴリーと日付のセット） */
+/* タイトル */
+.tag__news>h1 {
+    font-size: 2.7rem;
+    padding-bottom: 0.3em;
+    padding-left: 0.2em;
+    padding-right: 0.2em;
+    border-bottom: solid 5px #00B0AA;
+    margin-bottom: 10px;
+}
+
+/* カテゴリー、日付のセット */
 .subtag__news {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 11px;
 }
 
-/* 各ニュース（カテゴリー） */
+/* カテゴリー */
 .small__category {
     display: flex;
     align-items: center;
     gap: 5px;
 }
 
-/* 各ニュース（カテゴリーの文字） */
-.small__category > p {
-    font-size: 1.4rem;
-    font-weight:500;
+/* カテゴリーの文字 */
+.small__category>p {
+    font-size: 1.35rem;
+    font-weight: 500;
     color: #989898;
     background-color: #e8e5e3;
     border-radius: 20px;
@@ -191,33 +85,85 @@
     padding-right: 10px;
 }
 
-/* 各ニュース（日付の文字） */
-.subtag__news > p {
+/* 日付の文字 */
+.subtag__news>p {
     font-size: 1.6rem;
 }
 
-/* 各ニュース（本文） */
+/* 記事本文 */
 .note__news {
-    text-align: justify; /* 両端揃えにする */
-    font-size: 1.4rem;
+    text-align: justify;
+    /* 両端揃えにする */
+    font-size: 1.7rem;
     font-weight: 500;
-    line-height: 20.3px;
-    padding-left: 10px;
-    padding-right: 10px;
+    line-height: 24.6px;
+    /* padding-left: 10px;
+    padding-right: 10px; */
 }
 
-/* 投稿記事が0件だった場合 */
-.no__news {
-    height: 100px;
-    display: grid;
-    place-items: center; /* 水平・垂直方向の中央揃え */
-    margin-bottom: 15px;
+/* 投稿記事内の文字（Wordpress依存） */
+.note__news>p {
+    padding-bottom: 20px;
 }
 
-.no__news > p {
+/* 投稿記事内の見出し（Wordpress依存） */
+.wp-block-heading {
+    font-weight: bold;
+    font-size: 2rem;
+    padding-left: 0.3em;
+    padding-right: 0.2em;
+    border-left: solid 8px #00B0AA;
+    margin-top: 8px;
+    margin-bottom: 17px;
+}
+
+/* 投稿記事内の画像（Wordpress依存） */
+.wp-block-image {
+    margin-top: 17px;
+    margin-bottom: 17px;
+}
+
+.wp-block-image img {
+    border-radius: 15px;
+}
+
+/* リンクを使う場合の装飾 */
+.note__news>p>a {
+    color: #2556b8;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 5px;
+}
+
+/* 詳細ページ用のページネーション */
+.navi {
     font-size: 1.4rem;
+    font-weight: 700;
+    width: 90%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-top: solid 1px #463d3b86;
 }
 
+.navi>a {
+    display: block;
+    /* クリック可能範囲の調整 */
+    padding: 5px;
+}
+
+/* ホバー時の下線 */
+.navi>a:hover {
+    border-bottom: solid 1.5px #49464648;
+}
 
 
 /*** メディアクエリここから ***/
@@ -234,12 +180,6 @@
         padding-right: 40px;
     }
 
-    /* 各ニュース */
-    .item__news {
-        padding-top: 30px;
-        padding-bottom: 30px;
-    }
-
 }
 
 @media screen and (min-width: 780px) {
@@ -247,12 +187,6 @@
     /* パンくず */
     .breadCrumb {
         margin-bottom: 40px;
-    }
-
-    /* カテゴリー選択メニュー */
-    .category__news {
-        flex-wrap: nowrap;
-        margin-top: 180px;
     }
 
 }
@@ -264,27 +198,11 @@
         margin-bottom: 60px;
     }
 
-    /* カテゴリー選択メニュー（ボタン） */
-    .category__news>li {
-        font-size: 1.7rem;
-    }
-
     /* ニュース全体の白枠 */
     .container__news {
         padding-top: 40px;
         padding-left: 55px;
         padding-right: 55px;
-    }
-
-    /* 各ニュース */
-    .item__news {
-        padding-left: 7px;
-        padding-right: 7px;
-    }
-
-    /* カテゴリー選択メニュー */
-    .category__news {
-        gap: 20px;
     }
 
     /* 各ニュース（タイトル） */
@@ -314,15 +232,6 @@
         font-size: 1.6rem;
     }
 
-    /* 投稿記事が0件だった場合 */
-    .no__news {
-        margin-bottom: 35px;
-    }
-
-    .no__news>p {
-        font-size: 1.6rem;
-    }
-
 }
 
 @media screen and (min-width: 1165px) {
@@ -334,18 +243,6 @@
 
     .wrap__news {
         max-width: 900px;
-    }
-
-    /* カテゴリー選択メニュー（ボタン） */
-    .category__news>li {
-        font-size: 1.8rem;
-
-    }
-
-    /* カテゴリー選択メニュー（文字） */
-    .category__news>li>a {
-        padding-top: 15px;
-        padding-bottom: 15px;
     }
 
 }

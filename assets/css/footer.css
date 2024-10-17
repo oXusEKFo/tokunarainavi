@@ -3,11 +3,13 @@
 /* Topへ戻るボタン */
 .back-to-top {
     max-width: 30%;
-    position: absolute;
-    /* 親要素に対して絶対位置を設定 */
-    bottom: 10px;
-    right: 20px;
     z-index: 50;
+}
+.fixed {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+
 }
 
 footer {
@@ -17,9 +19,6 @@ footer {
     padding-bottom: 30px;
     text-align: left;
     font-size: 1.4rem;
-    /* フォントサイズを追加 */
-    position: relative;
-    /* 親要素に相対位置を設定 */
 }
 
 .footer__container {
@@ -90,6 +89,14 @@ footer {
 }
 
 @media (min-width: 700px) {
+    .back-to-top {
+            max-width: 10%;
+        }
+
+        .back-to-top:hover {
+            animation: bounce 0.8s ease-out;
+        }
+
     .footer__container {
         flex-direction: row;
         justify-content: space-around;
@@ -122,19 +129,7 @@ footer {
         right: 200px;
     }
 
-    .back-to-top {
-        max-width: 10%;
-        position: absolute;
-        /* 親要素に対して絶対位置を設定 */
-        bottom: 10px;
-        right: 20px;
-        /* 右下に配置 */
-        z-index: 50;
-    }
 
-    .back-to-top:hover {
-        animation: bounce 0.8s ease-out;
-    }
 
     @keyframes bounce {
         0% {

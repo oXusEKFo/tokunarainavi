@@ -54,49 +54,48 @@
 /* カード部分 */
 .wrap__card{
     background-color: transparent;
-    width: 390px;
-    height: 580px;
-    padding: 25px 0 0 0;
-    margin: 15px auto;
+    width: 350px;
+    height: 480px;
+    margin: 30px 15px;
 }
 
 .container__card{
-    width: 350px;
     margin: 0 auto;
 }
 
 /* 施設写真 */
 .img__card {
-    width: 350px;
-    height: 300px;
-    margin: 0 auto;
+    width: 340px;
+    height: 255px;
+    margin: 10px 5px;
     border-radius: 20px;
     object-fit: cover;
 }
 
 /* 説明エリア */
 .container__info{
-    text-align: center;
+    align-items: center;
 }
 
 /* カードタイトル */
 .title__info>h2 {
-    width: 100%;
-    font-size: 2.7rem;
-    line-height: 39px;
+    font-size: 2.4rem;
     overflow: hidden;
+    border-bottom: 1px solid #e0e0e0;
     white-space: nowrap;
     text-overflow: ellipsis;
+    text-align: left;
+    padding: 20px 5px 10px;
 }
 
 /* 説明文 */
 .note__column>p{
-    height: 150px;
-    font-size: 1.7rem;
+    height: 100px;
+    font-size: 1.5rem;
+    margin: 10px;
     line-height: 24.6px;
     text-align: left;
     overflow: hidden;
-    /* white-space: nowrap; */
     text-overflow: ellipsis;
 }
 
@@ -104,6 +103,7 @@
 .container__date {
     display: flex;
     align-items: center;
+    margin-top: 15px;
 }
 
 /* 編集日アイコン */
