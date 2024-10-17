@@ -61,7 +61,6 @@ footer {
 }
 
 .footer__illustration img {
-    display: none;
     max-width: 30%;
     /* 画面幅に応じてサイズを調整 */
     height: auto;
@@ -71,7 +70,7 @@ footer {
     right: 20px;
     animation: fadeInFromRight 0.5s ease-out;
     /* アニメーションを適用 */
-    display: block;
+    display: none;
 }
 
 
