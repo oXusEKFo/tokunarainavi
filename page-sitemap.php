@@ -1,3 +1,4 @@
+<!-- 使いません -->
 <?php get_header(); ?>
 
 <main>

@@ -24,7 +24,7 @@
         </div>
     </div>
 
-    <div class="question">
+    <div class="inner__main">
         <div class="inner__question">
             <div class="title__question">
                 <h1>「いつ、何を、どう選ぶ？」 徳島の習いごとを徹底調査！</h1>
@@ -161,7 +161,6 @@
                 <p>今回のアンケートは2024年10月実施、121人にご協力いただきました。</p>
             </div>
         </div>
-    </div>
     </div>
 </main>
 
