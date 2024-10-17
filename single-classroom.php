@@ -32,6 +32,7 @@ if (!isset($_COOKIE[$cookie_name])) {
 ?>
 
 <?php
+// タクソノミーを配列へ（主にタグ表示）
 $post_id = get_the_ID();
 $taxonomies = array(
     // 'classtype',
@@ -144,6 +145,8 @@ $sub_pic = get_field('sub_pic');
 $map = get_field('iframe');
 $instagram_url = get_field('instagram'); // インスタグラムのURLをカスタムフィールドから取得
 $facebook_url = get_field('facebook'); // フェイスブックのURLをカスタムフィールドから取得
+$x_url = get_field('xlink');
+
 
 
 for ($i = 1; $i <= 5; $i++) {
@@ -275,8 +278,6 @@ endif;
                     // $child_taxonomy が null でないかをチェック
                     if ($child_taxonomy) {
                         echo '<p>' . esc_html($child_taxonomy->name) . '</p>';
-                    } else {
-                        echo '<p>子タクソノミーは存在しません。</p>';
                     } ?>
                 </div>
                 <div class="details__genre">
@@ -309,21 +310,26 @@ endif;
                 </div>
                 <div class="details__genre">
                     <h4>電話番号</h4>
-                    <a href="tel:<?php echo $tel ?>"><?php echo $tel ?></a>
+                    <p><a href="tel:<?php echo $tel ?>"><?php echo $tel ?></a></p>
+                    <p><?php echo $tel ?></p>
                 </div>
                 <div class="details__genre">
                     <h4>公式サイト・SNSはこちら</h4>
                     <a href="<?php echo get_field('link'); ?>" target="_blank" rel="noopener noreferrer">
-                        <img class="" src="<?php echo get_template_directory_uri(); ?>/assets/icon/site_icon.png" alt="公式サイトURL" />
+                        <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/website.png" alt="公式サイトURL" />
                     </a>
+                    <?php if ($x_url): ?>
+                        <a href="<?php echo esc_url($x_url); ?>" target="_blank" rel="noopener noreferrer">
+                            <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/twitter_x.svg" alt="X_URL" /></a>
+                    <?php endif ?>
                     <?php if ($instagram_url): ?>
                         <a href="<?php echo esc_url($instagram_url); ?>" target="_blank" rel="noopener noreferrer">
-                            <img class="" src="<?php echo get_template_directory_uri(); ?>/assets/icon/Instagram_icon.png" alt="インスタグラムURL" />
+                            <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/instagram.svg" alt="インスタグラムURL" />
                         </a>
                     <?php endif ?>
                     <?php if ($facebook_url): ?>
                         <a href="<?php echo esc_url($facebook_url); ?>" target="_blank" rel="noopener noreferrer">>
-                            <img class="" src="<?php echo get_template_directory_uri(); ?>/assets/icon/fb_icon.png" alt="フェイスブックURL" />
+                            <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/facebook.svg" alt="フェイスブックURL" />
                         </a>
                     <?php endif ?>
                 </div>
