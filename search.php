@@ -208,32 +208,34 @@ $count2 = 0;
               ?>
               <?php if (!empty($parent_terms) && !is_wp_error($parent_terms)): ?>
                 <?php foreach ($parent_terms as $parent_term): ?>
-                  <button type="button" class="search_option_suboption" onclick="toggleAccordion('<?php echo $parent_term->slug; ?>')"><?php echo $parent_term->name; ?> <span class="plus">+</span></button>
-                  <div id="<?php echo $parent_term->slug; ?>" class="accordion_content">
-                    <label class="accordion_item  full_width">
-                      <input name="classtype[]" type="checkbox" onclick="selectAll('<?php echo $parent_term->slug; ?>', this);">
-                      <?php echo $parent_term->name; ?> をすべて選択
-                    </label>
-                    <div id="<?php echo $parent_term->slug; ?>_list" class="double_column">
-                      <?php
-                      $child_terms = get_terms(array(
-                        'taxonomy' => 'classtype',
-                        'parent' => $parent_term->term_id,
-                        'hide_empty' => false,
-                        'orderby' => 'slug',
-                        'order' => 'ASC',
-                      ));
-                      ?>
-                      <?php if (!empty($child_terms) && !is_wp_error($child_terms)): ?>
-                        <?php foreach ($child_terms as $child_term): ?>
-                          <label class="accordion_item <?= $checked['classtype']["$child_term->slug"] ?>">
-                            <input type="checkbox" name="classtype[]" value="<?php echo esc_attr($child_term->slug); ?>" <?= $checked['classtype']["$child_term->slug"] ?> onclick="selectItem(this)">
-                            <?php echo esc_html($child_term->name); ?>
-                          </label>
-                        <?php endforeach; ?>
-                      <?php endif; ?>
+                  <?php if ($parent_term->parent == 0): ?>
+                    <button type="button" class="search_option_suboption" onclick="toggleAccordion('<?php echo $parent_term->slug; ?>')"><?php echo $parent_term->name; ?> <span class="plus">+</span></button>
+                    <div id="<?php echo $parent_term->slug; ?>" class="accordion_content">
+                      <label class="accordion_item  full_width">
+                        <input name="classtype[]" type="checkbox" onclick="selectAll('<?php echo $parent_term->slug; ?>', this);">
+                        <?php echo $parent_term->name; ?> をすべて選択
+                      </label>
+                      <div id="<?php echo $parent_term->slug; ?>_list" class="double_column">
+                        <?php
+                        $child_terms = get_terms(array(
+                          'taxonomy' => 'classtype',
+                          'parent' => $parent_term->term_id,
+                          'hide_empty' => false,
+                          'orderby' => 'slug',
+                          'order' => 'ASC',
+                        ));
+                        ?>
+                        <?php if (!empty($child_terms) && !is_wp_error($child_terms)): ?>
+                          <?php foreach ($child_terms as $child_term): ?>
+                            <label class="accordion_item <?= $checked['classtype']["$child_term->slug"] ?>">
+                              <input type="checkbox" name="classtype[]" value="<?php echo esc_attr($child_term->slug); ?>" <?= $checked['classtype']["$child_term->slug"] ?> onclick="selectItem(this)">
+                              <?php echo esc_html($child_term->name); ?>
+                            </label>
+                          <?php endforeach; ?>
+                        <?php endif; ?>
+                      </div>
                     </div>
-                  </div>
+                  <?php endif; ?>
                 <?php endforeach; ?>
               <?php endif; ?>
               <div class="search_actions">

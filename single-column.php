@@ -25,6 +25,29 @@
                         <?php the_content(); ?>
                     </div>
                 </article>
+                <!-- ↓前後記事のリンク -->
+                <div class="navi">
+                    <div class="pre__navi">
+                        <?php $pre_post = get_previous_post(true, '', 'column_type'); ?>
+                        <?php if ($pre_post):
+                        ?>
+                            <?php $pre_link = get_permalink($pre_post) ?>
+                            <a class="pre__link" href="<?= esc_url($pre_link) ?>">
+                                <span class="pre__btn">&lt;前の記事</span>
+                            </a>
+                        <?php endif;
+                        ?>
+                    </div>
+                    <div class="next__navi">
+                        <?php $next_post = get_next_post(true, '', 'column_type'); ?>
+                        <?php if ($next_post): ?>
+                            <?php $next_link = get_permalink($next_post) ?>
+                            <a class="next__link" href="<?= esc_url($next_link) ?>">
+                                <span class="next__btn">次の記事&gt;</span>
+                            </a>
+                        <?php endif; ?>
+                    </div>
+                </div>
             </div>
             <aside class="related">
                 <div class="wrap_related">
