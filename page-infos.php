@@ -28,7 +28,7 @@
                         $categories = get_categories();
 
                         // カテゴリーを好きな順番で並べる
-                        $custom_order = ['infos', 'news', 'events', 'update'];
+                        $custom_order = ['infos', 'news', 'update', 'events'];
 
                         // スラッグ名をキーとする連想配列を作成
                         $ordered_categories = [];
