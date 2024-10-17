@@ -8,26 +8,7 @@
     <div class="inner__main">
         <!-- メニュー -->
         <div class="archive">
-            <div class="archive_category">
-                <ul class="archive__list">
-                    <?php
-                    $all_link = home_url('/column');
-                    echo '<li><a href="' . $all_link . '">All</a></li>';
 
-                    $terms = get_terms(array(
-                        'taxonomy' => 'column_type',
-                        'hide_empty' => false,
-                    ));
-
-                    if (!empty($terms) && !is_wp_error($terms)) {
-
-                        foreach ($terms as $term) {
-                            echo '<li><a href="' . esc_url(get_term_link($term)) . '">' . esc_html($term->name) . '</a></li>';
-                        }
-                    }
-                    ?>
-                </ul>
-            </div>
 
             <!-- コラム一覧カード -->
             <div class="column__area">
@@ -35,12 +16,33 @@
                     <h1>COLUMN</h1>
                     <p>コラム</p>
                 </div>
+                <!-- ↓体験レポートとインタビューのボタン -->
+                <div class="archive_category">
+                    <ul class="archive__list">
+                        <?php
+                        $all_link = home_url('/column');
+                        echo '<li><a href="' . $all_link . '">All</a></li>';
+
+                        $terms = get_terms(array(
+                            'taxonomy' => 'column_type',
+                            'hide_empty' => false,
+                        ));
+
+                        if (!empty($terms) && !is_wp_error($terms)) {
+
+                            foreach ($terms as $term) {
+                                echo '<li><a href="' . esc_url(get_term_link($term)) . '">' . esc_html($term->name) . '</a></li>';
+                            }
+                        }
+                        ?>
+                    </ul>
+                </div>
                 <!-- スライダー ここから -->
                 <div class="inner__column-area">
                     <?php
                     $args = [
                         'post_type' => 'column',
-                        // 'posts_per_page'     => 5,
+                        'posts_per_page'     => 6,
                         'orderby'        => 'date',
                         'order'          => 'DESC',
                     ];
