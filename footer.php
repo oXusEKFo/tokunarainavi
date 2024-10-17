@@ -14,7 +14,7 @@
                     <a href="<?php echo home_url('/column'); ?>" class="column__sitemap">コラム</a>
                 </li>
                 <li>
-                    <a href="<?php echo home_url('/category/news'); ?>" class="news__sitemap">新着情報</a>
+                    <a href="<?php echo home_url('/infos'); ?>" class="news__sitemap">新着情報</a>
                 </li>
                 <li>
                     <a href="<?php echo home_url('/favor') ?>" class="favorite__sitemap">お気に入りリスト</a>
