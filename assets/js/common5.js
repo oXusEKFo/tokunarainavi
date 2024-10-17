@@ -3,7 +3,7 @@
 jQuery(function ($) {
     // ハンバーガーメニュー
     $('.menu').on('click', function () {
-        $('.btn__menu, .btn__close').toggleClass('active');
+        $('.btn__menu, .btn__close, .gnav active').toggleClass('active');
         $('.gnav').fadeToggle();
     });
 

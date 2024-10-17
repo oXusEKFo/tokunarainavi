@@ -42,7 +42,7 @@
 
 /*** ここから施設写真(スライダー) ****/
 .slider {
-    width: 390px;
+    width: 100%;
     margin: 0 auto;
     padding-top: 10px;
 }
