@@ -20,7 +20,10 @@ main {
 .archive__list {
     display: flex;
     gap: 10px;
-    padding: 20px;
+    padding: 60px;
+    text-align: center;
+    justify-content: center;
+
 }
 
 
@@ -38,7 +41,7 @@ main {
 }
 
 .archive__list li a:hover {
-    opacity: 0.8;
+    background-color: #463D3B;
 }
 
 /*** コラム一覧共通部分 ここまで ***/
@@ -180,6 +183,9 @@ main {
         width: 100%;
         padding: 15px;
     }
+    .archive__list li a{
+        min-width: 130px;
+    }
 
     /* カード落ち 補完 */
     .inner__column-area::after {
@@ -187,6 +193,8 @@ main {
         display: block;
         width: 50%; */
     }
+
+
 }
 
 @media screen and (min-width: 1170px) {

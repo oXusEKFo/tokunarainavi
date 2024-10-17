@@ -76,7 +76,7 @@
     /* background-color: #e6eded36;
     border: 2px solid #e6eded7e; */
     background-color: #463D3B;
-    border-radius: 5px;
+    border-radius: 15px;
     transition: 0.3s;
 }
 
@@ -96,7 +96,7 @@ li.active>a {
     color: #00B0AA; */
     background-color: #ED6D1F;
     color: #fff;
-    border-radius: 5px;
+    border-radius: 15px;
 }
 
 /* カテゴリー選択メニュー（アクティブになっているもの（ボタン）） */
