@@ -6,7 +6,7 @@ define('IS_DEV', true);
 // 福島　2024/10/12　追加　消さないでください。終了
 
 // 管理バーを非表示させる
-// add_filter('show_admin_bar', '__return_false');
+add_filter('show_admin_bar', '__return_false');
 
 /**
  * 「after_setup_theme」アクションフックを使用する関数をまとめる
@@ -20,10 +20,6 @@ function my_theme_setup()
 }
 add_action('after_setup_theme', 'my_theme_setup');
 
-/**
- * 固定ページで抜粋を使えるようにする
- */
-add_post_type_support('page', 'excerpt');
 
 /**
  * スタイルシートとJavaScriptファイルを読み込む
@@ -60,10 +56,6 @@ function add_style_script()
         get_template_directory_uri() . '/assets/css/footer.css'
     );
 
-    // wp_enqueue_style(
-    //     'tokunavi_column_slider',
-    //     get_template_directory_uri() . '/assets/css/column_slider.css'
-    // );
 
     // 共通のJSファイルを読み込む
     wp_enqueue_script(
@@ -101,7 +93,6 @@ function add_style_script()
             'tokunavi_column_slider',
             get_template_directory_uri() . '/assets/css/column_slider.css'
         );
-
         // column_slider . js
         wp_enqueue_script(
             'tokunavi_column_slider_js',
@@ -117,7 +108,6 @@ function add_style_script()
             '',
             true
         ); //slick.js スライダー用
-
         //search
         wp_enqueue_script(
             'tokunavi_searchpopup_js',
@@ -135,6 +125,10 @@ function add_style_script()
         //条件検索CSS
         wp_enqueue_style('tokunavi_search', get_template_directory_uri() . '/assets/css/results.css');
         wp_enqueue_style('tokunavi_searchpopup_css', get_template_directory_uri() . '/assets/css/searchpopup.css');
+        wp_enqueue_style(
+            'page_navi_style',
+            get_template_directory_uri() . '/assets/css/page_navi.css'
+        );
 
         wp_enqueue_script(
             'tokunavi_searchpopup-js',
@@ -153,6 +147,7 @@ function add_style_script()
             'tokunavi_column_slider',
             get_template_directory_uri() . '/assets/css/column_slider.css'
         );
+        wp_enqueue_style('tokunabi_pagenavi', get_template_directory_uri() . '/assets/css/page_navi.css');
     } elseif (is_singular('column')) {
         //コラム記事CSS
         wp_enqueue_style(
@@ -168,32 +163,9 @@ function add_style_script()
             'tokunavi_classroom_style',
             get_template_directory_uri() . '/assets/css/details.css',
         );
-        wp_enqueue_style('class_slick_css', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css'); //slick
-        wp_enqueue_style('class_slick-theme_css', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css'); //slick-theme
-        wp_enqueue_script(
-            'class_slick_js',
-            'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js',
-            ['jquery'],
-            '',
-            true
-        ); //slick.js スライダー用
-        wp_enqueue_script(
-            'class_slick-carousel-js',
-            'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js',
-            array('jquery'),
-            '1.9.0',
-            true //footerに出力
-        );
         wp_enqueue_script(
             'tokunavi_slider_js',
             get_template_directory_uri() . '/assets/js/slider.js',
-            ['jquery'], // jQuery に依存
-            '', // バージョン指定なし
-            true // フッターに出力
-        );
-        wp_enqueue_script(
-            'tokunavi_accordion_js',
-            get_template_directory_uri() . '/assets/js/accordion.js',
             ['jquery'], // jQuery に依存
             '', // バージョン指定なし
             true // フッターに出力
@@ -210,11 +182,23 @@ function add_style_script()
             '', // バージョン指定なし
             true // フッターに出力
         );
+        /**
+         * contact Formのときには整形機能をOFFにする
+         */
+        add_filter('wpcf7_autop_or_not', 'my_wpcf7_autop');
+        function my_wpcf7_autop()
+        {
+            return false;
+        }
     } elseif (is_page('favor')) {
         // お気に入りリスト
         wp_enqueue_style(
             'tokunavi_favorite',
             get_template_directory_uri() . '/assets/css/favorite.css'
+        );
+        wp_enqueue_style(
+            'page_navi_style',
+            get_template_directory_uri() . '/assets/css/page_navi.css'
         );
     } elseif (is_page('about')) {
         // page-about.php
@@ -225,8 +209,16 @@ function add_style_script()
             'tokunavi_news_list',
             get_template_directory_uri() . '/assets/css/news_list.css'
         );
+        wp_enqueue_style(
+            'page_navi_style',
+            get_template_directory_uri() . '/assets/css/page_navi.css'
+        );
     } elseif (is_single()) {
-        // ニュース詳細
+        // ニュース詳細（現在のcssは仮です）
+        /* wp_enqueue_style(
+            'tokunavi_news_more',
+            get_template_directory_uri() . '/assets/css/news_list.css'
+        ); */
         wp_enqueue_style(
             'tokunavi_news',
             get_template_directory_uri() . '/assets/css/news.css'
@@ -250,9 +242,19 @@ function add_style_script()
             get_template_directory_uri() . '/assets/css/question.css'
         );
     }
+
+    // ニュース一覧
+    // wp_enqueue_style(
+    //     'tokunavi_news_list',
+    //     get_template_directory_uri() . '/assets/css/news_list.css'
+    // );
 }
 add_action('wp_enqueue_scripts', 'add_style_script');
 
+/**
+ * 固定ページで抜粋を使えるようにする
+ */
+add_post_type_support('page', 'excerpt');
 
 
 /**
@@ -281,10 +283,6 @@ function my_pre_get_posts($query)
         $query->set('post_type', 'classroom');
         $query->set('posts_per_page', 9);
         return;
-    }
-    if ($query->is_post_type_archive('column') || $query->is_tax('column_type')) {
-        $query->set('post_type', 'column');
-        $query->set('posts_per_page', 6);
     }
 }
 /*
@@ -342,84 +340,3 @@ function increment_term_view_count($term_id)
 
 //     update_term_meta($term_id, 'view_count', $view_count + 1);
 // }
-
-
-
-/**
- * 検索結果を公開して施設のみ対象にする
- */
-function exclude_pages_from_search($query)
-{
-    if ($query->is_search && !is_admin()) {
-        $query->set('post_type', 'classroom');
-        $query->set('post_status', 'publish');
-    }
-    return $query;
-}
-add_filter('pre_get_posts', 'exclude_pages_from_search');
-
-
-/**
- * 「」空の検索は結果を返さない
- */
-function exclude_empty_search_query($query)
-{
-    if ($query->is_search() && !$query->is_main_query() && !is_admin()) {
-        // 検索クエリが空の場合
-        if (!isset($_GET['s']) || trim($_GET['s']) === '') {
-            $query->set('post__in', array(0)); // 空の配列を指定して、結果を除外
-        }
-    }
-}
-add_action('pre_get_posts', 'exclude_empty_search_query');
-
-
-/**
- * コメント入力欄の表示順を変更する
- *
- * @param array $fields array
- * @retuen array $fields array
- */
-function wp34731_move_comment_field_to_bottom($fields)
-{
-    $comment_field = $fields['comment'];
-    unset($fields['comment']);
-    $fields['comment'] = $comment_field;
-
-    return $fields;
-}
-add_filter('comment_form_fields', 'wp34731_move_comment_field_to_bottom');
-/**
- * 「メールアドレスが公開されることはありません。 * が付いている欄は必須項目です」の文言を削除
- *
- * @param array $defaults array
- * @retuen array $defaults array
- */
-function my_comment_notes_before($defaults)
-{
-    $defaults['comment_notes_before'] = '';
-    return $defaults;
-}
-add_filter("comment_form_defaults", "my_comment_notes_before");
-/**
- * 「コメントを残す」を削除
- *
- * @param array $defaults arg
- * @return array $defaults arg
- */
-
-function my_title_reply($defaults)
-{
-    $defaults['title_reply'] = '';
-    return $defaults;
-}
-add_filter('comment_form_defaults', 'my_title_reply');
-
-/**
- * contact Formのときには整形機能をOFFにする
- */
-add_filter('wpcf7_autop_or_not', 'my_wpcf7_autop');
-function my_wpcf7_autop()
-{
-    return false;
-}
