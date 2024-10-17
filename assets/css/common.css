@@ -8,8 +8,9 @@ html {
     font-style: normal;
     color: #463D3B;
     font-weight: 500;
-
+    line-height: 1.4;
 }
+
 h1,h2,h3,h4,button{
     font-weight: 700;
 }
@@ -64,7 +65,11 @@ main {
 
 }
 
-
+.inner__main {
+    padding: 0 10%;
+    width: 100%;
+    margin: 0 auto;
+}
 
 /*** ここから カード部分 ***/
 
