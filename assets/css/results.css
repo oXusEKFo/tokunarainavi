@@ -137,6 +137,11 @@
     bottom: -15px;
 }
 
+.results__list {
+    margin: auto;
+    width: 90%;
+}
+
 .results_card {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
