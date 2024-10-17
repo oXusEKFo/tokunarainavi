@@ -27,31 +27,21 @@ jQuery(function ($) {
     $(function () {
     let top = $(".back-to-top");
     let lastScrollTop = 0;
-    top.hide();  // 页面加载时隐藏按钮
-
+    top.hide();
     $(window).scroll(function () {
         let scrollTop = $(this).scrollTop();
-
-        // 页面滚动超过 100 像素时显示按钮，否则隐藏按钮
-        if (scrollTop <= 100) {
-            top.fadeOut();
-        }
-        // 如果页面滚动超过 0，给 top 添加 fixed 类，否则移除
         if (scrollTop > 0) {
             top.addClass("fixed");
         } else {
             top.removeClass("fixed");
         }
-        // 根据滚动方向显示或隐藏按钮
         if (scrollTop > lastScrollTop) {
-            top.fadeOut();  // 向下滚动时隐藏按钮
+            top.fadeOut();
         } else {
-            top.fadeIn();   // 向上滚动时显示按钮
+            top.fadeIn();
         }
-        lastScrollTop = scrollTop;  // 更新 lastScrollTop 为当前滚动位置
+        lastScrollTop = scrollTop;
     });
-
-    // 点击按钮返回页面顶部
     top.click(function () {
         $("body, html").animate({ scrollTop: 0 }, 200, "swing");
         return false;
@@ -59,28 +49,6 @@ jQuery(function ($) {
 });
 
 });
-
-
-  // Topへ戻るボタン の表示/非表示
-// let lastScrollTop = 0;
-//     const navbar = document.querySelector(".back-to-top");
-
-//     window.addEventListener("scroll", function() {
-//         let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-//         // スクロールしたかどうかを判断する
-//         if (scrollTop > 0) {
-//             navbar.classList.add("fixed");
-//         } else {
-//             navbar.classList.remove("fixed");
-//         }
-//         // スクロール方向による[Topへ戻るボタン]の表示/非表示
-//         if (scrollTop > lastScrollTop) {
-//             navbar.classList.add("hidden");
-//         } else {
-//             navbar.classList.remove("hidden");
-//         }
-//         lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-//     });
 
 //main box fadeIn ふわっと表示させる
 //class="box fadeIn"を追加するだけでOK
