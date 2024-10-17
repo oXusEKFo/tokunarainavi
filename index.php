@@ -28,7 +28,7 @@
                         $categories = get_categories();
 
                         // カテゴリーを好きな順番で並べる
-                        $custom_order = ['news', 'update', 'events', 'others'];
+                        $custom_order = ['infos', 'news', 'update', 'events'];
 
                         // スラッグ名をキーとする連想配列を作成
                         $ordered_categories = [];
@@ -40,9 +40,20 @@
                         $current_category = get_queried_object();
                         $current_slug = isset($current_category->slug) ? $current_category->slug : '';
 
+                        // 「すべて」ページが表示されているかを確認する
+                        $is_infos_page = (is_page('infos'));
+
                         // 指定した順番にカテゴリーを出力
                         foreach ($custom_order as $slug) {
-                            if (isset($ordered_categories[$slug])) {
+                            if ($slug === 'infos') {
+                                // 「すべて」ページのリンクに 'active' クラスを追加
+                                $active_class = $is_infos_page ? 'active' : '';
+
+                                // 「すべて」ページへのリンクを追加
+                                echo '<li class="' . esc_attr($active_class) . '">';
+                                echo '<a href="' . esc_url(home_url('infos')) . '">すべて</a>';
+                                echo '</li>';
+                            } elseif (isset($ordered_categories[$slug])) {
                                 $category = $ordered_categories[$slug]; // スラッグに対応するカテゴリーを取得
                                 $cat_name = esc_html($category->name); // カテゴリー名
                                 $cat_id = esc_attr($category->term_id); // カテゴリーID
@@ -84,6 +95,7 @@
                                     'posts_per_page' => 5,
                                     'paged'          => $paged,
                                     'category_name'  => $current_slug, // 現在のカテゴリーのスラッグを指定
+                                    'post_status'    => 'publish', // 公開済みの投稿のみを表示
                                 ];
                                 $the_query = new WP_Query($args);
                                 if ($the_query->have_posts()):
