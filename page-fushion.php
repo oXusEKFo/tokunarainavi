@@ -12,7 +12,7 @@
             <div class="wrap__question-kv">
                 <div class="container__question-kv-mo">
                     <img
-                        src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/question_kv_mo.png"
+                        src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/question_banner_mo.png"
                         alt="question_kv_mo" />
                 </div>
                 <div class="container__question-kv-p">
