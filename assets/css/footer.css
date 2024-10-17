@@ -61,7 +61,7 @@ footer {
 }
 
 .footer__illustration img {
-    max-width: 40%;
+    max-width: 30%;
     /* 画面幅に応じてサイズを調整 */
     height: auto;
     /* アスペクト比を維持 */
@@ -76,7 +76,7 @@ footer {
 .fade__in {
     opacity: 0;
     /* 初期状態は透明 */
-    transform: translateX(100px);
+    transform: translateX(20px);
     /* 右から移動 */
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
     /* アニメーションの設定 */

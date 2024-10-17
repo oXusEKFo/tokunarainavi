@@ -251,23 +251,18 @@
 
 /* 蹴る */
 .kick {
-    animation: kick forwards 4s 1 linear 0s normal;
+    animation: kick forwards 3s 1 linear 0s normal;
 }
 
 @keyframes kick {
     0% {
         opacity: 0;
-        transform: translateY(0px) translateX(300px);
+        transform: translateY(0px) translateX(50px);
     }
 
-    50% {
+    85% {
         opacity: 0;
-        transform: translateY(0px) translateX(300px);
-    }
-
-    75% {
-        opacity: 1;
-        transform: translateY(0px) translateX(0px);
+        transform: translateY(0px) translateX(50px);
     }
 
     100% {

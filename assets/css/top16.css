@@ -257,11 +257,11 @@
 @keyframes kick {
     0% {
         opacity: 0;
-        transform: translateY(0px) translateX(80px);
+        transform: translateY(0px) translateX(50px);
     }
     85% {
         opacity: 0;
-        transform: translateY(0px) translateX(80px);
+        transform: translateY(0px) translateX(50px);
     }
     100% {
         opacity: 1;
