@@ -502,7 +502,7 @@
                     </div>
                 <?php endif ?>
                 <div class="more">
-                    <button class="button__more button__more-news" onclick="window.location.href='<?php echo home_url('/category/news') ?>'">MORE</button>
+                    <button class="button__more button__more-news" onclick="window.location.href='<?php echo home_url('infos') ?>'">MORE</button>
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bear2.png" alt="Bear" class="bear__image bear__image-news">
                 </div>
             </div>
