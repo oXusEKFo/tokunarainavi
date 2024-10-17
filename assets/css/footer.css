@@ -2,8 +2,8 @@
 
 /* Topへ戻るボタン */
 .back-to-top {
-    max-width: 30%;
-    z-index: 50;
+    max-width: 20%;
+    z-index: 20;
 }
 .fixed {
     position: fixed;
