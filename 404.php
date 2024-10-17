@@ -5,10 +5,10 @@
 
 
     <div class="container">
-        <h1エラー< /h1>
-            <div class="error_code">404 Not Found</div>
-            <p>お探しのページが見つかりませんでした。</p>
-            <p>申し訳ございませんが、<a href="<?php echo home_url(); ?>">こちらのリンク</a>からトップページにお戻りください。</p>
+        <h1>エラー</h1>
+        <div class="error_code">404 Not Found</div>
+        <p>お探しのページが見つかりませんでした。</p>
+        <p>申し訳ございませんが、<a href="<?php echo home_url(); ?>">こちらのリンク</a>からトップページにお戻りください。</p>
     </div>
 </main>
 

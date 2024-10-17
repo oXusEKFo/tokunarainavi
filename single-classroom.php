@@ -33,15 +33,19 @@ if (!isset($_COOKIE[$cookie_name])) {
 
 <?php
 $post_id = get_the_ID();
-$taxonomies = array('classtype', 'area', 'date_type', 'access_type', 'age_type', 'skill_type', 'personality_type', 'cost_type', 'week', 'column_type');
+$taxonomies = array(
+    // 'classtype',
+    // 'area',
+    'date_type',
+    // 'access_type',
+    // 'age_type',
+    'skill_type',
+    'personality_type',
+    'cost_type',
+    // 'weektimes',
+    'column_type'
+);
 
-// おすすめ教室を取得するクエリ
-// $args = array(
-//     'post_type' => 'classroom', // カスタム投稿タイプ
-//     'posts_per_page' => 3,  // 表示する教室の数
-//     'post__not_in' => array(get_the_ID()), // 現在の教室を除外
-//     'orderby' => 'rand' // ランダム表示
-// );
 
 $terms = wp_get_post_terms(get_the_ID(), 'classtype'); // タクソノミー 'classtype' で現在の教室の用語を取得
 
@@ -64,35 +68,60 @@ if (!empty($terms)) {
     }
 }
 
-if ($parent_taxonomy && !is_wp_error($parent_taxonomy)) {
-    // 親タクソノミーに属する教室を取得するためのterm_idリスト
-    $term_ids = wp_list_pluck($terms, 'term_id');
+// if ($parent_taxonomy && !is_wp_error($parent_taxonomy)) {
+//     // 親タクソノミーに属する教室を取得するためのterm_idリスト
+//     $term_ids = wp_list_pluck($terms, 'term_id');
 
-    // おすすめ教室を取得するクエリ
-    $args = array(
-        'post_type' => 'classroom', // カスタム投稿タイプ
-        'posts_per_page' => 3,  // 表示する教室の数
-        'post__not_in' => array(get_the_ID()), // 現在の教室を除外
-        'orderby' => 'rand', // ランダム表示
-        'tax_query' => array(
-            'relation' => 'AND', // 親と子の両方で絞り込み
-            array(
-                'taxonomy' => 'classtype', // 教室のジャンル
-                'field' => 'term_id',
-                'terms' => $parent_taxonomy->term_id, // 親タクソノミーに属する教室を取得
-                'include_children' => false, // 子タクソノミーは別途扱う
-            ),
-            array(
-                'taxonomy' => 'classtype', // 子タクソノミー (ジャンル)
-                'field' => 'term_id',
-                'terms' => $child_taxonomy ? $child_taxonomy->term_id : $term_ids, // 子が存在すればその子を使用
-            ),
-        ),
-    );
+//     // おすすめ教室を取得するクエリ
+//     $args = array(
+//         'post_type' => 'classroom', // カスタム投稿タイプ
+//         'posts_per_page' => 3,  // 表示する教室の数
+//         'post__not_in' => array(get_the_ID()), // 現在の教室を除外
+//         'orderby' => 'rand', // ランダム表示
+//         'tax_query' => array(
+//             'relation' => 'AND', // 親と子の両方で絞り込み
+//             array(
+//                 'taxonomy' => 'classtype', // 教室のジャンル
+//                 'field' => 'term_id',
+//                 'terms' => $parent_taxonomy->term_id, // 親タクソノミーに属する教室を取得
+//                 'include_children' => false, // 子タクソノミーは別途扱う
+//             ),
+//             array(
+//                 'taxonomy' => 'classtype', // 子タクソノミー (ジャンル)
+//                 'field' => 'term_id',
+//                 'terms' => $child_taxonomy ? $child_taxonomy->term_id : $term_ids, // 子が存在すればその子を使用
+//             ),
+//         ),
+//     );
 
-    // WP_Query を使用して投稿を取得
-    $recommended_classes = new WP_Query($args);
-}
+//     // WP_Query を使用して投稿を取得
+//     $recommended_classes = new WP_Query($args);
+// }
+
+
+
+
+
+
+
+
+// 教室の投稿IDを取得
+$classroom_id = get_the_ID();
+
+// 教室に紐付けられたコラムを取得するクエリ
+$args = array(
+    'post_type' => 'column', // コラムの投稿タイプ
+    'meta_query' => array(
+        array(
+            'key' => 'class-room-id',  // コラム記事に登録されている教室IDのフィールド
+            'value' => $classroom_id,
+            'compare' => '='
+        )
+    )
+);
+
+// WP_Queryを使用してコラム記事を取得
+$related_columns = new WP_Query($args);
 
 
 
@@ -113,7 +142,8 @@ $genre = get_field('genre');
 $address = get_field('address');
 $sub_pic = get_field('sub_pic');
 $map = get_field('iframe');
-
+$instagram_url = get_field('instagram'); // インスタグラムのURLをカスタムフィールドから取得
+$facebook_url = get_field('facebook'); // フェイスブックのURLをカスタムフィールドから取得
 
 
 for ($i = 1; $i <= 5; $i++) {
@@ -225,11 +255,21 @@ endif;
             <div class="details__containerL">
                 <div class="info__overlay">
                     <h3>詳細情報</h3>
-                    <p><a href="#">この教室についての<br>コラムはこちら→</a></p>
+                    <?php
+                    if ($related_columns->have_posts()) {
+                        while ($related_columns->have_posts()) {
+                            $related_columns->the_post();
+                    ?>
+                            <p><a href="<?php the_permalink(); ?>">この教室についての<br>コラムはこちら→</a></p>
+                    <?php
+                        }
+                    }
+                    // 投稿データをリセット
+                    wp_reset_postdata();
+                    ?>
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/matcha.png" alt="緑丸" class="circle__matcha">
                 </div>
                 <div class="details__genre">
-
                     <h4>ジャンル</h4>
                     <?php
                     // $child_taxonomy が null でないかをチェック
@@ -273,15 +313,19 @@ endif;
                 </div>
                 <div class="details__genre">
                     <h4>公式サイト・SNSはこちら</h4>
-                    <a href="#">
+                    <a href="<?php echo get_field('link'); ?>" target="_blank" rel="noopener noreferrer">
                         <img class="" src="<?php echo get_template_directory_uri(); ?>/assets/icon/site_icon.png" alt="公式サイトURL" />
                     </a>
-                    <a href="#">
-                        <img class="" src="<?php echo get_template_directory_uri(); ?>/assets/icon/Instagram_icon.png" alt="インスタグラムURL" />
-                    </a>
-                    <a href="#">
-                        <img class="" src="<?php echo get_template_directory_uri(); ?>/assets/icon/fb_icon.png" alt="フェイスブックURL" />
-                    </a>
+                    <?php if ($instagram_url): ?>
+                        <a href="<?php echo esc_url($instagram_url); ?>" target="_blank" rel="noopener noreferrer">
+                            <img class="" src="<?php echo get_template_directory_uri(); ?>/assets/icon/Instagram_icon.png" alt="インスタグラムURL" />
+                        </a>
+                    <?php endif ?>
+                    <?php if ($facebook_url): ?>
+                        <a href="<?php echo esc_url($facebook_url); ?>" target="_blank" rel="noopener noreferrer">>
+                            <img class="" src="<?php echo get_template_directory_uri(); ?>/assets/icon/fb_icon.png" alt="フェイスブックURL" />
+                        </a>
+                    <?php endif ?>
                 </div>
             </div>
         </section>
@@ -308,12 +352,10 @@ endif;
         </section>
         <section class="results__card">
             <!-- 検索結果一覧カード -->
-            <?php if ($recommended_classes->have_posts()) : ?>
-                <?php while ($recommended_classes->have_posts()) : $recommended_classes->the_post();
-                    get_template_part('template-parts/loop', 'classroom') ?>
-                <?php endwhile; ?>
-            <?php endif; ?>
-            <?php wp_reset_postdata(); ?>
+            <?php
+
+            get_template_part('template-parts/loop', 'classroom');
+            ?>
         </section>
         <!-- 検索結果一覧カードここまで -->
     </div>
