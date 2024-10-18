@@ -155,17 +155,7 @@ for ($i = 1; $i <= 5; $i++) {
 ?>
 
 <?php get_header(); ?>
-<?php
-if (have_posts()):
-    while (have_posts()): the_post();
-?>
-        <h1><?php echo the_title(); ?></h1>
-<?php
-    endwhile;
-    wp_reset_postdata();
-endif;
-?>
-<p><?php echo esc_html($genre); ?></p>
+
 <main>
     <!--  -->
     <div class="inner__main">
