@@ -19,12 +19,11 @@ jQuery(function ($) {
         } else {
             top.removeClass("fixed");
         }
-        if (scrollTop > lastScrollTop) {
-            top.fadeOut();
-        } else {
+        if (scrollTop > 100) {
             top.fadeIn();
+        } else {
+            top.fadeOut();
         }
-        lastScrollTop = scrollTop;
     });
     top.click(function () {
         $("body, html").animate({ scrollTop: 0 }, 200, "swing");
