@@ -93,6 +93,9 @@ if (!is_user_logged_in() && IS_DEV == true) {
                             </div>
                         </li>
                     </ul>
+                    <div class="wrap__gnav-chara">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/rabbit.png" alt="とくしま習いごとナビ">
+                    </div>
                 </div>
             </nav>
 
