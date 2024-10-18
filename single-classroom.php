@@ -68,8 +68,6 @@ if (!empty($terms)) {
         }
     }
 }
-print_r($parent_taxonomy);
-print_r($child_taxonomy);
 
 
 // if ($parent_taxonomy && !is_wp_error($parent_taxonomy)) {
