@@ -80,7 +80,7 @@
 .wrap__mainImg img {
     width: 100%;
     /* 横幅をコンテナに合わせる */
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 16 / 12;
     /* 横長の比率に合わせて高さを調整 */
     object-fit: cover;
     /* 画像がはみ出た場合にトリミングして調整 */
@@ -125,30 +125,17 @@
 /*** 検索結果詳細部分 ここから ***/
 .details__title {
     position: relative;
-    width: 300px;
-    height: 50px;
     background-color: #ED6D1F;
     font-size: 1.8rem;
-    font-weight: 700;
-    padding-left: 20px;
+    padding: 10px;
+    margin-top: 20px;
+    max-width: 360px;
     align-content: center;
-    margin: 18px auto 18px 0;
 }
 
-.circle__green {
-    position: absolute;
-    right: -60px;
-    bottom: -20px;
-    width: 80px;
-    /* サイズ調整 */
-}
-
+.circle__green,
 .circle__yellow {
-    position: absolute;
-    right: -30px;
-    bottom: -30px;
-    width: 50px;
-    /* サイズ調整 */
+    display: none;
 }
 
 .wrap__details-outline {
@@ -158,13 +145,14 @@
 
 .details__address {
     font-size: 1.6rem;
-    margin-bottom: 4px;
+    margin: 10px 0;
+    max-width: 360px;
 }
 
 .details__description {
     font-size: 1.4rem;
     line-height: 2.5rem;
-    margin-top: 14px;
+    margin: 20px 5px;
 }
 
 .details__container {
@@ -211,19 +199,19 @@
     /* サイズ調整 */
 }
 
-.details__genre{
+.details__genre {
     font-size: 1.6rem;
     font-weight: 500;
     line-height: 2.5rem;
-    padding:15px 0;
+    padding: 15px 0;
     border-bottom: solid 1px #463D3B;
 }
 
-.class__tel{
-    color:blue;
+.class__tel {
+    color: blue;
 }
 
-.pc_tel{
+.pc_tel {
     display: none;
 }
 
@@ -231,7 +219,7 @@
     border-bottom: none;
 }
 
-.details__genre>h3 {
+.details__genre>h4 {
     color: #ED6D1F;
     font-size: 1.4rem;
     font-weight: 700;
@@ -246,7 +234,7 @@
     line-height: 2.5rem;
 }
 
-.details__map{
+.details__map {
     font-size: 2.0rem;
     display: flex;
     padding: 10px 20px;
@@ -258,10 +246,10 @@
 
 
 
-.icon__sns{
-    width:40px;
-    height:40px;
-    margin-right: 10px;
+.icon__sns {
+    width: 40px;
+    height: 40px;
+    margin: 5px 10px 0 0;
     object-fit: cover;
 }
 
@@ -320,9 +308,7 @@
     margin: 0 auto;
 }
 
-.details__review h3{
-    font-size: 2.4rem;
-}
+
 
 .wrap__details-review {
     width: 350px;
@@ -332,14 +318,15 @@
 }
 
 .review__title {
-    font-size: 1.8rem;
-    font-weight: 700;
-    line-height: 2.6rem;
-    color: #463D3B;
-    margin: 25px 0 20px;
+    font-size: 2rem;
+    max-width: 350px;
+    margin: 20px 0 10px;
+    padding: 10px 20px;
+    background-color: rgb(246, 239, 231);
 }
 
-.review__item{
+
+.review__item {
     display: flex;
     flex-direction: column;
     margin-right: auto;
@@ -349,7 +336,7 @@
     border: 1px solid #ccc;
     border-radius: 8px;
     background-color: #f9f9f9;
-    }
+}
 
 
 .review__name {
@@ -368,12 +355,18 @@
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     padding: 20px;
 }
 
+.review__Form p {
+    margin: 6px 0 2px;
+}
+
+
 .review__Form input {
-    margin-bottom: 10px;
+    margin-bottom: 5px 10px;
+    font-size: 1.6rem;
 }
 
 .review__comment {
@@ -445,8 +438,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 350px;
-    width: 60%;
+    max-width: 350px;
+
     height: 70px;
     margin: 0 auto;
     margin-top: 50px;
@@ -465,28 +458,27 @@
 .relatedReview__title img {
     width: 60px;
     animation: fuwafuwa 3s ease-in-out infinite alternate;
-        transition: 1.5s ease-in-out;
+    transition: 1.5s ease-in-out;
+}
+
+@keyframes fuwafuwa {
+    0% {
+        transform: translate(0, 0) rotate(-7deg);
     }
 
-    @keyframes fuwafuwa {
-        0% {
-            transform: translate(0, 0) rotate(-7deg);
-        }
+    50% {
+        transform: translate(0, -7px) rotate(0deg);
+    }
 
-        50% {
-            transform: translate(0, -7px) rotate(0deg);
-        }
-
-        100% {
-            transform: translate(0, 0) rotate(7deg);
-        }
+    100% {
+        transform: translate(0, 0) rotate(7deg);
+    }
 }
 
 /* レビューエリア ここまで */
 /*** 検索結果詳細部分 ここまで ***/
 /*** ここから カード部分 ***/
 .results__card {
-    width: 390px;
     padding: 7.5px 0 7.5px 0;
     margin: 10px auto;
     display: flex;
@@ -562,7 +554,7 @@
 
 /* ボタンサイズ（.tag_favoriteを基準にしている） */
 .tag__favorite1 .layer_2 {
-    width: 50%;
+    width: 55%;
 }
 
 
@@ -788,14 +780,10 @@
         bottom: -15px;
     }
 
-    .review__item{
+    .review__item {
         width: 500px;
         margin-left: auto;
         margin-right: auto;
-    }
-
-    .details__review h3{
-
     }
 
     .tag__favorite1 {
@@ -819,11 +807,11 @@
         bottom: calc(24px / 2.8);
     }
 
-    .class__tel{
+    .class__tel {
         display: none;
     }
 
-    .pc_tel{
+    .pc_tel {
         display: block;
     }
 }
@@ -862,6 +850,7 @@
         margin: 0 auto;
         display: flex;
         justify-content: center;
+        padding: 5%;
     }
 
     .details__slide {
@@ -890,7 +879,22 @@
         font-size: 2.4rem;
         line-height: 4rem;
         width: clamp(100px, 35vw, 590px);
-        height: 70px;
+        max-width: 500px;
+    }
+
+    .circle__green {
+        position: absolute;
+        right: -55px;
+        bottom: -30px;
+        width: 80px;
+        display: block;
+    }
+    .circle__yellow {
+        position: absolute;
+        right: -10px;
+        bottom: -40px;
+        width: 50px;
+        display: block;
     }
 
     .wrap__details-outline {
@@ -905,7 +909,7 @@
     }
 
     .details__container {
-        width: 100%;
+        width: 90%;
         height: auto;
         display: flex;
         justify-content: center;
@@ -931,37 +935,37 @@
         width: 100%;
     }
 
-.info__overlay h3 {
-    position: absolute;
-    width: 200px;
-    top: -20px;
-    left: 30px;
-    font-size: 1.8rem;
-    text-align: center;
-    background-color: #00B0AA;
-    color: #fff;
-    border-radius: 5px;
-    padding: 5px 10px;
-}
+    .info__overlay h3 {
+        position: absolute;
+        width: 200px;
+        top: -20px;
+        left: 30px;
+        font-size: 1.8rem;
+        text-align: center;
+        background-color: #00B0AA;
+        color: #fff;
+        border-radius: 5px;
+        padding: 5px 10px;
+    }
 
-.info__overlay p {
-    position: absolute;
-    top: 10px;
-    right: 30px;
-    font-size: 1.8rem;
-    color: #463D3B;
-    z-index: 2;
-    text-align: center;
-    width: 200px;
-}
+    .info__overlay p {
+        position: absolute;
+        top: 10px;
+        right: 30px;
+        font-size: 1.8rem;
+        color: #463D3B;
+        z-index: 2;
+        text-align: center;
+        width: 200px;
+    }
 
-.circle__matcha {
-    position: absolute;
-    right: 50px;
-    top: -30px;
-    width: 150px;
-    /* サイズ調整 */
-}
+    .circle__matcha {
+        position: absolute;
+        right: 50px;
+        top: -30px;
+        width: 150px;
+        /* サイズ調整 */
+    }
 
     .wrap__accordion {
         width: 100%;
@@ -970,8 +974,8 @@
     }
 
     .details__review {
-        width: 950px;
-        margin: 0 , auto;
+        width: 750px;
+        margin: 0, auto;
     }
 
     /* .wrap__details-review{
@@ -986,7 +990,7 @@
         margin: 50px 0 0 0;
     }
 
-    .review__item{
+    .review__item {
         width: 850px;
         margin-left: auto;
         margin-right: auto;
@@ -1001,6 +1005,7 @@
 
     .details__map {
         font-size: 3.0rem;
+        margin: 50px 0 10px;
     }
 
     .details__map p {
@@ -1132,7 +1137,7 @@
         /* リボンが半分だけ画像と重なっているようにするため（堀） */
         transition: .3s cubic-bezier(0.45, 0, 0.55, 1);
         /* ホバーアクション用（堀） */
-        }
+    }
 
     .tag__favorite1 .favo-text {
         position: absolute;
@@ -1161,7 +1166,7 @@
 /* バックハンド班による修正ここから */
 /* .details__description>.simplefavorite-button {
     display: none; */
-    /*プラグインによるお気に入りの配置を無効 */
+/*プラグインによるお気に入りの配置を無効 */
 /* } */
 
 /* お気に入りリストのボタン配置の優先 */
@@ -1169,7 +1174,7 @@
     height: auto !important;
 }
 
-#reply-title{
+#reply-title {
     display: none;
 }
 
@@ -1192,7 +1197,7 @@
     display: none;
 }
 
-.reply__container{
+.reply__container {
     text-align: right;
 }
 
@@ -1202,7 +1207,7 @@
     margin-right: auto;
 } */
 
-.review__item p{
+.review__item p {
     max-width: 500px;
     font-size: 1.6rem;
     line-height: 2.3rem;

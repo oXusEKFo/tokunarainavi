@@ -175,9 +175,9 @@ main {
     background-color: #fff;
     font-size: 1.4rem;
     border: solid 1px #463D3B;
-    border-radius: 5px;
-    margin: 15px 10px 0 0;
-    padding: 1px 13px;
+    border-radius: 8px;
+    margin: 10px 10px 0 0;
+    padding: 4px 10px;
 }
 
 /*** お気に入りボタンここから ***/
