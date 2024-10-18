@@ -14,17 +14,13 @@ jQuery(function ($) {
     top.hide();
     $(window).scroll(function () {
         let scrollTop = $(this).scrollTop();
-        if (scrollTop > 0) {
+        if (scrollTop > 100) {
+            top.fadeIn();
             top.addClass("fixed");
         } else {
+            top.fadeOut();
             top.removeClass("fixed");
         }
-        if (scrollTop > lastScrollTop) {
-            top.fadeOut();
-        } else {
-            top.fadeIn();
-        }
-        lastScrollTop = scrollTop;
     });
     top.click(function () {
         $("body, html").animate({ scrollTop: 0 }, 200, "swing");
