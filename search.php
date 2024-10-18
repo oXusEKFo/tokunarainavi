@@ -426,7 +426,8 @@ $count2 = 0;
             <!-- 検索結果一覧カード -->
             <!-- フリーワード検索の結果 -->
             <?php if (!empty(get_search_query())): ?>
-                <h1 class="results_count">検索結果：<?php echo count($posts); ?>件（1-6件表示）</h1>
+                <h1 class="results_count">検索結果：<?php echo count($posts); ?>件</h1>
+                <!-- （1-6件表示）　仮でコメントアウト -->
                 <?php if (have_posts()) : ?>
                     <div class="results_card">
                         <?php while (have_posts()) : the_post(); ?>
@@ -471,7 +472,8 @@ $count2 = 0;
                 $the_query = new WP_Query($args);
                 ?>
                 <!-- 条件検索の結果 -->
-                <h1 class="results_count">検索結果：<?php echo $the_query->found_posts; ?>件（1-6件表示）</h1>
+                <h1 class="results_count">検索結果：<?php echo $the_query->found_posts; ?>件</h1>
+                <!-- （1-6件表示）仮でコメントアウト -->
                 <?php if ($the_query->have_posts()): ?>
                     <div class="results_card">
                         <?php while ($the_query->have_posts()): $the_query->the_post(); ?>
