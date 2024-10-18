@@ -14,15 +14,12 @@ jQuery(function ($) {
     top.hide();
     $(window).scroll(function () {
         let scrollTop = $(this).scrollTop();
-        if (scrollTop > 0) {
-            top.addClass("fixed");
-        } else {
-            top.removeClass("fixed");
-        }
         if (scrollTop > 100) {
             top.fadeIn();
+            top.addClass("fixed");
         } else {
             top.fadeOut();
+            top.removeClass("fixed");
         }
     });
     top.click(function () {
