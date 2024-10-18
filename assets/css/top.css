@@ -579,7 +579,7 @@
     width: 285px;
     margin: 0 auto;
     position: relative;
-    z-index: ;
+    /* z-index: ; */
 }
 
 .title__ranking {
@@ -1010,7 +1010,12 @@ padding-top: 40px;
     /* display: flex; */
     /* justify-content: flex-start; */
 }
-
+.tag__news h3{
+    -webkit-line-clamp: 1;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+}
 .tag__news time{
     font-size: 1.2rem;
     text-align: right;
@@ -1022,7 +1027,12 @@ padding-top: 40px;
     padding: 10px 0;
     /* margin: 0 20px; */
 }
-
+.note__news p{
+    -webkit-line-clamp: 5;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+}
 /* NEWS詳細ボタン*/
 .button__more-news {
     background-color: #463D3B;
@@ -1195,7 +1205,7 @@ padding-top: 40px;
     }
 
     .image__about {
-        width: 100%;
+        width: 60%;
         height: auto;
         margin: 0 20px;
         display: block;
