@@ -90,9 +90,9 @@ main {
 .column_content h2 {
     width: 100%;
     font-size: 2.7rem;
-    overflow: hidden;
+    /* overflow: hidden;
     white-space: nowrap;
-    text-overflow: ellipsis;
+    text-overflow: ellipsis; */
     margin: 25px auto 30px;
     padding-left: 10px;
     border-left: solid #ED6D1F 8px;
@@ -166,7 +166,8 @@ main {
 .card_note>p {
     height: auto;
     font-size: 1.7rem;
-    line-height: 24.6px;
+    /* line-height: 24.6px; */
+    line-height: 2.0;
     text-align: left;
     /* overflow: hidden;
     text-overflow: ellipsis; */
