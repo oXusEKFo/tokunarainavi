@@ -155,25 +155,14 @@ for ($i = 1; $i <= 5; $i++) {
 ?>
 
 <?php get_header(); ?>
-<?php
-if (have_posts()):
-    while (have_posts()): the_post();
-?>
-        <h1><?php echo the_title(); ?></h1>
-<?php
-    endwhile;
-    wp_reset_postdata();
-endif;
-?>
-<p><?php echo esc_html($genre); ?></p>
+
 <main>
     <!--  -->
     <div class="inner__main">
-        <div class="container__bread-crumb">
+        <!--パンくずリスト-->
+        <div class="container_breadcrumb">
             <div class="breadCrumb">
-                <p>TOP&nbsp;&gt;&nbsp;検索結果&nbsp;&gt;<span class="under-Line">
-                        <?php the_title(); ?></span>
-                </p>
+                <?php get_template_part('template-parts/breadcrumb'); ?>
             </div>
         </div>
 
