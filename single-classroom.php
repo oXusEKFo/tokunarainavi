@@ -305,7 +305,7 @@ endif;
             </div>
             <div class="details__containerR">
                 <div class="details__genre">
-                    <h4>曜日・時間</h4>
+                    <h4>曜日・時間帯</h4>
                     <p><?php echo $weekday_time ?></p>
                 </div>
                 <div class="details__genre">
