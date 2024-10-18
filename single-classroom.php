@@ -402,6 +402,7 @@ endif;
                     'post_type' => 'classroom',
                     'posts_per_page' => 3, // 最大3件
                     'post__not_in' => array(get_the_ID()), // 現在の教室を除外
+                    'orderby' => 'rand',
                     'tax_query' => array(
                         array(
                             'taxonomy' => 'classtype',
