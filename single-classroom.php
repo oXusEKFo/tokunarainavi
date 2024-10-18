@@ -267,13 +267,14 @@ endif;
                             $related_columns->the_post();
                     ?>
                             <p><a href="<?php the_permalink(); ?>">この教室についての<br>コラムはこちら→</a></p>
-                    <?php
+                        <?php
                         }
-                    }
+                        ?>
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/matcha.png" alt="緑丸" class="circle__matcha">
+                    <?php  }
                     // 投稿データをリセット
                     wp_reset_postdata();
                     ?>
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/matcha.png" alt="緑丸" class="circle__matcha">
                 </div>
                 <div class="details__genre">
                     <h4>ジャンル</h4>
