@@ -369,6 +369,9 @@ endif;
                     <iframe src="https://www.google.co.jp/maps?q= <?php echo esc_html($address); ?> &output=embed&t=m&z=16&hl=ja" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
+            <div class="review__title">
+                <h3>|クチコミ</h3>
+            </div>
             <?php comments_template() ?>
         </div>
 
