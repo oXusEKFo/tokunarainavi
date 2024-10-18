@@ -103,7 +103,7 @@
                         <div class="search_container" id="popup_area" style="display: none;">
                             <div class="close_button" onclick="closePopup()">&times;</div> <!-- &times; --× -->
                             <div class="search_header">
-                                <h3>エリアを選ぶ</h3>
+                                <h2>エリアを選ぶ</h2>
                             </div>
                             <!-- <form method="GET" action="<?php echo home_url(); ?>">
                             <input type="hidden" name="s" value=""> -->
@@ -221,7 +221,7 @@
                         <div class="search_container" id="popup_age" style="display: none;">
                             <div class="close_button" onclick="closePopup()">&times;</div>
                             <div class="search_header">
-                                <h3>年齢を選ぶ</h3>
+                                <h2>年齢を選ぶ</h2>
                             </div>
                             <!-- <form method="GET" action="<?php echo home_url(); ?>">
                             <input type="hidden" name="s" value=""> -->
@@ -266,7 +266,7 @@
                         <div class="search_container" id="popup_genre" style="display: none;">
                             <div class="close_button" onclick="closePopup()">&times;</div>
                             <div class="search_header">
-                                <h3>ジャンルを選ぶ</h3>
+                                <h2>ジャンルを選ぶ</h2>
                             </div>
                             <!-- <form method="GET" action="<?php echo home_url(); ?>">
                             <input type="hidden" name="s" value=""> -->
