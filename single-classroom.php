@@ -10,9 +10,9 @@ if (!empty($terms) && !is_wp_error($terms)) {
     }
 }
 wp_reset_postdata();
-?>
 
-<?php
+
+
 // タクソノミーを配列へ（主にタグ表示）
 $post_id = get_the_ID();
 $taxonomies = array(
@@ -51,43 +51,6 @@ if (!empty($terms)) {
 }
 
 
-// if ($parent_taxonomy && !is_wp_error($parent_taxonomy)) {
-//     // 親タクソノミーに属する教室を取得するためのterm_idリスト
-//     $term_ids = wp_list_pluck($terms, 'term_id');
-
-//     // おすすめ教室を取得するクエリ
-//     $args = array(
-//         'post_type' => 'classroom', // カスタム投稿タイプ
-//         'posts_per_page' => 3,  // 表示する教室の数
-//         'post__not_in' => array(get_the_ID()), // 現在の教室を除外
-//         'orderby' => 'rand', // ランダム表示
-//         'tax_query' => array(
-//             'relation' => 'AND', // 親と子の両方で絞り込み
-//             array(
-//                 'taxonomy' => 'classtype', // 教室のジャンル
-//                 'field' => 'term_id',
-//                 'terms' => $parent_taxonomy->term_id, // 親タクソノミーに属する教室を取得
-//                 'include_children' => false, // 子タクソノミーは別途扱う
-//             ),
-//             array(
-//                 'taxonomy' => 'classtype', // 子タクソノミー (ジャンル)
-//                 'field' => 'term_id',
-//                 'terms' => $child_taxonomy ? $child_taxonomy->term_id : $term_ids, // 子が存在すればその子を使用
-//             ),
-//         ),
-//     );
-
-//     // WP_Query を使用して投稿を取得
-//     $recommended_classes = new WP_Query($args);
-// }
-
-
-
-
-
-
-
-
 // 教室の投稿IDを取得
 $classroom_id = get_the_ID();
 
@@ -102,17 +65,11 @@ $args = array(
         )
     )
 );
-
 // WP_Queryを使用してコラム記事を取得
 $related_columns = new WP_Query($args);
 
 
-
-
-
-
-
-
+// カスタムフィールドを変数へ
 $cost = get_field('fee');
 $age = get_field('age');
 $weekday_time = get_field('dayhours');
@@ -129,6 +86,8 @@ $x_url = get_field('xlink');
 $blog_link = get_field('blog_link');
 $line_link = get_field('line');
 
+
+//コースのフィールドを読み込む
 for ($i = 1; $i <= 5; $i++) {
     // カスタムフィールドの値を取得
     $course[] = get_post_meta(get_the_ID(), 'course' . $i, true);
@@ -190,11 +149,7 @@ for ($i = 1; $i <= 5; $i++) {
 
                     </div>
                 </div>
-                <!-- <div class="ball">
-                    あとでボールのイラスト追加します
-                </div> -->
             </div>
-
             <div class="details__info">
                 <div class="inner__details-info">
                     <div class="wrap__details-outline">
@@ -271,7 +226,6 @@ for ($i = 1; $i <= 5; $i++) {
                     <?php }
                     } ?>
                 </div>
-
             </div>
             <div class="details__containerR">
                 <div class="details__genre">
@@ -325,9 +279,7 @@ for ($i = 1; $i <= 5; $i++) {
                 <?php endif ?>
             </div>
         </section>
-
-
-        <div class="details__review">
+        <section class="details__review">
             <div class="wrap__accordion">
                 <div class="accordion__header">
                     <div class="details__map">
@@ -343,8 +295,7 @@ for ($i = 1; $i <= 5; $i++) {
                 <h3>|クチコミ</h3>
             </div>
             <?php comments_template() ?>
-        </div>
-
+        </section>
         <section class="relatedReview__title">
             <p>おすすめの習い事</p>
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/60.png">
@@ -419,7 +370,6 @@ for ($i = 1; $i <= 5; $i++) {
                 }
             }
             ?>
-
         </section>
         <!-- 検索結果一覧カードここまで -->
     </div>

@@ -132,7 +132,7 @@ function add_style_script()
             'tokunavi_error404',
             get_template_directory_uri() . '/assets/css/404.css'
         );
-    } elseif (is_search()) {
+    } elseif (is_search() || is_post_type_archive('classroom')) {
         //条件検索CSS
         wp_enqueue_style('tokunavi_search', get_template_directory_uri() . '/assets/css/results.css');
         wp_enqueue_style('tokunavi_searchpopup_css', get_template_directory_uri() . '/assets/css/searchpopup.css');
@@ -278,7 +278,7 @@ function my_pre_get_posts($query)
     }
 
     //search画面
-    if ($query->is_search()) {
+    if ($query->is_search() || is_post_type_archive('classroom')) {
         $query->set('post_type', 'classroom');
         $query->set('posts_per_page', 6);
         return;
