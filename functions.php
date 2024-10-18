@@ -315,36 +315,6 @@ function wpkj_product_taxonomy_filter()
 add_action('restrict_manage_posts', 'wpkj_product_taxonomy_filter');
 
 
-/**
- * ランキング用
- * ページ表示の連続更新による閲覧回数カウント制限、transient、1時間
- */
-// 分類の表示回数を増やす関数
-function increment_term_view_count($term_id)
-{
-    $user_ip = $_SERVER['REMOTE_ADDR']; //get user IP
-    $transient_key = 'view_count_' . $term_id . '_' . md5($user_ip);
-
-    if (false === get_transient($transient_key)) {
-
-        $view_count = get_term_meta($term_id, 'view_count', true);
-        $view_count = $view_count ? intval($view_count) : 0;
-
-        update_term_meta($term_id, 'view_count', $view_count + 1);
-
-        set_transient($transient_key, 'viewed', 3600); // transientを設定します。有効期限は1時間（3600秒）です。
-    }
-}
-// // 制限なし
-// function increment_term_view_count($term_id)
-// {
-//     $view_count = get_term_meta($term_id, 'view_count', true);
-//     $view_count = $view_count ? intval($view_count) : 1;
-
-//     update_term_meta($term_id, 'view_count', $view_count + 1);
-// }
-
-
 
 /**
  * 検索結果を公開して施設のみ対象にする
@@ -423,4 +393,35 @@ add_filter('wpcf7_autop_or_not', 'my_wpcf7_autop');
 function my_wpcf7_autop()
 {
     return false;
+}
+
+
+
+/**
+ * ランキング用
+ * ページ表示の連続更新による閲覧回数カウント制限、transient、1時間
+ */
+// 分類の表示回数を増やす関数
+// function increment_term_view_count($term_id)
+// {
+//     $user_ip = $_SERVER['REMOTE_ADDR']; //get user IP
+//     $transient_key = 'view_count_' . $term_id . '_' . md5($user_ip);
+
+//     if (false === get_transient($transient_key)) {
+
+//         $view_count = get_term_meta($term_id, 'view_count', true);
+//         $view_count = $view_count ? intval($view_count) : 0;
+
+//         update_term_meta($term_id, 'view_count', $view_count + 1);
+
+//         set_transient($transient_key, 'viewed', 1); // transientを設定します。有効期限は1時間（3600秒）です。
+//     }
+// }
+// // 制限なし
+function increment_term_view_count($term_id)
+{
+    $view_count = get_term_meta($term_id, 'view_count', true);
+    $view_count = $view_count ? intval($view_count) : 1;
+
+    update_term_meta($term_id, 'view_count', $view_count + 1);
 }
