@@ -169,11 +169,10 @@ endif;
 <main>
     <!--  -->
     <div class="inner__main">
-        <div class="container__bread-crumb">
+        <!--パンくずリスト-->
+        <div class="container_breadcrumb">
             <div class="breadCrumb">
-                <p>TOP&nbsp;&gt;&nbsp;検索結果&nbsp;&gt;<span class="under-Line">
-                        <?php the_title(); ?></span>
-                </p>
+                <?php get_template_part('template-parts/breadcrumb'); ?>
             </div>
         </div>
 
