@@ -104,7 +104,7 @@ if ($is_reply && !empty($reply_comment_author)) {
     $button_label = esc_html($reply_comment_author) . 'さんへ返信';
 } else {
     // 通常の送信フォームのラベル
-    $button_label = 'レビューを送信';
+    $button_label = 'クチコミを送信';
 }
 
 // コメントフォームのカスタムフィールド

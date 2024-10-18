@@ -36,3 +36,13 @@ document.addEventListener('DOMContentLoaded', function() {
         hover.style.backgroundColor = '#ccc';  // 元の背景色に戻す
     }
 });
+
+
+ document.addEventListener('DOMContentLoaded', function() {
+    var responseOutput = document.querySelector('.wpcf7-response-output');
+    var entryForm = document.querySelector('.entry_form');
+
+    if (responseOutput && entryForm) {
+      entryForm.parentNode.insertBefore(responseOutput, entryForm);
+    }
+  });
