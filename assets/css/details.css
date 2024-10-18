@@ -54,6 +54,26 @@
     position: relative;
 }
 
+.wrap__thumbnailImg {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    /* マウスカーソルを指にする */
+}
+
+.wrap__thumbnailImg:hover .hover-arrow {
+    display: block;
+    /* ホバー時に矢印を表示 */
+}
+
+.wrap__thumbnailImg:hover {
+    border: 2px solid #ff0000;
+    /* ホバー時の赤いボーダー */
+    transform: scale(1.05);
+    /* ホバー時の拡大効果 */
+    transition: all 0.3s ease;
+    /* アニメーションの追加 */
+}
 
 
 /* 施設写真 */
@@ -432,6 +452,22 @@
 
 .relatedReview__title img {
     width: 60px;
+    animation: fuwafuwa 3s ease-in-out infinite alternate;
+        transition: 1.5s ease-in-out;
+    }
+
+    @keyframes fuwafuwa {
+        0% {
+            transform: translate(0, 0) rotate(-7deg);
+        }
+
+        50% {
+            transform: translate(0, -7px) rotate(0deg);
+        }
+
+        100% {
+            transform: translate(0, 0) rotate(7deg);
+        }
 }
 
 /* レビューエリア ここまで */

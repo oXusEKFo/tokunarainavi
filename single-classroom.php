@@ -131,10 +131,7 @@ $related_columns = new WP_Query($args);
 
 
 
-$main_image1 = get_field('pic1');
-$main_image2 = get_field('pic2');
-$thumbnail1 = get_field('pic3');
-$thumbnail2 = get_field('pic4');
+
 $cost = get_field('fee');
 $age = get_field('age');
 $weekday_time = get_field('dayhours');
@@ -186,37 +183,41 @@ endif;
                 <div class="container__slide">
                     <div class="slider__area">
                         <div class="slider">
-                            <div class="wrap__mainImg">
-                                <?php if ($main_image1): ?>
-                                    <img src="<?php echo esc_url($main_image1['url']); ?>" alt="<?php echo esc_attr($main_image1['alt']); ?>" />
+                            <!-- メイン画像を動的に取得 -->
+                            <?php for ($i = 1; $i <= 4; $i++): ?>
+                                <?php
+                                // 画像のカスタムフィールドを取得
+                                $main_image = get_field('pic' . $i);
+                                ?>
+                                <?php if ($main_image): ?>
+                                    <div class="wrap__mainImg">
+                                        <img src="<?php echo esc_url($main_image['url']); ?>" alt="<?php echo esc_attr($main_image['alt']); ?>" />
+                                    </div>
                                 <?php endif; ?>
-
-                            </div>
-                            <?php if ($main_image2): ?>
-                                <div class="wrap__mainImg">
-                                    <img src="<?php echo esc_url($main_image2['url']); ?>" alt="<?php echo esc_attr($main_image2['alt']); ?>" />
-                                </div>
-                            <?php endif; ?>
+                            <?php endfor; ?>
                         </div>
+                        <!-- お気に入りボタン -->
                         <a href="" class="tag__favorite1">
                             <?php if (function_exists('the_favorites_button')) {
                                 the_favorites_button($post->ID);
                             } ?>
                         </a>
                     </div>
-                    <div class="thumbnail">
-                        <?php // サムネイルがある場合のみ表示
-                        if ($thumbnail1): ?>
-                            <div class="wrap__thumbnailImg">
-                                <img src="<?php echo esc_url($thumbnail1['url']); ?>" alt="<?php echo esc_attr($thumbnail1['alt']); ?>" />
-                            </div>
-                        <?php endif; ?>
 
-                        <?php if ($thumbnail2): ?>
-                            <div class="wrap__thumbnailImg">
-                                <img src="<?php echo esc_url($thumbnail2['url']); ?>" alt="<?php echo esc_attr($thumbnail2['alt']); ?>" />
-                            </div>
-                        <?php endif; ?>
+                    <!-- サムネイル画像 -->
+                    <div class="thumbnail">
+                        <?php for ($i = 1; $i <= 4; $i++): ?>
+                            <?php
+                            // サムネイル画像のカスタムフィールドを取得
+                            $thumbnail = get_field('pic' . $i);
+                            ?>
+                            <?php if ($thumbnail): ?>
+                                <div class="wrap__thumbnailImg">
+                                    <img src="<?php echo esc_url($thumbnail['url']); ?>" alt="<?php echo esc_attr($thumbnail['alt']); ?>" data-slide-index="<?php echo $i - 1; ?>" />
+                                </div>
+                            <?php endif; ?>
+                        <?php endfor; ?>
+
                     </div>
                 </div>
                 <!-- <div class="ball">

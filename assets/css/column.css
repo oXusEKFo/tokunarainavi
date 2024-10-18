@@ -82,6 +82,7 @@ main {
 .column_title h2,
 .card_title>h2 {
     width: 100%;
+    text-align: center;
     font-size: 2.7rem;
     margin: 10px 0;
 }
@@ -98,18 +99,21 @@ main {
 }
 
 .column_content p strong {
+    display: block;
     width: 100%;
-    /* font-size: 2.7rem; */
-    overflow: hidden;
-    /* white-space: nowrap; */
-    text-overflow: ellipsis;
-    /* margin: 25px auto 30px; */
+    margin: 25px auto 30px;
     padding-left: 10px;
     border-left: solid #ED6D1F 8px;
 }
 
 
 /* コラム写真 */
+.column_content figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .column_content img {
     margin: 25px auto 20px;
     /* position: relative;  */
@@ -261,7 +265,7 @@ main {
 
     .column_content img {
         width: 80%;
-        height: 60%;
+        /* height: 60%; */
     }
 
     .wrap_related {
