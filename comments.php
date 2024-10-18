@@ -122,7 +122,7 @@ $fields = array(
 // コメントフォームの引数
 $args = array(
     'fields' => $fields, // 上記で定義したカスタムフィールドを使用
-    'comment_field' => '<p>レビュー内容*</p>' .
+    'comment_field' => '<p>クチコミ内容*</p>' .
         '<textarea id="input__comment" name="comment" cols="30" rows="10" placeholder="レビューを入力してください" required></textarea>',
     'label_submit' => '', // submit_buttonは空にする
     'submit_button' => '', // ここでボタン出力を無効化
