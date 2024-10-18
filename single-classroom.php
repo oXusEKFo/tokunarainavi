@@ -136,25 +136,14 @@ for ($i = 1; $i <= 5; $i++) {
 ?>
 
 <?php get_header(); ?>
-<?php
-if (have_posts()):
-    while (have_posts()): the_post();
-?>
-        <h1><?php echo the_title(); ?></h1>
-<?php
-    endwhile;
-    wp_reset_postdata();
-endif;
-?>
-<p><?php echo esc_html($genre); ?></p>
+
 <main>
     <!--  -->
     <div class="inner__main">
-        <div class="container__bread-crumb">
+        <!--パンくずリスト-->
+        <div class="container_breadcrumb">
             <div class="breadCrumb">
-                <p>TOP&nbsp;&gt;&nbsp;検索結果&nbsp;&gt;<span class="under-Line">
-                        <?php the_title(); ?></span>
-                </p>
+                <?php get_template_part('template-parts/breadcrumb'); ?>
             </div>
         </div>
 
@@ -349,6 +338,9 @@ endif;
                 <div class="accordion__content">
                     <iframe src="https://www.google.co.jp/maps?q= <?php echo esc_html($address); ?> &output=embed&t=m&z=16&hl=ja" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
+            </div>
+            <div class="review__title">
+                <h3>|クチコミ</h3>
             </div>
             <?php comments_template() ?>
         </div>

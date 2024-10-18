@@ -99,10 +99,10 @@ header {
     background-color: #f8fbff;
     align-items: center;
     display: flex;
-    height: 100%;
-    justify-content: center;
-    position: absolute;
     width: 100%;
+    height: 100%;
+    justify-content: space-around;
+    position: absolute;
 }
 
 .gnav__menu__item {
@@ -128,7 +128,6 @@ header {
     font: var(--fa-font-solid);
     font-size: 2.6rem;
     content: "\f061";
-
 }
 
 .gnav__menu__item a:hover {
@@ -144,6 +143,19 @@ header {
     font-size: 3em;
     padding: 10px 10px 0 0;
 }
+
+.wrap__gnav-chara{
+    text-align: right;
+}
+
+
+.wrap__gnav-chara img{
+    width: 100px;
+    height: auto;
+    padding: 50vh 0 0;
+    object-fit: cover;
+}
+
 
 /*** ハンバーガーメニュー ここまで ***/
 
@@ -167,4 +179,9 @@ header {
         height: 30px;
         margin: 0 37.5px 0 0;
     }
+
+    .wrap__gnav-chara img {
+        width: 150px;
+    }
+
 }
