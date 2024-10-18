@@ -432,6 +432,22 @@
 
 .relatedReview__title img {
     width: 60px;
+    animation: fuwafuwa 3s ease-in-out infinite alternate;
+        transition: 1.5s ease-in-out;
+    }
+
+    @keyframes fuwafuwa {
+        0% {
+            transform: translate(0, 0) rotate(-7deg);
+        }
+
+        50% {
+            transform: translate(0, -7px) rotate(0deg);
+        }
+
+        100% {
+            transform: translate(0, 0) rotate(7deg);
+        }
 }
 
 /* レビューエリア ここまで */
