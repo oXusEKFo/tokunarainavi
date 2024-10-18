@@ -426,7 +426,7 @@ $count2 = 0;
             <!-- 検索結果一覧カード -->
             <!-- フリーワード検索の結果 -->
             <?php if (!empty(get_search_query())): ?>
-                <h1 class="results_count">検索結果：<?php echo count($posts); ?>件</h1>
+                <h1 class="results_count">検索結果：<?php echo $wp_query->found_posts; ?>件</h1>
                 <!-- （1-6件表示）　仮でコメントアウト -->
                 <?php if (have_posts()) : ?>
                     <div class="results_card">
