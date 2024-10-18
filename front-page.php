@@ -379,28 +379,33 @@
                                 'orderby'    => 'meta_value_num',    // 数値でソート
                                 'order'      => 'DESC',              // 降順に並べる
                                 'hide_empty' => false,               // 関連付けられていない記事の分類を表示
-                                'number'     => 5,                   // 上位5分類のみ表示
+                                // 'number'     => 5,                   // 上位5分類のみ表示
                             ];
                             $terms = get_terms($args);
                             ?>
                             <ul>
                                 <?php
                                 if (!empty($terms) && !is_wp_error($terms)) :
+                                    $num = 0;
                                     foreach ($terms as $term) :
                                         if (strpos($term->slug, 'class') !== false) {
                                             continue;
                                         }
+                                        if ($num > 4) {
+                                            continue;
+                                        }
                                         $view_count = get_term_meta($term->term_id, 'view_count', true);
+                                        $num++;
                                 ?>
                                         <li class="order">
                                             <button type="submit" name="classtype[]" value="<?php echo $term->slug; ?>">
                                                 <?php echo $term->name; ?>
                                                 <!-- クリック回数 -->
                                                 <!-- <small>
-                                                <?php
-                                                echo 'click' . esc_html($view_count);
-                                                ?>
-                                            </small> -->
+                                                    <?php
+                                                    echo 'click' . esc_html($view_count);
+                                                    ?>
+                                                </small> -->
                                             </button>
                                         </li>
                                 <?php

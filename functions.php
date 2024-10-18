@@ -132,7 +132,7 @@ function add_style_script()
             'tokunavi_error404',
             get_template_directory_uri() . '/assets/css/404.css'
         );
-    } elseif (is_search()) {
+    } elseif (is_search() || is_post_type_archive('classroom')) {
         //条件検索CSS
         wp_enqueue_style('tokunavi_search', get_template_directory_uri() . '/assets/css/results.css');
         wp_enqueue_style('tokunavi_searchpopup_css', get_template_directory_uri() . '/assets/css/searchpopup.css');
@@ -278,7 +278,7 @@ function my_pre_get_posts($query)
     }
 
     //search画面
-    if ($query->is_search()) {
+    if ($query->is_search() || is_post_type_archive('classroom')) {
         $query->set('post_type', 'classroom');
         $query->set('posts_per_page', 6);
         return;
@@ -402,26 +402,26 @@ function my_wpcf7_autop()
  * ページ表示の連続更新による閲覧回数カウント制限、transient、1時間
  */
 // 分類の表示回数を増やす関数
-// function increment_term_view_count($term_id)
-// {
-//     $user_ip = $_SERVER['REMOTE_ADDR']; //get user IP
-//     $transient_key = 'view_count_' . $term_id . '_' . md5($user_ip);
-
-//     if (false === get_transient($transient_key)) {
-
-//         $view_count = get_term_meta($term_id, 'view_count', true);
-//         $view_count = $view_count ? intval($view_count) : 0;
-
-//         update_term_meta($term_id, 'view_count', $view_count + 1);
-
-//         set_transient($transient_key, 'viewed', 1); // transientを設定します。有効期限は1時間（3600秒）です。
-//     }
-// }
-// // 制限なし
 function increment_term_view_count($term_id)
 {
-    $view_count = get_term_meta($term_id, 'view_count', true);
-    $view_count = $view_count ? intval($view_count) : 1;
+    $user_ip = $_SERVER['REMOTE_ADDR']; //get user IP
+    $transient_key = 'view_count_' . $term_id . '_' . md5($user_ip);
 
-    update_term_meta($term_id, 'view_count', $view_count + 1);
+    if (false === get_transient($transient_key)) {
+
+        $view_count = get_term_meta($term_id, 'view_count', true);
+        $view_count = $view_count ? intval($view_count) : 0;
+
+        update_term_meta($term_id, 'view_count', $view_count + 1);
+
+        set_transient($transient_key, 'viewed', 1); // transientを設定します。有効期限は1時間（3600秒）です。
+    }
 }
+// // 制限なし
+// function increment_term_view_count($term_id)
+// {
+//     $view_count = get_term_meta($term_id, 'view_count', true);
+//     $view_count = $view_count ? intval($view_count) : 1;
+
+//     update_term_meta($term_id, 'view_count', $view_count + 1);
+// }
