@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-.inner__main{
+.inner__main {
     max-width: 1100px;
     width: 100%;
     margin: 0 auto;
@@ -8,7 +8,7 @@
 
 /*** ここから パンくずリスト ***/
 
-.container__bread-crumb{
+.container__bread-crumb {
     padding-top: 15px;
     margin-left: 20px;
 }
@@ -28,12 +28,14 @@
 
 /*** ここから 本文 ***/
 
-.wrap__privacy{
-    width: 350px;
+.wrap__privacy,
+.wrap__disclaimer {
+    width: 90%;
     margin: 0 auto;
 }
 
-.title__privacy{
+.title__privacy,
+.title__disclaimer{
     background-color: #ED6D1F ;
     color: #FFF;
     font-size: 2.0rem;
@@ -48,44 +50,61 @@
     background-color: #FFF;
     width: 100%;
     height: auto;
-    padding: 20px 0 0;
-    margin: 0 auto;
+    margin: 15px auto 0;
 }
 
-.description__privacy {
-    width: 300px;
+.description__privacy,
+.description__disclaimer {
+    width: 85%;
     margin: 0 auto;
+    padding: 10px 0 0;
 }
 
-.description__privacy>h2 {
-    background-color: #F5F5F5;
+.description__privacy>h2,
+.description__disclaimer>h2 {
     font-size: 1.6rem;
-    line-height: 50px;
-    height: 50px;
+    line-height: 3.0rem;
+    height: auto;
     margin: 20px auto 0;
-    border-radius: 10px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    border-bottom: dotted 1px #ED6D1F;
 }
 
-.note__privacy {
+.note__privacy,
+.note__disclaimer {
     background-color: #FFF;
-    font-size: 1.2rem;
-    line-height: 20px;
-    min-height: 225px;
+    font-size: 1.6rem;
+    line-height: 3.0rem;
+    height: auto;
     margin: 25px auto 0;
+    text-indent: -1rem;
+    padding-left: 1rem;
+}
+
+.note__disclaimer li{
+    margin-bottom: 10px;
+}
+
+.no__indent {
+    text-indent: 1rem;
+    padding-left: 0rem;
 }
 
 /*** メディアクエリここから ***/
 
 @media screen and (min-width: 768px) {
 
-.wrap__privacy {
-        width: 90%;
+.description__privacy>h2,
+.description__disclaimer>h2 {
+        font-size: 2.4rem;
     }
 
-.description__privacy {
-        width: 85%;
-    }
+.note__privacy,
+.note__disclaimer,
+.enactment__date {
+    font-size: 1.8rem;
+    line-height: 26px;
 }
-
+}
 /*** メディアクエリここまで ***/

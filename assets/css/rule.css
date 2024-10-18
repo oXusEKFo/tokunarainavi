@@ -67,10 +67,7 @@
     height: auto;
     margin: 20px auto 0;
     display: flex;
-    justify-content: center
-}
-
-.description__rule>h2 {
+    justify-content: center;
     border-bottom: dotted 1px #ED6D1F;
 }
 
@@ -90,7 +87,7 @@
 
 .no__indent{
     text-indent: 1rem;
-    padding-left: -1rem;
+    padding-left: 0rem;
 }
 
 .enactment__date{
