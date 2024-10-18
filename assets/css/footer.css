@@ -3,7 +3,7 @@
 /* Topへ戻るボタン */
 .back-to-top {
     max-width: 20%;
-    z-index: 20;
+    z-index: 5;
 }
 .fixed {
     position: fixed;
