@@ -87,7 +87,7 @@ main {
 .inner__column-area {
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(390px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
     gap: 0px;
     /* display: flex;
     flex-wrap: wrap;
@@ -97,7 +97,7 @@ main {
 
 /* カードの囲い */
 .wrap__column-card {
-    width: 390px;
+    /* width: 390px; */
     background-color: transparent;
     margin: 15px auto;
     border-bottom: solid 1px #00B0AA;
@@ -158,20 +158,20 @@ main {
 }
 
 /* ページ数 容器 */
-.container__page-num {
+/* .container__page-num {
     width: 390px;
     height: 130px;
     margin: 0 auto;
-}
+} */
 
 /* ページ数 */
-.column_page-num {
+/* .column_page-num {
     font-size: 2rem;
     font-weight: 700;
     color: #463D3B;
     padding-top: 7.5px;
     text-align: center;
-}
+} */
 
 /**ここから loop-column.phpにあてるcss 以西**/
 /* カード部分 */
@@ -179,7 +179,7 @@ main {
     background-color: transparent;
     width: 350px;
     height: 480px;
-    margin: 30px 15px;
+    margin: 30px auto;
 }
 
 .container__card {
