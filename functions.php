@@ -150,20 +150,20 @@ function add_style_script()
             'tokunavi_column_list_style',
             get_template_directory_uri() . '/assets/css/column_list.css',
         );
-        wp_enqueue_style(
-            'tokunavi_column_slider',
-            get_template_directory_uri() . '/assets/css/column_slider.css'
-        );
+        // wp_enqueue_style(
+        //     'tokunavi_column_slider',
+        //     get_template_directory_uri() . '/assets/css/column_slider.css'
+        // );
     } elseif (is_singular('column')) {
         //コラム記事CSS
         wp_enqueue_style(
             'tokunavi_column_style',
             get_template_directory_uri() . '/assets/css/column.css',
         );
-        wp_enqueue_style(
-            'tokunavi_column_slider',
-            get_template_directory_uri() . '/assets/css/column_slider.css'
-        );
+        // wp_enqueue_style(
+        //     'tokunavi_column_slider',
+        //     get_template_directory_uri() . '/assets/css/column_slider.css'
+        // );
     } elseif (is_singular('classroom')) {
         wp_enqueue_style(
             'tokunavi_classroom_style',
