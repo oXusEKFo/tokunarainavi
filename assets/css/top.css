@@ -556,8 +556,8 @@
 }
 
 .note__about>p {
-    font-size: 1.4rem;
-    line-height: 2.5rem;
+    font-size: 1.6rem;
+    line-height: 2.8rem;
     text-align: left;
     width: 285px;
     margin: 0 auto;
@@ -1022,13 +1022,13 @@ padding-top: 40px;
         overflow: hidden;
 }
 .tag__news time{
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     text-align: right;
 }
 
 .note__news {
-    font-size: 1.4rem;
-    line-height: 20.3px;
+    font-size: 1.5rem;
+    line-height: 24.6px;
     padding: 10px 0;
     /* margin: 0 20px; */
 }
