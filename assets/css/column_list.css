@@ -38,7 +38,7 @@ main {
     min-width: 100px;
     color: white;
     transition: background-color 0.3s;
-        /* スムーズな変化を追加 */
+    /* スムーズな変化を追加 */
 }
 
 .archive__list li a:hover {
@@ -87,7 +87,7 @@ main {
 .inner__column-area {
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(390px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(390px, 1fr));
     gap: 0px;
     /* display: flex;
     flex-wrap: wrap;
@@ -173,6 +173,83 @@ main {
     text-align: center;
 }
 
+/**ここから loop-column.phpにあてるcss 以西**/
+/* カード部分 */
+.wrap__card {
+    background-color: transparent;
+    width: 350px;
+    height: 480px;
+    margin: 30px 15px;
+}
+
+.container__card {
+    margin: 0 auto;
+}
+
+/* 施設写真 */
+.img__card {
+    width: 340px;
+    height: 255px;
+    margin: 10px 5px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+/* 説明エリア */
+.container__info {
+    align-items: center;
+}
+
+/* カードタイトル */
+.title__info>h2 {
+    font-size: 2.2rem;
+    text-align: left;
+    padding-top: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* 説明文 */
+.note__column>p {
+    height: 100px;
+    font-size: 1.5rem;
+    margin: 10px;
+    line-height: 24.6px;
+    text-align: left;
+
+    -webkit-line-clamp: 4;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* 編集日エリア */
+.container__date {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+/* 編集日アイコン */
+.icon__edit>img {
+    width: 30px;
+    height: 30px;
+}
+
+/* 編集日 */
+.date__edit {
+    font-size: 1.7rem;
+    line-height: 24.6px;
+    text-align: left;
+}
+
+/**ここまで column_slider.css 以西**/
+
 /*** 検索結果一覧部分 ここまで ***/
 
 /*** メディアクエリここから ***/
@@ -184,7 +261,8 @@ main {
         width: 100%;
         padding: 15px;
     }
-    .archive__list li a{
+
+    .archive__list li a {
         min-width: 130px;
     }
 
