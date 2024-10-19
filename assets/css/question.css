@@ -2,9 +2,8 @@
 
 /*** ここから 習いごと事情 共通部分 ***/
 .inner__main {
-    max-width: 1440px;
-    width: 100%;
-    margin: 0 auto;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 /* 習いごと事情背景 */
@@ -68,7 +67,8 @@
 /* とくしま習いごと事情 */
 
 /*** タイトル関連 ここから ***/
-.title__question {
+.title__question,
+.question__comment {
     color: #463d3b;
     text-align: center;
     width: 1200px;
@@ -76,15 +76,17 @@
     position: relative;
 }
 
-.title__question > h1 {
-    font-size: 27px;
-    margin: 0px 40px 30px;
+.title__question h1,
+.comment__title {
+    font-size: 2.3rem;
+    margin: 0px 5px 5px;
     padding-bottom: 20px;
 }
 
-.title__question > p {
-    font-size: 18px;
-    line-height: 2.5rem;
+.title__question p,
+.question__comment p {
+    font-size: 1.8rem;
+    /* line-height: 2.5rem; */
     text-align: left;
     width: 100%;
     margin: 0 auto;
@@ -181,7 +183,7 @@
 .order[data-order="1"] {
     height: 90px;
     line-height: 90px;
-    font-size: 25px;
+    font-size: 2.5rem;
     color: #ed6d1f;
     border-top: dashed 2px #463d3b;
 }
@@ -191,7 +193,7 @@
 .order[data-order="3"] {
     height: 70px;
     line-height: 70px;
-    font-size: 25px;
+    font-size: 2.5rem;
     color: #ed6d1f;
 }
 
@@ -236,10 +238,10 @@
     height: auto;
 }
 
-@media (max-width: 390px) {
+@media (max-width: 780px) {
     .order__image-1,
     .order__image-2 {
-        display: none !important; /* 390px以下の時に画像を非表示にする */
+        display: none !important; /* 780px以下の時に画像を非表示にする */
     }
 }
 
@@ -315,32 +317,16 @@
 }
 
 h2 {
-    font-size: 24px;
+    font-size: 2.4rem;
     margin: 40px auto;
 }
 
-.question__comment {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 30px;
-}
-
-.comment__title {
-    font-size: 27px;
-    margin: 20px 0 40px;
-    text-align: center;
-    padding-top: 10px;
-}
-
-.question__comment p {
-    font-size: 18px;
-    color: #463d3b;
-    padding-bottom: 5px;
-    line-height: 1.5;
-}
-
 @media screen and (min-width: 780px) {
+    .inner__main {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+
     .container__question-kv-mo {
         display: none;
     }
@@ -380,11 +366,29 @@ h2 {
 
     /* メイン */
     .title__question > h2 {
-        font-size: 3.1rem;
+        font-size: 3rem;
         width: 100%;
     }
     .h1 {
         font-size: 9.1rem;
         width: 100%;
+    }
+
+    .title__question,
+    .question__comment {
+        width: 800px;
+        margin: 40px auto;
+    }
+
+    .title__question h1,
+    .comment__title {
+        font-size: 3rem;
+    }
+
+    .title__question p,
+    .question__comment p {
+        font-size: 1.8rem;
+        width: 100%;
+        margin: 0 auto;
     }
 }
