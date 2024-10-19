@@ -55,9 +55,11 @@
                         <h2>関連記事</h2>
                     </div>
                     <?php
+                    $post_ID = get_the_ID();
                     $args = [
                         'post_type' => 'column',
                         'posts_per_page'     => 3,
+                        'post__not_in' => array($post_ID),
                         'orderby'        => 'date',
                         'order'          => 'DESC',
                     ];
