@@ -48,7 +48,7 @@ main {
 /* カードの囲い */
 .wrap_column,
 .wrap_related {
-    width: 390px;
+    width: 100%;
     background-color: transparent;
     margin: 15px auto;
 }
@@ -176,7 +176,7 @@ main {
 /* 関連記事 */
 /* 関連記事タイトル */
 .container_related-title {
-    width: 350px;
+    width: 100%;
     height: 70px;
     margin: 0 auto;
     border: solid 2px #463D3B;
@@ -196,10 +196,6 @@ main {
     gap: 42px;
 }
 
-.wrap_column-card {
-    width: 350px;
-}
-
 .navi {
     font-size: 1.4rem;
     font-weight: 700;
@@ -209,12 +205,8 @@ main {
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    margin-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 10px;
-    padding-left: 5px;
-    padding-right: 5px;
+    margin: 50px auto 0;
+    padding: 10px 5px 0;
     border-top: solid 1px #463d3b86;
 }
 
