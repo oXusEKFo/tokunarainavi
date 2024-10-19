@@ -169,7 +169,7 @@ for ($i = 1; $i <= 5; $i++) {
                                 $terms = get_the_terms($post_id, $taxonomy);
                                 if (!empty($terms) && !is_wp_error($terms)) {
                                     foreach ($terms as $term) {
-                                        echo '<li class="keyword">' . '<a href="">' . esc_html($term->name) . '</a>' . '</li>';
+                                        echo '<li class="keyword">' . esc_html($term->name) . '</li>';
                                     }
                                 }
                             }
