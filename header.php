@@ -14,121 +14,6 @@ if (!is_user_logged_in() && IS_DEV == true) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
-    <!-- <?php if (is_home()): ?>
-        <meta name="description" content="徳島の子ども向け習いごと情報を一括検索できるサイトです。学びの輪を広げ、未来へつなげるお手伝いをします。音楽・スポーツ・アートなど多様な学びの場や体験型の習いごとを子どもたちとその保護者に紹介します。">
-        <meta property="og:title" content="とくしま習いごとナビ">
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="https://www.tokunarainavi.com/">
-        <meta property="og:image" content="https://tokunarainavi.com/wp-content/themes/tokunarainavi/assets/images/ogpimage.png">
-        <meta property="og:site_name" content="とくしま習いごとナビ">
-        <meta property="og:description" content="徳島の子ども向け習いごと情報を一括検索できるサイトです。学びの輪を広げ、未来へつなげるお手伝いをします。音楽・スポーツ・アートなど多様な学びの場や体験型の習いごとを子どもたちとその保護者に紹介します。">
-    <?php elseif (is_page('favor')): ?>
-        <meta name="description" content="気になった習いごとの教室を登録しましょう。">
-        <meta property="og:title" content="とくしま習いごとナビ | お気に入りリスト">
-        <meta property="og:type" content="article">
-        <meta property="og:url" content="https://www.tokunarainavi.com/favor/">
-        <meta property="og:image" content="https://tokunarainavi.com/wp-content/themes/tokunarainavi/assets/images/ogpimage.png">
-        <meta property="og:site_name" content="とくしま習いごとナビ">
-        <meta property="og:description" content="気になった習いごとの教室を登録しましょう。">
-    <?php elseif (is_page('contact')): ?>
-        <meta name="description" content="とくしま習いごとナビのお問い合わせのページです。">
-        <meta property="og:title" content="とくしま習いごとナビ | 入力フォーム">
-        <meta property="og:type" content="article">
-        <meta property="og:url" content="https://www.tokunarainavi.com/contact/">
-        <meta property="og:image" content="https://tokunarainavi.com/wp-content/themes/tokunarainavi/assets/images/ogpimage.png">
-        <meta property="og:site_name" content="とくしま習いごとナビ">
-        <meta property="og:description" content="とくしま習いごとナビのお問い合わせのページです。">
-    <?php elseif (is_page('confirm')): ?>
-        <meta name="description" content="内容をご確認の上、問題がなければ送信ボタンを押してください。修正が必要な場合は、戻るボタンで編集が可能です。">
-        <meta property="og:title" content="とくしま習いごとナビ | 送信内容確認">
-        <meta property="og:type" content="article">
-        <meta property="og:url" content="https://www.tokunarainavi.com/contact/confirm/">
-        <meta property="og:image" content="https://tokunarainavi.com/wp-content/themes/tokunarainavi/assets/images/ogpimage.png">
-        <meta property="og:site_name" content="とくしま習いごとナビ">
-        <meta property="og:description" content="内容をご確認の上、問題がなければ送信ボタンを押してください。修正が必要な場合は、戻るボタンで編集が可能です。">
-    <?php elseif (is_page('thanks')): ?>
-        <meta name="description" content="お問い合わせ、誠にありがとうございました。送信が通常に完了しました。">
-        <meta property="og:title" content="とくしま習いごとナビ | 送信完了">
-        <meta property="og:type" content="article">
-        <meta property="og:url" content="https://www.tokunarainavi.com/contact/thanks/">
-        <meta property="og:image" content="https://tokunarainavi.com/wp-content/themes/tokunarainavi/assets/images/ogpimage.png">
-        <meta property="og:site_name" content="とくしま習いごとナビ">
-        <meta property="og:description" content="お問い合わせ、誠にありがとうございました。送信が通常に完了しました。">
-    <?php elseif (is_search()): ?>
-        <meta name="description" content="徳島県内の習いごと情報を、エリア、年齢、ジャンルから検索します。">
-        <meta property="og:title" content="とくしま習いごとナビ | SEARCH">
-        <meta property="og:type" content="article">
-        <meta property="og:url" content="https://www.tokunarainavi.com/$s=">
-        <meta property="og:image" content="https://tokunarainavi.com/wp-content/themes/tokunarainavi/assets/images/ogpimage.png">
-        <meta property="og:site_name" content="とくしま習いごとナビ">
-        <meta property="og:description" content="徳島県内の習いごと情報を、エリア、年齢、ジャンルから検索します。">
-    <?php elseif (is_singular('classroom')): ?>
-        <meta name="description" content="習いごと教室の詳細についてです。">
-        <meta property="og:title" content="とくしま習いごとナビ | 結果詳細">
-        <meta property="og:type" content="article">
-        <meta property="og:url" content="https://www.tokunarainavi.com/classroom/">
-        <meta property="og:image" content="https://tokunarainavi.com/wp-content/themes/tokunarainavi/assets/images/ogpimage.png">
-        <meta property="og:site_name" content="とくしま習いごとナビ">
-        <meta property="og:description" content="習いごと教室の詳細についてです。">
-    <?php elseif (is_page('fushion')): ?>
-        <meta name="description" content="2024年秋に、 徳島県内の保護者の皆様に行ったアンケート結果です。">
-        <meta property="og:title" content="とくしま習いごとナビ | 習いごと事情ページ">
-        <meta property="og:type" content="article">
-        <meta property="og:url" content="https://www.tokunarainavi.com/fushion/">
-        <meta property="og:image" content="https://tokunarainavi.com/wp-content/themes/tokunarainavi/assets/images/ogpimage.png">
-        <meta property="og:site_name" content="とくしま習いごとナビ">
-        <meta property="og:description" content="2024年秋に、 徳島県内の保護者の皆様に行ったアンケート結果です。">
-    <?php elseif (is_post_type_archive('column') || is_tax('column_type') || is_singular('column')): ?>
-        <meta name="description" content="習いごと教室の先生のインタビューを紹介します。">
-        <?php if (is_post_type_archive('column') || is_tax('column_type')): ?>
-            <meta property="og:title" content="とくしま習いごとナビ | COLUMN一覧">
-        <?php else: ?>
-            <meta property="og:title" content="とくしま習いごとナビ | COLUMN詳細">
-        <?php endif; ?>
-        <meta property="og:type" content="article">
-        <meta property="og:url" content="https://www.tokunarainavi.com/column/">
-        <meta property="og:image" content="https://tokunarainavi.com/wp-content/themes/tokunarainavi/assets/images/ogpimage.png">
-        <meta property="og:site_name" content="とくしま習いごとナビ">
-        <meta property="og:description" content="習いごと教室の先生のインタビューを紹介します。">
-    <?php elseif (is_page('infos') || is_category() || is_single()): ?>
-        <meta name="description" content="とくしま習いごとナビのお知らせや、習いごと教室のイベント情報等を掲載します。">
-        <?php if (is_page('infos') || is_category()): ?>
-            <meta property="og:title" content="とくしま習いごとナビ | NEWS一覧">
-        <?php else: ?>
-            <meta property="og:title" content="とくしま習いごとナビ | NEWS詳細">
-        <?php endif; ?>
-        <meta property="og:type" content="article">
-        <meta property="og:url" content="https://www.tokunarainavi.com/infos">
-        <meta property="og:image" content="https://tokunarainavi.com/wp-content/themes/tokunarainavi/assets/images/ogpimage.png">
-        <meta property="og:site_name" content="とくしま習いごとナビ">
-        <meta property="og:description" content="とくしま習いごとナビのお知らせや、習いごと教室のイベント情報等を掲載します。">
-    <?php elseif (is_page('about')): ?>
-        <meta name="description" content="このサイトは国の求職者支援制度に基づく「WEBプログラマー養成科」第17期生によって2024年秋に制作された、徳島県内の子ども向け習いごと教室を検索できるウェブサイトです。">
-        <meta property="og:title" content="とくしま習いごとナビ | このサイトについて">
-        <meta property="og:type" content="article">
-        <meta property="og:url" content="https://www.tokunarainavi.com/about/">
-        <meta property="og:image" content="https://tokunarainavi.com/wp-content/themes/tokunarainavi/assets/images/ogpimage.png">
-        <meta property="og:site_name" content="とくしま習いごとナビ">
-        <meta property="og:description" content="このサイトは国の求職者支援制度に基づく「WEBプログラマー養成科」第17期生によって2024年秋に制作された、徳島県内の子ども向け習いごと教室を検索できるウェブサイトです。">
-    <?php elseif (is_page('service')): ?>
-        <meta name="description" content="とくしま習いごとナビの利用規約のページです。">
-        <meta property="og:title" content="とくしま習いごとナビ | 利用規約">
-        <meta property="og:type" content="article">
-        <meta property="og:url" content="https://www.tokunarainavi.com/service/">
-        <meta property="og:image" content="https://tokunarainavi.com/wp-content/themes/tokunarainavi/assets/images/ogpimage.png">
-        <meta property="og:site_name" content="とくしま習いごとナビ">
-        <meta property="og:description" content="とくしま習いごとナビの利用規約のページです。">
-    <?php elseif (is_page('praivacy')): ?>
-        <meta name="description" content="とくしま習いごとナビのプライバシーポリシーのページです。">
-        <meta property="og:title" content="とくしま習いごとナビ | プライバシーポリシー">
-        <meta property="og:type" content="article">
-        <meta property="og:url" content="https://www.tokunarainavi.com/privacy/">
-        <meta property="og:image" content="https://tokunarainavi.com/wp-content/themes/tokunarainavi/assets/images/ogpimage.png">
-        <meta property="og:site_name" content="とくしま習いごとナビ">
-        <meta property="og:description" content="とくしま習いごとナビのプライバシーポリシーのページです。">
-    <?php else: ?>
-        <meta name="description" content="申し訳ありません。お探しのページが見つかりませんでした。URLをもう一度確認するか、ホームページに戻って他のコンテンツをご覧ください。">
-    <?php endif; ?> -->
 
     <?php
     $description = "";
@@ -139,6 +24,7 @@ if (!is_user_logged_in() && IS_DEV == true) {
     if (is_home()) {
         $description = "徳島の子ども向け習いごと情報を一括検索できるサイトです。学びの輪を広げ、未来へつなげるお手伝いをします。音楽・スポーツ・アートなど多様な学びの場や体験型の習いごとを子どもたちとその保護者に紹介します。";
         $og_type = "website";
+        $og_url = home_url();
     } elseif (is_page('favor')) {
         $description = "お気に入り登録した教室の一覧です。";
         $og_title = "|お気に入りページ";
