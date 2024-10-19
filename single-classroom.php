@@ -261,7 +261,7 @@ for ($i = 1; $i <= 5; $i++) {
                             </a>
                         <?php endif; ?>
                         <?php if ($facebook_url): ?>
-                            <a href="<?php echo esc_url($facebook_url); ?>" target="_blank" rel="noopener noreferrer">>
+                            <a href="<?php echo esc_url($facebook_url); ?>" target="_blank" rel="noopener noreferrer">
                                 <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/facebook.svg" alt="フェイスブックURL" />
                             </a>
                         <?php endif; ?>

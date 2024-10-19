@@ -37,9 +37,9 @@ if (have_comments()) : ?>
 <?php
 // コメントフォームのカスタムフィールド
 $fields = array(
-    'author' => '<p>お名前*</p>' .
+    'author' => '<p>お名前*(ニックネーム可)</p>' .
         '<input type="text" id="input__name" name="author" value="' . esc_attr($commenter['comment_author']) . '" placeholder="お名前を入力してください" required />',
-    'email' => '<p>メールアドレス*</p>' .
+    'email' => '<p>メールアドレス*（公開されません）</p>' .
         '<input type="email" id="input__email" name="email" value="' . esc_attr($commenter['comment_author_email']) . '" placeholder="メールアドレスを入力してください" required />',
 );
 
