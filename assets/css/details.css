@@ -115,7 +115,7 @@
 .thumbnail img {
     width: 100%;
     /* 横幅をコンテナに合わせる */
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 16 / 12;
     /* 横長の比率に合わせて高さを調整 */
     object-fit: cover;
     /* 画像がはみ出た場合にトリミングして調整 */
@@ -250,8 +250,23 @@
     width: 40px;
     height: 40px;
     margin: 5px 10px 0 0;
+    border-radius: 30%;
     object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: pulse 1s infinite; /* パルスアニメーションの追加 */
 }
+
+.icon__sns:hover {
+    transform: translateY(-5px);/* ホバー時に上に移動 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);/* ホバー時に影を追加 */
+}
+
+/* @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+} */
+
 
 /* アコーディオンメニュー ここから */
 /* アコーディオン囲い */
@@ -314,10 +329,10 @@
     width: 350px;
     margin-left: auto;
     margin-right: auto;
-
 }
+
 h3 {
-    font-weight:500;
+    font-weight: 500;
 }
 
 .review__title {
@@ -719,7 +734,7 @@ h3 {
     }
 
     .thumbnail {
-        width: 380px;
+        width: 360px;
         height: auto;
         margin-top: 10px;
         white-space: nowrap;
@@ -728,6 +743,7 @@ h3 {
     .thumbnail img {
         max-width: 100%;
     }
+
 
     .details__info {
         min-width: 350px;
@@ -752,6 +768,17 @@ h3 {
         gap: 30px;
     }
 
+    .details__genre>h4 {
+        font-size: 1.8rem;
+    }
+
+    .details__genre>p,
+    .details__genre>a {
+        font-size: 1.6rem;
+        font-weight: 500;
+        line-height: 3rem;
+    }
+
     .details__containerL,
     .details__containerR {
         width: 47%;
@@ -767,7 +794,7 @@ h3 {
 
     .relatedReview__title {
         max-width: 1120px;
-        width: 95%;
+        width: 80%;
     }
 
     .relatedReview__title>h2 {
@@ -777,6 +804,7 @@ h3 {
     .results__card {
         max-width: 1200px;
         width: 95%;
+        margin-top: 32px;
     }
 
     .results__card::after {
@@ -834,6 +862,11 @@ h3 {
     .pc_tel {
         display: block;
     }
+
+    .icon__sns {
+        width: 50px;
+        height: 50px;
+    }
 }
 
 @media screen and (min-width: 883px) {
@@ -884,15 +917,14 @@ h3 {
     }
 
     .thumbnail {
-        width: 480px;
+        width: 460px;
         height: auto;
         margin-top: 10px;
         white-space: nowrap;
     }
-
-.thumbnail img {
-    max-width: 100%;
-}
+    .thumbnail img {
+        max-width: 100%;
+    }
 
     .details__info {
         width: clamp(100px, 40vw, 590px);
@@ -913,6 +945,7 @@ h3 {
         width: 80px;
         display: block;
     }
+
     .circle__yellow {
         position: absolute;
         right: -10px;
@@ -1095,10 +1128,6 @@ h3 {
         border-radius: 20px;
         text-align: center;
         margin: 17px 0;
-    }
-
-    .relatedReview__title {
-        height: 100px;
     }
 
     .relatedReview__title p {
