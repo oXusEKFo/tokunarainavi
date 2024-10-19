@@ -294,7 +294,6 @@ for ($i = 1; $i <= 5; $i++) {
             <div class="review__title">
                 <h3>｜クチコミ</h3>
             </div>
-            <p class="review__description">お名前欄はニックネーム可、入力したメールアドレスは公開されません</p>
             <?php comments_template() ?>
         </section>
         <section class="relatedReview__title">
