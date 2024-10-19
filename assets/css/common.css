@@ -143,10 +143,13 @@ main {
 /* 施設名 または タイトル */
 .card_title {
     font-size: 2rem;
-    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* 2行までは表示させる */
+    -webkit-box-orient: vertical;
     overflow: hidden;
-    white-space: nowrap;
     text-overflow: ellipsis;
+    word-break: break-all; /* 数字や長い単語を強制的に折り返す */
+    overflow-wrap: break-word; /* 長い単語や数字を折り返し */
 }
 
 /* 住所 */
@@ -186,7 +189,7 @@ main {
     font-size: 1.2rem;
     position: absolute;
     left: 10px;
-    bottom: calc(35px / 2.8);
+    bottom: calc(35px / 3.4);
 }
 
 /* プラグインで用意された★アイコンの調整 */
@@ -263,21 +266,19 @@ main {
 
 
 
-/* 以下、result.cssから関係してそうなものをコピペ */
-/*** ここから 検索結果一覧部分 ***/
+/*** ここから カードの中身（内容） ***/
 
+/* 住所、対象年齢のまとまり */
 .card_details {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin-top: 10px;
-
+    margin-top: 6px;
+    margin-bottom: 8px;
+    border-top: 6px dotted #a0d3b2;
 }
 
 .card_detail {
     display: flex;
     align-items: center;
-    margin-top: 8px;
+    margin-top: 12px;
 }
 
 .detail_label {
@@ -300,83 +301,93 @@ main {
     max-width: calc(100% - 80px);
 }
 
-
+/* 教室名 */
 .card_title h2 {
     font-size: 1.8rem;
-    margin-bottom: 10px;
     color: #333;
-}
-
-.container_cardinfo {
-    padding: 30px 0;
-    border-radius: 10px;
-    position: relative;
 }
 
 .container_cardimg {
     position: relative;
 }
 
-
-
 .inner_card {
     border-radius: 8px;
 }
 
+/* アイコンとジャンルのまとまり */
 .card_area {
+    width: 100%;
+    height: 105px; /* 教室名が1行に収まる時はheight:105pxを用意する */
     display: flex;
-    gap: 10px;
-    margin-top: 20px;
+    gap: 15px;
+    margin-top: 12px;
+}
+
+/* タイトルが2行になった場合 */
+.long-title {
+    height: 80px; /* 教室名が2行になった時はheight:80pxを用意する */
+}
+
+/* アイコンエリア（icon_designとicon_categoryの親） */
+.design_area {
+    width: 100px;
+    height: 100%;
     position: relative;
 }
 
-.design_area {
-    width: 100px;
-}
-
-.genre_area {
+/* 黄色い放射線イラスト */
+.icon_design {
+    width: 45px;
     position: absolute;
-    bottom: -35px;
-    right: 20px;
+    top: 25%;
+    left: 30%;
+    transform: translate(-50%, -50%);
 }
 
+/* アイコンイラスト */
+.icon_category {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    top: 60%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+}
+
+/* ジャンルエリア（genre_detailの親） */
+.genre_area {
+    height: 100%;
+    position: relative;
+}
+
+/* ジャンル見出しとジャンル名のまとまり */
 .genre_detail {
-    width: 120px;
+    width: 142px;
     display: flex;
     flex-direction: column;
+    position: absolute;
+    top: 50%;
+    transform: translate(0%, -50%);
 }
 
+/* ジャンル見出し */
 .genre_label {
     color: #ffffff;
     padding: 3px 8px;
     background-color: #b7b0ac;
     border-radius: 8px;
     font-size: 1.2rem;
-    margin-right: 10px;
     min-width: 60px;
     text-align: center;
     width: 80px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
+/* ジャンル名 */
 .genre_value {
-    font-size: 2rem;
-}
-
-.icon_design {
-    width: 50px;
-}
-
-.icon_category {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    left: 30px;
-    top: 28px;
-}
-
-.card_title {
-    border-bottom: 6px dotted #a0d3b2;
+    font-size: 1.75rem;
+    padding-left: 3px;
 }
 
 
