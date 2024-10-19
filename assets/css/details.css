@@ -316,6 +316,9 @@
     margin-right: auto;
 
 }
+h3 {
+    font-weight:500;
+}
 
 .review__title {
     font-size: 2rem;
@@ -375,6 +378,11 @@
     margin: 2.5px 0;
 }
 
+.review__description {
+    font-size: 1.2rem;
+    padding: 5px 10px;
+}
+
 .reply__btn {
     font-size: 1.2rem;
     font-weight: 700;
@@ -423,12 +431,12 @@
 }
 
 .reviewSend__btn {
-    font-size: 1.2rem;
-    font-weight: 700;
+    font-size: 1.4rem;
+    font-weight: 500;
     color: #fff;
     background-color: #463D3B;
     width: 130px;
-    height: 30px;
+    height: 35px;
     border-radius: 20px;
     text-align: center;
     margin: 17px 0;
@@ -474,6 +482,7 @@
         transform: translate(0, 0) rotate(7deg);
     }
 }
+
 
 /* レビューエリア ここまで */
 /*** 検索結果詳細部分 ここまで ***/
