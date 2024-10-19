@@ -149,18 +149,6 @@ main {
     /* border-bottom: solid 1px #00B0AA; */
 }
 
-/* .column_content p+p {
-    border: none;
-} */
-
-.column_content p+h2 {
-    margin-top: 60px;
-}
-
-.column_content p+figure {
-    margin-top: 60px;
-}
-
 /* 説明文 */
 .column_content p,
 .card_note>p {
@@ -171,6 +159,16 @@ main {
     text-align: left;
     /* overflow: hidden;
     text-overflow: ellipsis; */
+}
+
+/**pの下に来るh2にmargin-topを付ける**/
+.column_content p+h2 {
+    margin-top: 60px;
+}
+
+/**pの下に来るfigureにmargin-topを付ける**/
+.column_content p+figure {
+    margin-top: 60px;
 }
 
 /* 関連記事 */
@@ -196,6 +194,84 @@ main {
     gap: 42px;
 }
 
+/**ここから loop-column.phpにあてるcss 以西**/
+/* カード部分 */
+.wrap__card {
+    background-color: transparent;
+    width: 350px;
+    height: 480px;
+    margin: 30px 15px;
+}
+
+.container__card {
+    margin: 0 auto;
+}
+
+/* 施設写真 */
+.img__card {
+    width: 340px;
+    height: 255px;
+    margin: 10px 5px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+/* 説明エリア */
+.container__info {
+    align-items: center;
+}
+
+/* カードタイトル */
+.title__info>h2 {
+    font-size: 2.2rem;
+    text-align: left;
+    padding-top: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* 説明文 */
+.note__column>p {
+    height: 100px;
+    font-size: 1.5rem;
+    margin: 10px;
+    line-height: 24.6px;
+    text-align: left;
+
+    -webkit-line-clamp: 4;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* 編集日エリア */
+.container__date {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+/* 編集日アイコン */
+.icon__edit>img {
+    width: 30px;
+    height: 30px;
+}
+
+/* 編集日 */
+.date__edit {
+    font-size: 1.7rem;
+    line-height: 24.6px;
+    text-align: left;
+}
+
+/**ここまで column_slider.css 以西**/
+
+/**前後ページリンク**/
 .navi {
     font-size: 1.4rem;
     font-weight: 700;
@@ -220,24 +296,6 @@ main {
 .navi a:hover {
     border-bottom: solid 1.5px #49464648;
 }
-
-
-/*↓ページ数自体無くなったのでコメントアウトしました*/
-/* ページ数 容器 */
-/* .container_pageNum {
-    width: 390px;
-    height: 130px;
-    margin: 0 auto;
-} */
-
-/* ページ数 */
-/* .column_pageNum {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #463D3B;
-    padding-top: 7.5px;
-    text-align: center;
-} */
 
 /*** 検索結果一覧部分 ここまで ***/
 
