@@ -42,7 +42,7 @@
                         $the_query = new WP_Query($args);
                         // print_r($the_query);
                         ?>
-                        <section>
+                        <!-- <section>
                             <h2>関連施設</h2>
                             <?php if (!empty($the_query)): ?>
                             <?php while ($the_query->have_posts()): $the_query->the_post(); ?>
@@ -52,7 +52,7 @@
                             <?php endwhile; ?>
                             <?php endif; ?>
                             <?php wp_reset_postdata(); ?>
-                        </section>
+                        </section> -->
                     </div>
 
                 </article>
@@ -63,20 +63,20 @@
                         <?php $pre_post = get_previous_post(true, '', 'column_type'); ?>
                         <?php if ($pre_post):
                         ?>
-                        <?php $pre_link = get_permalink($pre_post) ?>
-                        <a class="pre__link" href="<?= esc_url($pre_link) ?>">
-                            <span class="pre__btn">&lt;前の記事</span>
-                        </a>
+                            <?php $pre_link = get_permalink($pre_post) ?>
+                            <a class="pre__link" href="<?= esc_url($pre_link) ?>">
+                                <span class="pre__btn">&lt;前の記事</span>
+                            </a>
                         <?php endif;
                         ?>
                     </div>
                     <div class="next__navi">
                         <?php $next_post = get_next_post(true, '', 'column_type'); ?>
                         <?php if ($next_post): ?>
-                        <?php $next_link = get_permalink($next_post) ?>
-                        <a class="next__link" href="<?= esc_url($next_link) ?>">
-                            <span class="next__btn">次の記事&gt;</span>
-                        </a>
+                            <?php $next_link = get_permalink($next_post) ?>
+                            <a class="next__link" href="<?= esc_url($next_link) ?>">
+                                <span class="next__btn">次の記事&gt;</span>
+                            </a>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -99,14 +99,14 @@
                     <?php
                     if ($column_query->have_posts()):
                     ?>
-                    <div class="inner_related-area">
-                        <?php while ($column_query->have_posts()): $column_query->the_post(); ?>
-                        <div class="wrap_column-card">
-                            <?php get_template_part('template-parts/loop', 'column'); ?>
+                        <div class="inner_related-area">
+                            <?php while ($column_query->have_posts()): $column_query->the_post(); ?>
+                                <div class="wrap_column-card">
+                                    <?php get_template_part('template-parts/loop', 'column'); ?>
+                                </div>
+                                <?php wp_reset_postdata(); ?>
+                            <?php endwhile; ?>
                         </div>
-                        <?php wp_reset_postdata(); ?>
-                        <?php endwhile; ?>
-                    </div>
                     <?php endif ?>
                 </div>
             </aside>
