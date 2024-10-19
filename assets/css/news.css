@@ -143,14 +143,14 @@ main {
     border-top: solid 1px #463d3b86;
 }
 
-.navi>a {
+.navi a {
     display: block;
     /* クリック可能範囲の調整 */
     padding: 5px;
 }
 
 /* ホバー時の下線 */
-.navi>a:hover {
+.navi a:hover {
     border-bottom: solid 1.5px #49464648;
 }
 

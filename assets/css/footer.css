@@ -61,23 +61,23 @@ footer {
 }
 
 .footer__illustration img {
-    max-width: 30%;
+    max-width: 130px;
     /* 画面幅に応じてサイズを調整 */
     height: auto;
     /* アスペクト比を維持 */
     position: absolute;
-    top: 220px;
-    right: 20px;
+    top: 250px;
+    right: 60px;
     animation: fadeInFromRight 0.5s ease-out;
     /* アニメーションを適用 */
-    display: none;
+    /* display: none; */
 }
 
 
 .fade__in {
     opacity: 0;
     /* 初期状態は透明 */
-    transform: translateX(20px);
+    transform: translateX(30px);
     /* 右から移動 */
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
     /* アニメーションの設定 */
@@ -123,11 +123,6 @@ footer {
     }
 
     .footer__illustration img {
-        max-width: 15%;
-        /* 画面幅に応じてサイズを調整 */
-        height: auto;
-        /* アスペクト比を維持 */
-        position: absolute;
         right: 200px;
     }
 

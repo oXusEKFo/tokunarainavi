@@ -292,7 +292,7 @@ for ($i = 1; $i <= 5; $i++) {
                 </div>
             </div>
             <div class="review__title">
-                <h3>|クチコミ</h3>
+                <h3>｜クチコミ</h3>
             </div>
             <?php comments_template() ?>
         </section>

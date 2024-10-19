@@ -41,47 +41,41 @@
                         <p><?php the_content(); ?></p>
                     </div>
 
-
                 </div> <!-- container__news -->
+
 
                 <div class="navi">
                     <!-- 前の記事リンク -->
-                    <?php
-                    $prev_post = get_previous_post(true, '', 'category');
-                    if ($prev_post) {
-                        $prev_link = get_permalink($prev_post->ID);
-                        echo '<a href="' . esc_url($prev_link) . '" class="btn__prev">
-                                <span class="prev">&lt;</span> 前の記事
-                            </a>';
-                    } else {
-                        echo '<span class="btn__prev disabled">
-                                <span class="prev">&lt;</span> 前の記事
-                              </span>'; // 前の記事がない場合は無効化
-                    }
-                    ?>
-
-                    <!-- <a href="" class="btn__back">一覧へ戻る</a> -->
+                    <div class="pre__navi">
+                        <?php
+                        $prev_post = get_previous_post(true, '', 'category');
+                        if ($prev_post) {
+                            $prev_link = get_permalink($prev_post->ID);
+                            echo '<a href="' . esc_url($prev_link) . '" class="btn__prev">
+                    <span class="prev">&lt;</span> 前の記事
+                </a>';
+                        }
+                        // 記事が存在しない場合、空の <div> をそのまま出力
+                        ?>
+                    </div>
 
                     <!-- 次の記事リンク -->
-                    <?php
-                    $next_post = get_next_post(true, '', 'category');
-                    if ($next_post) {
-                        $next_link = get_permalink($next_post->ID);
-                        echo '<a href="' . esc_url($next_link) . '" class="btn__next">
-                                次の記事 <span class="next">&gt;</span>
-                            </a>';
-                    } else {
-                        echo '<span class="btn__next disabled">
-                                次の記事 <span class="next">&gt;</span>
-                              </span>'; // 次の記事がない場合は無効化
-                    }
-                    ?>
+                    <div class="next__navi">
+                        <?php
+                        $next_post = get_next_post(true, '', 'category');
+                        if ($next_post) {
+                            $next_link = get_permalink($next_post->ID);
+                            echo '<a href="' . esc_url($next_link) . '" class="btn__next">
+                    次の記事 <span class="next">&gt;</span>
+                </a>';
+                        }
+                        // 記事が存在しない場合、空の <div> をそのまま出力
+                        ?>
+                    </div>
                 </div>
 
 
             </div> <!-- wrap__news -->
-
-
 
         </div> <!-- inner_main -->
     </div> <!-- news -->

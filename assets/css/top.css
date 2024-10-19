@@ -7,7 +7,7 @@
 /* KVここから */
 
 /* モバイル画面のみ登場するキャラクターを表示 */
-.rg {
+.rg--stop {
     display: block;
 }
 
@@ -51,7 +51,7 @@
 }
 
 .kv__title img {
-    width: calc((0.20833 * 100%) + 21.875px);
+    width: calc((0.20833 * 100%) + 218.75px);
     height: auto;
 }
 
