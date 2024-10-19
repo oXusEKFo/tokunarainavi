@@ -55,18 +55,18 @@ if (!empty($terms)) {
 $classroom_id = get_the_ID();
 
 // 教室に紐付けられたコラムを取得するクエリ
-$args = array(
-    'post_type' => 'column', // コラムの投稿タイプ
-    'meta_query' => array(
-        array(
-            'key' => 'class-room-id',  // コラム記事に登録されている教室IDのフィールド
-            'value' => $classroom_id,
-            'compare' => '='
-        )
-    )
-);
+// $args = array(
+//     'post_type' => 'column', // コラムの投稿タイプ
+//     'meta_query' => array(
+//         array(
+//             'key' => 'class-room-id',  // コラム記事に登録されている教室IDのフィールド
+//             'value' => $classroom_id,
+//             'compare' => '='
+//         )
+//     )
+// );
 // WP_Queryを使用してコラム記事を取得
-$related_columns = new WP_Query($args);
+// $related_columns = new WP_Query($args);
 
 
 // カスタムフィールドを変数へ
@@ -86,6 +86,15 @@ $x_url = get_field('xlink');
 $blog_link = get_field('blog_link');
 $line_link = get_field('line');
 
+// fukushima add 2024/10/19 start
+// 関連コラム記事のIDを取得
+$colunmid = (int)get_field('colunmid');
+// 関連コラム記事を取得
+$column_post = "";
+if ($colunmid != 0) {
+    $column_post = get_post($colunmid);
+}
+// fukushima add 2024/10/19 end
 
 //コースのフィールドを読み込む
 for ($i = 1; $i <= 5; $i++) {
@@ -186,20 +195,13 @@ for ($i = 1; $i <= 5; $i++) {
             <div class="details__containerL">
                 <div class="info__overlay">
                     <h3>詳細情報</h3>
-                    <?php
-                    if ($related_columns->have_posts()) {
-                        while ($related_columns->have_posts()) {
-                            $related_columns->the_post();
-                    ?>
-                            <p><a href="<?php the_permalink(); ?>">この教室についての<br>コラムはこちら→</a></p>
-                        <?php
-                        }
-                        ?>
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/matcha.png" alt="緑丸" class="circle__matcha">
-                    <?php  }
-                    // 投稿データをリセット
-                    wp_reset_postdata();
-                    ?>
+
+                    <!-- fukushima add 2024/10/19 start -->
+                    <?php if ($column_post) : ?>
+                        <p><a href="<?php echo get_permalink($column_post->ID); ?>">この教室についての<br>コラムはこちら→</a></p><img src="<?php echo get_template_directory_uri(); ?>/assets/images/matcha.png" alt="緑丸" class="circle__matcha">
+                    <?php endif; ?>
+                    <!-- fukushima add 2024/10/19 end -->
+
                 </div>
                 <div class="details__genre">
                     <h4>ジャンル</h4>
