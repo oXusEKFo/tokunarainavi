@@ -62,7 +62,13 @@
 
 .container__card{
     margin: 0 auto;
+    transition: 0.3s;
 }
+
+.container__card:hover {
+    box-shadow: 5px 5px rgba(145, 145, 145, 0.541);
+}
+
 
 /* 施設写真 */
 .img__card {
@@ -71,7 +77,14 @@
     margin: 10px 5px;
     border-radius: 20px;
     object-fit: cover;
+    transition: filter 0.3s;
+        /* スムーズな変化を追加 */
 }
+/* ホバー時に写真を暗くする */
+.container__card:hover .img__card {
+    filter: brightness(0.8);
+}
+
 
 /* 説明エリア */
 .container__info{
@@ -104,6 +117,13 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    transition: color 0.3s; /* スムーズな変化を追加 */
+}
+/* ホバー時に文字色を明るくする */
+.container__card:hover .note__column>p,
+.container__card:hover .title__info>h2,
+.container__card:hover .date__edit {
+    color: #796b6b;
 }
 
 /* 編集日エリア */
