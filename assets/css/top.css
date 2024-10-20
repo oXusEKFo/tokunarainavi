@@ -950,9 +950,6 @@ input[type="search"]::-webkit-search-cancel-button {
 /* コラムエリア */
 
  /* コラム詳細ページへのボタンの位置調整用 */
-/* .inner__column {
-    position: relative;
-} */
 .more{
     position: relative;
 }
@@ -1013,8 +1010,6 @@ padding-top: 40px;
 }
 .tag__news {
     font-size: 2.0rem;
-    /* display: flex; */
-    /* justify-content: flex-start; */
 }
 .tag__news h3{
     -webkit-line-clamp: 1;
@@ -1057,9 +1052,6 @@ padding-top: 40px;
     height: 70px;
     margin: 0 auto;
 }
-
-
-
 
 /* キャラクター アニメーション */
 .boy__character {
@@ -1241,17 +1233,11 @@ padding-top: 40px;
         bottom: -40px;
     }
 
-
-
-
-
     /* 検索 */
     .container__search {
         position: relative;
         /* 詳細検索ボタンの位置調整用 */
     }
-
-
 
     /* とくしまの習いごとアンケート結果 */
     .banner__survey {
@@ -1266,41 +1252,41 @@ padding-top: 40px;
     /* コラムエリア */
 
     /* コラム詳細ボタン*/
-        .button__more{
-display: block;
-    width: 130px;
-    height: 130px;
-    position: absolute;
-    font-size: 2.7rem;
-    bottom: -50px;
-        }
-/* bear__image */
-.bear__image {
-    position: absolute;
-    display: block;
-    bottom: -1px;
-    opacity: 0;
-    width: 110px;
-    height: auto;
-    transition: opacity 0.5s ease, bottom 0.5s ease;
-    /* アニメーションのトランジションを設定 */
-    z-index: 1;
-    right: 7%;
+    .button__more{
+        display: block;
+        width: 130px;
+        height: 130px;
+        position: absolute;
+        font-size: 2.7rem;
+        bottom: -50px;
+    }
+    /* bear__image */
+    .bear__image {
+        position: absolute;
+        display: block;
+        bottom: -1px;
+        opacity: 0;
+        width: 110px;
+        height: auto;
+        transition: opacity 0.5s ease, bottom 0.5s ease;
+        /* アニメーションのトランジションを設定 */
+        z-index: 1;
+        right: 7%;
 
-}
+    }
 
 /* ボタンにホバーしたときにbear__imageを表示 */
-.button__more:hover+.bear__image {
-    bottom: 60px;
-    /* 最終位置 */
-    opacity: 1;
-    /* 不透明 */
-}
+    .button__more:hover+.bear__image {
+        bottom: 60px;
+        /* 最終位置 */
+        opacity: 1;
+        /* 不透明 */
+    }
 
-.button__more:hover {
-    text-decoration: underline;
-    /* 下線を追加 */
-}
+    .button__more:hover {
+        text-decoration: underline;
+        /* 下線を追加 */
+    }
     /* NEWS概要 */
     .container__news {
         width: 450px;
@@ -1341,14 +1327,6 @@ display: block;
         top: -100px;
     }
 
-/* .tennis__boy {
-    position: absolute;
-    width: 80px;
-    height: auto;
-    position: absolute;
-    top: -22%;
-    left: 6%;
-} */
 
     .tennis__boy {
         display: block;
