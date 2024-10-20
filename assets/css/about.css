@@ -78,17 +78,9 @@
     background-color: #FFF;
     font-size: 1.6rem;
     line-height: 3.0rem;
-    min-height: 225px;
-    margin: 25px auto 0;
+    margin: 25px auto 40px;
     text-indent: 1rem;
     padding-left: -1rem;
-}
-
-.note__about span,
-.note__howto span,
-.note__sub span,
-.note__for-class span {
-    display: inline-block;
 }
 
 /*** メディアクエリここから ***/
