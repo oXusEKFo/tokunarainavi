@@ -40,9 +40,11 @@
                 <!-- スライダー ここから -->
                 <div class="inner__column-area">
                     <?php
+                    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                     $args = [
                         'post_type' => 'column',
                         'posts_per_page'     => 6,
+                        'paged' => $paged,
                         'orderby'        => 'date',
                         'order'          => 'DESC',
                     ];
