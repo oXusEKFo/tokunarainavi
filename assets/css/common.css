@@ -112,6 +112,11 @@ main {
     position: relative;
 }
 
+/* タイトルが2行になった場合のcontainer_cardImg */
+.container_cardImg.long-title {
+    margin-bottom: 23px; /* 間隔を詰める */
+}
+
 /* 施設写真 */
 .card_img {
     margin: 0 auto;
@@ -119,8 +124,8 @@ main {
     display: block;
     /* 画像の下に余白ができるのを防ぐ */
     width: 260px;
-    height: 173px;
-    /* 現在は「3：2」の比率にしています */
+    height: 195px;
+    /* 「4：3」の比率にしています */
     object-fit: cover;
 }
 
@@ -271,14 +276,18 @@ main {
 /* 住所、対象年齢のまとまり */
 .card_details {
     margin-top: 6px;
-    margin-bottom: 8px;
     border-top: 6px dotted #a0d3b2;
 }
 
 .card_detail {
     display: flex;
     align-items: center;
-    margin-top: 12px;
+    margin-top: 13px;
+}
+
+/* タイトルが2行になった場合のcard_detail */
+.card_detail.long-title {
+    margin-top: 8px; /* 間隔を詰める */
 }
 
 .detail_label {
@@ -307,10 +316,6 @@ main {
     color: #333;
 }
 
-.container_cardimg {
-    position: relative;
-}
-
 .inner_card {
     border-radius: 8px;
 }
@@ -318,15 +323,16 @@ main {
 /* アイコンとジャンルのまとまり */
 .card_area {
     width: 100%;
-    height: 105px; /* 教室名が1行に収まる時はheight:105pxを用意する */
+    height: 82px; /* 教室名が1行に収まる時はheight:82pxを用意する */
     display: flex;
     gap: 15px;
-    margin-top: 12px;
+    margin-top: 13px;
 }
 
-/* タイトルが2行になった場合 */
-.long-title {
-    height: 80px; /* 教室名が2行になった時はheight:80pxを用意する */
+/* タイトルが2行になった場合のcard_area */
+.card_area.long-title {
+    height: 75px; /* 教室名が2行になった時はheight:75pxを用意する */
+    margin-top: 11px;
 }
 
 /* アイコンエリア（icon_designとicon_categoryの親） */
@@ -384,10 +390,20 @@ main {
     margin-bottom: 8px;
 }
 
+/* タイトルが2行になった場合のgenre_label */
+.genre_label.long-title {
+    margin-bottom: 6px; /* 間隔を詰める */
+}
+
 /* ジャンル名 */
 .genre_value {
     font-size: 1.75rem;
     padding-left: 3px;
+}
+
+/* タイトルが2行になった場合のgenre_value */
+.genre_value.long-title {
+    line-height: 1.2; /* 行高を少し詰める */
 }
 
 
