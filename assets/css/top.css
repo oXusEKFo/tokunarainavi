@@ -1145,15 +1145,6 @@ padding-top: 40px;
 
 }
 
-.tennis__boy {
-    position: absolute;
-    width: 80px;
-    height: auto;
-    position: absolute;
-    top: -22%;
-        left: 6%;
-}
-
 .y__flip {
     animation: y__flip forwards 15s infinite linear 2s normal;
 }
@@ -1180,12 +1171,12 @@ padding-top: 40px;
     }
 }
 
-
+.tennis__boy,
 .english__img,
 .helmet__img,
 .bear__image {
     display: none;
-    /* 通常時は非表示 */
+    /* モバイル時は非表示 */
 
 }
 
@@ -1343,16 +1334,29 @@ display: block;
     .stars {
         right: 20%;
     }
-.tennis__boy {
-width: 100px;
-top: -14%;
-left: 18%;
-z-index: 1;
-}
+
     .spike__img {
         width: 100px;
         left: 15%;
         top: -100px;
+    }
+
+/* .tennis__boy {
+    position: absolute;
+    width: 80px;
+    height: auto;
+    position: absolute;
+    top: -22%;
+    left: 6%;
+} */
+
+    .tennis__boy {
+        display: block;
+        width: 100px;
+        height: auto;
+        position: absolute;
+        left: 10%;
+        margin-top: 50px;
     }
 
     .english__img {
