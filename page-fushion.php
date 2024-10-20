@@ -27,7 +27,7 @@
     <div class="inner__main">
         <div class="inner__question">
             <div class="title__question">
-                <h1>「いつ、何を、どう選ぶ？」 徳島の習いごとを徹底調査！</h1>
+                <h1>「いつ、何を、どう選ぶ？」<span style="display:block;">徳島の習いごとを徹底調査！</span></h1>
                 <p>
                     最近では、子どもの習いごとがますます注目されています。習いごとは、スキルを身につけるだけでなく、子どもたちが自分を表現したり、社会性を育んだりする場にもなっています。
                 </p>

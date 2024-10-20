@@ -63,13 +63,13 @@ main {
         padding-top: 90px;
     }
 
+    .inner__main {
+    padding: 0 10%;
+    }
+
 }
 
-.inner__main {
-    padding: 0 10%;
-    width: 100%;
-    margin: 0 auto;
-}
+
 
 
 /*** ここから カード部分 ***/
