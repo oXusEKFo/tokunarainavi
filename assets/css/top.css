@@ -1146,6 +1146,7 @@ padding-top: 40px;
 }
 
 .tennis__boy {
+    position: absolute;
     width: 80px;
     height: auto;
     position: absolute;
