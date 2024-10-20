@@ -1,6 +1,7 @@
 <?php
 // 教室名の長さに応じてcard_areaに新規classを付与するための準備
 // 教室名がしきい値（14）を超えた場合long-titleクラスを付与します
+// ※カードの幅やタイトルのフォントサイズ等を変更する場合は、ここの調整が必要になると思います。
 if (!function_exists('longtitle_class')) {
     function longtitle_class($title)
     {
@@ -35,8 +36,12 @@ if (!function_exists('longtitle_class')) {
     <a href="<?php the_permalink(); ?>">
         <div class="inner_card">
 
+            <?php
+            $title_class = esc_attr(longtitle_class(get_the_title()));
+            ?>
+
             <!-- アイキャッチ画像 -->
-            <div class="container_cardImg">
+            <div class="container_cardImg <?php echo $title_class; ?>">
                 <?php if (has_post_thumbnail()): ?>
                     <?php the_post_thumbnail('medium', array('class' => 'card_img')); ?>
                 <?php else: ?>
@@ -68,21 +73,19 @@ if (!function_exists('longtitle_class')) {
 
             <div class="card_details">
                 <!-- 住所 -->
-                <div class="card_detail">
+                <div class="card_detail <?php echo $title_class; ?>">
                     <span class="detail_label">住所</span>
                     <span class="detail_value"><?php echo get_field('address'); ?></span>
                 </div>
 
                 <!-- 対象年齢 -->
-                <div class="card_detail">
+                <div class="card_detail <?php echo $title_class; ?>">
                     <span class="detail_label">対象年齢</span>
                     <span class="detail_value"><?php echo get_field('age'); ?></span>
                 </div>
             </div>
 
-            <?php
-            $title_class = esc_attr(longtitle_class(get_the_title()));
-            ?>
+
 
             <!-- ジャンル -->
             <div class="card_area <?php echo $title_class; ?>">
@@ -104,8 +107,8 @@ if (!function_exists('longtitle_class')) {
 
                 <div class="genre_area">
                     <div class="genre_detail">
-                        <span class="genre_label">ジャンル</span>
-                        <span class="genre_value">
+                        <span class="genre_label <?php echo $title_class; ?>">ジャンル</span>
+                        <span class="genre_value <?php echo $title_class; ?>">
                             <?php
                             $child_terms = [];
                             foreach ($terms as $term) {
