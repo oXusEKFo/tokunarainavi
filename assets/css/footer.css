@@ -51,8 +51,40 @@ footer {
 
 .footer__links ul li a,
 .footer__info ul li a {
+    position: relative;
+    /* 親要素に相対位置を設定 */
     color: #FFFFFF;
     text-decoration: none;
+}
+
+.footer__links ul li a::after,
+.footer__info ul li a::after {
+    content: '';
+    /* 擬似要素の内容を空に */
+    position: absolute;
+    /* 絶対位置 */
+    left: 0;
+    /* 左端に配置 */
+    bottom: 0;
+    /* 下端に配置 */
+    width: 100%;
+    /* 幅を100%に */
+    height: 2px;
+    /* 下線の高さ */
+    background-color: #FFFFFF;
+    /* 下線の色 */
+    transform: scaleX(0);
+    /* 初期状態で下線を非表示 */
+    transform-origin: left;
+    /* アニメーションの起点を左に設定 */
+    transition: transform 0.3s ease;
+    /* アニメーションの設定 */
+}
+
+.footer__links ul li a:hover::after,
+.footer__info ul li a:hover::after {
+    transform: scaleX(1);
+    /* ホバー時に下線を表示 */
 }
 
 .footer__bottom {
