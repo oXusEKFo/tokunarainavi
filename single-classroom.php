@@ -106,14 +106,14 @@ for ($i = 1; $i <= 5; $i++) {
 <?php get_header(); ?>
 
 <main>
+    <!--パンくずリスト-->
+    <div class="breadCrumb__wrap">
+        <div class="breadCrumb">
+            <?php get_template_part('template-parts/breadcrumb'); ?>
+        </div>
+    </div>
     <!--  -->
     <div class="inner__main">
-        <!--パンくずリスト-->
-        <div class="container_breadcrumb">
-            <div class="breadCrumb">
-                <?php get_template_part('template-parts/breadcrumb'); ?>
-            </div>
-        </div>
 
         <!-- 施設写真スライド -->
         <section class="outline__results">
