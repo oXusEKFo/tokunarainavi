@@ -392,7 +392,7 @@
                                             continue;
                                         }
                                         if ($num > 4) {
-                                            continue;
+                                            break;
                                         }
                                         $view_count = get_term_meta($term->term_id, 'view_count', true);
                                         $num++;

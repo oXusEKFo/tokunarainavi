@@ -194,7 +194,7 @@ main {
     font-size: 1.2rem;
     position: absolute;
     left: 10px;
-    bottom: calc(35px / 3.4);
+    bottom: calc(35px / 3.5);
 }
 
 /* プラグインで用意された★アイコンの調整 */

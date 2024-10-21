@@ -131,7 +131,7 @@ header {
 }
 
 .gnav__menu__item a:hover {
-    color: #AD9792;
+    color: #ED6D1F;
 }
 
 .fa-arrow-right {
@@ -142,6 +142,16 @@ header {
 .fa-x-twitter {
     font-size: 3em;
     padding: 10px 10px 0 0;
+    transition: color 0.3s ease, transform 0.3s ease;
+    /* アニメーションの設定 */
+}
+
+.fa-instagram:hover,
+.fa-x-twitter:hover {
+    color: #ED6D1F;
+    /* ホバー時の色 */
+    transform: scale(1.1);
+    /* ホバー時に少し拡大 */
 }
 
 .wrap__gnav-chara{
