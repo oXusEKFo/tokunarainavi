@@ -841,7 +841,6 @@ border-top: solid 1px #463D3B;;
     color: #463D3B;
     text-decoration: none;
     background-color: #edeeee;
-    border-radius: 5px;
     transition: 0.5s;
 }
 
@@ -1318,8 +1317,10 @@ padding-top: 40px;
 
 /* みどり円 */
 @media screen and (min-width: 780px) {
-    .title__search>img,
-    .title__column>img {
+    .title__search>img {
         left: 10px;
+    }
+    .title__column>img {
+        left: -10px;
     }
 }
