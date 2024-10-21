@@ -808,104 +808,45 @@ input[type="search"]::-webkit-search-cancel-button {
     border-bottom: solid 1px #463D3B;
 }
 
+.order::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-top: 3px solid #463D3B;
+    border-right: 3px solid #463D3B;
+    transform: rotate(45deg);
+    margin: 0 10px 0 auto;  /* 疑似要素の左にスペースを設け、右寄せ */
+}
+
 .order button{
     margin-bottom: 10px;
 }
 
-.order__ranking {
-    counter-reset: rank;
+.order__ranking ul {
+    width: 80%;
+    margin: 0 auto;
 }
 
 .order__ranking li {
-    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;    /* 疑似要素の位置調整用 */
 }
 
-/* ランキングの王冠 */
-.order__ranking li:nth-child(-n+5)::before {
-    /* 1位から5位まで */
-    font: var(--fa-font-solid);
-    content: "\f521";
-    /* FontAwesome 王冠アイコン */
-    margin: 0 10px 0 0;
-    background-size: contain;
-}
-
-.order__ranking li:nth-child(1)::before {
-    /* 1位（王冠）のスタイル */
-    background-image: linear-gradient(45deg, #c0b283 0%, #c0b283 45%, #FEE9A0 70%, #c0b283 85%, #c0b283 90% 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 800% 400%;
-    animation: gradient 5s infinite cubic-bezier(.62, .28, .23, .99) both;
-    font-size: 4.5rem;
-}
-
-.order__ranking li:nth-child(2)::before {
-    /* 2位（王冠）のスタイル */
-    background: linear-gradient(45deg, #757575 0%, #9E9E9E 45%, #E8E8E8 70%, #9E9E9E 85%, #757575 90% 100%);
-    background-size: 800% 400%;
-    animation: gradient 5s infinite cubic-bezier(.62, .28, .23, .99) both;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 4.0rem;
-    padding-left: 3px;
-}
-
-.order__ranking li:nth-child(3)::before {
-    /* 3位（王冠）のスタイル */
-    background: linear-gradient(45deg, #a57e65 0%, #a57e65 45%, #f3cfb8 70%, #a57e65 85%, #a57e65 90% 100%);
-    background-size: 800% 400%;
-    animation: gradient 5s infinite cubic-bezier(.62, .28, .23, .99) both;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 3.5rem;
-    padding-left: 5px;
-}
-
-.order__ranking li:nth-child(4)::before,
-.order__ranking li:nth-child(5)::before {
-    /* 4,5位（王冠）のスタイル */
+.order__ranking li:hover {
     color: #463D3B;
-    font-size: 3.5rem;
-    padding-left: 5px;
+    text-decoration: none;
+    background-color: #edeeee;
+    border-radius: 5px;
+    transition: 0.5s;
 }
 
-.order__ranking li:nth-child(1)::after {
-    /* 1位（文字）のスタイル */
-    counter-increment: rank;
-    content: counter(rank);
-    position: absolute;
-    top: -1px;
-    left: 28px;
-    font-size: 2.5rem;
-    color: #FFF;
-}
-
-.order__ranking li:nth-child(2)::after {
-    /* 2位（文字）のスタイル */
-    counter-increment: rank;
-    content: counter(rank);
-    position: absolute;
-    top: 1px;
-    left: 29.5px;
-    font-size: 2.0rem;
-    color: #FFF;
-}
-
-.order__ranking li:nth-child(3)::after,
-.order__ranking li:nth-child(4)::after,
-.order__ranking li:nth-child(5)::after {
-    /* 3,4,5位（文字）のスタイル */
-    counter-increment: rank;
-    content: counter(rank);
-    position: absolute;
-    top: 2px;
-    left: 30px;
-    font-size: 1.8rem;
-    color: #FFF;
-}
-.order__ranking li:nth-child(4)::after{
-    left: 29px;
+.order__ranking img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    margin-right: 10px;    /* 画像と文字の間にスペースを追加 */
 }
 
 @keyframes gradient {
