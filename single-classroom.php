@@ -282,17 +282,19 @@ for ($i = 1; $i <= 5; $i++) {
             </div>
         </section>
         <section class="details__review">
-            <div class="wrap__accordion">
-                <div class="accordion__header">
-                    <div class="details__map">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/map.png" alt="Mapマーク">
-                        <p>地図を見る</p>
+            <?php if ($address && strpos($address, '※') === false): ?>
+                <div class="wrap__accordion">
+                    <div class="accordion__header">
+                        <div class="details__map">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/map.png" alt="Mapマーク">
+                            <p>地図を見る</p>
+                        </div>
+                    </div>
+                    <div class="accordion__content">
+                        <iframe src="https://www.google.co.jp/maps?q= <?php echo esc_html($address); ?> &output=embed&t=m&z=16&hl=ja" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
-                <div class="accordion__content">
-                    <iframe src="https://www.google.co.jp/maps?q= <?php echo esc_html($address); ?> &output=embed&t=m&z=16&hl=ja" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </div>
+            <?php endif; ?>
             <div class="review__title">
                 <h3>｜クチコミ</h3>
             </div>
