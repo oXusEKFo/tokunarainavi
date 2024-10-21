@@ -823,16 +823,15 @@ h3 {
 
     .tag__favorite1 {
         width: 200px;
-        /* .card_imgのwidth:260pxの半分のサイズにしてみました（堀） */
         position: relative;
         position: absolute;
-        /* .card_imgを基100位置調整しています（堀） */
+        /* .card_imgを基100位置調整しています */
         left: calc(50%);
-        /* +10pxはリボンが.card_imgからはみ出ている風にするための調整（堀） */
+        /* +10pxはリボンが.card_imgからはみ出ている風にするための調整 */
         bottom: calc(-10px / 2);
-        /* リボンが半分だけ画像と重なっているようにするため（堀） */
+        /* リボンが半分だけ画像と重なっているようにするため */
         transition: .3s cubic-bezier(0.45, 0, 0.55, 1);
-        /* ホバーアクション用（堀） */
+        /* ホバーアクション用 */
     }
 
     .tag__favorite1 .favo-text {
@@ -859,16 +858,15 @@ h3 {
 @media screen and (min-width: 883px) {
     .tag__favorite1 {
         width: 200px;
-        /* .card_imgのwidth:260pxの半分のサイズにしてみました（堀） */
         position: relative;
         position: absolute;
-        /* .card_imgを基100位置調整しています（堀） */
+        /* .card_imgを基100位置調整しています */
         left: calc(57%);
-        /* +10pxはリボンが.card_imgからはみ出ている風にするための調整（堀） */
+        /* +10pxはリボンが.card_imgからはみ出ている風にするための調整 */
         bottom: calc(-10px / 2);
-        /* リボンが半分だけ画像と重なっているようにするため（堀） */
+        /* リボンが半分だけ画像と重なっているようにするため */
         transition: .3s cubic-bezier(0.45, 0, 0.55, 1);
-        /* ホバーアクション用（堀） */
+        /* ホバーアクション用 */
     }
 
     .tag__favorite1 .favo-text {
@@ -1133,16 +1131,15 @@ h3 {
 
     .tag__favorite1 {
         width: 280px;
-        /* .card_imgのwidth:260pxの半分のサイズにしてみました（堀） */
         position: relative;
         position: absolute;
-        /* .card_imgを基準に位置調整しています（堀） */
+        /* .card_imgを基準に位置調整しています */
         left: calc(48% + 10px);
-        /* +10pxはリボンが.card_imgからはみ出ている風にするための調整（堀） */
+        /* +10pxはリボンが.card_imgからはみ出ている風にするための調整 */
         bottom: calc(-10px / 2);
-        /* リボンが半分だけ画像と重なっているようにするため（堀） */
+        /* リボンが半分だけ画像と重なっているようにするため */
         transition: .3s cubic-bezier(0.45, 0, 0.55, 1);
-        /* ホバーアクション用（堀） */
+        /* ホバーアクション用 */
     }
 
     .tag__favorite1 .favo-text {
@@ -1167,16 +1164,15 @@ h3 {
 
     .tag__favorite1 {
         width: 280px;
-        /* .card_imgのwidth:260pxの半分のサイズにしてみました（堀） */
         position: relative;
         position: absolute;
-        /* .card_imgを基準に位置調整しています（堀） */
+        /* .card_imgを基準に位置調整しています */
         left: calc(48% + 10px);
-        /* +10pxはリボンが.card_imgからはみ出ている風にするための調整（堀） */
+        /* +10pxはリボンが.card_imgからはみ出ている風にするための調整 */
         bottom: calc(-10px / 2);
-        /* リボンが半分だけ画像と重なっているようにするため（堀） */
+        /* リボンが半分だけ画像と重なっているようにするため */
         transition: .3s cubic-bezier(0.45, 0, 0.55, 1);
-        /* ホバーアクション用（堀） */
+        /* ホバーアクション用 */
     }
 
     .tag__favorite1 .favo-text {
