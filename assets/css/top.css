@@ -976,7 +976,7 @@ padding-top: 40px;
     /* margin: 0 20px; */
 }
 .note__news p{
-    -webkit-line-clamp: 5;
+    -webkit-line-clamp: 3;
         display: -webkit-box;
         -webkit-box-orient: vertical;
         overflow: hidden;
