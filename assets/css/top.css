@@ -952,6 +952,10 @@ padding-top: 40px;
 .items__news li {
     width: 310px;
     margin: 0 auto;
+    transition: 0.3s;
+}
+.items__news li:hover{
+    background-color: #e6eded77;
 }
 .items__news ul li+li {
     border-top:solid 1px #463D3B; ;
