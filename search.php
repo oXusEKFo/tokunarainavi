@@ -47,6 +47,37 @@ $count2 = 0;
                                 }
                             }
                         }
+
+                        // if ($count == 3) {
+                        //   foreach ($select as $value) {
+                        //     //各子タクソノミー（時間帯）に親タクソノミー（曜日）を追加
+                        //     $term = get_term_by('slug', $value, 'weektimes');
+                        //     if ($term->parent) {
+                        //       $parent_term = get_term_by('ID', $term->parent, 'weektimes');
+                        //       $parent_slug[] = $parent_term->slug;
+                        //       $weektimes_data[$parent_term->slug][] = $term->name;
+                        //     }
+                        //   }
+                        //   echo '<pre>';
+                        //   print_r($weektimes_data);
+                        //   echo '</pre>';
+                        //   foreach ($weektimes_data as $value) {
+                        //     $aaa[] = implode(",", $value);
+                        //   }
+                        //   print_r($aaa);
+                        // for ($i = 1; $i <= 7; $i++) {
+                        //   $weektimes_data_a["day$i"] = implode(
+                        //     ",",
+                        //     $weektimes_data["day$i"]
+                        //   );
+                        // }
+                        // } else {
+                        // foreach ($terms as $slug) {
+                        // if ($value === "$slug->slug") {
+                        // $term_name_array[$slug->taxonomy][] = "$slug->name";
+                        // }
+                        // }
+                        // }
                         if (!empty($term_name_array[$taxonomy_name[$count]])) {
                             $term_name[$taxonomy_name[$count]] = implode(",", $term_name_array[$taxonomy_name[$count]]);
                         }
@@ -269,7 +300,7 @@ $count2 = 0;
                                             <button type="button" class="search_option_suboption" onclick="toggleAccordion('<?= $parent_term->slug ?>')"><?= $parent_term->name ?><span class="plus">+</span></button>
                                             <div id="<?= $parent_term->slug ?>" class="accordion_content">
                                                 <label class="accordion_item full_width">
-                                                    <input name="weektimes[]" type="checkbox" onclick="selectAll('<?php echo $parent_term->slug; ?>', this);">
+                                                    <input name="weektimes[]" value="<?= $parent_term->slug ?>" type="checkbox" onclick="selectAll('<?php echo $parent_term->slug; ?>', this);">
                                                     時間帯をすべて選択
                                                 </label>
                                                 <div id="<?php echo $parent_term->slug; ?>_list" class="double_column">
@@ -451,6 +482,8 @@ $count2 = 0;
                 ];
                 $args = [
                     'post_type' => 'classroom',
+                    'order' => 'ASC',
+                    'orderby' => 'ID',
                 ];
                 $taxquerysp = ['relation' => 'AND'];
 
