@@ -300,6 +300,7 @@
 
 .accordion__content iframe {
     width: 100%;
+    border-radius: 10px;
 }
 
 /* アコーディオンメニュー ここまで */
