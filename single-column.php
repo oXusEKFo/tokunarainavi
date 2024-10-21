@@ -23,39 +23,39 @@
                     </div>
                     <div class="column_content">
                         <?php the_content(); ?>
+                    </div>
+                </article>
 
+                <!-- 関連施設を取得する -->
+                <?php
+                $args = [
+                    'post_type' => 'classroom',
+                ];
 
-                        <!-- 関連施設を取得する -->
-                        <?php
-                        $args = [
-                            'post_type' => 'classroom',
-                        ];
-
-                        $meta_query = ['relation' => 'AND'];
-                        $meta_query[] = [
-                            'key' => "colunmid",
-                            'type' => "CHAR",
-                            'value' => get_the_ID(),
-                            'compare' => '=',
-                        ];
-                        $args['meta_query'] = $meta_query;
-                        $the_query = new WP_Query($args);
-                        // print_r($the_query);
-                        ?>
-                        <!-- <section>
-                            <h2>関連施設</h2>
-                            <?php if (!empty($the_query)): ?>
+                $meta_query = ['relation' => 'AND'];
+                $meta_query[] = [
+                    'key' => "colunmid",
+                    'type' => "CHAR",
+                    'value' => get_the_ID(),
+                    'compare' => '=',
+                ];
+                $args['meta_query'] = $meta_query;
+                $the_query = new WP_Query($args);
+                // print_r($the_query);
+                ?>
+                <section class="wrap__link">
+                    <h2 class="link__title">関連施設</h2>
+                    <?php if (!empty($the_query)): ?>
+                        <div class="link__flex">
                             <?php while ($the_query->have_posts()): $the_query->the_post(); ?>
 
-                            <p><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
+                                <p><a href="<?php the_permalink(); ?>" class="link__button"><?php the_title(); ?></a></p>
 
                             <?php endwhile; ?>
-                            <?php endif; ?>
-                            <?php wp_reset_postdata(); ?>
-                        </section> -->
-                    </div>
-
-                </article>
+                        </div>
+                    <?php endif; ?>
+                    <?php wp_reset_postdata(); ?>
+                </section>
 
                 <!-- ↓前後記事のリンク -->
                 <div class="navi">
