@@ -398,6 +398,7 @@
                                         $num++;
                                 ?>
                                         <li class="order">
+                                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/top<?php echo $num; ?>.png" alt="top1"></img>
                                             <button type="submit" name="classtype[]" value="<?php echo $term->slug; ?>">
                                                 <?php echo $term->name; ?>
                                                 <!-- クリック回数 -->
