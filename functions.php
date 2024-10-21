@@ -254,6 +254,23 @@ function add_style_script()
 }
 add_action('wp_enqueue_scripts', 'add_style_script');
 
+/**
+ * タイトルを変更する
+ */
+function tokunavi_custom_title($title)
+{
+    if (is_search()) {
+        // 条件検索ページの場合はタイトルを以下のように変更
+        // tagline（キャッチフレーズ）を無くす
+        // unset($title['tagline']);
+        // タイトルの中身を変更する
+        $title['title'] = '条件検索';
+    }
+    // 変更したタイトルを返す
+    return $title;
+}
+// フィルターにフックを追加
+add_filter('document_title_parts', 'tokunavi_custom_title');
 
 
 /**
