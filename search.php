@@ -34,52 +34,42 @@ $count2 = 0;
                     //各タクソノミーでループ 名前の取得まで
                     foreach ($data as $terms) {
                         $term_name[$taxonomy_name[$count]] = '指定なし';
-                        $select = filter_input(INPUT_GET, "$taxonomy_name[$count]", FILTER_DEFAULT, FILTER_REQUIRE_ARRAY) ?: [];
                         foreach ($terms as $value) {
                             $checked["$taxonomy_name[$count]"][$value->slug] = "";
                         }
+                        $select = filter_input(INPUT_GET, "$taxonomy_name[$count]", FILTER_DEFAULT, FILTER_REQUIRE_ARRAY) ?: [];
                         foreach ($select as $value) {
                             $checked["$taxonomy_name[$count]"][$value] = "checked";
-
                             foreach ($terms as $slug) {
                                 if ($value === "$slug->slug") {
                                     $term_name_array[$slug->taxonomy][] = "$slug->name";
                                 }
                             }
                         }
-
-                        // if ($count == 3) {
-                        //   foreach ($select as $value) {
-                        //     //各子タクソノミー（時間帯）に親タクソノミー（曜日）を追加
-                        //     $term = get_term_by('slug', $value, 'weektimes');
-                        //     if ($term->parent) {
-                        //       $parent_term = get_term_by('ID', $term->parent, 'weektimes');
-                        //       $parent_slug[] = $parent_term->slug;
-                        //       $weektimes_data[$parent_term->slug][] = $term->name;
-                        //     }
-                        //   }
-                        //   echo '<pre>';
-                        //   print_r($weektimes_data);
-                        //   echo '</pre>';
-                        //   foreach ($weektimes_data as $value) {
-                        //     $aaa[] = implode(",", $value);
-                        //   }
-                        //   print_r($aaa);
-                        // for ($i = 1; $i <= 7; $i++) {
-                        //   $weektimes_data_a["day$i"] = implode(
-                        //     ",",
-                        //     $weektimes_data["day$i"]
-                        //   );
-                        // }
-                        // } else {
-                        // foreach ($terms as $slug) {
-                        // if ($value === "$slug->slug") {
-                        // $term_name_array[$slug->taxonomy][] = "$slug->name";
-                        // }
-                        // }
-                        // }
                         if (!empty($term_name_array[$taxonomy_name[$count]])) {
                             $term_name[$taxonomy_name[$count]] = implode(",", $term_name_array[$taxonomy_name[$count]]);
+                        }
+
+                        if (!empty($select)) {
+                            if ($count == 3) {
+                                foreach ($select as $value) {
+                                    //各子タクソノミー（時間帯）に親タクソノミー（曜日）を追加
+                                    $term = get_term_by('slug', $value, 'weektimes');
+                                    if ($term->parent) {
+                                        $parent_term = get_term_by('ID', $term->parent, 'weektimes');
+                                        $parent_name[$parent_term->slug] = $parent_term->name;
+                                        $parent_slug[] = $parent_term->slug;
+                                        $weektimes_data[$parent_term->slug][] = $term->name;
+                                    }
+                                }
+                                foreach ($parent_slug as $value) {
+                                    $aaa[$value] = "$parent_name[$value](" . implode(",", $weektimes_data[$value]) . ")";
+                                    // print_r($value);
+                                }
+                                if (!empty($aaa)) {
+                                    $term_name[$taxonomy_name[$count]] = implode(",", $aaa);
+                                }
+                            }
                         }
                         $count++;
                     }
