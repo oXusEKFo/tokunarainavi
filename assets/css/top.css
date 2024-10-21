@@ -817,10 +817,11 @@ input[type="search"]::-webkit-search-cancel-button {
     transform: rotate(45deg);
     margin: 0 10px 0 auto;  /* 疑似要素の左にスペースを設け、右寄せ */
 }
-/*
+
 .order button{
-    margin-bottom: 10px;
-} */
+    width: 100%;
+    height: 100%;
+}
 
 .order__ranking ul {
     width: 80%;
