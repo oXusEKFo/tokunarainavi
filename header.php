@@ -79,7 +79,7 @@ if (!is_user_logged_in() && IS_DEV == true) {
         <meta property="og:title" content="<?php echo "とくしま習いごとナビ" . $og_title ?>">
         <meta property="og:type" content="<?= $og_type ?>">
         <meta property="og:url" content="<?= $og_url ?>">
-        <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/assets/images/ogpimage.png">
+        <meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/assets/images/OGPimage.png">
         <meta property="og:site_name" content="とくしま習いごとナビ">
         <meta property="og:description" content="<?= $description ?>">
         <meta name="twitter:card" content="summary_large_image">
