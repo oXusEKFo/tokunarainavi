@@ -245,7 +245,7 @@ for ($i = 1; $i <= 5; $i++) {
                             $phone_number = $matches[1]; // 電話番号部分
                             $notes = $matches[2]; // 備考部分
                             // 電話番号をアンカーリンクとして表示
-                            echo '<p><a class="class__tel" href="tel:' . esc_attr($phone_number) . '">' . esc_html($phone_number) . '</a>' . esc_html($notes) . '</p>'; ?>
+                            echo '<p class="phone"><a class="class__tel" href="tel:' . esc_attr($phone_number) . '">' . esc_html($phone_number) . '</a>' . esc_html($notes) . '</p>'; ?>
                             <p class="pc_tel"><?php echo $tel ?></p>
                         <?php } ?>
                     </div>
