@@ -86,7 +86,7 @@
             <div class="container__search box fadeIn">
 
                 <div class="title__search">
-                    <h2>SERACH</h2>
+                    <h2>SEARCH</h2>
                     <p>検索</p>
                     <img src="<?php echo get_template_directory_uri();  ?>/assets/images/matcha.png" alt="みどり円">
                 </div>
