@@ -41,7 +41,7 @@
     </div>
 
     <div class="footer__bottom">
-        <small>&copy;QLIP とくしま習いごとナビ</small>
+        <small>&copy;「とくしま習いごとナビ」管理運営委員会</small>
     </div>
 </footer>
 <!-- Topへ戻るボタン -->
