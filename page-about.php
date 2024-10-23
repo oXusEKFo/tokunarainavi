@@ -10,17 +10,14 @@
                 </div>
             </div>
             <!-- 本文記述 -->
-            <section class="wrap_about">
+            <section class="wrap__about">
                 <h1 class="title__about">
                     <?php the_title(); ?>
                 </h1>
-                <div class="wrap_description">
-                    <div class="description_about">
-                        <div class="note_about">
-                            <?php the_content(); ?>
-                        </div>
+                <div class="wrap__description">
+                    <div class="description__about">
+                        <?php the_content(); ?>
                     </div>
-
                 </div>
             </section>
         </main>
