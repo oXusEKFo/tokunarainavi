@@ -198,7 +198,10 @@ for ($i = 1; $i <= 5; $i++) {
 
                     <!-- fukushima add 2024/10/19 start -->
                     <?php if ($column_post) : ?>
-                        <p><a href="<?php echo get_permalink($column_post->ID); ?>">この教室についての<br>コラムはこちら→</a></p><img src="<?php echo get_template_directory_uri(); ?>/assets/images/matcha.png" alt="緑丸" class="circle__matcha">
+                        <a href="<?php echo get_permalink($column_post->ID); ?>">
+                            <p>この教室についての<br>コラムはこちら→
+                            </p><img src="<?php echo get_template_directory_uri(); ?>/assets/images/matcha.png" alt="緑丸" class="circle__matcha">
+                        </a>
                     <?php endif; ?>
                     <!-- fukushima add 2024/10/19 end -->
 
