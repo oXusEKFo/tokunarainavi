@@ -821,8 +821,13 @@ border-top: solid 1px #463D3B;;
 }
 
 .order button{
-    width: 100%;
+    width: 70%;
     height: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* 「…」と省略 */
+    -webkit-text-overflow: ellipsis; /* Safari */
+    -o-text-overflow: ellipsis; /* Opera */
 }
 
 .order__ranking ul {
