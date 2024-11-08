@@ -244,7 +244,7 @@ for ($i = 1; $i <= 5; $i++) {
                 <?php if ($tel): ?>
                     <div class="details__genre">
                         <h4>電話番号</h4>
-                        <?php if (preg_match('/(\d{2,4}-\d{2,4}-\d{4})(.*)/', $tel, $matches)) {
+                        <?php if (preg_match('/(\d{2,4}-\d{2,4}-\d{3,4})(.*)/', $tel, $matches)) {
                             $phone_number = $matches[1]; // 電話番号部分
                             $notes = $matches[2]; // 備考部分
                             // 電話番号をアンカーリンクとして表示

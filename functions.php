@@ -8,6 +8,9 @@ define('IS_DEV', false);
 // 管理バーを非表示させる
 // add_filter('show_admin_bar', '__return_false');
 
+
+
+
 /**
  * 「after_setup_theme」アクションフックを使用する関数をまとめる
  */

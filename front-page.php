@@ -121,7 +121,7 @@
                                 ));
                                 ?><div id="<?= $parent_term->slug; ?>" class="accordion_content" style="display:flex">
                                     <label class="accordion_item full_width">
-                                        <input type="checkbox" name="area[]" onclick="selectAll('<?php echo $parent_term->slug; ?>', this);"> <?php echo $parent_term->name; ?>
+                                        <input type="checkbox" name="area[]" onclick="selectAll('<?php echo $parent_term->slug; ?>', this);" style="display: none;"> <?php echo $parent_term->name; ?>
                                     </label>
                                     <!-- <div id="<?php echo $parent_term->slug; ?>" class="single_column"> -->
                                     <div class="single_column">
@@ -131,7 +131,7 @@
                                             foreach ($child_terms as $child_term) :
                                         ?>
                                                 <label class="accordion_item">
-                                                    <input type="checkbox" name="area[]" value="<?php echo $child_term->slug; ?>" onclick="selectItem(this)">
+                                                    <input type="checkbox" name="area[]" value="<?php echo $child_term->slug; ?>" onclick="selectItem(this)" style="display: none;">
                                                     <?php echo $child_term->name; ?>
                                                 </label>
                                         <?php
@@ -155,7 +155,7 @@
                                 ?>
                                 <div id="<?= $parent_term->slug; ?>" class="accordion_content" style="display:flex">
                                     <label class="accordion_item full_width">
-                                        <input type="checkbox" name="area[]" onclick="selectAll('<?php echo $parent_term->slug; ?>', this);"> <?php echo $parent_term->name; ?>
+                                        <input type="checkbox" name="area[]" onclick="selectAll('<?php echo $parent_term->slug; ?>', this);" style="display: none;"> <?php echo $parent_term->name; ?>
                                     </label>
                                     <!-- <div id="<?php echo $parent_term->slug; ?>" class="double_column"> -->
                                     <!-- 板野郡全域の子要素 -->
@@ -165,7 +165,7 @@
                                             foreach ($child_terms as $child_term) :
                                         ?>
                                                 <label class="accordion_item">
-                                                    <input type="checkbox" name="area[]" value="<?php echo $child_term->slug; ?>" onclick="selectItem(this)">
+                                                    <input type="checkbox" name="area[]" value="<?php echo $child_term->slug; ?>" onclick="selectItem(this)" style="display: none;">
                                                     <?php echo $child_term->name; ?>
                                                 </label>
                                         <?php
@@ -190,7 +190,7 @@
                                             if ($term->parent == 0 && $term->slug !== 'area01' && $term->slug !== 'area02') :
                                     ?>
                                                 <label class="accordion_item">
-                                                    <input type="checkbox" name="area[]" value="<?php echo $term->slug; ?>" onclick="selectItem(this)">
+                                                    <input type="checkbox" name="area[]" value="<?php echo $term->slug; ?>" onclick="selectItem(this)" style="display: none;">
                                                     <?php echo $term->name; ?>
                                                 </label>
                                     <?php
@@ -238,7 +238,7 @@
                                         foreach ($terms as $term) :
                                     ?>
                                             <label class="accordion_item">
-                                                <input type="checkbox" name="age_type[]" value="<?php echo $term->slug; ?>" onclick="selectItem(this)">
+                                                <input type="checkbox" name="age_type[]" value="<?php echo $term->slug; ?>" onclick="selectItem(this)" style="display: none;">
                                                 <?php echo $term->name; ?>
                                             </label>
                                     <?php
@@ -284,14 +284,14 @@
                                         if ($parent_term->parent == 0):
                                 ?>
                                             <label class="search_option_suboption">
-                                                <input type="checkbox" onclick="toggleAccordion('<?php echo $parent_term->slug; ?>')"> <?php echo $parent_term->name; ?><span class="plus">&#x2B;</span>
+                                                <input type="checkbox" onclick="toggleAccordion('<?php echo $parent_term->slug; ?>')" style="display: none;"> <?php echo $parent_term->name; ?><span class="plus">&#x2B;</span>
 
                                             </label>
 
                                             <div id="<?php echo $parent_term->slug; ?>" class="accordion_content">
 
                                                 <label class="accordion_item full_width">
-                                                    <input type="checkbox" name="classtype[]" onclick="selectAll('<?php echo $parent_term->slug; ?>', this);">
+                                                    <input type="checkbox" name="classtype[]" onclick="selectAll('<?php echo $parent_term->slug; ?>', this);" style="display: none;">
                                                     <?php echo $parent_term->name; ?> をすべて選択
                                                 </label>
                                                 <div id="<?php echo $parent_term->slug; ?>_list" class="double_column">
@@ -308,7 +308,7 @@
                                                         foreach ($child_terms as $child_term):
                                                     ?>
                                                             <label class="accordion_item">
-                                                                <input type="checkbox" name="classtype[]" value="<?php echo $child_term->slug; ?>" onclick="selectItem(this)">
+                                                                <input type="checkbox" name="classtype[]" value="<?php echo $child_term->slug; ?>" onclick="selectItem(this)" style="display: none;">
                                                                 <?php echo esc_html($child_term->name); ?>
                                                             </label>
                                                     <?php
