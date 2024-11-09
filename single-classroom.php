@@ -225,11 +225,14 @@ for ($i = 1; $i <= 5; $i++) {
                 <div class="details__genre">
                     <h4>おすすめのコース</h4>
                     <?php
-                    for ($i = 0; $i < count($course); $i++) {
-                        if (!empty($course[$i])) { ?>
-                            <p><?php echo esc_html($course[$i]); ?></p>
+                    if (is_array($course) && count($course) > 0) {
+                        for ($i = 0; $i < count($course); $i++) {
+                            if (!empty($course[$i])) { ?>
+                                <p><?php echo nl2br(esc_html($course[$i])); ?></p>
                     <?php }
-                    } ?>
+                        }
+                    }
+                    ?>
                 </div>
             </div>
             <div class="details__containerR">
