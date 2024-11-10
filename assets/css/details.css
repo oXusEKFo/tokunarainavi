@@ -225,7 +225,7 @@
     display: flex;
     padding: 10px 20px;
     min-width: 350px;
-    width: 60%;
+    width: 100%;
     margin: 20px 0 10px;
     background-color: rgb(246, 239, 231);
 }
@@ -257,7 +257,7 @@
 /* アコーディオンメニュー ここから */
 /* アコーディオン囲い */
 .wrap__accordion {
-    width: 350px;
+    width: 100%;
     /* margin: 0 auto; */
 }
 
@@ -268,7 +268,7 @@
 
 /* 閉じている時の表示 */
 .accordion__header {
-    width: 350px;
+    width: 100%;
     transition: .3s ease;
     cursor: pointer;
     position: relative;
@@ -324,7 +324,7 @@ h3 {
 
 .review__title {
     font-size: 2rem;
-    max-width: 350px;
+    width: 100%;
     margin: 20px 0 10px;
     padding: 10px 20px;
     background-color: rgb(246, 239, 231);
@@ -357,7 +357,8 @@ h3 {
 }
 
 .review__Form {
-    max-width: 700px;
+    width: 100%;
+    /* max-width: 700px; */
     margin-left: auto;
     margin-right: auto;
     font-size: 1.8rem;
@@ -816,7 +817,7 @@ h3 {
     }
 
     .review__item {
-        width: 500px;
+        width: 100%;
         margin-left: auto;
         margin-right: auto;
     }
@@ -1016,15 +1017,10 @@ h3 {
     }
 
     .details__review {
-        width: 750px;
+        max-width: 750px;
         margin: 0, auto;
     }
 
-    /* .wrap__details-review{
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-    } */
     .review__title {
         font-size: 3.0rem;
         line-height: 4.0rem;
@@ -1033,7 +1029,7 @@ h3 {
     }
 
     .review__item {
-        width: 850px;
+        width: 100%;
         margin-left: auto;
         margin-right: auto;
         /* アイテムを縦並び */
@@ -1060,24 +1056,9 @@ h3 {
     }
 
     .wrap__details-review {
-        width: 950px;
-        margin-left: auto;
-        margin-right: auto;
-        /* width: 100%;
-        border-bottom: solid 1px #463D3B;
-        display: flex;
-        flex-direction: column; */
-        /* 縦並び */
-        /* align-items: center; */
-        /* 子要素を中央揃え */
-        /* justify-content: center;
-        padding: 1rem 0; */
-        /* display: flex; */
-        /* align-items: flex-end; */
-        /* justify-content: space-between; */
-        /* gap: 22px;
-        padding-bottom: 9px;
-        margin: 15px 0; */
+        width: 100%;
+        /* margin-left: auto;
+        margin-right: auto; */
     }
 
     .review__name {
@@ -1244,7 +1225,7 @@ h3 {
 } */
 
 .review__item p {
-    max-width: 500px;
+    /* max-width: 500px; */
     font-size: 1.6rem;
     line-height: 2.3rem;
     /* margin: 2.5px 0; */
