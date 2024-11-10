@@ -9,7 +9,6 @@
     position: fixed;
     bottom: 10px;
     right: 10px;
-
 }
 
 footer {
@@ -124,7 +123,8 @@ footer {
 
 @media (min-width: 700px) {
     .back-to-top {
-            max-width: 10%;
+            width: 10%;
+            max-width: 144px; /* 1440pxの10% */
         }
 
         .back-to-top:hover {
@@ -159,7 +159,14 @@ footer {
     .footer__illustration img {
         right: 200px;
     }
+}
 
+@media (min-width:1440px) {
+    .fixed{
+    right: calc((100% - 1440px) / 2 + 10px);
+        /* 画面中央から1440pxの範囲内に配置 */
+    }
+}
 
 
     @keyframes bounce {
