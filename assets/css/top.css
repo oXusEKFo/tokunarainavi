@@ -933,6 +933,12 @@ font-size: 1.8rem;
 /* NEWS */
 /* 背景 */
 
+.news{
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
 .wrap__news {
     background-color: #00B0AA;
     max-width: 1440px;
