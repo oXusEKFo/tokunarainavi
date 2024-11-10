@@ -67,7 +67,7 @@
     color: #463d3b;
     text-align: center;
     width: 1200px;
-    margin: 40px auto;
+    margin: 40px 5vw;
     position: relative;
 }
 
@@ -125,7 +125,7 @@
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin-bottom: 50px;
 }
 
@@ -378,7 +378,7 @@ h2 {
     .title__question,
     .question__comment {
         width: 800px;
-        margin: 40px auto;
+        /* margin: 40px auto; */
     }
 
     .title__question h1,
