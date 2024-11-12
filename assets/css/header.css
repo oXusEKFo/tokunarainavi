@@ -48,6 +48,7 @@ header {
 .menu {
     width: 40px;
     height: 40px;
+    cursor: pointer;
 }
 
 .btn__menu,

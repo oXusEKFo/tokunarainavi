@@ -150,10 +150,10 @@ if (!is_user_logged_in() && IS_DEV == true) {
             </div>
 
             <div class="wrap__navi">
-                <a class="menu">
+                <div class="menu">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/hg_menu.png" alt="hg_menu" class="btn__menu">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/hg_close.png" alt="close-btn" class="btn__close">
-                </a>
+                </div>
             </div>
         </div>
     </header>
