@@ -9,7 +9,7 @@
                     <div class="container__kv">
                         <!-- キャッチコピー -->
                         <h1 class="kv__title fadeIn">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/kv_title.png" alt="title" class="title__img">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/kv_title.png" alt="であう、ひろがる。まなびの輪 徳島の習い事、集めました！" class="title__img">
                         </h1>
                         <!-- 飾り -->
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/deco1.png" alt="decoration1" class="deco1">
