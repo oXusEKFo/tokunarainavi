@@ -343,7 +343,7 @@
                         <div class="box__search">
                             <div class="inner__search-box">
                                 <input class="window__search" type="search" name="s" value="<?php the_search_query(); ?>" placeholder="キーワードを入力してください">
-                                <button class="btn__search" type="submit">
+                                <button class="btn__search" type="submit" aria-label="検索ボタン">
                                     <i class="fa-solid fa-magnifying-glass"></i>
                                 </button>
                             </div>
@@ -422,7 +422,7 @@
             <!-- 白背景の余白スペース -->
             <div class="clearance"></div>
             <!-- とくしまの習いごとアンケート -->
-            <a href="<?php echo home_url('/fushion'); ?>">
+            <a href="<?php echo home_url('/fushion'); ?>" alt="徳島の習い事事情 バナー">
                 <div class="survey-results">
                     <div class="inner__survey box fadeIn">
                         <p>👇 詳しくはこちらをクリック♪</p>

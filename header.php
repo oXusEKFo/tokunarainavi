@@ -13,7 +13,7 @@ if (!is_user_logged_in() && IS_DEV == true) {
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta name="viewport" content="width=device-width, user-scalable=yes">
 
     <?php
     $description = "";
