@@ -1,7 +1,7 @@
 <footer>
     <!-- Topへ戻るボタン -->
 
-    <a href="#">
+    <a href="#" aria-label="Topへ戻るリンク">
         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/TOPbtn.png" class="back-to-top" alt="Back to top" /></a>
     <!-- <img src="<?php echo get_template_directory_uri(); ?>/assets/images/TOPbtn.png" alt="Back to top" /> -->
 

@@ -422,11 +422,11 @@
             <!-- 白背景の余白スペース -->
             <div class="clearance"></div>
             <!-- とくしまの習いごとアンケート -->
-            <a href="<?php echo home_url('/fushion'); ?>" alt="徳島の習い事事情 バナー">
+            <a href="<?php echo home_url('/fushion'); ?>">
                 <div class="survey-results">
                     <div class="inner__survey box fadeIn">
                         <p>👇 詳しくはこちらをクリック♪</p>
-                        <div class="banner__survey">
+                        <div class="banner__survey" aria-label="徳島の習い事事情 バナー">
 
 
                         </div>
