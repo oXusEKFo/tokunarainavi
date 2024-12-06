@@ -30,6 +30,10 @@ body {
     scroll-behavior: smooth;
 }
 
+p,div {
+    word-break: auto-phrase;    /* 文節で区切る（非対応ブラウザには適用されない） */
+}
+
 /**パンくずリスト**/
 .breadCrumb__wrap {
     width: 85%;
