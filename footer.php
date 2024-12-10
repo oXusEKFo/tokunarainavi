@@ -25,7 +25,8 @@
                     <a href="<?php echo home_url('/favor') ?>" class="favorite__sitemap">お気に入りリスト</a>
                 </li>
                 <li>
-                    <a href="<?php echo home_url('/contact') ?>" class="input__sitemap">お問い合わせ</a>
+                    <a href="<?php echo home_url('/contact') ?>" class="input__sitemap-m">お問い合わせ</br>掲載申し込み</a>
+                    <a href="<?php echo home_url('/contact') ?>" class="input__sitemap-p">お問い合わせ・掲載申し込み</a>
                 </li>
             </ul>
         </div>

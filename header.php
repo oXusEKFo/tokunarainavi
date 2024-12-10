@@ -123,7 +123,7 @@ if (!is_user_logged_in() && IS_DEV == true) {
                             </a>
                         </li>
                         <li class="gnav__menu__item">
-                            <a href="<?php echo home_url('/contact') ?>">&nbsp;&nbsp;お問い合わせ
+                            <a href="<?php echo home_url('/contact') ?>">&nbsp;&nbsp;お問い合わせ・掲載申し込み
                             </a>
                         </li>
                         <li>
@@ -135,11 +135,11 @@ if (!is_user_logged_in() && IS_DEV == true) {
                                     <i class=" fa-brands fa-x-twitter"></i>
                                 </a>
                             </div>
+                            <div class="wrap__gnav-chara">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/rabbit.png" alt="うさぎ">
+                            </div>
                         </li>
                     </ul>
-                    <div class="wrap__gnav-chara">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/rabbit.png" alt="とくしま習いごとナビ">
-                    </div>
                 </div>
             </nav>
 

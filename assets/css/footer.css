@@ -30,6 +30,16 @@ footer {
     margin: 0 auto;
 }
 
+/* モバイル画面のお問い合わせを表示 */
+.input__sitemap-m {
+    display: block;
+}
+
+/* PC画面のお問い合わせを消す */
+.input__sitemap-p {
+    display: none;
+}
+
 .footer__links,
 .footer__info {
     margin-left: 30px;
@@ -125,18 +135,26 @@ footer {
     .back-to-top {
             width: 10%;
             max-width: 144px; /* 1440pxの10% */
-        }
+    }
 
-        .back-to-top:hover {
+    .back-to-top:hover {
             animation: bounce 0.8s ease-out;
-        }
+    }
 
     .footer__container {
         flex-direction: row;
         justify-content: space-around;
         margin-left: 100px;
     }
+    /* モバイル画面のお問い合わせを消す */
+    .input__sitemap-m {
+        display: none;
+    }
 
+    /* PC画面のお問い合わせを表示 */
+    .input__sitemap-p {
+        display: block;
+    }
     .footer__links,
     .footer__info {
         margin: 0;
@@ -145,7 +163,7 @@ footer {
     }
 
     .footer__info {
-        margin-left: 100px;
+        /* margin-left: 100px; */
         align-self: flex-start;
     }
 

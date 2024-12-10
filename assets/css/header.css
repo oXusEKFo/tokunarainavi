@@ -159,11 +159,10 @@ header {
     text-align: right;
 }
 
-
 .wrap__gnav-chara img{
     width: 100px;
     height: auto;
-    padding: 50vh 0 0;
+    /* padding: 50vh 0 0; */
     object-fit: cover;
 }
 
