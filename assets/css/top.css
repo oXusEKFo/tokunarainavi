@@ -874,7 +874,7 @@ border-top: solid 1px #463D3B;;
 
 .survey-results {
     background-color: #FFF;
-    max-width: 1440px;
+    max-width: 400px;
     width: 100%;
     margin: 0 auto;
 }
@@ -1209,6 +1209,10 @@ padding-top: 40px;
     }
 
     /* とくしまの習いごとアンケート結果 */
+    .survey-results {
+        max-width: 780px;
+    }
+
     .banner__survey {
         background-image: url(../images/question_banner_border0.png);
         max-width: 800px;
