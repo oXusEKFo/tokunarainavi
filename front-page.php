@@ -366,7 +366,7 @@
             <div class="inner__ranking box fadeIn">
                 <div class="title__ranking">
                     <h2>RANKING</h2>
-                    <p>アクセスランキング</p>
+                    <p>リアルタイム アクセスランキング</p>
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/creamcircle.png" alt="クリーム円">
                 </div>
                 <div class="order__ranking  box fadeIn">
