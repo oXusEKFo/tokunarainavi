@@ -9,8 +9,6 @@ define('IS_DEV', false);
 // add_filter('show_admin_bar', '__return_false');
 
 
-
-
 /**
  * 「after_setup_theme」アクションフックを使用する関数をまとめる
  */
@@ -18,10 +16,19 @@ define('IS_DEV', false);
 function my_theme_setup()
 {
     add_theme_support('title-tag'); //<title>タグを出力する
-    add_theme_support('post-thumbnails'); //アイキャチ画像を使用可能にする
+    add_theme_support('post-thumbnails'); //アイキャッチ画像を使用可能にする
     add_theme_support('menus'); //カスタムメニュー機能を使用可能にする
 }
 add_action('after_setup_theme', 'my_theme_setup');
+
+
+// フィードページのnoindex設定(feedページがGoogleサーチコンソールのインデックス対象にならないように)
+add_action('template_redirect', function () {
+    if (is_feed() && headers_sent() === false) {
+        header('X-Robots-Tag: noindex, follow', true);
+    }
+});
+
 
 /**
  * 固定ページで抜粋を使えるようにする
