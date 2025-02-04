@@ -193,10 +193,19 @@
     border-bottom: solid 1px #463D3B;
 }
 
+/* 住所リンク 色つけ
+（開催場所住所が複数の施設のため暫定的な記載を"曜日・時間帯"欄に記載するため）
+WordPressの記載箇所にhref(Googleマップリンク)とこのclass名を記載すること */
+.address__optional{
+    color: blue;
+}
+
+/* スマホ用 電話番号リンク色つけ */
 .class__tel {
     color: blue;
 }
 
+/* PC用 電話番号リンク 非表示 */
 .pc_tel {
     display: none;
 }
