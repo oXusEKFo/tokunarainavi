@@ -96,15 +96,35 @@ main {
     border-left: solid #ED6D1F 8px;
 }
 
-/* コラムテキスト（太字） */
-.column_content p strong {
+/* h2とh4の間 */
+.column_content h3 {
     display: block;
+    /* 行間開け */
     width: 100%;
+    font-size: 2.2rem;
     margin: 25px auto 30px;
     padding-left: 10px;
     border-left: solid #ED6D1F 8px;
 }
 
+/* コラム聞き手 */
+.column_content h4 {
+    display: block; /* 行間開け */
+    width: 100%;
+    font-size: 1.7rem;
+    margin: 25px auto 30px;
+    padding-left: 10px;
+    border-left: solid #ED6D1F 8px;
+}
+
+/* コラムテキスト（太字） */
+/* .column_content p strong {
+    display: block;
+    width: 100%;
+    margin: 25px auto 30px;
+    padding-left: 10px;
+    border-left: solid #ED6D1F 8px;
+} */
 
 /* コラム写真 */
 .column_content figure {

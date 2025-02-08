@@ -62,8 +62,10 @@
 }
 
 .container__card{
+    background-color: #fff; /* スライダー化の際に追加 */
     margin: 0 auto;
     transition: 0.3s;
+    border-radius: 20px;
 }
 
 .container__card:hover {
@@ -73,9 +75,9 @@
 
 /* 施設写真 */
 .img__card {
-    width: 340px;
+    width: 100%; /* スライダー化の際に値変更 340px -> 100% */
     height: 255px;
-    margin: 10px 5px;
+    /* margin: 10px 5px; */ /* スライダー化の際に削除 */
     border-radius: 20px;
     object-fit: cover;
     transition: filter 0.3s;
@@ -97,7 +99,7 @@
     font-size: 2.2rem;
     text-align: left;
     padding-top: 20px;
-    padding-left: 5px;
+    padding-left: 15px; /* スライダー化の際に値変更 5px -> 15px */
     padding-right: 5px;
 
     -webkit-line-clamp: 1;
@@ -110,7 +112,7 @@
 .note__column>p{
     height: 100px;
     font-size: 1.5rem;
-    margin: 10px;
+    margin: 10px 15px 10px;   /* スライダー化の際に左右値変更 10px -> 15px */
     line-height: 24.6px;
     text-align: left;
 
@@ -131,7 +133,7 @@
 .container__date {
     display: flex;
     align-items: center;
-    margin-top: 15px;
+    padding: 10px 15px;    /* スライダー化の際にpadding化して左右15pxも追加*/
 }
 
 /* 編集日アイコン */

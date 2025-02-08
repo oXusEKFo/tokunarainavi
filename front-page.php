@@ -487,16 +487,42 @@
                 <div class="wrap__news">
                     <div class="container__news">
                         <div class="items__news">
-                            <ul>
-                                <?php
+                            <!-- NEWSスライダー ここから -->
+                            <div class="slider">
+                                <div class="auto-slider">
+                                    <?php
+                                    $args = [
+                                        'post_type' => 'post',
+                                        'category_name' => 'events',
+                                        'post_status' => 'publish',
+                                        'posts_per_page'     => 5,
+                                        'orderby'        => 'date',
+                                        'order'          => 'DESC',
+                                    ];
+                                    $news_query = new WP_query($args);
+                                    ?>
+                                    <?php
+                                    if ($news_query->have_posts()):
+                                    ?>
+                                        <?php while ($news_query->have_posts()): $news_query->the_post(); ?>
+                                            <?php get_template_part('template-parts/loop', 'column'); ?>
+
+                                        <?php endwhile; ?>
+                                        <?php wp_reset_postdata(); ?>
+                                    <?php endif ?>
+                                </div>
+                            </div>
+
+                            <!-- <ul> -->
+                            <?php /* NEWSリストを再度用いるときには以下のコードを使用する
                                 $news = get_term_by('slug', 'news', 'category');
-                                $news_link = get_term_link($news, 'category');
-                                ?>
-                                <?php while (have_posts()) : the_post(); ?>
-                                    <?php get_template_part('template-parts/loop', 'news'); ?>
-                                <?php endwhile; ?>
-                                <?php wp_reset_postdata(); ?>
-                            </ul>
+                                $news_link = get_term_link($news, 'category'); */
+                            ?>
+                            <?php /*while (have_posts()) : the_post(); */ ?>
+                            <?php /*get_template_part('template-parts/loop', 'news'); */ ?>
+                            <?php /*endwhile; */ ?>
+                            <?php /*wp_reset_postdata(); */ ?>
+                            <!-- </ul> -->
                         </div>
 
                     </div>

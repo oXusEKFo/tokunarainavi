@@ -949,12 +949,15 @@ font-size: 1.8rem;
 }
 
 .container__news {
-    background-color: #FFF;
-    max-width: 350px;
+    /* background-color: #FFF; */   /* スライダー化に伴い背景色を削除 */
+    max-width: 100%;   /* スライダー化に伴いCOLUMNと同じ幅に広げる 350px -> 100% */
     height: auto;
     margin: 0 auto;
     border-radius: 20px;
 }
+
+/* スライダー化に伴いリスト表示は使っていない */
+/* 縦型リストに戻すときのために残しておく */
 .items__news ul{
 padding-top: 40px;
 }
@@ -997,6 +1000,8 @@ padding-top: 40px;
         -webkit-box-orient: vertical;
         overflow: hidden;
 }
+/* NEWSリスト表示ここまで */
+
 /* NEWS詳細ボタン*/
 .button__more-news {
     background-color: #463D3B;
@@ -1262,7 +1267,7 @@ padding-top: 40px;
     }
     /* NEWS概要 */
     .container__news {
-        width: 450px;
+        width: 100%;    /* スライダー化の際に値変更 450px -> 100% */
         height: auto;
     }
 
@@ -1303,35 +1308,35 @@ padding-top: 40px;
 
     .tennis__boy {
         display: block;
+        z-index: 1;             /* スライダー化の際に追加 */
         width: 100px;
         height: auto;
         position: absolute;
-        left: 10%;
-        margin-top: 50px;
+        left: 15%;              /* スライダー化の際に値変更 10% -> 15% */
+        margin-top: -100px;     /* スライダー化の際に値変更 50px -> -100px */
     }
 
     .english__img {
-        display: block; /* 追加: 表示を有効にする */
+        display: block;         /* 追加: 表示を有効にする */
+        z-index: 1;             /* スライダー化の際に追加 */
         width: 100px;
         height: auto;
         position: absolute;
-        left: 10%;
-        margin-top: 450px;
+        left: 15%;              /* スライダー化の際に値変更 10% -> 15% */
+        margin-top: 560px;      /* スライダー化の際に値変更 450px -> 560px */
     }
 
     .helmet__img {
-        display: block; /* 追加: 表示を有効にする */
+        display: block;         /* 追加: 表示を有効にする */
+        z-index: 1;             /* スライダー化の際に追加 */
         width: 100px;
         height: auto;
         position: absolute;
-        left: 80%;
-        margin: 150px 0px;
+        left: 70%;              /* スライダー化の際に値変更 80% -> 70% */
+        margin: -40px 0px;      /* スライダー化の際に値変更 150px -> -40px */
     }
-}
-
 
 /* みどり円 */
-@media screen and (min-width: 780px) {
     .title__search>img {
         left: 10px;
     }
