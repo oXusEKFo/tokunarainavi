@@ -80,6 +80,7 @@
     /* margin: 10px 5px; */ /* スライダー化の際に削除 */
     border-radius: 20px;
     object-fit: cover;
+    object-position: top;
     transition: filter 0.3s;
         /* スムーズな変化を追加 */
 }
