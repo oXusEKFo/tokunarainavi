@@ -31,11 +31,11 @@ main {
 .archive__list li a {
     display: block;
     padding: 10px 6px;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     border-radius: 15px;
     background-color: #00B0AA;
     text-align: center;
-    min-width: 100px;
+    min-width: 90px;
     color: white;
     transition: background-color 0.3s;
     /* スムーズな変化を追加 */
@@ -279,6 +279,7 @@ main {
     }
 
     .archive__list li a {
+        font-size: 1.5rem;
         min-width: 130px;
     }
 
