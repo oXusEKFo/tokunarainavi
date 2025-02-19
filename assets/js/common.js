@@ -7,6 +7,25 @@ jQuery(function ($) {
         $('.gnav').fadeToggle();
     });
 
+// ドキュメントクリックによる外部クリック検知＆メニュー閉じる処理
+jQuery(document).on("click", function(e) {
+        var $target = $(e.target);
+
+        // ログ出力（クリック要素確認用メッセージ）
+        // console.log("Clicked element:", e.target);
+
+        // メニューが表示されており、クリック対象がメニュー(.gnav__menu)またはハンバーガーボタン(.menu)以外の場合
+        if ($('.gnav').is(":visible") && $target.closest('.gnav__menu, .menu').length === 0) {
+
+            // ログ出力（外部クリック検知メッセージ）
+            // console.log("外部クリック検知：メニューを閉じます。");
+
+            // メニュー閉じる処理：メニューの開閉状態が切り替わるようにする
+            $('.btn__menu, .btn__close').toggleClass('active');
+            $('.gnav').fadeToggle();
+        }
+    });
+
     // Topへ戻るボタン
     $(function () {
     let top = $(".back-to-top");
