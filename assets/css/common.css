@@ -28,10 +28,14 @@ body {
 
     /* スクロールを滑らかに */
     scroll-behavior: smooth;
-}
+
+    /* 文章の折り返し */
+    overflow-wrap: anywhere; /* 収まらない場合に折り返す */
+    word-break: auto-phrase; /* 単語の分割はデフォルトに依存 */
+    line-break: strict; /* 禁則処理を厳格に適用 */
 
 p,div {
-    word-break: auto-phrase;    /* 文節で区切る（非対応ブラウザには適用されない） */
+    /* word-break: auto-phrase;    文節で区切る（非対応ブラウザには適用されない） */
 }
 
 /**パンくずリスト**/
@@ -411,7 +415,8 @@ main {
 
 /* タイトルが2行になった場合のgenre_value */
 .genre_value.long-title {
-    line-height: 1.2; /* 行高を少し詰める */
+    font-size: 1.5rem;  /* フォントサイズを小さくする */
+    line-height: 1.2;   /* 行高を少し詰める */
 }
 
 
