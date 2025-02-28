@@ -80,7 +80,7 @@
 
 /* サムネイル容器 */
 .thumbnail {
-    width: 350px;
+    width: 100%;
     height: auto;
     margin-top: 10px;
     white-space: nowrap;
@@ -732,12 +732,12 @@ h3 {
         margin: 0 0;
     }
 
-    .thumbnail {
-        width: 360px;
+    /* .thumbnail {
+        width: 100%;
         height: auto;
         margin-top: 10px;
         white-space: nowrap;
-    }
+    } */
 
     .thumbnail img {
         max-width: 100%;
@@ -914,12 +914,13 @@ h3 {
         margin: 0 auto;
     }
 
-    .thumbnail {
+    /* .thumbnail {
         width: 460px;
         height: auto;
         margin-top: 10px;
         white-space: nowrap;
-    }
+    } */
+
     .thumbnail img {
         max-width: 100%;
     }
