@@ -890,10 +890,11 @@ h3 {
 }
 
 @media screen and (min-width: 1050px) {
-    .inner__main {
+        /* 2025/2/28 コメントアウト*/
+    /* .inner__main {
         max-width: 1200px;
         width: 90%;
-    }
+    } */
 
     .outline__results {
         width: 100%;
@@ -1118,7 +1119,8 @@ h3 {
     .results__card::after {
         content: "";
         display: block;
-        width: 33.33%;
+        /* 2025/2/28 33.33% -> 50%のまま */
+       /* width: 33.33%; */
     }
 
     .tag__favorite1 {
@@ -1143,10 +1145,10 @@ h3 {
 }
 
 @media screen and (min-width: 1184px) {
-    .inner__main {
+    /* .inner__main {
         max-width: 1200px;
         width: 90%;
-    }
+    } */
 
     .wrap__details-outline {
         /* width: 100%; */
