@@ -156,9 +156,9 @@ if (!is_user_logged_in() && IS_DEV == true) {
                                 <a href="https://www.instagram.com/tokunavi17" target="_blank">
                                     <i class="fa-brands fa-instagram"></i>
                                 </a>
-                                <a href="https://x.com/tokunavi17" target="_blank">
+                                <!-- <a href="https://x.com/tokunavi17" target="_blank">
                                     <i class=" fa-brands fa-x-twitter"></i>
-                                </a>
+                                </a> -->
                             </div>
                             <div class="wrap__gnav-chara">
                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/rabbit.png" alt="うさぎ">
