@@ -476,7 +476,7 @@ $count2 = 0;
                 ];
                 $args = [
                     'post_type' => 'classroom',
-                    'order' => 'DESC',
+                    'order' => 'DESC',  //施設の表示順を登録の新しい順とする
                     'orderby' => 'ID',
                 ];
                 $taxquerysp = ['relation' => 'AND'];
