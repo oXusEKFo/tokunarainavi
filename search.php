@@ -245,6 +245,10 @@ $count2 = 0;
                                                         'order' => 'ASC',
                                                     ));
                                                     ?>
+
+
+
+
                                                     <?php if (!empty($child_terms) && !is_wp_error($child_terms)): ?>
                                                         <?php foreach ($child_terms as $child_term): ?>
                                                             <label class="accordion_item <?= $checked['classtype']["$child_term->slug"] ?>">
@@ -472,7 +476,7 @@ $count2 = 0;
                 ];
                 $args = [
                     'post_type' => 'classroom',
-                    'order' => 'ASC',
+                    'order' => 'DESC',
                     'orderby' => 'ID',
                 ];
                 $taxquerysp = ['relation' => 'AND'];
