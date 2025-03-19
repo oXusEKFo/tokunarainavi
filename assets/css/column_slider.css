@@ -1,171 +1,164 @@
 @charset "UTF-8";
 
-.column{
-    width:100%;
-    max-width: 1440px;
-    margin: 80px auto 0;
+.column {
+  width: 100%;
+  max-width: 1440px;
+  margin: 80px auto 0;
 }
 
 .inner__column {
-    width: 100%;
+  width: 100%;
 }
 
 /* コラムタイトル */
 .title__column {
-    color: #00B0AA;
-    text-align: center;
-    width: 350px;
-    margin: 0 auto;
-    position: relative;
+  color: #00b0aa;
+  text-align: center;
+  width: 350px;
+  margin: 0 auto;
+  position: relative;
 }
 
-.title__column>h2 {
-    font-size: 7.0rem;
-    width: 100%;
-    margin: 0 auto;
-    position: absolute;
-    bottom: -30px;
-    z-index: 1;
+.title__column > h2 {
+  font-size: 7rem;
+  width: 100%;
+  margin: 0 auto;
+  position: absolute;
+  bottom: -30px;
+  z-index: 1;
 }
 
-.title__colum>h2:hover {
-    color: #463D3B;
+.title__colum > h2:hover {
+  color: #463d3b;
 }
 
-.title__column>p {
-    font-size: 1.6rem;
-    position: absolute;
-    right: 22px;
-    bottom: -37px;
-    z-index: 1;
+.title__column > p {
+  font-size: 1.6rem;
+  position: absolute;
+  right: 22px;
+  bottom: -37px;
+  z-index: 1;
 }
-
 
 /*** ここから施設写真(スライダー) ****/
 .slider {
-    width: 100%;
-    margin: 0 auto;
-    padding-top: 10px;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 10px;
 }
 
 /* スライダーエリア */
 .inner_slider {
-    width:100%;
+  width: 100%;
 }
 
 /* カード部分 */
-.wrap__card{
-    background-color: transparent;
-    width: 350px;
-    height: 480px;
-    margin: 30px 15px;
+.wrap__card {
+  background-color: transparent;
+  width: 350px;
+  height: 480px;
+  margin: 30px 15px;
 }
 
-.container__card{
-    background-color: #fff; /* スライダー化の際に追加 */
-    margin: 0 auto;
-    transition: 0.3s;
-    border-radius: 20px;
+.container__card {
+  background-color: #fff; /* スライダー化の際に追加 */
+  margin: 0 auto;
+  transition: 0.3s;
+  border-radius: 20px;
 }
 
 .container__card:hover {
-    box-shadow: 5px 5px rgba(145, 145, 145, 0.541);
+  box-shadow: 5px 5px rgba(145, 145, 145, 0.541);
 }
-
 
 /* 施設写真 */
 .img__card {
-    width: 100%; /* スライダー化の際に値変更 340px -> 100% */
-    height: 255px;
-    /* margin: 10px 5px; */ /* スライダー化の際に削除 */
-    border-radius: 20px;
-    object-fit: cover;
-    object-position: top;
-    transition: filter 0.3s;
-        /* スムーズな変化を追加 */
+  width: 100%; /* スライダー化の際に値変更 340px -> 100% */
+  height: 255px;
+  /* margin: 10px 5px; */ /* スライダー化の際に削除 */
+  border-radius: 20px;
+  object-fit: cover;
+  object-position: top;
+  transition: filter 0.3s;
+  /* スムーズな変化を追加 */
 }
 /* ホバー時に写真を暗くする */
 .container__card:hover .img__card {
-    filter: brightness(0.8);
+  filter: brightness(0.8);
 }
 
-
 /* 説明エリア */
-.container__info{
-    align-items: center;
+.container__info {
+  align-items: center;
 }
 
 /* カードタイトル */
-.title__info>h2 {
-    font-size: 2.2rem;
-    text-align: left;
-    padding-top: 20px;
-    padding-left: 15px; /* スライダー化の際に値変更 5px -> 15px */
-    padding-right: 5px;
+.title__info > h2 {
+  font-size: 2.2rem;
+  text-align: left;
+  padding-top: 20px;
+  padding-left: 15px; /* スライダー化の際に値変更 5px -> 15px */
+  padding-right: 5px;
 
-    -webkit-line-clamp: 1;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  -webkit-line-clamp: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* 説明文 */
-.note__column>p{
-    height: 100px;
-    font-size: 1.5rem;
-    margin: 10px 15px 10px;   /* スライダー化の際に左右値変更 10px -> 15px */
-    line-height: 24.6px;
-    text-align: left;
+.note__column > p {
+  height: 100px;
+  font-size: 1.5rem;
+  margin: 10px 15px 10px; /* スライダー化の際に左右値変更 10px -> 15px */
+  line-height: 24.6px;
+  text-align: left;
 
-    -webkit-line-clamp: 4;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    transition: color 0.3s; /* スムーズな変化を追加 */
+  -webkit-line-clamp: 4;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color 0.3s; /* スムーズな変化を追加 */
 }
 /* ホバー時に文字色を明るくする */
-.container__card:hover .note__column>p,
-.container__card:hover .title__info>h2,
+.container__card:hover .note__column > p,
+.container__card:hover .title__info > h2,
 .container__card:hover .date__edit {
-    color: #796b6b;
+  color: #796b6b;
 }
 
 /* 編集日エリア */
 .container__date {
-    display: flex;
-    align-items: center;
-    padding: 10px 15px;    /* スライダー化の際にpadding化して左右15pxも追加*/
+  display: flex;
+  align-items: center;
+  padding: 10px 15px; /* スライダー化の際にpadding化して左右15pxも追加*/
 }
 
 /* 編集日アイコン */
-.icon__edit>img {
-    width: 30px;
-    height: 30px;
+.icon__edit > img {
+  width: 30px;
+  height: 30px;
 }
 
 /* 編集日 */
 .date__edit {
-    font-size: 1.7rem;
-    line-height: 24.6px;
-    text-align: left;
+  font-size: 1.7rem;
+  line-height: 24.6px;
+  text-align: left;
 }
 
 /*** 施設写真(スライダー)ここまで ***/
 
 @media screen and (min-width: 780px) {
-
-.slider {
-    width: 780px;
+  .slider {
+    /* width: 780px; */
     margin: 0 auto;
-}
-
+  }
 }
 
 @media screen and (min-width: 1170px) {
-
-.slider {
-    width: 1170px;
+  .slider {
+    /* width: 1170px; */
     margin: 0 auto;
-}
-
+  }
 }
