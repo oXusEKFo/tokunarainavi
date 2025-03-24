@@ -495,7 +495,7 @@
                                         'post_type' => 'post',
                                         'category_name' => 'events',
                                         'post_status' => 'publish',
-                                        'posts_per_page'     => 5,
+                                        'posts_per_page'     => 10,
                                         'orderby'        => 'date',
                                         'order'          => 'DESC',
                                     ];
