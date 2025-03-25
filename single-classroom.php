@@ -222,18 +222,28 @@ for ($i = 1; $i <= 5; $i++) {
                     <h4>料金について</h4>
                     <p><?php echo $cost; ?></p>
                 </div>
-                <div class="details__genre">
-                    <h4>おすすめのコース</h4>
-                    <?php
-                    if (is_array($course) && count($course) > 0) {
-                        for ($i = 0; $i < count($course); $i++) {
-                            if (!empty($course[$i])) { ?>
-                                <p><?php echo nl2br(esc_html($course[$i])); ?></p>
-                    <?php }
+                <?php
+                // 空の要素を取り除いた配列を作成
+                $filtered_course = array_filter($course, function ($value) {
+                    return !empty($value);
+                });
+
+                if (!empty($filtered_course)): // コースが空でない場合に以降エリアを表示
+                ?>
+                    <div class="details__genre">
+                        <h4>おすすめのコース</h4>
+                        <?php
+                        if (is_array($course) && count($course) > 0) {
+                            for ($i = 0; $i < count($course); $i++) {
+                                // コースが空でない場合に表示
+                                if (!empty($course[$i])) { ?>
+                                    <p><?php echo nl2br(esc_html($course[$i])); ?></p>
+                        <?php }
+                            }
                         }
-                    }
-                    ?>
-                </div>
+                        ?>
+                    </div>
+                <?php endif; ?>
             </div>
             <div class="details__containerR">
                 <div class="details__genre">
@@ -244,7 +254,7 @@ for ($i = 1; $i <= 5; $i++) {
                     <h4>備考</h4>
                     <p><?php echo $memo ?></p>
                 </div>
-                <?php if ($tel): ?>
+                <?php if ($tel && strpos($tel, '掲載不可') === false): ?>
                     <div class="details__genre">
                         <h4>電話番号</h4>
                         <?php if (preg_match('/(\d{2,4}-\d{2,4}-\d{3,4})(.*)/', $tel, $matches)) {
