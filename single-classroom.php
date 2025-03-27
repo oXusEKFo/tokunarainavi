@@ -218,20 +218,16 @@ for ($i = 1; $i <= 5; $i++) {
                     <h4>対象年齢</h4>
                     <p><?php echo esc_html($age); ?></p>
                 </div>
-                <div class="details__genre">
-                    <h4>料金について</h4>
-                    <p><?php echo $cost; ?></p>
-                </div>
                 <?php
-                // 空の要素を取り除いた配列を作成
+                // 空の要素を取り除いた配列を作成（これをしないと空判定ができない）
                 $filtered_course = array_filter($course, function ($value) {
                     return !empty($value);
                 });
 
-                if (!empty($filtered_course)): // コースが空でない場合に以降エリアを表示
+                if (!empty($filtered_course)): // コースが空でない場合にコースエリアを表示
                 ?>
                     <div class="details__genre">
-                        <h4>おすすめのコース</h4>
+                        <h4>コース</h4>
                         <?php
                         if (is_array($course) && count($course) > 0) {
                             for ($i = 0; $i < count($course); $i++) {
@@ -244,6 +240,10 @@ for ($i = 1; $i <= 5; $i++) {
                         ?>
                     </div>
                 <?php endif; ?>
+                <div class="details__genre">
+                    <h4>料金</h4>
+                    <p><?php echo $cost; ?></p>
+                </div>
             </div>
             <div class="details__containerR">
                 <div class="details__genre">
