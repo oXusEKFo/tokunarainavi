@@ -79,12 +79,14 @@ $genre = get_field('genre');
 $address = get_field('address');
 $sub_pic = get_field('sub_pic');
 $map = get_field('iframe');
-$site_url = get_field('link');
+$site_url = get_field('link');  // 公式サイトのURLをカスタムフィールドから取得
+$youtube_url = get_field('youtube'); // YouTubeのURLをカスタムフィールドから取得
 $instagram_url = get_field('instagram'); // インスタグラムのURLをカスタムフィールドから取得
 $facebook_url = get_field('facebook'); // フェイスブックのURLをカスタムフィールドから取得
-$x_url = get_field('xlink');
-$blog_link = get_field('blog_link');
-$line_link = get_field('line');
+$x_url = get_field('xlink');    // XのURLをカスタムフィールドから取得
+$tiktok_url = get_field('tiktok'); // TikTokのURLをカスタムフィールドから取得
+$blog_link = get_field('blog_link');    // ブログのURLをカスタムフィールドから取得
+$line_link = get_field('line'); // LINEのURLをカスタムフィールドから取得
 
 // fukushima add 2024/10/19 start
 // 関連コラム記事のIDを取得
@@ -233,7 +235,8 @@ for ($i = 1; $i <= 5; $i++) {
                             for ($i = 0; $i < count($course); $i++) {
                                 // コースが空でない場合に表示
                                 if (!empty($course[$i])) { ?>
-                                    <p><?php echo nl2br(esc_html($course[$i])); ?></p>
+                                    <p><?php echo nl2br($course[$i]); //文章内リンク作成のため esc_htmlを削除した
+                                        ?></p>
                         <?php }
                             }
                         }
@@ -266,13 +269,17 @@ for ($i = 1; $i <= 5; $i++) {
                         <?php } ?>
                     </div>
                 <?php endif; ?>
-                <?php if ($site_url || $x_url || $instagram_url || $facebook_url || $blog_link || $line_link): ?>
+                <?php if ($site_url || $youtube_url || $x_url || $instagram_url || $facebook_url || $tiktok_url || $blog_link || $line_link): ?>
                     <div class="details__genre">
                         <h4>公式サイト・SNSはこちら</h4>
                         <?php if ($site_url): ?>
                             <a href="<?php echo esc_url($site_url); ?>" target="_blank" rel="noopener noreferrer">
-                                <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/website.png" alt="公式サイトURL" />
+                                <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/website.png" alt="Site_URL" />
                             </a>
+                        <?php endif; ?>
+                        <?php if ($youtube_url): ?>
+                            <a href="<?php echo esc_url($youtube_url); ?>" target="_blank" rel="noopener noreferrer">
+                                <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/youtube.png" alt="YouTube_URL" /></a>
                         <?php endif; ?>
                         <?php if ($x_url): ?>
                             <a href="<?php echo esc_url($x_url); ?>" target="_blank" rel="noopener noreferrer">
@@ -280,22 +287,26 @@ for ($i = 1; $i <= 5; $i++) {
                         <?php endif; ?>
                         <?php if ($instagram_url): ?>
                             <a href="<?php echo esc_url($instagram_url); ?>" target="_blank" rel="noopener noreferrer">
-                                <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/instagram.svg" alt="インスタグラムURL" />
+                                <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/instagram.svg" alt="Instagram_URL" />
                             </a>
                         <?php endif; ?>
                         <?php if ($facebook_url): ?>
                             <a href="<?php echo esc_url($facebook_url); ?>" target="_blank" rel="noopener noreferrer">
-                                <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/facebook.svg" alt="フェイスブックURL" />
+                                <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/facebook.svg" alt="Facebook_URL" />
                             </a>
+                        <?php endif; ?>
+                        <?php if ($tiktok_url): ?>
+                            <a href="<?php echo esc_url($tiktok_url); ?>" target="_blank" rel="noopener noreferrer">
+                                <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/tiktok.png" alt="TikTok_URL" /></a>
                         <?php endif; ?>
                         <?php if ($blog_link): ?>
                             <a href="<?php echo esc_url($blog_link); ?>" target="_blank" rel="noopener noreferrer">
-                                <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/blog.png" alt="ブログ" />
+                                <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/blog.png" alt="Blog_URL" />
                             </a>
                         <?php endif; ?>
                         <?php if ($line_link): ?>
                             <a href="<?php echo esc_url($line_link); ?>" target="_blank" rel="noopener noreferrer">
-                                <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/line.svg" alt="ライン" />
+                                <img class="icon__sns" src="<?php echo get_template_directory_uri(); ?>/assets/icon/line.svg" alt="LINE_URL" />
                             </a>
                         <?php endif; ?>
                     </div>
